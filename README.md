@@ -21,6 +21,7 @@ How the App works
   - [Backend](#Backend)
   - [Mobile](#Mobile)
   - [Web Application](#web-application)
+- [Contact](#Contact)
 
 ## Project Status
 
@@ -50,7 +51,7 @@ No Progress has been made. Groundwork has been set and base files created.
 
 ### Bugs:
 
-- No bugs found yet.
+- [ ] Security Vulnerability with Expo's dependencies, particularly mem, the issue is that it is a dependency of react-native, but it has a security flaw. This needs to be fixed fast.
 
 ## Technologies:
 
