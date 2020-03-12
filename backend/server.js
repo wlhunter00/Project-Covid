@@ -1,7 +1,15 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const cors = require("cors");
 
+// Middleware
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+
+// Connect to db (if we want)
+
+const mongoose = require("mongoose");
 mongoose.connect(
   "mongodb+srv://expressUser:bkQ8i3FRi2oxnIrq@cluster0-wqfvl.mongodb.net/CoronaInfo?retryWrites=true&w=majority",
   {
@@ -17,8 +25,8 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
 
-app.use(express.static(__dirname + "/public"));
-app.use(express.urlencoded({ extended: false }));
+const spreadData = require("./routes/spreadData.js");
+app.use("/spread", spreadData);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));

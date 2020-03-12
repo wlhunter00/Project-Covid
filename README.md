@@ -34,6 +34,8 @@ No Progress has been made. Groundwork has been set and base files created.
 - [x] Created this README as a guide to the application.
 - [x] Create base files for each part of the project.
 - [x] Deploy prototype to Github pages.
+- [x] Created backend functionality to retrieve data on spread of disease.
+  - [x] Added a various functionality such as asking for a specific date or state.
 
 ### To Do:
 
@@ -42,7 +44,7 @@ No Progress has been made. Groundwork has been set and base files created.
   - [ ] Ensure scalability while completing the process as fast as possible.
 - [ ] Figure out which data sources and other resources we want to use.
   - [ ] Obtain and parse the data from the sources.
-    - [ ] Look for Corona Virus tracker (preferably real-time).
+    - [x] Look for Corona Virus tracker (preferably real-time).
     - [ ] Look for a list of places people with the virus can go.
     - [ ] Pull RSS news feed from sites that are related to Corona.
   - [ ] Visualize the data either by using python or a react package.
