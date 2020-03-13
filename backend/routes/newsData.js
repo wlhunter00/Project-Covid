@@ -10,6 +10,7 @@ router.get("/allData", async (req, res) => {
       body
     ) {
       var data = JSON.parse(body);
+      res.send(data);
     });
   } catch (err) {
     console.log(err);
