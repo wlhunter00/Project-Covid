@@ -79,7 +79,7 @@ Using React Native, specifically Expo to develop both an IOS and Android version
 
 ### Web Application:
 
-If we are using React Native it will be easy to convert it to a Web Application using React.
+If we are using React Native it will be easy to convert it to a Web Application sing React.
 
 ## Contact
 

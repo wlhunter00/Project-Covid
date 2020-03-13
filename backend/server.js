@@ -28,5 +28,8 @@ mongoose.set("useUnifiedTopology", true);
 const spreadData = require("./routes/spreadData.js");
 app.use("/spread", spreadData);
 
+const newsData = require("./routes/newsData.js");
+app.use("/news", newsData);
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));
