@@ -1,6 +1,10 @@
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 
+const axios = require("axios").default;
+
+const root = "SERVER_ROOT_URL_HERE";
+
 export async function registerForPushNotifications() {
     const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 
@@ -13,4 +17,5 @@ export async function registerForPushNotifications() {
 
     // post to server
     const body = { token };
+    axios.post(`${root}/submitExpoToken`, body);
 }
