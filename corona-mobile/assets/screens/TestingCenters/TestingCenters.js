@@ -8,8 +8,14 @@ import {
   Button
 } from 'react-native';
 
+import { getLocationAsync } from "../../Utils";
+
 export default function TestingCenters({ navigation }) {
     
+  const locResp = getLocationAsync().then(locResp => {
+    console.log(locResp);
+  });
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
