@@ -1,28 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from './assets/screens/HomeScreen';
+import HomeScreen from "./assets/screens/HomeScreen";
 
-import LatestNews from './assets/screens/LatestNews/LatestNews';
-import NewsScreen from './assets/screens/LatestNews/NewsScreen';
+import LatestNews from "./assets/screens/LatestNews/LatestNews";
+import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
 
-import LiveTracker from './assets/screens/LiveTracker/LiveTracker';
+import LiveTracker from "./assets/screens/LiveTracker/LiveTracker";
 
-import SymptomCheck from './assets/screens/SymptomCheck/SymptomCheck';
-import Diagnosis from './assets/screens/SymptomCheck/Diagnosis';
+import SymptomCheck from "./assets/screens/SymptomCheck/SymptomCheck";
+import Diagnosis from "./assets/screens/SymptomCheck/Diagnosis";
 
-import TestingCenters from './assets/screens/TestingCenters/TestingCenters';
-import CenterFinder from './assets/screens/TestingCenters/CenterFinder';
+import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
+import CenterFinder from "./assets/screens/TestingCenters/CenterFinder";
 
-import TravelInformation from './assets/screens/TravelInformation/TravelInformation';
-import TravelStatus from './assets/screens/TravelInformation/TravelStatus';
+import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
+import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 
-import GlobalResources from './assets/screens/GlobalResources/GlobalResources';
-import TrackerStatus from './assets/screens/LiveTracker/TrackerStatus';
-
-
+import GlobalResourcesNavigator from "./assets/screens/GlobalResources/GlobalResourcesNavigator";
+import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 
 const Stack = createStackNavigator();
 
@@ -35,7 +33,11 @@ export default function App() {
         <Stack.Screen name="LatestNews" component={LatestNews} />
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
 
-        <Stack.Screen name="GlobalResources" component={GlobalResources} />
+        <Stack.Screen
+          name="GlobalResources"
+          component={GlobalResourcesNavigator}
+          options={{ title: "" }}
+        />
 
         <Stack.Screen name="SymptomCheck" component={SymptomCheck} />
         <Stack.Screen name="Diagnosis" component={Diagnosis} />
@@ -48,20 +50,16 @@ export default function App() {
 
         <Stack.Screen name="LiveTracker" component={LiveTracker} />
         <Stack.Screen name="TrackerStatus" component={TrackerStatus} />
-
-
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
