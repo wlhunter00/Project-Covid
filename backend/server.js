@@ -18,6 +18,7 @@ mongoose.connect(
   }
 );
 
+// More database managment
 mongoose.connection.on("connected", () => console.log("Connected"));
 mongoose.connection.on("error", () => console.log("Connection failed with - "));
 mongoose.set("useNewUrlParser", true);
@@ -25,6 +26,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
 
+// Routes
 const spreadData = require("./routes/spreadData.js");
 app.use("/spread", spreadData);
 
@@ -34,5 +36,9 @@ app.use("/news", newsData);
 const pushNotification = require("./routes/pushNotifications.js");
 app.use("/notifcations", pushNotification);
 
+const symptomCheck = require("./routes/symptomCheck.js");
+app.use("/symptoms", symptomCheck);
+
+// Exporting the port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));
