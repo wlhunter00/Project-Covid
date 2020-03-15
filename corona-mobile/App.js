@@ -19,7 +19,14 @@ import CenterFinder from "./assets/screens/TestingCenters/CenterFinder";
 import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
 import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 
-import GlobalResourcesNavigator from "./assets/screens/GlobalResources/GlobalResourcesNavigator";
+import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
+import InformationalToolkit from "./assets/screens/GlobalResources/InformationalToolkit";
+import PreventativePractices from "./assets/screens/GlobalResources/PreventivePractices";
+import MythBusting from "./assets/screens/GlobalResources/MythBusting";
+import HowToHelp from "./assets/screens/GlobalResources/HowToHelp";
+import StudentResources from "./assets/screens/GlobalResources/StudentResources";
+import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
+
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 
 const Stack = createStackNavigator();
@@ -33,11 +40,7 @@ export default function App() {
         <Stack.Screen name="LatestNews" component={LatestNews} />
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
 
-        <Stack.Screen
-          name="GlobalResources"
-          component={GlobalResourcesNavigator}
-          options={{ title: "" }}
-        />
+        <Stack.Screen name="GlobalResources" component={GlobalResourcesMain} />
 
         <Stack.Screen name="SymptomCheck" component={SymptomCheck} />
         <Stack.Screen name="Diagnosis" component={Diagnosis} />
@@ -50,6 +53,24 @@ export default function App() {
 
         <Stack.Screen name="LiveTracker" component={LiveTracker} />
         <Stack.Screen name="TrackerStatus" component={TrackerStatus} />
+
+        <Stack.Screen
+          name="InformationalToolkit"
+          component={InformationalToolkit}
+        />
+
+        <Stack.Screen
+          name="PreventativePractices"
+          component={PreventativePractices}
+        />
+
+        <Stack.Screen name="MythBusting" component={MythBusting} />
+
+        <Stack.Screen name="HowToHelp" component={HowToHelp} />
+
+        <Stack.Screen name="StudentResources" component={StudentResources} />
+
+        <Stack.Screen name="CrisisContact" component={CrisisContact} />
       </Stack.Navigator>
     </NavigationContainer>
   );
