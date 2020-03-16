@@ -11,6 +11,21 @@ export default function TestingCenters({ navigation }) {
     const lat = locResp.location.coords.latitude;
     const long = locResp.location.coords.longitude;
     console.log(lat, long);
+    fetch("https://projectcovid-backend.herokuapp.com/centers/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(locResp)
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        console.log(responseJson);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   });
 
   return (
