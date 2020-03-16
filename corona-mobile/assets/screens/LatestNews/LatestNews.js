@@ -18,7 +18,8 @@ export default function LatestNews({ navigation }) {
     },
     {
       title: "Aljazeera",
-      source: "https://www.aljazeera.com/Search/?q=coronavirus"
+      source:
+        "https://www.aljazeera.com/topics/events/coronavirus-outbreak.html"
     },
     {
       title: "Reuters",
@@ -31,8 +32,7 @@ export default function LatestNews({ navigation }) {
     },
     {
       title: "WHO",
-      source:
-        "https://www.who.int/news-room/detail/search-results?indexCatalogue=genericsearchindex1&searchQuery=coronavirus&wordsMode=AllWords"
+      source: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
     },
     { title: "Sky News", source: "https://news.sky.com/topic/coronavirus-8483" }
   ];
