@@ -13,6 +13,7 @@ export default function NewsScreen({ route, navigation }) {
         source={{ uri: site.source }}
         style={styles.webview}
         startInLoadingState
+        originWhitelist={["*"]}
       />
     </View>
   );

@@ -8,8 +8,7 @@ export default function LatestNews({ navigation }) {
   const sites = [
     {
       title: "CNN",
-      source:
-        "https://www.cnn.com/world/live-news/coronavirus-outbreak-03-16-20-intl-hnk/index.html"
+      source: "https://www.cnn.com/search?size=10&q=coronavirus"
     },
     { title: "BBC", source: "https://www.bbc.com/news/explainers" },
     {
