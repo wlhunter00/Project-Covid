@@ -7,7 +7,10 @@ import { getLocationAsync } from "../../Utils";
 
 export default function TestingCenters({ navigation }) {
   const locResp = getLocationAsync().then(locResp => {
-    console.log(locResp);
+    // console.log(locResp);
+    const lat = locResp.location.coords.latitude;
+    const long = locResp.location.coords.longitude;
+    console.log(lat, long);
   });
 
   return (
