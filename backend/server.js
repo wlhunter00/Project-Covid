@@ -39,6 +39,9 @@ app.use("/notifcations", pushNotification);
 const symptomCheck = require("./routes/symptomCheck.js");
 app.use("/symptoms", symptomCheck);
 
+const testingCenter = require("./routes/testingCenter.js");
+app.use("/centers", testingCenter);
+
 // Exporting the port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));
