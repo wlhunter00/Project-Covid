@@ -79,7 +79,7 @@ function SiteButton({ site, navigation }) {
         <Image
           source={site.imagesrc}
           resizeMode="contain"
-          style={{ width: 50, height: 50, marginRight: 10 }}
+          style={{ width: 50, height: 50, marginRight: 20 }}
         />
         <Text style={styles.siteTitle}>{site.title}</Text>
         <View style={{ flex: 1 }} />
