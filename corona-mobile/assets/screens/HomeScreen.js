@@ -2,7 +2,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight, ScrollView } from "react-native";
 import {
   Entypo,
   FontAwesome,
@@ -11,7 +11,7 @@ import {
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles}>
+    <ScrollView style={styles.container}>
       <PageButton
         title="Latest News"
         navigationName="LatestNews"
@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }) {
         description="Track the global spread."
         navigation={navigation}
       />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -94,8 +94,6 @@ function PageButton({ navigation, title, navigationName, icon, description }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
   title: {

@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   StyleSheet,
   Text,
+  ScrollView,
   View,
   Image,
   TouchableHighlight
@@ -56,13 +57,13 @@ export default function LatestNews({ navigation }) {
     }
   ];
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {sites.map(site => {
         return (
           <SiteButton site={site} key={site.title} navigation={navigation} />
         );
       })}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -92,8 +93,6 @@ function SiteButton({ site, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "stretch",
     backgroundColor: "#F5FCFF"
   },
   title: {
