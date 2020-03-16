@@ -30,7 +30,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
 
-        <Stack.Screen name="LatestNews" component={LatestNews} />
+        <Stack.Screen name="LatestNews" component={LatestNews} options={{title: "Latest News"}}/>
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
 
         <Stack.Screen
