@@ -1,10 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Panel from "./Panel";
 
 export default function PreventativePractices() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PreventativePractices</Text>
+      <Panel title="This is the title">
+        <Text>This is the text that goes inside</Text>
+      </Panel>
     </View>
   );
 }
