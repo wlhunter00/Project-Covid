@@ -14,7 +14,7 @@ export default function NewsScreen({ route, navigation }) {
   
     return (
         <View style={styles.container}>
-        <WebView source={{ uri: site.source }} style={styles.webview}/>
+          <WebView source={{ uri: site.source }} style={styles.webview} startInLoadingState/>
         </View>
     );
 }
