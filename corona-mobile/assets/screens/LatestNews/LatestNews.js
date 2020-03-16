@@ -5,52 +5,71 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  TouchableHighlight,
 } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 
 export default function LatestNews({ navigation }) {
   const sites = [
     { title: "CNN", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "BBC", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "NYT", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "ALJAZEERA", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "REUTERS", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "CNBC", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "WHO", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
-    { title: "SKY", source: "https://www.cnn.com/search?size=10&q=coronavirus" },
+    { title: "BBC", source: "https://www.bbc.co.uk/search?q=coronavirus" },
+    { title: "New York Times", source: "https://www.nytimes.com/search?query=coronavirus" },
+    { title: "Aljazeera", source: "https://www.aljazeera.com/Search/?q=coronavirus" },
+    { title: "Reuters", source: "https://www.reuters.com/search/news?blob=coronavirus" },
+    { title: "CNBC", source: "https://www.cnbc.com/search/?query=coronavirus&qsearchterm=coronavirus" },
+    { title: "WHO", source: "https://www.who.int/news-room/detail/search-results?indexCatalogue=genericsearchindex1&searchQuery=coronavirus&wordsMode=AllWords" },
+    { title: "Sky News", source: "https://news.sky.com/topic/coronavirus-8483" },
   ]
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>
-          Latest News
-        </Text>
-
         {sites.map(site => {
-          return (<Button
-            title={site.title}
-            onPress={() => {
-              navigation.navigate('NewsScreen', {
-                site: site
-              }
-              );
-            }}
-          />);
+          return <SiteButton site={site} key={site.title} navigation={navigation}/>;
         })}
 
       </View>
     );
 }
 
+function SiteButton({ site, navigation }) {
+  return (
+    <TouchableHighlight
+      onPress={() => {
+        navigation.navigate('NewsScreen', {
+          site: site
+        }
+        );
+      }}
+
+    >
+      <View style={styles.siteButton}>
+        <Text style={styles.siteTitle}>{site.title}</Text>
+        <View style={{ flex: 1 }} />
+        <Entypo name="chevron-thin-right" />
+      </View>
+    </TouchableHighlight>);
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "flex-start",
+    alignItems: "stretch",
     backgroundColor: '#F5FCFF',
   },
   title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  siteButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 15,
+    borderBottomColor: "#c8c7cc",
+    borderBottomWidth: 0.5,
+  },
+  siteTitle: {
+    fontSize: 18
   }
 });
