@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -14,6 +13,8 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
+import { styles } from "./../styles/styles";
+import { PageButton } from "./../components/Buttons";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -25,7 +26,6 @@ export default function HomeScreen({ navigation }) {
         description="Read updates from reliable news sites."
         navigation={navigation}
       />
-
       <PageButton
         title="Global Resources"
         navigationName="GlobalResources"
@@ -33,7 +33,6 @@ export default function HomeScreen({ navigation }) {
         description="Get info straight from the experts."
         navigation={navigation}
       />
-
       <PageButton
         title="Symptom Check"
         navigationName="SymptomCheck"
@@ -44,10 +43,9 @@ export default function HomeScreen({ navigation }) {
             style={{ marginRight: 3 }}
           />
         }
-        description="Do a quick diagnosis to see if you should get tested."
+        description="Do a quick diagnosis to assess your risk."
         navigation={navigation}
       />
-
       <PageButton
         title="Testing Centers"
         navigationName="TestingCenters"
@@ -57,15 +55,6 @@ export default function HomeScreen({ navigation }) {
         description="Find information regarding testing near you."
         navigation={navigation}
       />
-
-      <PageButton
-        title="Travel Information"
-        navigationName="TravelInformation"
-        icon={<Entypo name="aircraft" size={25} />}
-        description="Check travel status before you travel."
-        navigation={navigation}
-      />
-
       <PageButton
         title="Live Global Outbreak Tracker"
         navigationName="TrackerStatus"
@@ -73,54 +62,22 @@ export default function HomeScreen({ navigation }) {
         description="Track the global spread."
         navigation={navigation}
       />
+      <PageButton
+        title="Live Twitter Feed"
+        navigationName="TwitterFeed"
+        icon={<Entypo name="twitter" size={25} />}
+        description="View a curated feed from reliable sources."
+        navigation={navigation}
+      />
     </ScrollView>
   );
 }
 
-function PageButton({ navigation, title, navigationName, icon, description }) {
-  return (
-    <TouchableHighlight
-      onPress={() => {
-        navigation.navigate(navigationName);
-      }}
-    >
-      <View style={styles.pageButton}>
-        {icon}
-        <View style={{ marginLeft: 10 }}>
-          <Text style={styles.pageButtonTitle}>{title}</Text>
-          <Text style={styles.pageButtonDescription}>{description}</Text>
-        </View>
-        <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" />
-      </View>
-    </TouchableHighlight>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F5FCFF"
-  },
-  title: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  pageButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    padding: 15,
-    borderBottomColor: "#c8c7cc",
-    borderBottomWidth: 0.5
-  },
-  pageButtonTitle: {
-    fontSize: 18,
-    fontWeight: "400"
-  },
-  pageButtonDescription: {
-    color: "grey",
-    marginTop: 4
-  }
-});
+// Travel Info page commented out until we can actually get that information
+// <PageButton
+//   title="Travel Information"
+//   navigationName="TravelInformation"
+//   icon={<Entypo name="aircraft" size={25} />}
+//   description="Check travel status before you travel."
+//   navigation={navigation}
+// />

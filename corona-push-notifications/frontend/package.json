@@ -1,0 +1,35 @@
+{
+  "name": "corona-push",
+  "version": "0.1.0",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.10.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.5",
+    "redux": "^4.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "react-test-renderer": "^16.12.0"
+  }
+}

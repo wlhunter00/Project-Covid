@@ -34,7 +34,7 @@ const newsData = require("./routes/newsData.js");
 app.use("/news", newsData);
 
 const pushNotification = require("./routes/pushNotifications.js");
-app.use("/notifcations", pushNotification);
+app.use("/notifications", pushNotification);
 
 const symptomCheck = require("./routes/symptomCheck.js");
 app.use("/symptoms", symptomCheck);
