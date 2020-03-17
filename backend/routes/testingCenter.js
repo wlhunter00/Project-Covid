@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const Notification = require("./../models/notification.js");
 
 router.get("/testCenter", async (req, res) => {
   var serverLocation = req.body;
