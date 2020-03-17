@@ -13,10 +13,12 @@
   "dependencies": {
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
+    "csv-parser": "^2.3.2",
     "csv-reader": "^1.0.6",
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
