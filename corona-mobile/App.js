@@ -7,7 +7,6 @@ import { StackActions } from '@react-navigation/native';
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
-import LiveTracker from "./assets/screens/LiveTracker/LiveTracker";
 import SymptomCheck from "./assets/screens/SymptomCheck/SymptomCheck";
 import Diagnosis from "./assets/screens/SymptomCheck/Diagnosis";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
