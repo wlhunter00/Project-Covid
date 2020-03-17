@@ -34,35 +34,6 @@ export default function HomeScreen({ navigation }) {
         navigation={navigation}
       />
       <PageButton
-        title="Symptom Check"
-        navigationName="SymptomCheck"
-        icon={
-          <FontAwesome
-            name="stethoscope"
-            size={27}
-            style={{ marginRight: 3 }}
-          />
-        }
-        description="Do a quick diagnosis to assess your risk."
-        navigation={navigation}
-      />
-      <PageButton
-        title="Testing Centers"
-        navigationName="TestingCenters"
-        icon={
-          <FontAwesome name="building-o" size={25} style={{ marginRight: 5 }} />
-        }
-        description="Find information regarding testing near you."
-        navigation={navigation}
-      />
-      <PageButton
-        title="Live Global Outbreak Tracker"
-        navigationName="TrackerStatus"
-        icon={<MaterialCommunityIcons name="radar" size={25} />}
-        description="Track the global spread."
-        navigation={navigation}
-      />
-      <PageButton
         title="Live Twitter Feed"
         navigationName="TwitterFeed"
         icon={<Entypo name="twitter" size={25} />}
