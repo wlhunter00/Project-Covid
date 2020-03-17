@@ -2,18 +2,13 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const CsvReadableStream = require("csv-reader");
-const Notification = require("./../models/notification.js");
 
 const ABBREV = "Abbreviation";
 const csv = require("csv-parser");
 var request = require("request-promise");
-var address;
-var stateInfo;
 
-router.get("/testCenter", async (req, res) => {
+router.post("/", async (req, res) => {
   var serverLocation = req.body;
-  console.log(serverLocation);
-
   var coords = parseCoord(serverLocation);
 
   const MPurl =
@@ -21,18 +16,21 @@ router.get("/testCenter", async (req, res) => {
     coords[0] +
     "," +
     coords[1];
-  request(MPurl, function(error, response, body) {
+
+  request(MPurl, async function(error, response, body) {
     var data = JSON.parse(body);
     address = data["results"][0]["locations"][0]["adminArea3"];
     console.log(address);
-  }).then(getStateInfo);
-
-  res.send(stateInfo);
+    let stateInfo = await getStateInfo(address);
+    console.log(stateInfo);
+    res.send(address);
+  });
 });
 
-function parseCoord(request) {
+function parseCoord(loc) {
   try {
-    var loc = JSON.parse(request);
+    // var loc = JSON.parse(request);
+    console.log(loc);
     var latitude = loc["location"]["coords"]["latitude"];
     var longitude = loc["location"]["coords"]["longitude"];
     return [latitude, longitude];
@@ -41,17 +39,19 @@ function parseCoord(request) {
   }
 }
 
-function getStateInfo() {
+async function getStateInfo(address) {
   var readStream = fs
     .createReadStream("./data/test-center.csv")
     .pipe(csv())
     .on("data", function(row) {
       try {
         if (row[ABBREV] == address) {
-          stateInfo = row;
           readStream.destroy();
+          return row;
         }
-      } catch (err) {}
+      } catch (err) {
+        console.log(err);
+      }
     });
 }
 
