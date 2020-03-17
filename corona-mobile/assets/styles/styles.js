@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
       textAlign: "center",
       margin: 10
     },
-    pageButton: {
+    navButton: {
       flexDirection: "row",
       alignItems: "center",
       backgroundColor: "white",
@@ -18,11 +18,11 @@ export const styles = StyleSheet.create({
       borderBottomColor: "#c8c7cc",
       borderBottomWidth: 0.5
     },
-    pageButtonTitle: {
+    navButtonTitle: {
       fontSize: 18,
       fontWeight: "400"
     },
-    pageButtonDescription: {
+    navButtonDescription: {
       color: "grey",
       marginTop: 4
     }

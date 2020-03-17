@@ -10,6 +10,8 @@ import {
   TouchableHighlight
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import { styles } from './../../styles/styles';
+import { SiteButton } from './../../components/Buttons';
 
 export default function LatestNews({ navigation }) {
   const sites = [
@@ -72,48 +74,48 @@ export default function LatestNews({ navigation }) {
   );
 }
 
-function SiteButton({ site, navigation }) {
-  return (
-    <TouchableHighlight
-      onPress={() => {
-        navigation.navigate("NewsScreen", {
-          site: site
-        });
-      }}
-    >
-      <View style={styles.siteButton}>
-        <Image
-          source={site.imagesrc}
-          resizeMode="contain"
-          style={{ width: 50, height: 50, marginRight: 20 }}
-        />
-        <Text style={styles.siteTitle}>{site.title}</Text>
-        <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" />
-      </View>
-    </TouchableHighlight>
-  );
-}
+// function SiteButton({ site, navigation }) {
+//   return (
+//     <TouchableHighlight
+//       onPress={() => {
+//         navigation.navigate("NewsScreen", {
+//           site: site
+//         });
+//       }}
+//     >
+//       <View style={styles.navButton}>
+//         <Image
+//           source={site.imagesrc}
+//           resizeMode="contain"
+//           style={{ width: 50, height: 50, marginRight: 20 }}
+//         />
+//         <Text style={styles.navButtonTitle}>{site.title}</Text>
+//         <View style={{ flex: 1 }} />
+//         <Entypo name="chevron-thin-right" />
+//       </View>
+//     </TouchableHighlight>
+//   );
+// }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F5FCFF"
-  },
-  title: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  siteButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    padding: 15,
-    borderBottomColor: "#c8c7cc",
-    borderBottomWidth: 0.5
-  },
-  siteTitle: {
-    fontSize: 18
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#F5FCFF"
+//   },
+//   title: {
+//     fontSize: 20,
+//     textAlign: "center",
+//     margin: 10
+//   },
+//   siteButton: {
+//     flexDirection: "row",
+//     alignItems: "center",
+//     backgroundColor: "white",
+//     padding: 15,
+//     borderBottomColor: "#c8c7cc",
+//     borderBottomWidth: 0.5
+//   },
+//   siteTitle: {
+//     fontSize: 18
+//   }
+// });
