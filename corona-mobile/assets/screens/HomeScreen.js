@@ -13,8 +13,8 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
-import { styles } from './../styles/styles';
-import { PageButton } from './../components/Buttons';
+import { styles } from "./../styles/styles";
+import { PageButton } from "./../components/Buttons";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -77,5 +77,3 @@ export default function HomeScreen({ navigation }) {
     </ScrollView>
   );
 }
-
-

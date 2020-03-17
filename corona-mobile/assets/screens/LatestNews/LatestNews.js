@@ -10,8 +10,8 @@ import {
   TouchableHighlight
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { styles } from './../../styles/styles';
-import { SiteButton } from './../../components/Buttons';
+import { styles } from "./../../styles/styles";
+import { SiteButton } from "./../../components/Buttons";
 
 export default function LatestNews({ navigation }) {
   const sites = [

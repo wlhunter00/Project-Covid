@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StackActions } from '@react-navigation/native';
+import { StackActions } from "@react-navigation/native";
 
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
@@ -50,7 +50,7 @@ export default function App() {
               size={25}
               style={{ marginRight: 20 }}
               onPress={() => {
-                if(navigation.canGoBack()){
+                if (navigation.canGoBack()) {
                   navigation.dispatch(StackActions.popToTop());
                 }
               }}
