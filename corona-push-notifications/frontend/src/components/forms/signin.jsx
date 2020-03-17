@@ -4,28 +4,56 @@ import {connect} from "react-redux";
 import {emailAddressCheck} from "../utilities/methods";
 import axios from "axios";
 import {API_ROUTE} from "../utilities/api";
+import { withRouter } from "react-router";
 
 class Signin extends React.Component {
     constructor(props){
         super(props);
-        this.state = {emailInputed:false, emailErrorMessage:"", passCode:"", email:""}
+        this.state = {emailInputed:false, emailSuccessMessage:"", emailErrorMessage:"", passCodeErrorMessage:"", passCode:"", email:""}
         this.handleChange = this.handleChange.bind(this);
         this.submitEmail = this.submitEmail.bind(this);
+        this.submitPassCode = this.submitPassCode.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.dispatchStateChange = this.dispatchStateChange.bind(this);
     }   
-
-    componentDidMount(){
-        
-    }
 
     handleSubmit(e){
         e.preventDefault();
+    }
 
+    submitPassCode(e){
+        (async () => {
+            try{
+                let response = await axios.post(`${API_ROUTE}/notifications/verify/passcode`,{
+                    email:this.state.email.toLowerCase(),
+                    passCode: this.state.passCode, 
+                });
+                if(!response.data.success){
+                    this.setState({passCodeErrorMessage:response.data.message});
+                    return false;
+                }
+                console.log("successfully logged you in");
+                this.dispatchStateChange(true)
+                this.props.history.push("/notification/send");
+            } catch(err){
+                return false;
+            }
+        })();
+    }
+
+    dispatchStateChange(data){
+        this.props.dispatch({
+            type:"AUTH",
+            payload:data
+        })
     }
 
     handleChange(e){
         if(this.state.emailErrorMessage){
             this.setState({emailErrorMessage:""});
+        }
+        if(this.state.passCodeErrorMessage){
+            this.setState({passCodeErrorMessage:""});
         }
         let inputDataName = e.target.dataset.name;
         let inputData = e.target.value;
@@ -45,7 +73,7 @@ class Signin extends React.Component {
                         alert("We could not authenticate you")
                         return false;
                     }
-                    alert("please check your email address for your unique passcode")
+                    this.setState({emailSuccessMessage:response.data.message})
                     
                 } catch(err){
                     return false;
@@ -63,9 +91,10 @@ class Signin extends React.Component {
             <div>
                 <label>
                     <p> Pass code </p>
-                    <input onChange={this.handleChange} data-name="passcode" className="text-input" type="text" value={this.state.passCode} />
+                    <input onChange={this.handleChange} data-name="passCode" className="text-input" type="text" value={this.state.passCode} />
                 </label>
-                <Button className="button"> Login </Button> 
+                <p className="message message--error"> {this.state.passCodeErrorMessage} </p>
+                <Button handleClick={this.submitPassCode} className="button"> Login </Button> 
             </div>
         )
         let emailView = (
@@ -84,6 +113,7 @@ class Signin extends React.Component {
                     <form onSubmit={this.handleSubmit} className="form box-shadow">
                         <div>
                             <p className="bold"> Push notification service dashboard login form</p>
+                            <p className="message message--success"> {this.state.emailSuccessMessage} </p>
                         </div>
                         {!this.state.emailInputed ? emailView : passCodeView }
                     </form>
@@ -93,9 +123,4 @@ class Signin extends React.Component {
     }
 }
 
-function mapStateToProps(state){
-    return {
-    }
-}
-
-export default connect(mapStateToProps)(Signin);
+export default connect()(withRouter(Signin));
