@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { StackActions } from '@react-navigation/native';
 
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
@@ -35,7 +36,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
-        screenOptions={{
+        screenOptions={({ navigation }) => ({
           headerStyle: {
             backgroundColor: "#3d9141"
           },
@@ -50,10 +51,10 @@ export default function App() {
               size={25}
               style={{ marginRight: 20 }}
               // TODO: Fix below
-              onPress={() => alert("Sent Home")}
+              onPress={() => navigation.dispatch(StackActions.popToTop())}
             />
           )
-        }}
+        })}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
