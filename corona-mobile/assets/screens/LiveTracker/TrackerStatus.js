@@ -15,12 +15,12 @@ export default function TrackerStatus({ route, navigation }) {
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          html:
-            '<iframe style="width:100%"; width="500" height="500" src="https://coronavirus.app/map?embed=true" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+          uri: "https://coronavirus.app/map?embed=true"
+          // html:
+          //   '<iframe style="width:100%"; width="500" height="500" src="https://coronavirus.app/map?embed=true" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         }}
         style={styles.webView}
       />
-      <Text> Hi </Text>
     </View>
   );
 }
@@ -28,19 +28,14 @@ export default function TrackerStatus({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: "stretch",
     backgroundColor: "#F5FCFF"
   },
   title: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10
   },
   webView: {
-    marginTop: 20,
-    maxHeight: 200,
-    width: 320,
     flex: 1
   }
 });
