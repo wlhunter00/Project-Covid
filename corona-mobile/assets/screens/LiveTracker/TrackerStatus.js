@@ -5,7 +5,6 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { WebView } from "react-native-webview";
 
 export default function TrackerStatus({ route, navigation }) {
-  const { symptoms } = route.params;
 
   return (
     <View style={styles.container}>

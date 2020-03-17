@@ -96,11 +96,6 @@ export default function App() {
           component={TravelStatus}
         />
         <Stack.Screen
-          name="LiveTracker"
-          options={{ title: "Live Tracker" }}
-          component={LiveTracker}
-        />
-        <Stack.Screen
           name="TrackerStatus"
           options={{ title: "Tracker Status" }}
           component={TrackerStatus}

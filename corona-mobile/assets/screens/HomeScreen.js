@@ -68,7 +68,7 @@ export default function HomeScreen({ navigation }) {
 
       <PageButton
         title="Live Global Outbreak Tracker"
-        navigationName="LiveTracker"
+        navigationName="TrackerStatus"
         icon={<MaterialCommunityIcons name="radar" size={25} />}
         description="Track the global spread."
         navigation={navigation}
