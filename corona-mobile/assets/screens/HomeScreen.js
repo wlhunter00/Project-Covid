@@ -2,50 +2,125 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  ScrollView
+} from "react-native";
+import {
+  Entypo,
+  FontAwesome,
+  MaterialCommunityIcons
+} from "@expo/vector-icons";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles}>
-      <Text>Home Screen</Text>
-      <Button
+    <ScrollView style={styles.container}>
+      <PageButton
         title="Latest News"
-        onPress={() => navigation.navigate("LatestNews")}
+        navigationName="LatestNews"
+        icon={<Entypo name="news" size={25} />}
+        description="Read updates from reliable news sites."
+        navigation={navigation}
       />
-      <Button
+
+      <PageButton
         title="Global Resources"
-        onPress={() => navigation.navigate("GlobalResources")}
+        navigationName="GlobalResources"
+        icon={<Entypo name="globe" size={25} />}
+        description="Get info straight from the experts."
+        navigation={navigation}
       />
-      <Button
+
+      <PageButton
         title="Symptom Check"
-        onPress={() => navigation.navigate("SymptomCheck")}
+        navigationName="SymptomCheck"
+        icon={
+          <FontAwesome
+            name="stethoscope"
+            size={27}
+            style={{ marginRight: 3 }}
+          />
+        }
+        description="Do a quick diagnosis to see if you should get tested."
+        navigation={navigation}
       />
-      <Button
+
+      <PageButton
         title="Testing Centers"
-        onPress={() => navigation.navigate("TestingCenters")}
+        navigationName="TestingCenters"
+        icon={
+          <FontAwesome name="building-o" size={25} style={{ marginRight: 5 }} />
+        }
+        description="Find information regarding testing near you."
+        navigation={navigation}
       />
-      <Button
+
+      <PageButton
         title="Travel Information"
-        onPress={() => navigation.navigate("TravelInformation")}
+        navigationName="TravelInformation"
+        icon={<Entypo name="aircraft" size={25} />}
+        description="Check travel status before you travel."
+        navigation={navigation}
       />
-      <Button
-        title="Live Gloabl Outbreak Tracker"
-        onPress={() => navigation.navigate("LiveTracker")}
+
+      <PageButton
+        title="Live Global Outbreak Tracker"
+        navigationName="LiveTracker"
+        icon={<MaterialCommunityIcons name="radar" size={25} />}
+        description="Track the global spread."
+        navigation={navigation}
       />
-    </View>
+    </ScrollView>
+  );
+}
+
+function PageButton({ navigation, title, navigationName, icon, description }) {
+  return (
+    <TouchableHighlight
+      onPress={() => {
+        navigation.navigate(navigationName);
+      }}
+    >
+      <View style={styles.pageButton}>
+        {icon}
+        <View style={{ marginLeft: 10 }}>
+          <Text style={styles.pageButtonTitle}>{title}</Text>
+          <Text style={styles.pageButtonDescription}>{description}</Text>
+        </View>
+        <View style={{ flex: 1 }} />
+        <Entypo name="chevron-thin-right" />
+      </View>
+    </TouchableHighlight>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
   title: {
     fontSize: 20,
     textAlign: "center",
     margin: 10
+  },
+  pageButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 15,
+    borderBottomColor: "#c8c7cc",
+    borderBottomWidth: 0.5
+  },
+  pageButtonTitle: {
+    fontSize: 18,
+    fontWeight: "400"
+  },
+  pageButtonDescription: {
+    color: "grey",
+    marginTop: 4
   }
 });
