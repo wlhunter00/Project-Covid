@@ -14,6 +14,11 @@ import { Entypo } from "@expo/vector-icons";
 export default function LatestNews({ navigation }) {
   const sites = [
     {
+      title: "WHO",
+      source: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019",
+      imagesrc: require("./../../images/newsLogos/who.png")
+    },
+    {
       title: "CNN",
       source: "https://www.cnn.com/search?size=10&q=coronavirus",
       imagesrc: require("./../../images/newsLogos/cnn.jpg")
@@ -46,14 +51,14 @@ export default function LatestNews({ navigation }) {
       imagesrc: require("./../../images/newsLogos/cnbc.png")
     },
     {
-      title: "WHO",
-      source: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019",
-      imagesrc: require("./../../images/newsLogos/who.png")
-    },
-    {
       title: "Sky News",
       source: "https://news.sky.com/topic/coronavirus-8483",
       imagesrc: require("./../../images/newsLogos/sky.jpg")
+    },
+    {
+      title: "CDC",
+      source: "https://www.cdc.gov/coronavirus/2019-ncov/whats-new-all.html",
+      imagesrc: require("./../../images/newsLogos/cdc.png")
     }
   ];
   return (
