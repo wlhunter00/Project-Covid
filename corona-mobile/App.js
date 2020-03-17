@@ -50,7 +50,6 @@ export default function App() {
               color={"white"}
               size={25}
               style={{ marginRight: 20 }}
-              // TODO: Fix below
               onPress={() => navigation.dispatch(StackActions.popToTop())}
             />
           )

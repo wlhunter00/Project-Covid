@@ -16,8 +16,6 @@ export default function TrackerStatus({ route, navigation }) {
         startInLoadingState={true}
         source={{
           uri: "https://coronavirus.app/map?embed=true"
-          // html:
-          //   '<iframe style="width:100%"; width="500" height="500" src="https://coronavirus.app/map?embed=true" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         }}
         style={styles.webView}
       />
