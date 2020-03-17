@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -20,43 +20,117 @@ import MythBusting from "./assets/screens/GlobalResources/MythBusting";
 import HowToHelp from "./assets/screens/GlobalResources/HowToHelp";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
-
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
+
+import { Entypo } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#3d9141"
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold"
+          },
+          headerRight: () => (
+            <Entypo
+              name="home"
+              color={"white"}
+              size={25}
+              style={{ marginRight: 20 }}
+              // TODO: Fix below
+              onPress={() => alert("Sent Home")}
+            />
+          )
+        }}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="LatestNews"
           component={LatestNews}
-          options={{ title: "Latest News" }}
+          options={{
+            title: "Latest News"
+          }}
         />
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
-        <Stack.Screen name="GlobalResources" component={GlobalResourcesMain} />
-        <Stack.Screen name="SymptomCheck" component={SymptomCheck} />
+        <Stack.Screen
+          name="GlobalResources"
+          options={{ title: "Global Resources" }}
+          component={GlobalResourcesMain}
+        />
+        <Stack.Screen
+          name="SymptomCheck"
+          options={{ title: "Symptom Check" }}
+          component={SymptomCheck}
+        />
         <Stack.Screen name="Diagnosis" component={Diagnosis} />
-        <Stack.Screen name="TestingCenters" component={TestingCenters} />
-        <Stack.Screen name="CenterFinder" component={CenterFinder} />
-        <Stack.Screen name="TravelInformation" component={TravelInformation} />
-        <Stack.Screen name="TravelStatus" component={TravelStatus} />
-        <Stack.Screen name="LiveTracker" component={LiveTracker} />
-        <Stack.Screen name="TrackerStatus" component={TrackerStatus} />
+        <Stack.Screen
+          name="TestingCenters"
+          options={{ title: "Testing Centers" }}
+          component={TestingCenters}
+        />
+        <Stack.Screen
+          name="CenterFinder"
+          options={{ title: "Center Information" }}
+          component={CenterFinder}
+        />
+        <Stack.Screen
+          name="TravelInformation"
+          options={{ title: "Travel Information" }}
+          component={TravelInformation}
+        />
+        <Stack.Screen
+          name="TravelStatus"
+          options={{ title: "Travel Status" }}
+          component={TravelStatus}
+        />
+        <Stack.Screen
+          name="LiveTracker"
+          options={{ title: "Live Tracker" }}
+          component={LiveTracker}
+        />
+        <Stack.Screen
+          name="TrackerStatus"
+          options={{ title: "Traceker Status" }}
+          component={TrackerStatus}
+        />
         <Stack.Screen
           name="InformationalToolkit"
+          options={{ title: "Info to Use" }}
           component={InformationalToolkit}
         />
         <Stack.Screen
           name="PreventativePractices"
+          options={{ title: "Preventative Practices" }}
           component={PreventativePractices}
         />
-        <Stack.Screen name="MythBusting" component={MythBusting} />
-        <Stack.Screen name="HowToHelp" component={HowToHelp} />
-        <Stack.Screen name="StudentResources" component={StudentResources} />
-        <Stack.Screen name="CrisisContact" component={CrisisContact} />
+        <Stack.Screen
+          name="MythBusting"
+          component={MythBusting}
+          options={{ title: "Myth Busting" }}
+        />
+        <Stack.Screen
+          name="HowToHelp"
+          component={HowToHelp}
+          options={{ title: "How to Help" }}
+        />
+        <Stack.Screen
+          name="StudentResources"
+          component={StudentResources}
+          options={{ title: "Student Resources" }}
+        />
+        <Stack.Screen
+          name="CrisisContact"
+          component={CrisisContact}
+          options={{ title: "Crisis Contact" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

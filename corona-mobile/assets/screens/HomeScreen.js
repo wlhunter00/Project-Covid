@@ -2,7 +2,13 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View, TouchableHighlight, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  ScrollView
+} from "react-native";
 import {
   Entypo,
   FontAwesome,
@@ -48,7 +54,7 @@ export default function HomeScreen({ navigation }) {
         icon={
           <FontAwesome name="building-o" size={25} style={{ marginRight: 5 }} />
         }
-        description="Find a location for testing nearby."
+        description="Find information regarding testing near you."
         navigation={navigation}
       />
 
