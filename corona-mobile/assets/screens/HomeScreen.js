@@ -13,8 +13,8 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
-import { styles } from "./../styles/styles";
-import { PageButton } from "./../components/Buttons";
+import { styles } from "../styles/styles";
+import { PageButton } from "../Components/Buttons";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -31,35 +31,6 @@ export default function HomeScreen({ navigation }) {
         navigationName="GlobalResources"
         icon={<Entypo name="globe" size={25} />}
         description="Get info straight from the experts."
-        navigation={navigation}
-      />
-      <PageButton
-        title="Symptom Check"
-        navigationName="SymptomCheck"
-        icon={
-          <FontAwesome
-            name="stethoscope"
-            size={27}
-            style={{ marginRight: 3 }}
-          />
-        }
-        description="Do a quick diagnosis to assess your risk."
-        navigation={navigation}
-      />
-      <PageButton
-        title="Testing Centers"
-        navigationName="TestingCenters"
-        icon={
-          <FontAwesome name="building-o" size={25} style={{ marginRight: 5 }} />
-        }
-        description="Find information regarding testing near you."
-        navigation={navigation}
-      />
-      <PageButton
-        title="Live Global Outbreak Tracker"
-        navigationName="TrackerStatus"
-        icon={<MaterialCommunityIcons name="radar" size={25} />}
-        description="Track the global spread."
         navigation={navigation}
       />
       <PageButton
