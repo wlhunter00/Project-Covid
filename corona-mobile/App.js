@@ -102,7 +102,7 @@ export default function App() {
         />
         <Stack.Screen
           name="TrackerStatus"
-          options={{ title: "Traceker Status" }}
+          options={{ title: "Tracker Status" }}
           component={TrackerStatus}
         />
         <Stack.Screen
