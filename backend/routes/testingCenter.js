@@ -1,29 +1,34 @@
 const express = require("express");
 const router = express.Router();
+const fs = require('fs')
+const CsvReadableStream = require('csv-reader');
 const Notification = require("./../models/notification.js");
+
+const ABBREV = "Abbreviation"
+const csv = require("csv-parser")
+var request = require("request-promise")
+var address
+var stateInfo
+
 
 router.get("/testCenter", async (req, res) => {
   var serverLocation = req.body;
-  console.log(location);
+  console.log(serverLocation);
 
   var coords = parseCoord(serverLocation)
 
-  const url = "http://www.mapquestapi.com/geocoding/v1/reverse?key=5FAG0NhAjLLNkkvmLKhMfzSvqQcEhING&" + coords[0] + "," + coords[1];
-  await request(url, function(
+  const MPurl = "http://www.mapquestapi.com/geocoding/v1/reverse?key=5FAG0NhAjLLNkkvmLKhMfzSvqQcEhING&location=" + coords[0] + "," + coords[1];
+  request(MPurl, function(
     error,
     response,
     body
   ){
-    var data = JSON.parse(results);
-    var address = data["results"][0]["locations"][0]["adminArea3"]
+    var data = JSON.parse(body);
+    address = data["results"][0]["locations"][0]["adminArea3"]
     console.log(address)
-  });
+  }).then(getStateInfo)
 
-  JSON.parse(./)
-
-  await request()
-
-  res.send(state);
+  res.send(stateInfo);
 });
 
 
@@ -38,10 +43,18 @@ function parseCoord(request){
   }
 }
 
-function findState(loctions){
+function getStateInfo(){
 
-}
-
-
+  var readStream = fs.createReadStream('./data/test-center.csv').pipe(csv())
+    .on('data', function (row) {
+      try {
+        if (row[ABBREV] == address) {
+          stateInfo=row;
+          readStream.destroy()
+        }
+      }
+      catch (err) { }
+    })
+  }
 
 module.exports = router;
