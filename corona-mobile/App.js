@@ -49,7 +49,11 @@ export default function App() {
               color={"white"}
               size={25}
               style={{ marginRight: 20 }}
-              onPress={() => navigation.dispatch(StackActions.popToTop())}
+              onPress={() => {
+                if(navigation.canGoBack()){
+                  navigation.dispatch(StackActions.popToTop());
+                }
+              }}
             />
           )
         })}
