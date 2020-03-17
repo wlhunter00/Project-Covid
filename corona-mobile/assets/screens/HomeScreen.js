@@ -16,6 +16,7 @@ import {
 import { styles } from './../styles/styles';
 import { PageButton } from './../components/Buttons';
 
+
 export default function HomeScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>

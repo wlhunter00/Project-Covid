@@ -3,12 +3,13 @@ import {
   Text,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   Image
 } from "react-native";
 import {
   Entypo
 } from "@expo/vector-icons";
-import { styles } from './../styles/styles';
+import { styles, defaults } from './../styles/styles';
 
 export function PageButton({ navigation, title, navigationName, icon, description }) {
     return (
@@ -52,3 +53,16 @@ export function SiteButton({ site, navigation }) {
       </TouchableHighlight>
     );
   }
+
+export function ActionButton({ title, action }) {
+    return(
+        <TouchableOpacity 
+            onPress={action}
+            style={styles.actionButton}
+        >
+            <View>
+                <Text style={styles.actionButtonTitle}>{title}</Text>
+            </View>
+        </TouchableOpacity>
+    )
+}

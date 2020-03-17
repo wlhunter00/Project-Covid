@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StackActions } from '@react-navigation/native';
 
+import { styles, defaults } from './assets/styles/styles';
+
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
@@ -37,7 +39,7 @@ export default function App() {
         initialRouteName="Home"
         screenOptions={({ navigation }) => ({
           headerStyle: {
-            backgroundColor: "#3d9141"
+            backgroundColor: defaults.primarycolor
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
@@ -149,11 +151,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center"
+//   }
+// });
