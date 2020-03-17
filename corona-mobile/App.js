@@ -21,10 +21,9 @@ import HowToHelp from "./assets/screens/GlobalResources/HowToHelp";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
-import Credits from "./assets/screens/footerPages/Credits.js";
 
-import Faq from "./assets/screens/footerPages/FAQ.js";
 import Credits from "./assets/screens/footerPages/Credits.js";
+import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 
 import { Entypo } from "@expo/vector-icons";
