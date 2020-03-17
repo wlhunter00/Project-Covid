@@ -21,6 +21,7 @@ import HowToHelp from "./assets/screens/GlobalResources/HowToHelp";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
+import TwitterFeed from "./assets/screens/TwitterFeed.js";
 
 import Credits from "./assets/screens/footerPages/Credits.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
@@ -132,6 +133,11 @@ export default function App() {
           name="CrisisContact"
           component={CrisisContact}
           options={{ title: "Crisis Contact" }}
+        />
+        <Stack.Screen
+          name="TwitterFeed"
+          component={TwitterFeed}
+          options={{ title: "Curated Tweets" }}
         />
         <Stack.Screen
           name="Credits"
