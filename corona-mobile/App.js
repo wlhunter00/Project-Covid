@@ -40,7 +40,7 @@ const Tab = createBottomTabNavigator();
 
 const globalScreenOptions = {
   headerStyle: {
-    backgroundColor: "#3d9141"
+    backgroundColor: defaults.primarycolor//"#3d9141"
   },
   headerTintColor: "#fff",
   headerTitleStyle: {
@@ -191,7 +191,7 @@ export default function App() {
             }[route.name])
         })}
         tabBarOptions={{
-          activeTintColor: "#3d9141"
+          activeTintColor: defaults.primarycolor//"#3d9141"
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
