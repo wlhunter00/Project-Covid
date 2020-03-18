@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, TouchableOpacity, Linking } from "react-native";
 import { ActionButton } from '../../components/Buttons';
 import { styles } from "../../styles/styles";
+import { WebView } from 'react-native-webview';
 
 export default function Diagnosis({ route, navigation }) {
   const { locators } = route.params;
@@ -24,10 +25,21 @@ export default function Diagnosis({ route, navigation }) {
       <Text>{route.params.state}</Text>
 
       <Text>{route.params.department}</Text>
-      <View style={styles.containerRowCenter}>
+      <View style={styles.container}>
         <ActionButton title='Call Center' action={call}/>
 
-        <ActionButton title='Website' action={openUrl}/>
+        {/* <ActionButton title='Website' action={openUrl}/> */}
+
+        <WebView
+          originWhitelist={["*"]}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          startInLoadingState={true}
+          source={{
+            uri: route.params.url
+          }}
+          style={styles.webView}
+        />
       </View>
     </View>
   );
