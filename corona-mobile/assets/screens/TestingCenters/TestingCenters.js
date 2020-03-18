@@ -60,22 +60,6 @@ export default class TestingCenters extends React.Component {
         </View>
       );
     }
-
-    // return (
-    //   <View style={styles.container}>
-    //     <Text style={styles.title}>Testing Centers</Text>
-    //     {/* <Button
-    //       title="Find Center"
-    //       onPress={() => this.props.navigation.push("CenterFinder", {
-    //         state: 'Alaska',
-    //         department: 'Alaska Department of Health and Social Services',
-    //         tel: '0123456789',
-    //         url: 'http://dhss.alaska.gov/dph/Epi/id/Pages/COVID-19/general.aspx'
-    //       })}
-    //     /> */}
-
-    //   </View>
-    // );
   }
 }
 
