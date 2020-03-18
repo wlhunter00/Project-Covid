@@ -6,7 +6,7 @@ export const defaults = {
     tertiarycolor: '#dcedc8',
     backgroundcolor: '#e2e2e2',
     borderRadius: 20,
-    padding: 3,
+    padding: 5,
 }
 
 export const styles = StyleSheet.create({
@@ -30,7 +30,6 @@ export const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       width: '80%',
-      padding: defaults.padding
   },
     containerFull: {
         width: '100%', 
