@@ -2,16 +2,15 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackActions } from "@react-navigation/native";
 
-import { styles, defaults } from './assets/styles/styles';
+import { styles, defaults } from "./assets/styles/styles";
 
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
 import SymptomCheck from "./assets/screens/SymptomCheck/SymptomCheck";
-import Diagnosis from "./assets/screens/SymptomCheck/Diagnosis";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
 import CenterFinder from "./assets/screens/TestingCenters/CenterFinder";
 import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
@@ -30,7 +29,11 @@ import Credits from "./assets/screens/footerPages/Credits.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 
-import { Entypo, FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  Entypo,
+  FontAwesome,
+  MaterialCommunityIcons
+} from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,110 +48,112 @@ const globalScreenOptions = {
   }
 };
 
-const HomeStack = () => <Stack.Navigator
-  initialRouteName="Home"
-  screenOptions={({ navigation, route }) => ({
-    headerRight: () => (
-      route.name !== "Home" && (<Entypo
-        name="home"
-        color={"white"}
-        size={25}
-        style={{ marginRight: 20 }}
-        onPress={() => {
-          if (navigation.canGoBack()) {
-            navigation.dispatch(StackActions.popToTop());
-          }
-        }}
-      />)
-    ),
-    ...globalScreenOptions
-  })}
->
-  <Stack.Screen name="Home" component={HomeScreen} />
-  <Stack.Screen
-    name="LatestNews"
-    component={LatestNews}
-    options={{
-      title: "Latest News"
-    }}
-  />
-  <Stack.Screen name="NewsScreen" component={NewsScreen} />
-  <Stack.Screen
-    name="GlobalResources"
-    options={{ title: "Global Resources" }}
-    component={GlobalResourcesMain}
-  />
-  <Stack.Screen
-    name="TravelInformation"
-    options={{ title: "Travel Information" }}
-    component={TravelInformation}
-  />
-  <Stack.Screen
-    name="TravelStatus"
-    options={{ title: "Travel Status" }}
-    component={TravelStatus}
-  />
-  <Stack.Screen
-    name="InformationalToolkit"
-    options={{ title: "Info to Use" }}
-    component={InformationalToolkit}
-  />
-  <Stack.Screen
-    name="PreventativePractices"
-    options={{ title: "Preventative Practices" }}
-    component={PreventativePractices}
-  />
-  <Stack.Screen
-    name="MythBusting"
-    component={MythBusting}
-    options={{ title: "Myth Busting" }}
-  />
-  <Stack.Screen
-    name="HowToHelp"
-    component={HowToHelp}
-    options={{ title: "How to Help" }}
-  />
-  <Stack.Screen
-    name="StudentResources"
-    component={StudentResources}
-    options={{ title: "Student Resources" }}
-  />
-  <Stack.Screen
-    name="CrisisContact"
-    component={CrisisContact}
-    options={{ title: "Crisis Contact" }}
-  />
-  <Stack.Screen
-    name="TwitterFeed"
-    component={TwitterFeed}
-    options={{ title: "Curated Tweets" }}
-  />
-  <Stack.Screen
-    name="Credits"
-    component={Credits}
-    options={{ title: "Created By" }}
-  />
-  <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
-  <Stack.Screen
-    name="Sources"
-    component={Sources}
-    options={{ title: "Sources" }}
-  />
-</Stack.Navigator>;
+const HomeStack = () => (
+  <Stack.Navigator
+    initialRouteName="Home"
+    screenOptions={({ navigation, route }) => ({
+      headerRight: () =>
+        route.name !== "Home" && (
+          <Entypo
+            name="home"
+            color={"white"}
+            size={25}
+            style={{ marginRight: 20 }}
+            onPress={() => {
+              if (navigation.canGoBack()) {
+                navigation.dispatch(StackActions.popToTop());
+              }
+            }}
+          />
+        ),
+      ...globalScreenOptions
+    })}
+  >
+    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen
+      name="LatestNews"
+      component={LatestNews}
+      options={{
+        title: "Latest News"
+      }}
+    />
+    <Stack.Screen name="NewsScreen" component={NewsScreen} />
+    <Stack.Screen
+      name="GlobalResources"
+      options={{ title: "Global Resources" }}
+      component={GlobalResourcesMain}
+    />
+    <Stack.Screen
+      name="TravelInformation"
+      options={{ title: "Travel Information" }}
+      component={TravelInformation}
+    />
+    <Stack.Screen
+      name="TravelStatus"
+      options={{ title: "Travel Status" }}
+      component={TravelStatus}
+    />
+    <Stack.Screen
+      name="InformationalToolkit"
+      options={{ title: "Info to Use" }}
+      component={InformationalToolkit}
+    />
+    <Stack.Screen
+      name="PreventativePractices"
+      options={{ title: "Preventative Practices" }}
+      component={PreventativePractices}
+    />
+    <Stack.Screen
+      name="MythBusting"
+      component={MythBusting}
+      options={{ title: "Myth Busting" }}
+    />
+    <Stack.Screen
+      name="HowToHelp"
+      component={HowToHelp}
+      options={{ title: "How to Help" }}
+    />
+    <Stack.Screen
+      name="StudentResources"
+      component={StudentResources}
+      options={{ title: "Student Resources" }}
+    />
+    <Stack.Screen
+      name="CrisisContact"
+      component={CrisisContact}
+      options={{ title: "Crisis Contact" }}
+    />
+    <Stack.Screen
+      name="TwitterFeed"
+      component={TwitterFeed}
+      options={{ title: "Curated Tweets" }}
+    />
+    <Stack.Screen
+      name="Credits"
+      component={Credits}
+      options={{ title: "Created By" }}
+    />
+    <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
+    <Stack.Screen
+      name="Sources"
+      component={Sources}
+      options={{ title: "Sources" }}
+    />
+  </Stack.Navigator>
+);
 
 const SymptomStack = () => (
-  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions} >
-    <Stack.Screen name="SymptomCheck"
+  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
+    <Stack.Screen
+      name="SymptomCheck"
       component={SymptomCheck}
-      options={{ title: "Symptom Check" }} />
-    <Stack.Screen name="Diagnosis"
-      component={Diagnosis}
+      options={{ title: "Symptom Check" }}
     />
-  </Stack.Navigator >
+  </Stack.Navigator>
 );
 
 const TestingCentersStack = () => (
-  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions} >
+  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
     <Stack.Screen
       name="TestingCenters"
       options={{ title: "Testing Centers" }}
@@ -159,7 +164,7 @@ const TestingCentersStack = () => (
       options={{ title: "Center Information" }}
       component={CenterFinder}
     />
-  </Stack.Navigator >
+  </Stack.Navigator>
 );
 
 export default function App() {
@@ -170,13 +175,23 @@ export default function App() {
           tabBarIcon: ({ focused, color, size }) =>
             ({
               Home: <Entypo name="home" size={size} color={color} />,
-              "Live Tracker": <MaterialCommunityIcons name="radar" size={size} color={color} />,
-              "Symptom Check": <FontAwesome name="stethoscope" size={size} color={color} />,
-              "Testing Centers": <FontAwesome name="building" size={size} color={color} />
+              "Live Tracker": (
+                <MaterialCommunityIcons
+                  name="radar"
+                  size={size}
+                  color={color}
+                />
+              ),
+              "Symptom Check": (
+                <FontAwesome name="stethoscope" size={size} color={color} />
+              ),
+              "Testing Centers": (
+                <FontAwesome name="building" size={size} color={color} />
+              )
             }[route.name])
         })}
         tabBarOptions={{
-          activeTintColor:"#3d9141"
+          activeTintColor: "#3d9141"
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
