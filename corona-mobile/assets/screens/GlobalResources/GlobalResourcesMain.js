@@ -1,58 +1,68 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { PageButton } from './../../components/Buttons';
+import { styles } from "./../../styles/styles";
+import {
+  Entypo,
+  FontAwesome,
+  MaterialCommunityIcons
+} from "@expo/vector-icons";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default class GlobalResourcesMain extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Global Resources</Text>
+      <ScrollView style={styles.container}>
 
-        <Button
+        <PageButton
           title="Informational Toolkit"
-          onPress={() => this.props.navigation.navigate("InformationalToolkit")}
-        />
+          navigationName="InformationalToolkit"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        />  
 
-        <Button
+        <PageButton
           title="Preventative Practices"
-          onPress={() =>
-            this.props.navigation.navigate("PreventativePractices")
-          }
-        />
+          navigationName="PreventativePractices"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        /> 
 
-        <Button
+        <PageButton
           title="Myth Busting"
-          onPress={() => this.props.navigation.navigate("MythBusting")}
-        />
+          navigationName="MythBusting"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        /> 
 
-        <Button
+        <PageButton
           title="How to Help"
-          onPress={() => this.props.navigation.navigate("HowToHelp")}
-        />
+          navigationName="HowToHelp"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        /> 
 
-        <Button
+        <PageButton
           title="Student Resources"
-          onPress={() => this.props.navigation.navigate("StudentResources")}
-        />
+          navigationName="StudentResources"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        /> 
 
-        <Button
-          title="Crisis Contact Information"
-          onPress={() => this.props.navigation.navigate("CrisisContact")}
-        />
-      </View>
+        <PageButton
+          title="Crisis Contact"
+          navigationName="CrisisContact"
+          icon={<Entypo name="news" size={25} />}
+          description=""
+          navigation={this.props.navigation}
+        /> 
+      </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  title: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
-});
