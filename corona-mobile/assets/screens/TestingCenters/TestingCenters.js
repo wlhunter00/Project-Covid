@@ -9,10 +9,11 @@ import { ScrollView } from "react-native-gesture-handler";
 import { InfoView } from './../../components/InfoView';
 import { ActionButton } from './../../components/Buttons';
 import { styles, defaults } from "../../styles/styles";
+import { useNavigation } from '@react-navigation/native';
 
 
 const contactLoading = 
-<View>
+<View style={{height: 100, justifyContent: 'center'}}>
   <ActivityIndicator size='small'/>
 </View>;
 
@@ -31,6 +32,9 @@ const contactNotFound =
 const call = (tel)=>{Linking.openURL('tel:' + tel)};
 
 function ContactInfo(location){
+
+  const navigation = useNavigation();
+
   return(
     <View>
       <View style={styles.containerFull}>
@@ -48,12 +52,13 @@ function ContactInfo(location){
         <View style={styles.containerRowCenter}>
           <ActionButton title='Call Department' action={() => {call(location.location["Phone Number"])}}/>
 
-          <ActionButton title='Visit Website' action={() => {}}/>
+          <ActionButton title='Visit Website' action={() => {navigation.navigate("CenterFinder", {url: location.location["URL"]});}}/>
         </View>
       </View>
     </View>
   );
 }
+
 
 
 export default class TestingCenters extends React.Component {
@@ -108,38 +113,7 @@ export default class TestingCenters extends React.Component {
       </ScrollView>
     );
     
-
-    // if(this.state.isLoaded === false){
-    //   return (
-    //     <View style={styles.container}>
-    //       <ActivityIndicator size='small'/>
-    //     </View>
-    //   );
-    // } else {
-    //   return (
-    //     <View style={styles.container}>
-    //       {this.props.navigation.push("CenterFinder", {
-    //         state: this.state.location.State,
-    //         department: this.state.location["State Department"],
-    //         tel: this.state.location["Phone Number"],
-    //         url: this.state.location.URL
-    //       })}
-    //     </View>
-    //   );
-    // }
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#F5FCFF"
-//   },
-//   title: {
-//     fontSize: 20,
-//     textAlign: "center",
-//     margin: 10
-//   }
-// });
+
