@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { styles } from "../../styles/styles";
-import { SiteButton } from "../../Components/Buttons";
+import { SiteButton } from "../../components/Buttons";
 
 export default function LatestNews({ navigation }) {
   const sites = [
@@ -73,8 +73,3 @@ export default function LatestNews({ navigation }) {
     </ScrollView>
   );
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 47472ba4b124451ca3c9c11133240b38d6bc4303

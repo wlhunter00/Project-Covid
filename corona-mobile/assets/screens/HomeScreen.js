@@ -14,7 +14,7 @@ import {
   MaterialCommunityIcons
 } from "@expo/vector-icons";
 import { styles } from "../styles/styles";
-import { PageButton } from "../Components/Buttons";
+import { PageButton } from "../components/Buttons";
 
 
 export default function HomeScreen({ navigation }) {
