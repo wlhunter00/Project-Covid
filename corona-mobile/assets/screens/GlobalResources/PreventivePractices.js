@@ -1,20 +1,13 @@
 import React from "react";
 import { AccordionList } from "accordion-collapse-react-native";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Dimensions,
-  FlatList
-} from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 
 import image1 from "../../images/preventativePractice/handwash.png";
-import image2 from "../../images/preventativePractice/image2.jpg";
-import image3 from "../../images/preventativePractice/image3.gif";
-import image4 from "../../images/preventativePractice/image4.jpg";
-import image5 from "../../images/preventativePractice/image5C.jpg";
-import image6 from "../../images/preventativePractice/image6.jpg";
+// import image2 from "../../images/preventativePractice/image2";
+// import image3 from "../../images/preventativePractice/image3";
+// import image4 from "../../images/preventativePractice/image4";
+// import image5 from "../../images/preventativePractice/image5C";
+// import image6 from "../../images/preventativePractice/image6";
 
 export default class PreventativePractices extends React.Component {
   constructor(props) {
@@ -23,31 +16,13 @@ export default class PreventativePractices extends React.Component {
       list: [
         {
           title: image1,
-          body: [
-            "20 seconds (typically the chorus of a song), rubbing between fingers, over tops and palms, and under nail beds ",
-            "Antibacterial soap or alcohol-based sanitizer",
-            "Avoid scalding hot water that may dry out skin, this may create microtears in the skin’s protective barrier"
-          ]
+          body:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim, augue sed viverra fermentum, dolor arcu rutrum magna, nec dictum enim augue congue tortor. Phasellus eget arcu vel diam euismod dignissim ac vel eros."
         },
         {
-          title: image2,
-          body: ["text1", "text2", "text3"]
-        },
-        {
-          title: image3,
-          body: ["text1", "text2", "text3"]
-        },
-        {
-          title: image4,
-          body: ["text1", "text2", "text3"]
-        },
-        {
-          title: image5,
-          body: ["text1", "text2", "text3"]
-        },
-        {
-          title: image6,
-          body: ["text1", "text2", "text3"]
+          title: image1,
+          body:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim, augue sed viverra fermentum, dolor arcu rutrum magna, nec dictum enim augue congue tortor. Phasellus eget arcu vel diam euismod dignissim ac vel eros."
         }
       ]
     };
@@ -62,7 +37,7 @@ export default class PreventativePractices extends React.Component {
       //<Text style={styles.header}>{item.title}</Text>
       <View style={styles.header}>
         <Image
-          source={item.title}
+          source={image1}
           style={{
             width: imageWidth * 0.9,
             height: imageHeight,
@@ -76,10 +51,11 @@ export default class PreventativePractices extends React.Component {
   };
 
   _body = item => {
-    const bulletPoints = item.body.map(text => (
-      <Text style={{ marginBottom: 5 }}>{text}</Text>
-    ));
-    return <View style={styles.content}>{bulletPoints}</View>;
+    return (
+      <View style={styles.content}>
+        <Text style={{ textAlign: "center" }}>{item.body}</Text>
+      </View>
+    );
   };
 
   render() {
@@ -117,7 +93,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#b8dedd",
     borderRadius: 10,
-    marginBottom: 10,
-    flexDirection: "column"
+    marginBottom: 10
   }
 });
