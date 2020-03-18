@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const defaults = {
-    primarycolor: '#3d9141',
-    backgroundcolor: '#c2c2c2'
+    primarycolor: '#43a047',
+    secondarycolor: '#a5d6a7',
+    tertiarycolor: '#dcedc8',
+    backgroundcolor: '#e2e2e2',
+    borderRadius: 20
 }
 
 export const styles = StyleSheet.create({
@@ -43,11 +46,11 @@ export const styles = StyleSheet.create({
     },
     actionButton: {
         backgroundColor: defaults.primarycolor,
-        borderRadius: 25,
-        padding: 15,
+        borderRadius: defaults.borderRadius,
+        padding: 10,
         paddingBottom: 0,
         width: '45%',
-        height: 50,
+        height: 40,
         margin: '1.75%',
         
     },
@@ -56,5 +59,27 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    infoViewOuterView: {
+      width: '90%',
+      backgroundColor: defaults.tertiarycolor,
+      borderRadius: defaults.borderRadius,
+      padding: 0
+    },
+    infoViewTitleView: {
+      width: '100%',
+      backgroundColor: '#fff',
+      borderRadius: defaults.borderRadius,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10
+    },
+    infoViewBodyView: {
+      margin: 10,
+      flex: 1 
+    },
+    boldPrimary: {
+      color: defaults.primarycolor, 
+      fontWeight: 'bold'
     }
   });
