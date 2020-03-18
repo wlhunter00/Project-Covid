@@ -7,6 +7,11 @@ const centerData = require("./../data/Testing-Center-Data.json");
 router.post("/", async (req, res) => {
   var serverLocation = req.body;
   var coords = parseCoord(serverLocation);
+  if (!coords) {
+    return res.status(400).send({
+      message: "Could not read coordinates!"
+    });
+  }
   const MPurl =
     "http://www.mapquestapi.com/geocoding/v1/reverse?key=5FAG0NhAjLLNkkvmLKhMfzSvqQcEhING&location=" +
     coords[0] +
@@ -16,24 +21,25 @@ router.post("/", async (req, res) => {
     await request(MPurl, async function(err, response, body) {
       var data = JSON.parse(body);
       let address = await data["results"][0]["locations"][0]["adminArea3"];
-      console.log(address);
       try {
         let stateInfo = await getStateInfo(address);
-        console.log(stateInfo);
         res.send(stateInfo);
       } catch (err) {
-        console.log(err);
+        return res.status(400).send({
+          message: err
+        });
       }
     });
   } catch (err) {
-    console.log(err);
+    return res.status(400).send({
+      message: err
+    });
   }
 });
 
 function parseCoord(loc) {
   try {
     // var loc = JSON.parse(request);
-    console.log(loc);
     var latitude = loc["location"]["coords"]["latitude"];
     var longitude = loc["location"]["coords"]["longitude"];
     return [latitude, longitude];
