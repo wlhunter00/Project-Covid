@@ -64,7 +64,7 @@ export default class PreventativePractices extends React.Component {
         <Image
           source={item.title}
           style={{
-            width: imageWidth,
+            width: imageWidth * 0.9,
             height: imageHeight,
             overflow: "hidden",
             resizeMode: "cover",
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "#99d19b",
-    paddingHorizontal: 20,
+    paddingHorizontal: 5,
     paddingTop: 10,
     height: "100%"
   },

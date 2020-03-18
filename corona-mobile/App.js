@@ -5,6 +5,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { StackActions } from "@react-navigation/native";
 
+import { styles, defaults } from './assets/styles/styles';
+
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
@@ -186,11 +188,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center"
+//   }
+// });
