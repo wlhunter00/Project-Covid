@@ -37,14 +37,14 @@ function ContactInfo(location){
 
   return(
     <View>
-      <View style={styles.containerFull}>
+      <View style={styles.containerColumnCenter}>
 
-        <View style={styles.containerRowCenter}>
+        <View style={styles.containerRowCenterShortWidth}>
           <Text style={styles.boldPrimary}>Your current location: </Text>
           <Text style={{color: defaults.primarycolor}}>{location.location["State"]}</Text>
         </View>
 
-        <View style={styles.containerRowCenter}>
+        <View style={styles.containerRowCenterShortWidth}>
           <Text style={styles.boldPrimary}>Contact: </Text>
           <Text style={{color: defaults.primarycolor}}>{location.location["State Department"]}</Text>
         </View>
@@ -103,16 +103,17 @@ export default class TestingCenters extends React.Component {
 
   render(){
     return(
-      <ScrollView>
-        <InfoView title='Step 1' body={<Text>this is a test</Text>} chevron={true}/>
-        <InfoView title='Contact Information' body={this.state.contact} chevron={false}/>
-        <InfoView title='Step 2' body={<Text>this is a test</Text>} chevron={true}/>
-        <InfoView title='Step 3' body={<Text>this is a test</Text>} chevron={true}/>
-        <InfoView title='Step 4' body={<Text>this is a test</Text>} chevron={true}/>
-        <InfoView title='Information Sources' body={<Text>this is a test</Text>} chevron={true}/>
-      </ScrollView>
+      <View style={{backgroundColor: defaults.secondarycolor}}>
+        <ScrollView contentContainerStyle={{alignItems: 'center', backgroundColor: defaults.secondarycolor}}>
+          <InfoView title='Step 1' body={<Text>this is a test</Text>} chevron={true}/>
+          <InfoView title='Contact Information' body={this.state.contact} chevron={false}/>
+          <InfoView title='Step 2' body={<Text>this is a test</Text>} chevron={true}/>
+          <InfoView title='Step 3' body={<Text>this is a test</Text>} chevron={true}/>
+          <InfoView title='Step 4' body={<Text>this is a test</Text>} chevron={true}/>
+          <InfoView title='Information Sources' body={<Text>this is a test</Text>} chevron={true}/>
+        </ScrollView>
+      </View>
     );
-    
   }
 }
 

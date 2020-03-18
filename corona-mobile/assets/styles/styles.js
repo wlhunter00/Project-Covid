@@ -5,7 +5,8 @@ export const defaults = {
     secondarycolor: '#a5d6a7',
     tertiarycolor: '#dcedc8',
     backgroundcolor: '#e2e2e2',
-    borderRadius: 20
+    borderRadius: 20,
+    padding: 3,
 }
 
 export const styles = StyleSheet.create({
@@ -13,11 +14,24 @@ export const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: defaults.backgroundcolor
     },
+    containerColumnCenter: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
     containerRowCenter: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center'
     },
+    containerRowCenterShortWidth: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      width: '80%',
+      padding: defaults.padding
+  },
     containerFull: {
         width: '100%', 
         height: '100%'
@@ -27,6 +41,13 @@ export const styles = StyleSheet.create({
       textAlign: "center",
       margin: 10
     },
+    boldPrimary: {
+      color: defaults.primarycolor, 
+      fontWeight: 'bold'
+    },
+
+
+
     navButton: {
       flexDirection: "row",
       alignItems: "center",
@@ -64,7 +85,8 @@ export const styles = StyleSheet.create({
       width: '90%',
       backgroundColor: defaults.tertiarycolor,
       borderRadius: defaults.borderRadius,
-      padding: 0
+      padding: 0,
+      margin: 10
     },
     infoViewTitleView: {
       width: '100%',
@@ -76,10 +98,6 @@ export const styles = StyleSheet.create({
     },
     infoViewBodyView: {
       margin: 10,
-      flex: 1 
+      flex: 1
     },
-    boldPrimary: {
-      color: defaults.primarycolor, 
-      fontWeight: 'bold'
-    }
   });
