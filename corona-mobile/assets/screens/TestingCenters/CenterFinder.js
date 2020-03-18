@@ -2,7 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, TouchableOpacity, Linking } from "react-native";
-import { ActionButton } from './../../components/Buttons';
+import { ActionButton } from '../../components/Buttons';
 import { styles } from "../../styles/styles";
 
 export default function Diagnosis({ route, navigation }) {
