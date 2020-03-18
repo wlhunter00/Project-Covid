@@ -56,5 +56,20 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    surveyButton: {
+        backgroundColor: defaults.primarycolor,
+        borderRadius: 25,
+      padding: 15,
+      paddingBottom: 0,
+        width: '85%',
+        height: 50,
+        margin:'1.75%'
+    },
+    surveyButtonTitle: {
+        color: 'white',
+        fontSize: 15,
+        fontWeight: 'bold',
+        textAlign: 'center',
     }
   });

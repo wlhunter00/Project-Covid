@@ -64,3 +64,16 @@ export function ActionButton({ title, action }) {
     </TouchableOpacity>
   );
 }
+
+export function SurveyButton({ title, action }) {
+  return (
+    <TouchableOpacity 
+      onPress={action}
+      style={styles.surveyButton}
+    >
+      <View>
+        <Text style={styles.surveyButtonTitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
