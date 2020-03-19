@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, View, TouchableHighlight, TouchableOpacity, Image } from "react-native";
 import { SurveyButton } from './../../components/Buttons';
+import { ResponseTextBox } from './../../components/TextBoxes';
 import { styles } from "../../styles/styles";
 
 export function MultipleChoiceQuestion({ prompt, answers, currResponse, saveAnswer }) {
@@ -49,10 +50,11 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
             <View style={{ marginLeft: 10 }}>
                 <Text style={styles.navButtonTitle}>{prompt}</Text>
                 <View>
-                    <input
+                    {/* <input
                         type="text"
                         onChange={setAnswer}
-                    />
+                    /> */}
+                    <ResponseTextBox defaultText="" changeFunction={setAnswer} />
                 </View>
                 <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
             </View>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { styles } from "./../../styles/styles.js";
 import { MultipleChoiceQuestion, ShortAnswerQuestion } from './SurveyQuestion';
+import { sendSymptoms } from './../../APIService.js';
 
 export function Symptoms() {
   const [response, changeResponse] = React.useState("");
@@ -12,6 +13,12 @@ export function Symptoms() {
     changeQuestionNumber(questionNumber + 1);
   }
 
+  const advanceQuestionSend = (newResponse) => {
+    changeResponse(newResponse);
+    changeQuestionNumber(questionNumber + 1);
+    sendSymptoms(response);
+  }
+  console.log(response);
   return (
     <ScrollView>
       {questionNumber == 1 && (
@@ -39,11 +46,12 @@ export function Symptoms() {
         <ShortAnswerQuestion
           prompt="Have you been in any regions with high incidence of COVID-19? To learn more about current COVID-19 incidence, please view the heat map."
           currResponse={response}
-          saveAnswer={advanceQuestion} />
+          saveAnswer={advanceQuestionSend} />
       )
       }
       {questionNumber > 4 && (
-        <Text>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text>
+        <Text style={styles.navButtonTitle}>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text>
+        
       )
       }
     </ScrollView>
