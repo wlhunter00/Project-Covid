@@ -142,6 +142,16 @@ const HomeStack = () => (
   </Stack.Navigator>
 );
 
+const TrackerStack = () => (
+  <Stack.Navigator initialRouteName="LiveTracker" screenOptions={globalScreenOptions}>
+    <Stack.Screen
+      name="LiveTracker"
+      component={TrackerStatus}
+      options={{ title: "Live Tracker" }}
+    />
+  </Stack.Navigator>
+);
+
 const SymptomStack = () => (
   <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
     <Stack.Screen
@@ -196,7 +206,7 @@ export default function App() {
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Live Tracker" component={TrackerStatus} />
+        <Tab.Screen name="Live Tracker" component={TrackerStack} />
         <Tab.Screen name="Symptom Check" component={SymptomStack} />
         <Tab.Screen name="Testing Centers" component={TestingCentersStack} />
       </Tab.Navigator>
