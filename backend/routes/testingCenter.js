@@ -5,6 +5,11 @@ var request = require("request-promise");
 const centerData = require("./../data/Testing-Center-Data.json");
 
 router.post("/", async (req, res) => {
+  if (Object.keys(req.body).length === 0) {
+    return res.status(400).send({
+      message: "Could not read location!"
+    });
+  }
   var serverLocation = req.body;
   var coords = parseCoord(serverLocation);
   if (!coords) {
@@ -20,7 +25,13 @@ router.post("/", async (req, res) => {
   try {
     await request(MPurl, async function(err, response, body) {
       var data = JSON.parse(body);
-      let address = await data["results"][0]["locations"][0]["adminArea3"];
+      let location = await data["results"][0]["locations"];
+      if (location === undefined || location.length == 0) {
+        return res.status(400).send({
+          message: "Could not parse coordinates!"
+        });
+      }
+      let address = location[0]["adminArea3"];
       try {
         let stateInfo = await getStateInfo(address);
         res.send(stateInfo);
@@ -54,6 +65,8 @@ async function getStateInfo(address) {
       return centerData[prop];
     }
   }
+  var notState = { message: "Location is not a state!" };
+  return notState;
 }
 
 module.exports = router;
