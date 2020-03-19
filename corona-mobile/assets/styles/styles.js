@@ -60,11 +60,12 @@ export const styles = StyleSheet.create({
     surveyButton: {
         backgroundColor: defaults.primarycolor,
         borderRadius: 25,
-      padding: 15,
-      paddingBottom: 0,
+        padding: 15,
+        paddingBottom: 0,
         width: '85%',
         height: 50,
-        margin:'1.75%'
+        margin: '1.75%',
+        alignSelf: 'center'
     },
     surveyButtonTitle: {
         color: 'white',
