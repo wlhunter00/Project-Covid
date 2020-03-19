@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const spawn = require("child_process").spawn;
 const nlpScriptRoute =
-  __dirname.slice(0, __dirname.lastIndexOf("\\")) +
-  "\\scripts\\getconfidence.py";
+  __dirname.slice(0, __dirname.lastIndexOf("\\")) + "/scripts/testScript.py";
 
 router.post("/", async (req, res) => {
   var symptoms = req.body.symptoms;
