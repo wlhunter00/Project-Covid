@@ -107,9 +107,7 @@ export default class TestingCenters extends React.Component {
 
   componentDidMount() {
     const locResp = getLocationAsync().then(locResp => {
-      const lat = locResp.location.coords.latitude;
-      const long = locResp.location.coords.longitude;
-      console.log(lat, long);
+      
       fetch("https://projectcovid-backend.herokuapp.com/centers/", {
         method: "POST",
         headers: {
