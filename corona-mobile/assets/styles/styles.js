@@ -44,6 +44,13 @@ export const styles = StyleSheet.create({
       color: defaults.primarycolor, 
       fontWeight: 'bold'
     },
+    primaryText: {
+      color: defaults.primarycolor, 
+    },
+    primaryTextBold: {
+      color: defaults.primarycolor, 
+      fontWeight: 'bold', 
+    },
 
 
 
@@ -93,6 +100,7 @@ export const styles = StyleSheet.create({
       borderRadius: defaults.borderRadius,
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'center',
       padding: 10
     },
     infoViewBodyView: {

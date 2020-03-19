@@ -45,38 +45,31 @@ const contactNotFound = (
     />
   </View>
 );
-{
-  /* <View>
-  <Text style={styles.boldPrimary}>We're currently unable to identify your location</Text>
-  <Text style={{color: defaults.primarycolor}}>- Contact your health provider or a nearby urgent care center</Text>
-  <Text style={{color: defaults.primarycolor}}>- Use a telemedicine service - Teladoc</Text>
-  <Text style={{color: defaults.primarycolor}}>- Call 9-1-1 if a medical emergency</Text>
-  <Text style={{color: defaults.primarycolor}}>- Contact state/county health department (211 if no number is listed)</Text>
-  <Text style={styles.boldPrimary}>Please enable location services to find state contact information</Text>
-</View>; */
-}
+
+
 
 const call = tel => {
   Linking.openURL("tel:" + tel);
 };
 
 function ContactInfo(location) {
+
   const navigation = useNavigation();
 
   return (
     <View>
-      <View style={styles.containerColumnCenter}>
-        <View style={styles.containerRowCenterShortWidth}>
-          <Text style={styles.boldPrimary}>Your current location: </Text>
-          <Text style={{ color: defaults.primarycolor }}>
-            {location.location["State"]}
+      <View>
+        <View style={{padding: defaults.padding, paddingTop: 0}}>
+          <Text style={styles.primaryText}>
+            <Text style={styles.primaryTextBold}>Your current location: </Text>
+            <Text>{location.location["State"]}</Text>
           </Text>
         </View>
 
-        <View style={styles.containerRowCenterShortWidth}>
-          <Text style={styles.boldPrimary}>Contact: </Text>
-          <Text style={{ color: defaults.primarycolor }}>
-            {location.location["State Department"]}
+        <View style={{padding: defaults.padding}}>
+          <Text style={styles.primaryText}>
+            <Text style={styles.primaryTextBold}>Contact: </Text>
+            <Text>{location.location["State Department"]}</Text>
           </Text>
         </View>
 
@@ -145,15 +138,17 @@ export default class TestingCenters extends React.Component {
         <ScrollView
           contentContainerStyle={{
             alignItems: "center",
-            backgroundColor: defaults.secondarycolor
+            backgroundColor: defaults.secondarycolor,
+            paddingVertical: 10
           }}
         >
           <InfoView
             title="Step 1"
             body={
               <PrimaryText
+                padding={defaults.padding}
                 text={
-                  "If you're feeling sick and exhibit symptioms of COVID-19, you should contact your primary healthcare provider if possible, else use a telemedicine app (Teladoc), or contact the health deparment based on your state."
+                  "If you're feeling sick and exhibit symptoms of COVID-19, you should contact your primary healthcare provider if possible, else use a telemedicine app (Teladoc), or contact the health deparment based on your state."
                 }
               />
             }
@@ -168,8 +163,9 @@ export default class TestingCenters extends React.Component {
             title="Step 2"
             body={
               <PrimaryText
+                padding={defaults.padding}
                 text={
-                  "To be tested, you musth be apporved by your healthcare provider or health department according to state criteria based on symptoms or if you've had exposure to an infected individual."
+                  "To be tested, you must be apporved by your healthcare provider or health department according to state criteria based on symptoms or if you've had exposure to an infected individual."
                 }
               />
             }
@@ -179,6 +175,7 @@ export default class TestingCenters extends React.Component {
             title="Step 3"
             body={
               <PrimaryText
+                padding={defaults.padding}
                 text={
                   "The test procedure involves taking a swab of the patient's nose. Free testing is available in public facilities and price ranges from $50 - $100 for commercial lab testing if you don't meet state criteria or want an expedited process."
                 }
@@ -190,6 +187,7 @@ export default class TestingCenters extends React.Component {
             title="Step 4"
             body={
               <PrimaryText
+                padding={defaults.padding}
                 text={
                   "Samples are sent to labs for analysis \n\nTiming to get results back range from 5 to 48 hours, with an average of 24 hours."
                 }
@@ -207,3 +205,4 @@ export default class TestingCenters extends React.Component {
     );
   }
 }
+

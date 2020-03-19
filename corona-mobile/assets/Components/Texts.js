@@ -4,22 +4,28 @@ import { Entypo } from "@expo/vector-icons";
 import { styles, defaults } from "../styles/styles";
 
 export function PrimaryText({
-  text
+  text,
+  padding
 }) {
   return (
-    <Text style={{color: defaults.primarycolor, padding: defaults.padding, paddingTop: 0}}>
-      {text}
-    </Text>
+    <View style={{padding: padding, paddingTop: 0}}>
+      <Text style={styles.primaryText}>
+        {text}
+      </Text>
+    </View>
   );
 }
 
 export function PrimaryTextBold({
-  text
+  text,
+  padding
 }) {
   return (
-    <Text style={{color: defaults.primarycolor, fontWeight: 'bold', padding: defaults.padding}}>
-      {text}
-    </Text>
+    <View style={{padding: padding}}>
+      <Text style={styles.primaryTextBold}>
+        {text}
+      </Text>
+    </View>
   );
 }
 
