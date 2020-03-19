@@ -104,7 +104,11 @@ export default class PreventativePractices extends React.Component {
             styles.headerImage
           ]}
         >
-          <Text style={[{ top: imageHeight - 37 }, styles.headerText]}>
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit={true}
+            style={[{ top: imageHeight - 37 }, styles.headerText]}
+          >
             {item.title}
           </Text>
         </ImageBackground>
@@ -165,9 +169,7 @@ const styles = StyleSheet.create({
     position: "relative",
     left: 9,
     textShadowColor: "black",
-    textShadowRadius: 2,
-
-    shadowOffset: { height: 0, width: 0 }
+    textShadowRadius: 2
   },
   headerImage: {
     shadowColor: "#000",
