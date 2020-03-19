@@ -66,10 +66,17 @@ const HomeStack = () => (
             }}
           />
         ),
+      headerBackTitle: "Back",
       ...globalScreenOptions
     })}
   >
-    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen 
+      name="Home" 
+      component={HomeScreen} 
+      options={{
+        title: "Project Covid"
+      }}
+    />
     <Stack.Screen
       name="LatestNews"
       component={LatestNews}
