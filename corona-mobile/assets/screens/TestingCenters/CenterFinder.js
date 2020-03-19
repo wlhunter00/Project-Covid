@@ -1,36 +1,39 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import {
   StyleSheet,
   Text,
   View,
-  Button
-} from 'react-native';
+  TouchableOpacity,
+  Linking
+} from "react-native";
+import { ActionButton } from "../../components/Buttons";
+import { styles } from "../../styles/styles";
+import { WebView } from "react-native-webview";
 
 export default function Diagnosis({ route, navigation }) {
-    
-    const { locators } = route.params;
-    
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>
-          Center Finder
-        </Text>
-      </View>
-    );
+  const openUrl = () => {
+    Linking.canOpenURL(route.params.url).then(canOpen => {
+      if (canOpen) {
+        Linking.openURL(route.params.url);
+      }
+    });
+  };
+
+  return (
+    <View style={styles.containerFull}>
+      <WebView
+        originWhitelist={["*"]}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        startInLoadingState={true}
+        source={{
+          uri: route.params.url
+        }}
+        style={styles.webView}
+      />
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
-});

@@ -1,39 +1,71 @@
-// import React, { Component } from 'react';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import {
   StyleSheet,
   Text,
   View,
-  Button
-} from 'react-native';
+  TouchableHighlight,
+  ScrollView
+} from "react-native";
+import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { styles } from "../styles/styles";
+import { PageButton } from "../components/Buttons";
 
 export default function HomeScreen({ navigation }) {
-    return (
-        <View style={styles}>
-            <Text>Home Screen</Text>
-            <Button title="Latest News" onPress={() => navigation.navigate('LatestNews')}/>
-            <Button title="Global Resources" onPress={() => navigation.navigate('GlobalResources')}/>
-            <Button title="Symptom Check" onPress={() => navigation.navigate('SymptomCheck')}/> 
-            <Button title="Testing Centers" onPress={() => navigation.navigate('TestingCenters')}/>
-            <Button title="Travel Information" onPress={() => navigation.navigate('TravelInformation')}/>
-            <Button title="Live Gloabl Outbreak Tracker" onPress={() => navigation.navigate('LiveTracker')}/>
-
-        </View>
-    );
+  return (
+    <ScrollView style={styles.container}>
+      <PageButton
+        title="Latest News"
+        navigationName="LatestNews"
+        icon={<Entypo name="news" size={25} />}
+        description="Read updates from reliable news sites."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Global Resources"
+        navigationName="GlobalResources"
+        icon={<Entypo name="globe" size={25} />}
+        description="Get info straight from the experts."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Live Twitter Feed"
+        navigationName="TwitterFeed"
+        icon={<Entypo name="twitter" size={25} />}
+        description="View a curated feed from reliable sources."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Sources"
+        navigationName="Sources"
+        icon={<FontAwesome name="book" size={25} />}
+        description="Learn where this information comes from."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Frequently Asked Questions"
+        navigationName="Faq"
+        icon={<FontAwesome name="question" size={25} style={{marginRight: 9}}/>}
+        description="Find answers to questions about the app."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Meet the Team"
+        navigationName="Credits"
+        icon={<MaterialIcons name="people" size={25} />}
+        description="See who created this app."
+        navigation={navigation}
+      />
+    </ScrollView>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
-});
+// Travel Info page commented out until we can actually get that information
+// <PageButton
+//   title="Travel Information"
+//   navigationName="TravelInformation"
+//   icon={<Entypo name="aircraft" size={25} />}
+//   description="Check travel status before you travel."
+//   navigation={navigation}
+// />
