@@ -100,12 +100,16 @@ function ContactInfo(location) {
         </View>
 
         <View style={styles.containerRowCenter}>
-          <ActionButton
+          
+          {location.location.hasOwnProperty("Phone Number")
+          ? <ActionButton
             title="Call"
             action={() => {
               call(location.location["Phone Number"]);
             }}
           />
+          : <View/>
+          }
 
           <ActionButton
             title="Visit Website"
