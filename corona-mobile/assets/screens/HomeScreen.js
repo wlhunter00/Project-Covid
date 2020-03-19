@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }) {
       <PageButton
         title="Frequently Asked Questions"
         navigationName="Faq"
-        icon={<FontAwesome name="question" size={25} />}
+        icon={<FontAwesome name="question" size={25} style={{marginRight: 9}}/>}
         description="Find answers to questions about the app."
         navigation={navigation}
       />
