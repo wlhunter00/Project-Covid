@@ -10,6 +10,7 @@ import {connect} from "react-redux";
 
 class Home extends React.Component {
     
+    
     render() {
         
         return (

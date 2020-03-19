@@ -9,8 +9,8 @@ export default function SymptomCheck({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Symptom Check</Text>
-      <Diagnosis />
       <Symptoms />
+      <Diagnosis />
     </View>
   );
 }

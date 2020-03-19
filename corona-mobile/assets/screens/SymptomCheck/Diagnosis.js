@@ -5,7 +5,7 @@ import { styles } from "./../../styles/styles.js";
 export function Diagnosis() {
   return (
     <View>
-      <Text> Diagnosis Element</Text>
+      {/* <Text> Diagnosis Element</Text> */}
     </View>
   );
 }

@@ -33,6 +33,10 @@ body {
   color:red;
 }
 
+.message--success{
+  color:green;
+}
+
 /* buttons */
 
 .button{
@@ -90,6 +94,10 @@ body {
   width:100%;
 }
 
+.text--big{
+  height: 150px;
+}
+
 
 /* utilities */
 .show{
@@ -99,6 +107,8 @@ body {
 .hide{
   display: none;
 }
+
+
 
 
 
