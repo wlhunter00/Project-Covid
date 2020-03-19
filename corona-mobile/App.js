@@ -40,7 +40,7 @@ const Tab = createBottomTabNavigator();
 
 const globalScreenOptions = {
   headerStyle: {
-    backgroundColor: defaults.primarycolor 
+    backgroundColor: defaults.primarycolor
   },
   headerTintColor: "#fff",
   headerTitleStyle: {
@@ -70,9 +70,9 @@ const HomeStack = () => (
       ...globalScreenOptions
     })}
   >
-    <Stack.Screen 
-      name="Home" 
-      component={HomeScreen} 
+    <Stack.Screen
+      name="Home"
+      component={HomeScreen}
       options={{
         title: "Project Covid"
       }}
@@ -150,7 +150,10 @@ const HomeStack = () => (
 );
 
 const TrackerStack = () => (
-  <Stack.Navigator initialRouteName="LiveTracker" screenOptions={globalScreenOptions}>
+  <Stack.Navigator
+    initialRouteName="LiveTracker"
+    screenOptions={globalScreenOptions}
+  >
     <Stack.Screen
       name="LiveTracker"
       component={TrackerStatus}
@@ -209,7 +212,7 @@ export default function App() {
         })}
         tabBarOptions={{
           activeTintColor: defaults.primarycolor,
-          style: {paddingVertical: defaults.padding}
+          style: { paddingVertical: defaults.padding }
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
@@ -220,4 +223,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-

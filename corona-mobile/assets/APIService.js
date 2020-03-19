@@ -1,8 +1,8 @@
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
-import axios from 'axios';
+// import axios from 'axios';
 
-const axios = require("axios").default
+const axios = require("axios").default;
 
 export async function registerForPushNotifications() {
   const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -16,12 +16,10 @@ export async function registerForPushNotifications() {
 
   // post to server
   const body = { token };
-
-  
 }
 
 export async function sendSymptoms(symptoms) {
-  return (
-    await axios.post('${this.root}/backend/routes/symptomCheck', { symptoms })
-  ).data;
+  return (await axios.post("${this.root}/backend/routes/symptomCheck", {
+    symptoms
+  })).data;
 }
