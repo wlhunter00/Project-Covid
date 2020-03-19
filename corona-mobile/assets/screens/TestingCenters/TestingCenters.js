@@ -28,7 +28,7 @@ const contactLoading = (
 const contactNotFound = (
   <View>
 
-    <Text style={[styles.primaryTextBold, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryTextBold, {padding: defaults.padding, paddingTop: 0}]}>
       We're currently unable to identify your location
     </Text>
 
