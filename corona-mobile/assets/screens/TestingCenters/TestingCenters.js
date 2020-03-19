@@ -27,28 +27,32 @@ const contactLoading = (
 
 const contactNotFound = (
   <View>
-
-    <Text style={[styles.primaryTextBold, {padding: defaults.padding, paddingTop: 0}]}>
+    <Text
+      style={[
+        styles.primaryTextBold,
+        { padding: defaults.padding, paddingTop: 0 }
+      ]}
+    >
       We're currently unable to identify your location
     </Text>
 
-    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
       - Contact your health provider or a nearby urgent care center
     </Text>
 
-    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
       - Use a telemedicine service - Teladoc
     </Text>
 
-    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
       - Call 9-1-1 if a medical emergency
     </Text>
 
-    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
       - Contact state/county health department (211 if no number is listed)
     </Text>
 
-    <Text style={[styles.primaryTextBold, {padding: defaults.padding}]}>
+    <Text style={[styles.primaryTextBold, { padding: defaults.padding }]}>
       Please enable location services to find state contact information
     </Text>
 
@@ -71,27 +75,24 @@ const contactNotFound = (
   </View>
 );
 
-
-
 const call = tel => {
   Linking.openURL("tel:" + tel);
 };
 
 function ContactInfo(location) {
-
   const navigation = useNavigation();
 
   return (
     <View>
       <View>
-        <View style={{padding: defaults.padding, paddingTop: 0}}>
+        <View style={{ padding: defaults.padding, paddingTop: 0 }}>
           <Text style={styles.primaryText}>
             <Text style={styles.primaryTextBold}>Your current location: </Text>
             <Text>{location.location["State"]}</Text>
           </Text>
         </View>
 
-        <View style={{padding: defaults.padding}}>
+        <View style={{ padding: defaults.padding }}>
           <Text style={styles.primaryText}>
             <Text style={styles.primaryTextBold}>Contact: </Text>
             <Text>{location.location["State Department"]}</Text>
@@ -100,7 +101,7 @@ function ContactInfo(location) {
 
         <View style={styles.containerRowCenter}>
           <ActionButton
-            title="Call Department"
+            title="Call"
             action={() => {
               call(location.location["Phone Number"]);
             }}
@@ -132,7 +133,6 @@ export default class TestingCenters extends React.Component {
 
   componentDidMount() {
     const locResp = getLocationAsync().then(locResp => {
-      
       fetch("https://projectcovid-backend.herokuapp.com/centers/", {
         method: "POST",
         headers: {
@@ -145,8 +145,8 @@ export default class TestingCenters extends React.Component {
         .then(responseJson => {
           console.log(responseJson);
 
-          if(responseJson.hasOwnProperty("message")){
-            console.log('err');
+          if (responseJson.hasOwnProperty("message")) {
+            console.log("err");
             this.setState({ isLoaded: true, contact: contactNotFound });
           } else {
             this.setState({ isLoaded: true, location: responseJson });
@@ -236,4 +236,3 @@ export default class TestingCenters extends React.Component {
     );
   }
 }
-

@@ -202,12 +202,10 @@ export default function App() {
                   color={color}
                 />
               ),
-              "Symptom Check": (
+              Symptoms: (
                 <FontAwesome name="stethoscope" size={size} color={color} />
               ),
-              "Testing Centers": (
-                <FontAwesome name="building" size={size} color={color} />
-              )
+              Testing: <FontAwesome name="building" size={size} color={color} />
             }[route.name])
         })}
         tabBarOptions={{
@@ -217,8 +215,8 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Live Tracker" component={TrackerStack} />
-        <Tab.Screen name="Symptom Check" component={SymptomStack} />
-        <Tab.Screen name="Testing Centers" component={TestingCentersStack} />
+        <Tab.Screen name="Symptoms" component={SymptomStack} />
+        <Tab.Screen name="Testing" component={TestingCentersStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );
