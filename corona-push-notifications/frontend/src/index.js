@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Home from './components/index';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
+import Navigation from "./components/utilities/navigation";
 
 import reducer from './state/reducers.js';
 
@@ -13,6 +14,6 @@ let store = createStore(reducer);
 
 ReactDOM.render(
 	<Provider store={store} >
-    	<Home />
+    	<Navigation />
     </Provider>,
     document.getElementById('root'));

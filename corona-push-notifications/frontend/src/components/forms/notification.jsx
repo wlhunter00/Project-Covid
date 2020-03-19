@@ -2,28 +2,21 @@ import React from "react";
 import Button from "../elements/button";
 import {connect} from "react-redux";
 import {emailAddressCheck} from "../utilities/methods";
+import axios from "axios";
+import {API_ROUTE} from "../utilities/api";
 
-class Signin extends React.Component {
+class Notification extends React.Component {
     constructor(props){
         super(props);
-        this.state = {emailInputed:false, emailErrorMessage:"", passCode:"", email:""}
+        this.state = {title:"", body:"", successMessage:""};
         this.handleChange = this.handleChange.bind(this);
         this.sendNotification = this.sendNotification.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        
     }   
 
-    componentDidMount(){
-        
-    }
-
-    handleSubmit(e){
-        e.preventDefault();
-
-    }
-
     handleChange(e){
-        if(this.state.emailErrorMessage){
-            this.setState({emailErrorMessage:""});
+        if(this.state.successMessage){
+            this.setState({successMessage:""});
         }
         let inputDataName = e.target.dataset.name;
         let inputData = e.target.value;
@@ -31,28 +24,25 @@ class Signin extends React.Component {
     }
 
     sendNotification(e){
-        let emailValidationResponse = emailAddressCheck(this.state.email.toLowerCase());
-        if(emailValidationResponse.isValid){
-            ( async () => {
-                try{
-                    let response = await axios.post(`${API_ROUTE}/search`,{
-                        email:this.state.email.toLowerCase()
-                    });
-                    if(!response.data.success){
-                        alert("We could not authenticate you")
-                        return false;
-                    }
-                    alert("please check your email address for your unique passcode")
-                    
-                } catch(err){
+        e.preventDefault();
+        if(!this.props.authenticated){
+            alert("You have not been authenticated");
+        }
+        (async () => {
+            try{
+                let response = await axios.post(`${API_ROUTE}/notifications/notification/`,{
+                    title: this.state.title,
+                    body: this.state.body,
+                });
+                if(!response.data.success){
+                    this.setState({failureMessage:response.data.message})
                     return false;
                 }
-            })();
-            this.setState({emailInputed:true});
-            return true;
-        }
-        this.setState({emailErrorMessage:emailValidationResponse.message});
-        return false;
+                this.setState({title:"", body:"", successMessage:response.data.message});
+            } catch(err){
+                return false;
+            }
+        })();
     }
 
     render() {
@@ -61,18 +51,21 @@ class Signin extends React.Component {
                 <section className="section">
                     <form onSubmit={this.sendNotification} className="form box-shadow">
                         <div>
+                            <p className="bold"> Push notification form </p>
+                            <p className="message message--success"> {this.state.successMessage} </p>
+                            <p className="message message--error"> {this.state.failureMessage} </p>
+                        </div>
+                        <div>
                             <label>
                                 <p> Notification title </p>
-                                <input onChange={this.handleChange} data-name="title" className="text-input" type="email" value={this.state.email} />
+                                <input onChange={this.handleChange} data-name="title" className="text-input" type="text" value={this.state.title} />
                             </label>
+                        </div>
+                        <div>
                             <label>
-                                <p> Notification content </p>
-                                <textarea onChange={this.handleChange} data-name="content" className="text-input" type="text" value={this.state.content} >
+                                <p> Notification body </p>
+                                <textarea onChange={this.handleChange} data-name="body" className="text-input text--big" type="text" value={this.state.body} >
                                 </textarea>
-                            </label>
-                            <label>
-                                <p> Notification image </p>
-                                <input onChange={this.handleChange} data-name="image" className="text-input" type="file"  />
                             </label>
                             <Button type="submit" className="button"> Submit </Button> 
                         </div>
@@ -85,7 +78,8 @@ class Signin extends React.Component {
 
 function mapStateToProps(state){
     return {
+        authenticated: state.auth
     }
 }
 
-export default connect(mapStateToProps)(Signin);
+export default connect(mapStateToProps)(Notification);
