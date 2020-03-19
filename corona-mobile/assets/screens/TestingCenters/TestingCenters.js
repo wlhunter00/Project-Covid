@@ -27,7 +27,32 @@ const contactLoading = (
 
 const contactNotFound = (
   <View>
-    <PrimaryTextBold
+
+    <Text style={[styles.primaryTextBold, {padding: defaults.padding, paddingTop: 0}]}>
+      We're currently unable to identify your location
+    </Text>
+
+    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+      - Contact your health provider or a nearby urgent care center
+    </Text>
+
+    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+      - Use a telemedicine service - Teladoc
+    </Text>
+
+    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+      - Call 9-1-1 if a medical emergency
+    </Text>
+
+    <Text style={[styles.primaryText, {padding: defaults.padding}]}>
+      - Contact state/county health department (211 if no number is listed)
+    </Text>
+
+    <Text style={[styles.primaryTextBold, {padding: defaults.padding}]}>
+      Please enable location services to find state contact information
+    </Text>
+
+    {/* <PrimaryTextBold
       text={"We're currently unable to identify your location"}
     />
     <PrimaryText
@@ -42,7 +67,7 @@ const contactNotFound = (
     />
     <PrimaryTextBold
       text={"Please enable location services to find state contact information"}
-    />
+    /> */}
   </View>
 );
 
@@ -118,9 +143,17 @@ export default class TestingCenters extends React.Component {
       })
         .then(response => response.json())
         .then(responseJson => {
-          this.setState({ isLoaded: true, location: responseJson });
-          const contact = <ContactInfo location={this.state.location} />;
-          this.setState({ contact: contact });
+          console.log(responseJson);
+
+          if(responseJson.hasOwnProperty("message")){
+            console.log('err');
+            this.setState({ isLoaded: true, contact: contactNotFound });
+          } else {
+            this.setState({ isLoaded: true, location: responseJson });
+            const contact = <ContactInfo location={this.state.location} />;
+            this.setState({ contact: contact });
+          }
+
           console.log(this.state.location);
         })
         .catch(error => {

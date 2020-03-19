@@ -1,8 +1,8 @@
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
-// import axios from 'axios';
+import axios from "axios";
 
-const axios = require("axios").default;
+// const axios = require("axios").default
 
 export async function registerForPushNotifications() {
   const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
