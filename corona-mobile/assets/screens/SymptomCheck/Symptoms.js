@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { styles } from "./../../styles/styles.js";
-import { SurveyQuestion } from './SurveyQuestion';
+import { MultipleChoiceQuestion, ShortAnswerQuestion } from './SurveyQuestion';
 
 export function Symptoms() {
   const [response, changeResponse] = React.useState("");
@@ -12,33 +12,38 @@ export function Symptoms() {
     changeQuestionNumber(questionNumber + 1);
   }
 
+  console.log(response);
   return (
     <ScrollView>
       {questionNumber == 1 && (
-        <SurveyQuestion
-          prompt="Have you been in contact with anyone with symptoms?"
-          answers={["Yes", "No"]}
+        <ShortAnswerQuestion
+          prompt="Could you describe your overall wellness over the past few days? Do you have any unusual symptoms or feel unwell?"
           currResponse={response}
           saveAnswer={advanceQuestion} />
           
       )}
       {questionNumber == 2 && (
-        <SurveyQuestion
-          prompt="Do you have a cough?"
-          answers={["Yes", "No"]}
+        <ShortAnswerQuestion
+          prompt="Could you please summarize any travel you have done recently?"
           currResponse={response}
           saveAnswer={advanceQuestion} />
       )
       }
       {questionNumber == 3 && (
-        <SurveyQuestion
-          prompt="How's your temperature?"
-          answers={["Normal (97°F to 99°F)", "High (99°F or higher)"]}
+        <ShortAnswerQuestion
+          prompt= "Have you had personal interactions with individuals who have traveled recently?"
           currResponse={response}
           saveAnswer={advanceQuestion} />
       )
       }
-      {questionNumber > 3 && (
+      {questionNumber == 4 && (
+        <ShortAnswerQuestion
+          prompt="Have you been in any regions with high incidence of COVID-19? To learn more about current COVID-19 incidence, please view the heat map."
+          currResponse={response}
+          saveAnswer={advanceQuestion} />
+      )
+      }
+      {questionNumber > 4 && (
         <Text>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text>
       )
       }

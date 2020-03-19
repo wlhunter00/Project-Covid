@@ -3,28 +3,14 @@ import { Text, View, TouchableHighlight, TouchableOpacity, Image } from "react-n
 import { SurveyButton } from './../../components/Buttons';
 import { styles } from "../../styles/styles";
 
-export function SurveyQuestion({ prompt, answers, currResponse, saveAnswer }) {
+export function MultipleChoiceQuestion({ prompt, answers, currResponse, saveAnswer }) {
     const [currAnswer, changeAnswer] = React.useState("");
-    // const setAnswer = React.useCallback(() => {
-    //     changeAnswer("hi");
-    // }, [currAnswer]);
     const setAnswer = React.useCallback(
         (answer) => (event) => {
-            // console.log("hey" + answer);
-            // changeAnswer(currAnswer => answer);
-            // console.log("hey2" + currAnswer);
             saveAnswer(currResponse + answer + " " );
         },
         []
     );
-    // const setAnswer = answer => {
-    //     changeAnswer(currAnswer => answer);
-    // }
-
-    // const keepAnswer = React.useCallback(() => {
-    //     saveAnswer(currResponse => currResponse + " " + currAnswer);
-    // }, [currResponse]);
-    // console.log(currAnswer);
     return (
         <View>
             <View style={{ marginLeft: 10 }}>
@@ -34,8 +20,41 @@ export function SurveyQuestion({ prompt, answers, currResponse, saveAnswer }) {
                         return <SurveyButton title={answer} action={setAnswer(answer)}/>
                     })}
                 </View>
-                {/* <ActionButton title="Continue" action={saveAnswer(currResponse + " " + currAnswer)} /> */}
-                {/* <ActionButton title="Continue" action={keepAnswer} /> */}
+            </View>
+        </View>
+    );
+}
+
+export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
+    const [currAnswer, changeAnswer] = React.useState("");
+
+    const setAnswer = React.useCallback(
+         (event) => {
+            {event.target &&
+                changeAnswer(currAnswer => event.target.value);
+                event.persist();
+            }
+        },
+        []
+    );
+
+    const recordAnswer = React.useCallback(
+        (answer) => (event) => {
+            saveAnswer(currResponse + answer + " ");
+        },
+        []
+    );
+    return (
+        <View>
+            <View style={{ marginLeft: 10 }}>
+                <Text style={styles.navButtonTitle}>{prompt}</Text>
+                <View>
+                    <input
+                        type="text"
+                        onChange={setAnswer}
+                    />
+                </View>
+                <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
             </View>
         </View>
     );
