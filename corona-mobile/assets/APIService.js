@@ -14,3 +14,9 @@ export async function registerForPushNotifications() {
   // post to server
   const body = { token };
 }
+
+export async function sendSymptoms(symptoms) {
+  return (
+    await axios.post('${this.root}/backend/routes/symptomCheck', { symptoms })
+  ).data;
+}

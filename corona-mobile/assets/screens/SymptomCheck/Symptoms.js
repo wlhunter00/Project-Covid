@@ -12,7 +12,6 @@ export function Symptoms() {
     changeQuestionNumber(questionNumber + 1);
   }
 
-  console.log(response);
   return (
     <ScrollView>
       {questionNumber == 1 && (
