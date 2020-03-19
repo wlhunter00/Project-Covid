@@ -40,7 +40,7 @@ const Tab = createBottomTabNavigator();
 
 const globalScreenOptions = {
   headerStyle: {
-    backgroundColor: defaults.primarycolor //"#3d9141"
+    backgroundColor: defaults.primarycolor 
   },
   headerTintColor: "#fff",
   headerTitleStyle: {
@@ -191,7 +191,8 @@ export default function App() {
             }[route.name])
         })}
         tabBarOptions={{
-          activeTintColor: defaults.primarycolor //"#3d9141"
+          activeTintColor: defaults.primarycolor,
+          style: {paddingVertical: defaults.padding}
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
@@ -203,11 +204,3 @@ export default function App() {
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center"
-//   }
-// });
