@@ -1,21 +1,25 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View, TouchableOpacity, Linking } from "react-native";
-import { ActionButton } from '../../components/Buttons';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Linking
+} from "react-native";
+import { ActionButton } from "../../Components/Buttons";
 import { styles } from "../../styles/styles";
-import { WebView } from 'react-native-webview';
+import { WebView } from "react-native-webview";
 
 export default function Diagnosis({ route, navigation }) {
-
-  const openUrl = ()=>{
-    Linking.canOpenURL(route.params.url).then(
-      canOpen => {
-        if(canOpen){
-          Linking.openURL(route.params.url);
-        }
+  const openUrl = () => {
+    Linking.canOpenURL(route.params.url).then(canOpen => {
+      if (canOpen) {
+        Linking.openURL(route.params.url);
       }
-    )};
+    });
+  };
 
   return (
     <View style={styles.containerFull}>

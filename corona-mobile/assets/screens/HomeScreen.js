@@ -10,7 +10,11 @@ import {
 } from "react-native";
 import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { styles } from "../styles/styles";
+<<<<<<< HEAD
 import { PageButton } from "../components/Buttons";
+=======
+import { PageButton } from "../Components/Buttons";
+>>>>>>> 1928dbac271342a9c123b9a77438c492fdb3c788
 
 export default function HomeScreen({ navigation }) {
   return (

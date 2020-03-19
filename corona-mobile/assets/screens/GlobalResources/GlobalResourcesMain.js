@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import { PageButton } from './../../components/Buttons';
+import { PageButton } from "./../../Components/Buttons";
 import { styles } from "./../../styles/styles";
 import {
   Entypo,
@@ -13,14 +13,13 @@ export default class GlobalResourcesMain extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-
         <PageButton
           title="Informational Toolkit"
           navigationName="InformationalToolkit"
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        />  
+        />
 
         <PageButton
           title="Preventative Practices"
@@ -28,7 +27,7 @@ export default class GlobalResourcesMain extends Component {
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        /> 
+        />
 
         <PageButton
           title="Myth Busting"
@@ -36,7 +35,7 @@ export default class GlobalResourcesMain extends Component {
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        /> 
+        />
 
         <PageButton
           title="How to Help"
@@ -44,7 +43,7 @@ export default class GlobalResourcesMain extends Component {
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        /> 
+        />
 
         <PageButton
           title="Student Resources"
@@ -52,7 +51,7 @@ export default class GlobalResourcesMain extends Component {
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        /> 
+        />
 
         <PageButton
           title="Crisis Contact"
@@ -60,9 +59,8 @@ export default class GlobalResourcesMain extends Component {
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
-        /> 
+        />
       </ScrollView>
     );
   }
 }
-
