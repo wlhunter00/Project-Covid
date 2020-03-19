@@ -13,11 +13,11 @@ import {
 import { getLocationAsync } from "../../Utils";
 import { ScrollView } from "react-native-gesture-handler";
 
-import { InfoView } from "./../../Components/InfoView";
-import { ActionButton } from "./../../Components/Buttons";
+import { InfoView } from "./../../components/InfoView";
+import { ActionButton } from "./../../components/Buttons";
 import { styles, defaults } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
-import { PrimaryText, PrimaryTextBold } from "./../../Components/Texts";
+import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
 
 const contactLoading = (
   <View style={{ height: 100, justifyContent: "center" }}>
@@ -51,7 +51,7 @@ const contactNotFound = (
   <Text style={{color: defaults.primarycolor}}>- Contact your health provider or a nearby urgent care center</Text>
   <Text style={{color: defaults.primarycolor}}>- Use a telemedicine service - Teladoc</Text>
   <Text style={{color: defaults.primarycolor}}>- Call 9-1-1 if a medical emergency</Text>
-  <Text style={{color: defaults.primarycolor}}>- Contact state/county health department (211 if no number is listed)</Text>  
+  <Text style={{color: defaults.primarycolor}}>- Contact state/county health department (211 if no number is listed)</Text>
   <Text style={styles.boldPrimary}>Please enable location services to find state contact information</Text>
 </View>; */
 }

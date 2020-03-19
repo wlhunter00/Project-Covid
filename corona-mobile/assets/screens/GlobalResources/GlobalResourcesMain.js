@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import { PageButton } from "./../../Components/Buttons";
+import { PageButton } from "./../../components/Buttons";
 import { styles } from "./../../styles/styles";
 import {
   Entypo,

@@ -8,13 +8,9 @@ import {
   TouchableHighlight,
   ScrollView
 } from "react-native";
-import {
-  Entypo,
-  FontAwesome,
-  MaterialCommunityIcons
-} from "@expo/vector-icons";
+import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { styles } from "../styles/styles";
-import { PageButton } from "../Components/Buttons";
+import { PageButton } from "../components/Buttons";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -38,6 +34,27 @@ export default function HomeScreen({ navigation }) {
         navigationName="TwitterFeed"
         icon={<Entypo name="twitter" size={25} />}
         description="View a curated feed from reliable sources."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Sources"
+        navigationName="Sources"
+        icon={<FontAwesome name="book" size={25} />}
+        description="Learn where this information comes from."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Frequently Asked Questions"
+        navigationName="Faq"
+        icon={<FontAwesome name="question" size={25} />}
+        description="Find answers to questions about the app."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Meet the Team"
+        navigationName="Credits"
+        icon={<MaterialIcons name="people" size={25} />}
+        description="See who created this app."
         navigation={navigation}
       />
     </ScrollView>

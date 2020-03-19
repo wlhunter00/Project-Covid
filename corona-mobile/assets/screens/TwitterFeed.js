@@ -13,7 +13,8 @@ export default function TwitterFeed({ route, navigation }) {
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          uri: "https://twitter.com/projectcovid?ref_src=twsrc%5Etfw"
+          uri:
+            "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw"
         }}
         style={styles.webView}
       />
