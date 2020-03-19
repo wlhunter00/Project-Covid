@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Linking
 } from "react-native";
-import { ActionButton } from "../../Components/Buttons";
+import { ActionButton } from "../../components/Buttons";
 import { styles } from "../../styles/styles";
 import { WebView } from "react-native-webview";
 
