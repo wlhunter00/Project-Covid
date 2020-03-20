@@ -26,7 +26,6 @@ export const styles = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: "#e1e8ee",
-    marginVertical: 10
   },
   title: {
     fontSize: 20,
