@@ -44,8 +44,8 @@ export function MultipleChoiceQuestion({
   );
 }
 
-export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
-  const [currAnswer, changeAnswer] = React.useState("");
+export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer, defaultText, goBack }) {
+    const [currAnswer, changeAnswer] = React.useState("");
 
   const setAnswer = React.useCallback(event => {
     {
@@ -54,18 +54,30 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
     }
   }, []);
 
-  const recordAnswer = React.useCallback(
-    answer => event => {
-      saveAnswer(currResponse + answer + " ");
-    },
-    []
-  );
-  return (
-    <View>
-      <View>
-        <Text style={styles.surveyQuestionText}>{prompt}</Text>
+    const recordAnswer = React.useCallback(
+        (answer) => (event) => {
+            saveAnswer(answer);
+        },
+        []
+    );
+
+    const returnAnswer = React.useCallback(
+        (answer) => (event) => {
+            goBack(answer);
+        },
+        []
+    );
+
+    return (
         <View>
-          <ResponseTextBox defaultText="" changeFunction={setAnswer} />
+            <View>
+                <Text style={styles.surveyQuestionText}>{prompt}</Text>
+                <View>
+                    <ResponseTextBox defaultText={defaultText} changeFunction={setAnswer} />
+                </View>
+                <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
+                <SurveyButton title="Go Back" action={returnAnswer(currAnswer)} />
+            </View>
         </View>
         <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
       </View>
