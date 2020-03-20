@@ -15,7 +15,9 @@ export default function SymptomCheck({ navigation }) {
         changeBackendResponse={changeBackendResponse}
         changeSurveyDone={changeSurveyDone}
       />
-      {surveyDone && <Diagnosis response={backendResponse} />}
+      {surveyDone && (
+        <Diagnosis response={backendResponse} navigation={navigation} />
+      )}
     </View>
   );
 }
