@@ -17,7 +17,6 @@ function getSympInfo(symptom) {
 router.post("/", async (req, res) => {
   var symptoms = req.body.symptoms;
   var nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
-  return res.send(nlpScript);
   nlpScript.stdout.on("data", function(data) {
     var pythonReturn = data.toString();
     var responseList = [];
