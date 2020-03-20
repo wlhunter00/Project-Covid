@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const spawn = require("child_process").spawn;
 const symptomData = require("./../data/Symptom-Percentages.json");
-const nlpScriptRoute =
-  __dirname.slice(0, __dirname.lastIndexOf("\\")) + "/scripts/testScript.py";
-
+const nlpScriptRoute = __dirname + "/scripts/testScript.py";
 function getSympInfo(symptom) {
   for (const prop in symptomData) {
     if (symptomData[prop].Symptom === symptom) {
