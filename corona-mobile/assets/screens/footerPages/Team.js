@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
-import {TeamMemberBox, CompactTeamMemberBox } from "../../components/TeamBox"
-import { styles } from "../../styles/styles"
+import { TeamMemberBox, CompactTeamMemberBox } from "../../components/TeamBox";
+import { styles } from "../../styles/styles";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg")
