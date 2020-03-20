@@ -32,7 +32,7 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
     const setAnswer = React.useCallback(
          (event) => {
             {event.target &&
-                changeAnswer(currAnswer => event.target.value);
+                changeAnswer(currAnswer => event.nativeEvent.text);
                 event.persist();
             }
         },
