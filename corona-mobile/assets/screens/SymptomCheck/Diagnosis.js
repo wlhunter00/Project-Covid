@@ -6,6 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { styles } from "./../../styles/styles.js";
 import { linkButton } from '../../components/Buttons';
 import { InfoView } from './../../components/InfoView';
+import { SurveyButton } from '../../components/Buttons';
+
 
 var symptoms = [];
 
