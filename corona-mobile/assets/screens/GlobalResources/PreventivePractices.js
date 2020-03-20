@@ -96,8 +96,8 @@ export default class PreventativePractices extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-          {this.state.list.map(item => {
-            return (<ModalImage item={item}/>);
+          {this.state.list.map((item) => {
+            return (<ModalImage item={item} key={item.id}/>);
           })}
         </ScrollView>
       </View>
