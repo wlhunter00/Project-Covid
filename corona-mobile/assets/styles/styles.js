@@ -14,22 +14,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: defaults.backgroundcolor
   },
-  containerColumnCenter: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center"
-  },
   containerRowCenter: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "center"
-  },
-  containerRowCenterShortWidth: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    width: "80%"
   },
   containerFull: {
     width: "100%",
@@ -45,18 +33,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10
   },
-  boldPrimary: {
-    color: defaults.primarycolor,
-    fontWeight: "bold"
-  },
-  primaryText: {
-    color: defaults.primarycolor
-  },
-  primaryTextBold: {
-    color: defaults.primarycolor,
-    fontWeight: "bold"
-  },
-
   navButton: {
     flexDirection: "row",
     alignItems: "center",
@@ -78,11 +54,11 @@ export const styles = StyleSheet.create({
   },
   actionButton: {
     backgroundColor: defaults.primarycolor,
-    borderRadius: defaults.borderRadius,
-    padding: 10,
+    borderRadius: 25,
+    padding: 15,
     paddingBottom: 0,
     width: "45%",
-    height: 40,
+    height: 50,
     margin: "1.75%"
   },
   actionButtonTitle: {
@@ -90,26 +66,6 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     textAlign: "center"
-  },
-  infoViewOuterView: {
-    width: "90%",
-    backgroundColor: defaults.tertiarycolor,
-    borderRadius: defaults.borderRadius,
-    padding: 0,
-    margin: 10
-  },
-  infoViewTitleView: {
-    width: "100%",
-    backgroundColor: "#fff",
-    borderRadius: defaults.borderRadius,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10
-  },
-  infoViewBodyView: {
-    margin: 10,
-    flex: 1
   },
   surveyButton: {
     backgroundColor: defaults.primarycolor,
@@ -119,6 +75,7 @@ export const styles = StyleSheet.create({
     width: "85%",
     height: 50,
     margin: "1.75%",
+    marginTop: 30,
     alignSelf: "center"
   },
   surveyButtonTitle: {
@@ -127,22 +84,29 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
+  surveyQuestionText: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 15,
+    marginLeft: 10,
+    marginRight: 10
+  },
   textBox: {
     borderWidth: 1,
     borderRadius: 2,
     borderColor: "#ddd",
-    borderBottomWidth: 0,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
+    borderBottomWidth: 1,
+    height: 40,
     shadowRadius: 2,
     elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 15,
+    padding: 10
   },
   linkButtonTitle: {
     color: defaults.primarycolor,
     fontSize: 16
-  }
+  },
 });
