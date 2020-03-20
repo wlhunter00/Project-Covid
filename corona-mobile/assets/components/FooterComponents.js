@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, Text } from "react-native"
+import { StyleSheet, View, Image, Text, LayoutAnimation } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { defaults, styles } from "../styles/styles"
 import { SimpleButton } from './Buttons';
@@ -8,7 +8,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 export function TeamMemberBox({ image, profile }) {
     const { name, position, schoolAndYear, bio } = profile;
     const [bioExpanded, setBioExpanded] = useState(false);
-
+    const toggleExpanded = () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+        setBioExpanded(!bioExpanded)
+    }
     return (
         <View style={localStyles.container}>
             <View style={{ flexDirection: "row", marginBottom: 10}}>
@@ -25,7 +28,7 @@ export function TeamMemberBox({ image, profile }) {
             <View style={{ flexDirection: "row", marginTop: 6 }}>
                 <View style={{ flex: 1 }} />
                 <View style={{backgroundColor: "white", paddingHorizontal: 3}}>
-                    <SimpleButton title={bioExpanded ? "Show less" : "Show more"} action={() => setBioExpanded(!bioExpanded)} />
+                    <SimpleButton title={bioExpanded ? "Show less" : "Show more"} action={toggleExpanded} />
                 </View>
             </View>
         </View>
@@ -45,9 +48,13 @@ export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
 export function FAQItem({ question, answer }) {
     const [expanded, setExpanded] = useState(false);
     const color = expanded ? "black" : "grey"
+    const toggleExpanded = () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+        setExpanded(!expanded)
+    }
     return [
         <View style={{ margin: 15 }}>
-            <TouchableOpacity onPress={() => setExpanded(!expanded)}>
+            <TouchableOpacity onPress={toggleExpanded}>
                 <View style={{ flexDirection: 'row', alignItems: "center" }}>
                     <Text style={[localStyles.questionText, { color: color }]}>{question}</Text>
                     <View style={{ flex: 1 }} />
