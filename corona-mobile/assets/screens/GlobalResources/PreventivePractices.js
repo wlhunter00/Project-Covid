@@ -223,7 +223,7 @@ class ModalImage extends React.Component {
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
     const bulletPoints = item.body.map(text => (
-      <Text style={{ marginBottom: 5 }}>{text}</Text>
+      <Text style={{ marginBottom: 5, fontSize: 16 }}>{text}</Text>
     ));
     return <View style={styles.content}>{bulletPoints}</View>;
   };
