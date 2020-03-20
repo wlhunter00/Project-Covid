@@ -4,7 +4,7 @@ export const defaults = {
   primarycolor: "#43a047",
   secondarycolor: "#a5d6a7",
   tertiarycolor: "#dcedc8",
-  backgroundcolor: "#e2e2e2",
+  backgroundcolor: "#d1dbd0",
   borderRadius: 20,
   padding: 5
 };
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   },
   actionButtonTitle: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center"
   },
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
   },
   surveyButtonTitle: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center"
   },
@@ -114,11 +114,13 @@ export const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   primaryText: {
-    color: defaults.primarycolor
+    color: defaults.primarycolor,
+    fontSize: 16
   },
   primaryTextBold: {
     color: defaults.primarycolor,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: 16
   },
   infoViewOuterView: {
     width: "90%",
@@ -142,7 +144,7 @@ export const styles = StyleSheet.create({
   },
   subtitle: {
     color: "black",
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,

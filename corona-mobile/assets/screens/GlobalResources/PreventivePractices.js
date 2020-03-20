@@ -105,74 +105,7 @@ export default class PreventativePractices extends React.Component {
   }
 }
 
-// class ModalImage extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       isVisible: false
-//     }
-//   }
 
-//   _head = item => {
-//     const dimensions = Dimensions.get("window");
-//     const imageHeight = Math.round((dimensions.width * 3) / 4);
-//     const imageWidth = dimensions.width;
-//     return (
-//       <View style={styles.header}>
-//         <ImageBackground
-//           source={item.image}
-//           style={[
-//             {
-//               width: imageWidth * 0.9,
-//               height: imageHeight
-//             },
-//             styles.headerImage
-//           ]}
-//         >
-//           <Text
-//             numberOfLines={1}
-//             adjustsFontSizeToFit={true}
-//             style={[{ top: imageHeight - 37 }, styles.headerText]}
-//           >
-//             {item.title}
-//           </Text>
-//         </ImageBackground>
-//       </View>
-//     );
-//   };
-
-//   _body = item => {
-//     const dimensions = Dimensions.get("window");
-//     const imageWidth = dimensions.width;
-//     const bulletPoints = item.body.map(text => (
-//       <Text style={{ marginBottom: 5 }}>{text}</Text>
-//     ));
-//     return <View style={styles.content}>{bulletPoints}</View>;
-//   };
-
-//   ToggleModalOff = () => {
-//     this.setState({isVisible: false})
-//   }
-
-//   ToggleModalOn = () => {
-//     this.setState({isVisible: true})
-//   }
-
-//   render(){
-//     return(
-//       <View>
-//         <TouchableWithoutFeedback onPress={this.ToggleModalOn}>
-//           {this._head(this.props.item)}
-//         </TouchableWithoutFeedback>
-//         <Modal isVisible={this.state.isVisible} onBackdropPress={this.ToggleModalOff} swipeDirection="down" onSwipeComplete={this.ToggleModalOff}>
-//           <TouchableWithoutFeedback onPress={this.ToggleModalOff}>
-//             {this._body(this.props.item)}
-//           </TouchableWithoutFeedback>
-//         </Modal>
-//       </View>
-//     );
-//   }
-// }
 
 const styles = StyleSheet.create({
   container: {

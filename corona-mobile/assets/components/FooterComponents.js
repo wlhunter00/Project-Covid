@@ -5,13 +5,13 @@ import { SimpleButton } from './Buttons';
 
 export function TeamMemberBox({ image, profile }) {
     const { name, position, schoolAndYear, bio } = profile;
-    const [bioExpanded, setBioExpanded] = useState(false)
+    const [bioExpanded, setBioExpanded] = useState(false);
 
     return (
         <View style={styles.container}>
             <View style={{ flexDirection: "row", marginBottom: 10}}>
                 <View style={{flexShrink: 1}}>
-                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.compactName}>{name}</Text>
                     <Text style={styles.position}>{position}</Text>
                     <Text style={styles.school}>{schoolAndYear}</Text>
                 </View>
@@ -38,6 +38,10 @@ export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
             <Text style={styles.school}>{schoolAndYear}</Text>
         </View>
     );
+}
+
+export function FAQItem({ question, answer }) {
+    const [expanded, setExpanded] = useState(false)
 }
 
 const styles = StyleSheet.create({
