@@ -44,8 +44,14 @@ export function MultipleChoiceQuestion({
   );
 }
 
-export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer, defaultText, goBack }) {
-    const [currAnswer, changeAnswer] = React.useState("");
+export function ShortAnswerQuestion({
+  prompt,
+  currResponse,
+  saveAnswer,
+  defaultText,
+  goBack
+}) {
+  const [currAnswer, changeAnswer] = React.useState("");
 
   const setAnswer = React.useCallback(event => {
     {
@@ -54,31 +60,34 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer, defaultT
     }
   }, []);
 
-    const recordAnswer = React.useCallback(
-        (answer) => (event) => {
-            saveAnswer(answer);
-        },
-        []
-    );
+  const recordAnswer = React.useCallback(
+    answer => event => {
+      saveAnswer(answer);
+    },
+    []
+  );
 
-    const returnAnswer = React.useCallback(
-        (answer) => (event) => {
-            goBack(answer);
-        },
-        []
-    );
+  const returnAnswer = React.useCallback(
+    answer => event => {
+      goBack(answer);
+    },
+    []
+  );
 
-    return (
+  return (
+    <View>
+      <View>
+        <Text style={styles.surveyQuestionText}>{prompt}</Text>
         <View>
-            <View>
-                <Text style={styles.surveyQuestionText}>{prompt}</Text>
-                <View>
-                    <ResponseTextBox defaultText={defaultText} changeFunction={setAnswer} />
-                </View>
-                <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
-                <SurveyButton title="Go Back" action={returnAnswer(currAnswer)} />
-            </View>
+          <ResponseTextBox
+            defaultText={defaultText}
+            changeFunction={setAnswer}
+          />
         </View>
+        <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
+        <SurveyButton title="Go Back" action={returnAnswer(currAnswer)} />
+      </View>
+      <View>
         <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
       </View>
     </View>
