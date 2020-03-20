@@ -4,7 +4,7 @@ export const defaults = {
   primarycolor: "#43a047",
   secondarycolor: "#a5d6a7",
   tertiarycolor: "#dcedc8",
-  backgroundcolor: "#e2e2e2",
+  backgroundcolor: "#d1dbd0",
   borderRadius: 20,
   padding: 5
 };
