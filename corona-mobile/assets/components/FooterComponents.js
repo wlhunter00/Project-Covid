@@ -41,7 +41,12 @@ export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
 }
 
 export function FAQItem({ question, answer }) {
-    const [expanded, setExpanded] = useState(false)
+    const [expanded, setExpanded] = useState(false);
+    return (
+        <View>
+
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -87,6 +92,7 @@ const styles = StyleSheet.create({
     },
     bio: {
         color: "#000",
-        fontSize: 16
+        fontSize: 16,
+        color: "grey",
     }
 });
