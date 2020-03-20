@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { styles } from "./../../styles/styles.js";
-import { linkButton } from '../../components/Buttons';
+import { SurveyNavigationButton } from '../../components/Buttons';
 import { InfoView } from './../../components/InfoView';
 import { SurveyButton } from '../../components/Buttons';
 
@@ -28,10 +28,10 @@ export function Diagnosis({navigation, response}) {
       })}
     </ScrollView>
       <Text>Based on your symptoms, we reccomend utlizing the following knowledge resources:</Text>
-      <linkButton  title = {"Information Toolkit"}  navigation = {navigation} navigationName = {"InformationToolkit"}/>
-      <linkButton  title = {"Preventative Practices"}  navigation = {navigation} navigationName = {"PreventativePractices"}/>
+      <SurveyNavigationButton  title = {"Information Toolkit"}  navigation = {navigation} navigationName = {"InformationToolkit"}/>
+      <SurveyNavigationButton  title = {"Preventative Practices"}  navigation = {navigation} navigationName = {"PreventativePractices"}/>
       <Text>You can also find Local information on Covid-19 data, and find testing centers for help:</Text>
-      <linkButton  title = {"Find Center"}  navigation = {navigation} navigationName = {"findcenter"}/>
+      <SurveyNavigationButton  title = {"Find Center"}  navigation = {navigation} navigationName = {"findcenter"}/>
     </ScrollView>
   );
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text } from "react-native"
 import { defaults } from "../styles/styles"
-import { LinkButton } from './Buttons';
+import { SimpleButton } from './Buttons';
 
 export function TeamMemberBox({ image, profile }) {
     const { name, position, schoolAndYear, bio } = profile;
@@ -23,7 +23,7 @@ export function TeamMemberBox({ image, profile }) {
             <View style={{ flexDirection: "row", marginTop: 6 }}>
                 <View style={{ flex: 1 }} />
                 <View style={{backgroundColor: "white", paddingHorizontal: 3}}>
-                    <LinkButton title={bioExpanded ? "Show less" : "Show more"} action={() => setBioExpanded(!bioExpanded)} />
+                    <SimpleButton title={bioExpanded ? "Show less" : "Show more"} action={() => setBioExpanded(!bioExpanded)} />
                 </View>
             </View>
         </View>
