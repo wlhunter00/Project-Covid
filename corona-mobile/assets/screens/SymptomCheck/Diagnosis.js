@@ -3,6 +3,8 @@ import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { styles } from "./../../styles/styles.js";
 import { InfoView } from './../../components/InfoView';
+import { SurveyButton } from '../../components/Buttons';
+
 
 var symptoms = [];
 
