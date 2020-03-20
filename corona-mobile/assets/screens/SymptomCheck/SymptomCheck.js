@@ -13,7 +13,7 @@ export default function SymptomCheck({ navigation }) {
     <View style={styles.container}>
       <Symptoms changeBackendResponse={changeBackendResponse} changeSurveyDone = {changeSurveyDone}/>
       {surveyDone && 
-        <Diagnosis response={backendResponse}/>
+        <Diagnosis response={backendResponse} navigation ={navigation}/>
       }
     </View>
   );

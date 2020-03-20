@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Text, View, TouchableHighlight, TouchableOpacity, Image } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
 import { styles } from "../styles/styles";
 
@@ -70,6 +72,19 @@ export function SurveyButton({ title, action }) {
     <TouchableOpacity 
       onPress={action}
       style={styles.surveyButton}
+    >
+      <View>
+        <Text style={styles.surveyButtonTitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+export function linkButton({ title, navigation, navigationName }) {
+  return (
+    <TouchableOpacity 
+     onPress={() => {
+      navigation.navigate(navigationName);
+    }}
     >
       <View>
         <Text style={styles.surveyButtonTitle}>{title}</Text>
