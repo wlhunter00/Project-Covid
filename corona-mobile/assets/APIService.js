@@ -19,7 +19,7 @@ export async function registerForPushNotifications() {
 }
 
 export async function sendSymptoms(symptoms) {
-  return (await axios.post("${this.root}/backend/routes/symptomCheck", {
-    symptoms
+  return (await axios.post("./../backend/routes/symptomCheck", {
+    symptoms: symptoms
   })).data;
 }

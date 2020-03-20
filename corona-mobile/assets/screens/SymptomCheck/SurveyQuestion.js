@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { SurveyButton } from "./../../components/Buttons";
-import { ResponseTextBox } from "./../../components/TextBoxes";
+import { SurveyButton } from "../../components/Buttons";
+import { ResponseTextBox } from "../../components/TextBoxes";
 import { styles } from "../../styles/styles";
 
 export function MultipleChoiceQuestion({
@@ -28,9 +28,16 @@ export function MultipleChoiceQuestion({
       <View style={{ marginLeft: 10 }}>
         <Text style={styles.navButtonTitle}>{prompt}</Text>
         <View>
-          {answers.map(function(answer) {
-            return <SurveyButton title={answer} action={setAnswer(answer)} />;
-          })}
+          <View style={{ marginLeft: 10 }}>
+            <Text style={styles.surveyQuestionText}>{prompt}</Text>
+            <View>
+              {answers.map(function(answer) {
+                return (
+                  <SurveyButton title={answer} action={setAnswer(answer)} />
+                );
+              })}
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -42,7 +49,7 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
 
   const setAnswer = React.useCallback(event => {
     {
-      event.target && changeAnswer(currAnswer => event.target.value);
+      event.target && changeAnswer(currAnswer => event.nativeEvent.text);
       event.persist();
     }
   }, []);
@@ -55,14 +62,13 @@ export function ShortAnswerQuestion({ prompt, currResponse, saveAnswer }) {
   );
   return (
     <View>
-      <View style={{ marginLeft: 10 }}>
-        <Text style={styles.navButtonTitle}>{prompt}</Text>
+      <View>
+        <Text style={styles.surveyQuestionText}>{prompt}</Text>
+        <View>
+          <ResponseTextBox defaultText="" changeFunction={setAnswer} />
+        </View>
         <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
       </View>
     </View>
   );
 }
-// <View>
-//   {<input type="text" onChange={setAnswer} />}
-//   <ResponseTextBox defaultText="" changeFunction={setAnswer} />
-// </View>
