@@ -80,7 +80,7 @@ export function SurveyButton({ title, action }) {
     </TouchableOpacity>
   );
 }
-export function LinkButton({ title, navigation, navigationName }) {
+export function SurveyNavigationButton({ title, navigation, navigationName }) {
   return (
     <TouchableOpacity
       onPress={() => {
@@ -90,6 +90,14 @@ export function LinkButton({ title, navigation, navigationName }) {
       <View>
         <Text style={styles.surveyButtonTitle}>{title}</Text>
       </View>
+    </TouchableOpacity>
+  );
+}
+  // A simple button that's styled like a hyperlink
+export function SimpleButton({ title, action }) {
+  return (
+    <TouchableOpacity onPress={action}>
+      <Text style={styles.linkButtonTitle}>{title}</Text>
     </TouchableOpacity>
   );
 }

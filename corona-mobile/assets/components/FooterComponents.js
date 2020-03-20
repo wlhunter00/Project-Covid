@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text } from "react-native"
 import { defaults } from "../styles/styles"
-import { LinkButton } from './Buttons';
+import { SimpleButton } from './Buttons';
 
 export function TeamMemberBox({ image, profile }) {
     const { name, position, schoolAndYear, bio } = profile;
-    const [bioExpanded, setBioExpanded] = useState(false)
+    const [bioExpanded, setBioExpanded] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -23,7 +23,7 @@ export function TeamMemberBox({ image, profile }) {
             <View style={{ flexDirection: "row", marginTop: 6 }}>
                 <View style={{ flex: 1 }} />
                 <View style={{backgroundColor: "white", paddingHorizontal: 3}}>
-                    <LinkButton title={bioExpanded ? "Show less" : "Show more"} action={() => setBioExpanded(!bioExpanded)} />
+                    <SimpleButton title={bioExpanded ? "Show less" : "Show more"} action={() => setBioExpanded(!bioExpanded)} />
                 </View>
             </View>
         </View>
@@ -38,6 +38,10 @@ export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
             <Text style={styles.school}>{schoolAndYear}</Text>
         </View>
     );
+}
+
+export function FAQItem({ question, answer }) {
+    const [expanded, setExpanded] = useState(false)
 }
 
 const styles = StyleSheet.create({
