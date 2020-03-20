@@ -55,23 +55,6 @@ const contactNotFound = (
     <Text style={[styles.primaryTextBold, { padding: defaults.padding }]}>
       Please enable location services to find state contact information
     </Text>
-
-    {/* <PrimaryTextBold
-      text={"We're currently unable to identify your location"}
-    />
-    <PrimaryText
-      text={"- Contact your health provider or a nearby urgent care center"}
-    />
-    <PrimaryText text={"- Use a telemedicine service - Teladoc"} />
-    <PrimaryText text={"- Call 9-1-1 if a medical emergency"} />
-    <PrimaryText
-      text={
-        "- Contact state/county health department (211 if no number is listed)"
-      }
-    />
-    <PrimaryTextBold
-      text={"Please enable location services to find state contact information"}
-    /> */}
   </View>
 );
 

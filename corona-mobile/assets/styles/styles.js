@@ -109,4 +109,35 @@ export const styles = StyleSheet.create({
     color: defaults.primarycolor,
     fontSize: 16
   },
+  boldPrimary: {
+    color: defaults.primarycolor,
+    fontWeight: "bold"
+  },
+  primaryText: {
+    color: defaults.primarycolor
+  },
+  primaryTextBold: {
+    color: defaults.primarycolor,
+    fontWeight: "bold"
+  },
+  infoViewOuterView: {
+    width: "90%",
+    backgroundColor: defaults.tertiarycolor,
+    borderRadius: defaults.borderRadius,
+    padding: 0,
+    margin: 10
+  },
+  infoViewTitleView: {
+    width: "100%",
+    backgroundColor: "#fff",
+    borderRadius: defaults.borderRadius,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10
+  },
+  infoViewBodyView: {
+    margin: 10,
+    flex: 1
+  },
 });
