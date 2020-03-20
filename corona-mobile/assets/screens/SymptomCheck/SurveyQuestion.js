@@ -87,9 +87,6 @@ export function ShortAnswerQuestion({
         <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
         <SurveyButton title="Go Back" action={returnAnswer(currAnswer)} />
       </View>
-      <View>
-        <SurveyButton title="Continue" action={recordAnswer(currAnswer)} />
-      </View>
     </View>
   );
 }
