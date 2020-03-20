@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text, LayoutAnimation } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
-import { defaults, styles } from "../styles/styles"
+import { Ionicons } from "@expo/vector-icons";
+import Hyperlink from "react-native-hyperlink";
+import { defaults, styles } from "../styles/styles";
 import { SimpleButton } from './Buttons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -61,9 +62,13 @@ export function FAQItem({ question, answer }) {
                     <Ionicons name={expanded ? "ios-close" : "ios-add"} size={18} color={color} />
                 </View>
             </TouchableOpacity>
-            {expanded && <Text style={localStyles.answerText}>{answer}</Text>}
+            {expanded && (
+                <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
+                    <Text style={localStyles.answerText}>{answer}</Text>
+                </Hyperlink>
+            )}
         </View>,
-        <View style={styles.divider}/>
+        <View style={styles.divider} key={question}/>
     ];
 }
 
