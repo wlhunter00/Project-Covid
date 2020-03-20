@@ -4,7 +4,7 @@ import { styles } from "./../../styles/styles.js";
 import { MultipleChoiceQuestion, ShortAnswerQuestion } from './SurveyQuestion';
 import { sendSymptoms } from './../../APIService.js';
 
-export function Symptoms({ changeBackendResponse }) {
+export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   const [response, changeResponse] = React.useState("");
   const [questionNumber, changeQuestionNumber] = React.useState(1);
 
@@ -17,6 +17,7 @@ export function Symptoms({ changeBackendResponse }) {
     changeResponse(newResponse);
     changeQuestionNumber(questionNumber + 1);
     changeBackendResponse(sendSymptoms(response));
+    changeSurveyDone(true);
   }
   console.log(response);
   return (

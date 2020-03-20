@@ -7,11 +7,14 @@ import { Symptoms } from "./Symptoms.js";
 
 export default function SymptomCheck({ navigation }) {
   const [backendResponse, changeBackendResponse] = React.useState("");
+  const [surveyDone, changeSurveyDone] = React.useState(false);
 
   return (
     <View style={styles.container}>
-      <Symptoms changeBackendResponse={changeBackendResponse}/>
-      <Diagnosis backendResponse={backendResponse}/>
+      <Symptoms changeBackendResponse={changeBackendResponse} changeSurveyDone = {changeSurveyDone}/>
+      {surveyDone && 
+        <Diagnosis response={backendResponse}/>
+      }
     </View>
   );
 }

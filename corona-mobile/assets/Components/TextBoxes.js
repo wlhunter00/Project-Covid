@@ -6,7 +6,6 @@ export function ResponseTextBox({ defaultText, changeFunction }) {
     return (
         <View style = {styles.textBox}>
                 <TextInput 
-                
                 onChange={changeFunction}
                 />
             <View style={{ flex: 1 }} />
