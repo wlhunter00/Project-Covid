@@ -19,7 +19,6 @@ router.post("/", async (req, res) => {
   var nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
   nlpScript.stdout.on("data", function(data) {
     var pythonReturn = data.toString();
-    return res.send(pythonReturn);
     var responseList = [];
     var sympList = pythonReturn.split("\r\n");
     if (
@@ -33,6 +32,7 @@ router.post("/", async (req, res) => {
     }
     sympList.pop();
     var jsonArray = [];
+    return res.send(sympList);
     for (symp in sympList) {
       jsonArray.push(getSympInfo(sympList[symp]));
     }
