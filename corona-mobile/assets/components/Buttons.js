@@ -80,7 +80,7 @@ export function SurveyButton({ title, action }) {
     </TouchableOpacity>
   );
 }
-export function linkButton({ title, navigation, navigationName }) {
+export function LinkButton({ title, navigation, navigationName }) {
   return (
     <TouchableOpacity
       onPress={() => {
