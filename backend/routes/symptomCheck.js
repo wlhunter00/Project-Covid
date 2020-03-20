@@ -3,10 +3,10 @@ const router = express.Router();
 const spawn = require("child_process").spawn;
 const symptomData = require("./../data/Symptom-Percentages.json");
 const nlpScriptRoute = __dirname + "/scripts/testScript.py";
+
 function getSympInfo(symptom) {
   for (const prop in symptomData) {
     if (symptomData[prop].Symptom === symptom) {
-      // return JSON.stringify(symptomData[prop]);
       return symptomData[prop];
     }
   }
@@ -17,6 +17,7 @@ function getSympInfo(symptom) {
 router.post("/", async (req, res) => {
   var symptoms = req.body.symptoms;
   var nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
+  return res.send(nlpScript);
   nlpScript.stdout.on("data", function(data) {
     var pythonReturn = data.toString();
     var responseList = [];
