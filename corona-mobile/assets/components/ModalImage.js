@@ -16,8 +16,10 @@ export class ModalImage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isVisible: false
+      isVisible: false,
+      scrollOffset: 0
     }
+    this.scrollRef = React.createRef();
   }
 
   _head = item => {
@@ -51,8 +53,8 @@ export class ModalImage extends React.Component {
   _body = item => {
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
-    const bulletPoints = item.body.map(text => (
-      <Text style={{ marginBottom: 5 }}>{text}</Text>
+    const bulletPoints = item.body.map((text, i) => (
+      <Text key={i} style={{ marginBottom: 5 }}>{text}</Text>
     ));
     return (
       <View style={styles.content}>
@@ -71,6 +73,17 @@ export class ModalImage extends React.Component {
     this.setState({isVisible: true})
   }
 
+  handleOnScroll = event => {
+    this.setState({scrollOffset: event.nativeEvent.contentOffset.y});
+    console.log(this.state.scrollOffset)
+  }
+
+  handleScrollTo = p => {
+    if(this.scrollRef.current) {
+      this.scrollRef.current.scrollTo(p);
+    }
+  }
+
   render(){
     return(
       <View>
@@ -79,15 +92,32 @@ export class ModalImage extends React.Component {
         </TouchableWithoutFeedback>
         <Modal 
           isVisible={this.state.isVisible} 
-          propagateSwipe 
+          propagateSwipe={true}
           onBackdropPress={this.ToggleModalOff}
-          
+          onSwipeComplete={this.ToggleModalOff}
+          // swipeDirection={['left']}
+          scrollTo={this.handleScrollTo}
+          scrollOffset={this.state.scrollOffset}
+          // scrollOffsetMax={300}
+          // style={{flex:1}}
         >
-          <ScrollView>
-            <TouchableWithoutFeedback onPress={() =>{}}>
-              {this._body(this.props.item)}
-            </TouchableWithoutFeedback>
-          </ScrollView>
+          <View style={{flex: 1}}>
+            <ScrollView 
+              ref={this.scrollRef}
+              onScroll={this.handleOnScroll}
+              scrollEventThrottle={8}
+              nestedScrollEnabled={true}
+            >
+              <View>
+                <TouchableWithoutFeedback 
+                  onPress={this.ToggleModalOff}
+                >
+                  {this._body(this.props.item)}
+                </TouchableWithoutFeedback>
+              </View>
+            </ScrollView>
+          </View>
+          
         </Modal>
       </View>
     );
