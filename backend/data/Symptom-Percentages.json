@@ -1,50 +1,46 @@
 {
   "FE": {
     "Symptom": "Fever",
-    "Percentage": 0.88
+    "Percentage": 88
   },
   "CD": {
-    "Symptom": "Cough (dry)",
-    "Percentage": 0.68
+    "Symptom": "Cough",
+    "Percentage": 68
   },
   "FA": {
     "Symptom": "Fatigue",
     "Percentage": 0.38
   },
-  "CM": {
-    "Symptom": "Cough (mucus)",
-    "Percentage": 0.33
-  },
   "SOB": {
     "Symptom": "Shortness of breath",
-    "Percentage": 0.19
+    "Percentage": 19
   },
   "AAP": {
     "Symptom": "Aches and pains",
-    "Percentage": 0.15
+    "Percentage": 15
   },
   "ST": {
     "Symptom": "Sore throat",
-    "Percentage": 0.14
+    "Percentage": 14
   },
   "H": {
     "Symptom": "Headaches",
-    "Percentage": 0.14
+    "Percentage": 14
   },
   "C": {
     "Symptom": "Chills",
-    "Percentage": 0.11
+    "Percentage": 11
   },
   "N": {
     "Symptom": "Nausea",
-    "Percentage": 0.05
+    "Percentage": 5
   },
   "NC": {
     "Symptom": "Nasal Congestion",
-    "Percentage": 0.05
+    "Percentage": 5
   },
   "D": {
     "Symptom": "Diarrhea",
-    "Percentage": 0.04
+    "Percentage": 4
   }
 }
