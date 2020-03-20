@@ -15,11 +15,11 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(navigationName);
       }}
-      style={{marginBottom: 10}}
+      style={{marginBottom: 5}}
     >
       <View style={styles.navButton}>
         {icon}
-        <View style={{ marginLeft: 10 }}>
+        <View style={{ marginLeft: 15 }}>
           <Text style={styles.navButtonTitle}>{title}</Text>
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>

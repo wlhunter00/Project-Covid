@@ -39,9 +39,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderBottomColor: "#c8c7cc",
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1,
     borderTopColor: "#c8c7cc",
-    borderTopWidth: 0.5,
+    borderTopWidth: 1,
     height: 78
   },
   navButtonTitle: {
