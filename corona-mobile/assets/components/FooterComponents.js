@@ -11,7 +11,7 @@ export function TeamMemberBox({ image, profile }) {
         <View style={styles.container}>
             <View style={{ flexDirection: "row", marginBottom: 10}}>
                 <View style={{flexShrink: 1}}>
-                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.compactName}>{name}</Text>
                     <Text style={styles.position}>{position}</Text>
                     <Text style={styles.school}>{schoolAndYear}</Text>
                 </View>
