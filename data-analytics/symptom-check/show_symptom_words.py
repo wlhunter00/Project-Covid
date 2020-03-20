@@ -44,7 +44,7 @@ contraction_dict = {"ain't": "is not", "aren't": "are not","can't": "cannot", "'
 
 
  #Loading en core web md nlp dataset /// find way to pre-download permanently before computation 
- nlp = spacy.load("en_core_web_md")
+ nlp = spacy.load("en")
 
 
 def _get_contractions(contraction_dict):
@@ -108,6 +108,7 @@ symptoms = ["fever", "cough", "sneeze", "shortness of breath", "breathing proble
  "South Korea", "France", "Spain", "Germany", "Switzerland", "transmission", "spread", "travel", "travelling", "travel ban",
  "coughing", "body ache", "Europe", "airport", "Washington", "public", "New York", "California", "state of emergency"] 
 
+user_text.split()
 
 cosine_arr = []
 for i in user_text:
