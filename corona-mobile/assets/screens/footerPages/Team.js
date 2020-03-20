@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
-import { TeamMemberBox, CompactTeamMemberBox } from "../../components/TeamBox";
+import { TeamMemberBox, CompactTeamMemberBox } from "../../components/FooterComponents";
 import { styles } from "../../styles/styles";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
