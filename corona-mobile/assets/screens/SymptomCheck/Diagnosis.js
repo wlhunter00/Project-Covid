@@ -2,10 +2,10 @@ import * as React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { styles } from "./../../styles/styles.js";
 
-export function Diagnosis() {
+export function Diagnosis({ backendResponse }) {
+  console.log(backendResponse);
   return (
     <View>
-      {/* <Text> Diagnosis Element</Text> */}
     </View>
   );
 }

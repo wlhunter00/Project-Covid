@@ -65,6 +65,7 @@ export const styles = StyleSheet.create({
         width: '85%',
         height: 50,
         margin: '1.75%',
+        marginTop: 30,
         alignSelf: 'center'
     },
     surveyButtonTitle: {
@@ -73,18 +74,25 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    surveyQuestionText: {
+        color: 'black',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 15,
+        marginLeft: 10,
+        marginRight: 10
+    },
   textBox: {
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
+    borderBottomWidth: 1,
+    height: 40,
     shadowRadius: 2,
     elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
-    }
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 15,  
+    padding: 10  
+  }
   });

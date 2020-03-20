@@ -6,11 +6,12 @@ import { Diagnosis } from "./Diagnosis.js";
 import { Symptoms } from "./Symptoms.js";
 
 export default function SymptomCheck({ navigation }) {
+  const [backendResponse, changeBackendResponse] = React.useState("");
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Symptom Check</Text>
-      <Symptoms />
-      <Diagnosis />
+      <Symptoms changeBackendResponse={changeBackendResponse}/>
+      <Diagnosis backendResponse={backendResponse}/>
     </View>
   );
 }

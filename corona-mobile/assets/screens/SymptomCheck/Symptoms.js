@@ -4,7 +4,7 @@ import { styles } from "./../../styles/styles.js";
 import { MultipleChoiceQuestion, ShortAnswerQuestion } from './SurveyQuestion';
 import { sendSymptoms } from './../../APIService.js';
 
-export function Symptoms() {
+export function Symptoms({ changeBackendResponse }) {
   const [response, changeResponse] = React.useState("");
   const [questionNumber, changeQuestionNumber] = React.useState(1);
 
@@ -16,7 +16,7 @@ export function Symptoms() {
   const advanceQuestionSend = (newResponse) => {
     changeResponse(newResponse);
     changeQuestionNumber(questionNumber + 1);
-    sendSymptoms(response);
+    changeBackendResponse(sendSymptoms(response));
   }
   console.log(response);
   return (
@@ -50,7 +50,7 @@ export function Symptoms() {
       )
       }
       {questionNumber > 4 && (
-        <Text style={styles.navButtonTitle}>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text>
+        <Text style={styles.surveyQuestionText}>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text>
         
       )
       }
