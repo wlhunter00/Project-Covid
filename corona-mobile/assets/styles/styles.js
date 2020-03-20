@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
   },
   surveyButtonTitle: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center"
   },
@@ -144,7 +144,7 @@ export const styles = StyleSheet.create({
   },
   subtitle: {
     color: "black",
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
