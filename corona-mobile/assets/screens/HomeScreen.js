@@ -52,7 +52,7 @@ export default function HomeScreen({ navigation }) {
       />
       <PageButton
         title="Meet the Team"
-        navigationName="Credits"
+        navigationName="Team"
         icon={<MaterialIcons name="people" size={25} />}
         description="See who created this app."
         navigation={navigation}

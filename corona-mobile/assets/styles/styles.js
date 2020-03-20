@@ -35,6 +35,11 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%"
   },
+  divider: {
+    height: 1,
+    backgroundColor: "#e1e8ee",
+    marginVertical: 10
+  },
   title: {
     fontSize: 20,
     textAlign: "center",
@@ -59,6 +64,8 @@ export const styles = StyleSheet.create({
     padding: 15,
     borderBottomColor: "#c8c7cc",
     borderBottomWidth: 0.5,
+    borderTopColor: "#c8c7cc",
+    borderTopWidth: 0.5,
     height: 78
   },
   navButtonTitle: {
@@ -133,5 +140,9 @@ export const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10
+  },
+  linkButtonTitle: {
+    color: defaults.primarycolor,
+    fontSize: 16
   }
 });

@@ -25,7 +25,7 @@ import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import TwitterFeed from "./assets/screens/TwitterFeed.js";
 
-import Credits from "./assets/screens/footerPages/Credits.js";
+import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 
@@ -136,8 +136,8 @@ const HomeStack = () => (
       options={{ title: "Curated Tweets" }}
     />
     <Stack.Screen
-      name="Credits"
-      component={Credits}
+      name="Team"
+      component={Team}
       options={{ title: "Created By" }}
     />
     <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />

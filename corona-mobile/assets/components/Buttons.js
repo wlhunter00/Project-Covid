@@ -15,6 +15,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(navigationName);
       }}
+      style={{marginBottom: 10}}
     >
       <View style={styles.navButton}>
         {icon}
@@ -76,4 +77,14 @@ export function SurveyButton({ title, action }) {
       </View>
     </TouchableOpacity>
   );
+}
+
+export function LinkButton({ title, action }) {
+  return (
+    <TouchableOpacity
+      onPress={action}
+    >
+      <Text style={styles.linkButtonTitle}>{title}</Text>
+      </TouchableOpacity>
+  )
 }
