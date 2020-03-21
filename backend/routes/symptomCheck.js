@@ -1,13 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const spawn = require("child_process").spawn;
+const nlpScriptRoute =
+  __dirname.slice(0, __dirname.lastIndexOf("\\")) +
+  "\\scripts\\getconfidence.py";
 
-const nlpScriptRoute = "./../scripts/getconfidence.py";
-
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   var symptoms = req.body.symptoms;
-  const nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
-  res.send(nlpScript);
+  var nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
+  nlpScript.stdout.on("data", function(data) {
+    console.log(data.toString());
+    res.send(data.toString());
+  });
+  nlpScript.stderr.on("data", data => {
+    console.log("error: ", data.toString());
+    res.status(400).send(data.toString());
+  });
 });
 
 module.exports = router;

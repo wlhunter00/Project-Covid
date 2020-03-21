@@ -1,16 +1,20 @@
-import { Notifications } from 'expo';
-import * as Permissions from 'expo-permissions';
+import { Notifications } from "expo";
+import * as Permissions from "expo-permissions";
+
+const axios = require("axios").default
 
 export async function registerForPushNotifications() {
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+  const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 
-    if (status !== "granted") {
-        console.log("Permissions not granted for notifications.");
-        return;
-    }
+  if (status !== "granted") {
+    console.log("Permissions not granted for notifications.");
+    return;
+  }
 
-    let token = await Notifications.getExpoPushTokenAsync();
+  let token = await Notifications.getExpoPushTokenAsync();
 
-    // post to server
-    const body = { token };
+  // post to server
+  const body = { token };
+
+  
 }
