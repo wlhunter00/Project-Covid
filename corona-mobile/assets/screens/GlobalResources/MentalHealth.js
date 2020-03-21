@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function CrisisContact() {
+export default function MentalHealth() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>CrisisContact</Text>
+      <Text style={styles.title}>HowToHelp</Text>
     </View>
   );
 }

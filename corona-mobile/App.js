@@ -18,10 +18,8 @@ import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
 import InformationalToolkit from "./assets/screens/GlobalResources/InformationalToolkit";
 import PreventativePractices from "./assets/screens/GlobalResources/PreventivePractices";
-import MythBusting from "./assets/screens/GlobalResources/MythBusting";
-import HowToHelp from "./assets/screens/GlobalResources/HowToHelp";
+import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
-import CrisisContact from "./assets/screens/GlobalResources/CrisisContact";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import TwitterFeed from "./assets/screens/TwitterFeed.js";
 
@@ -112,24 +110,14 @@ const HomeStack = () => (
       component={PreventativePractices}
     />
     <Stack.Screen
-      name="MythBusting"
-      component={MythBusting}
-      options={{ title: "Myth Busting" }}
-    />
-    <Stack.Screen
-      name="HowToHelp"
-      component={HowToHelp}
-      options={{ title: "How to Help" }}
+      name="MentalHealth"
+      component={MentalHealth}
+      options={{ title: "Mental Health" }}
     />
     <Stack.Screen
       name="StudentResources"
       component={StudentResources}
       options={{ title: "Student Resources" }}
-    />
-    <Stack.Screen
-      name="CrisisContact"
-      component={CrisisContact}
-      options={{ title: "Crisis Contact" }}
     />
     <Stack.Screen
       name="TwitterFeed"

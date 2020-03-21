@@ -28,23 +28,6 @@ export default class GlobalResourcesMain extends Component {
           description=""
           navigation={this.props.navigation}
         />
-
-        <PageButton
-          title="Myth Busting"
-          navigationName="MythBusting"
-          icon={<Entypo name="news" size={25} />}
-          description=""
-          navigation={this.props.navigation}
-        />
-
-        <PageButton
-          title="How to Help"
-          navigationName="HowToHelp"
-          icon={<Entypo name="news" size={25} />}
-          description=""
-          navigation={this.props.navigation}
-        />
-
         <PageButton
           title="Student Resources"
           navigationName="StudentResources"
@@ -54,8 +37,8 @@ export default class GlobalResourcesMain extends Component {
         />
 
         <PageButton
-          title="Crisis Contact"
-          navigationName="CrisisContact"
+          title="Mental Health"
+          navigationName="MentalHealth"
           icon={<Entypo name="news" size={25} />}
           description=""
           navigation={this.props.navigation}
