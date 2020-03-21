@@ -9,10 +9,10 @@ import {
   Button
 } from "react-native";
 
-import image1 from "../../images/InformationalToolkit/image1.jpg";
-import image2 from "../../images/InformationalToolkit/image2.jpg";
-import image3 from "../../images/InformationalToolkit/image3.jpg";
-import image4 from "../../images/InformationalToolkit/image4.jpg";
+import image1 from "./../../images/informationalToolkit/image1.jpg";
+import image2 from "./../../images/informationalToolkit/image2.jpg";
+import image3 from "./../../images/informationalToolkit/image3.jpg";
+import image4 from "./../../images/informationalToolkit/image4.jpg";
 import Modal from "react-native-modal";
 import {
   TouchableWithoutFeedback,

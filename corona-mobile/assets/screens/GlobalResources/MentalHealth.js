@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function MentalHealth() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>HowToHelp</Text>
+      <Text style={styles.title}>Mental Health</Text>
     </View>
   );
 }
