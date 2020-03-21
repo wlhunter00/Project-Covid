@@ -21,6 +21,7 @@ router.post("/", async (req, res) => {
     var pythonReturn = data.toString();
     var responseList = [];
     var sympList = pythonReturn.split(";");
+    sympList.pop();
     if (
       sympList === undefined ||
       sympList.length == 0 ||
