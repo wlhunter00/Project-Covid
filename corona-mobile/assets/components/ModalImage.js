@@ -48,7 +48,7 @@ export class ModalImage extends React.Component {
                   name="cross" 
                   size={40} 
                   adjustsFontSizeToFit={true}
-                  style={{color: 'white', width: 40, height: 40}}
+                  style={{color: 'white'}}
                 /> 
               </TouchableWithoutFeedback>
             </View> 
@@ -58,7 +58,7 @@ export class ModalImage extends React.Component {
           <Text
             numberOfLines={1}
             adjustsFontSizeToFit={true}
-            style={[{ top: imageHeight - 37 }, styles.headerText]}
+            style={[{ top: x ? imageHeight - 82 : imageHeight - 37 }, styles.headerText]}
           >
             {item.title}
           </Text>
