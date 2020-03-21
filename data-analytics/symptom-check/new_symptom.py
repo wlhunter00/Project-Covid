@@ -1,11 +1,14 @@
 import sys
 import json
+import io
+
 user_text = str(sys.argv[1])
+jsonPath = str(sys.argv[2])
 user_text = user_text.split()
 for i in user_text:
 	i = i.lower()
 
-with open('./../../backend/data/Symptom-Percentages.json', encoding = 'utf-8') as F:
+with io.open(jsonPath,'r', encoding='utf8') as F:
 	json_data = json.loads(F.read())
 
 found_sym = []
@@ -15,7 +18,7 @@ for point in json_data:
 		found_sym.append(point['Symptom'].lower())
 		found_perc.append(point['Percentage'])
 
-print(found_sym, found_perc)x
+# print(found_sym, found_perc)
 
 def argmax(iterable):
     return max(enumerate(iterable), key=lambda x: x[1])[0]
@@ -26,7 +29,7 @@ count = 0
 
 for i in range((l>0)*l):
     ind = argmax(found_perc)
-    print(found_perc, found_sym)
+    # print(found_perc, found_sym)
     del found_perc[ind]
     req.append(found_sym.pop(ind))
     count+=1
@@ -36,7 +39,7 @@ if l == 0:
 	print("No matches found")
 else:
 	s = ""
-	print(req)
+	# print(req)
 	for i in req:
 		s = s + i + ";"
 	print(s)
