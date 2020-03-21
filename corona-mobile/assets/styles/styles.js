@@ -5,6 +5,7 @@ export const defaults = {
   secondarycolor: "#a5d6a7",
   tertiarycolor: "#dcedc8",
   backgroundcolor: "#d1dbd0",
+  headercolor: "#404040",
   borderRadius: 20,
   padding: 5
 };
