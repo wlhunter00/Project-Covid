@@ -23,7 +23,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(navigationName);
       }}
-      style={{ marginBottom: 5 }}
+      style={{ marginBottom: 4 }}
     >
       <View style={styles.navButton}>
         {icon}
@@ -93,7 +93,7 @@ export function SurveyNavigationButton({ title, navigation, navigationName }) {
     </TouchableOpacity>
   );
 }
-  // A simple button that's styled like a hyperlink
+// A simple button that's styled like a hyperlink
 export function SimpleButton({ title, action }) {
   return (
     <TouchableOpacity onPress={action}>

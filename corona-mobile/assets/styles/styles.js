@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: "#e1e8ee",
+    backgroundColor: "#e1e8ee"
   },
   title: {
     fontSize: 20,
@@ -38,9 +38,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderBottomColor: "#c8c7cc",
-    borderBottomWidth: 1,
+    borderBottomWidth: 1.5,
     borderTopColor: "#c8c7cc",
-    borderTopWidth: 1,
+    borderTopWidth: 1.5,
     height: 78
   },
   navButtonTitle: {
