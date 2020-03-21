@@ -2,8 +2,8 @@ import sys
 import json
 import io
 
-user_text = str(sys.argv[1])
-jsonPath = str(sys.argv[2])
+user_text = "I feel sick and have a fever"
+jsonPath = "Symptom-Percentages.json"
 user_text = user_text.split()
 for i in user_text:
 	i = i.lower()
