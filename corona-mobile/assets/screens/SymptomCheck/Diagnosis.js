@@ -17,20 +17,21 @@ export function Diagnosis({navigation, response}) {
   for(a in response){
     symptoms.push({title : response[a]["Symptom"], body : response[a]["Percentage"]});
   }
+  console.log(response);
     return (
     <ScrollView>
-      <Text> Diagnosis Results</Text>
+      <Text style={styles.title}> Diagnosis Results</Text>
       <ScrollView style={styles.container}>
-      {symptoms.map(symptom => {
+        {symptoms.map(symptom => {
         return (
-          <InfoView title={symptom.title} body={symptom.body}  />
+          <InfoView title={symptom.title} body={symptom.body + "% of people who tested positive have this symptom."}  />
         );
       })}
     </ScrollView>
-      <Text>Based on your symptoms, we reccomend utlizing the following knowledge resources:</Text>
+      <Text style={styles.surveyQuestionText}>Based on your symptoms, we reccomend utlizing the following knowledge resources:</Text>
       <SurveyNavigationButton  title = {"Information Toolkit"}  navigation = {navigation} navigationName = {"InformationToolkit"}/>
       <SurveyNavigationButton  title = {"Preventative Practices"}  navigation = {navigation} navigationName = {"PreventativePractices"}/>
-      <Text>You can also find Local information on Covid-19 data, and find testing centers for help:</Text>
+      <Text style={styles.surveyQuestionText}>You can also find Local information on Covid-19 data, and find testing centers for help:</Text>
       <SurveyNavigationButton  title = {"Find Center"}  navigation = {navigation} navigationName = {"findcenter"}/>
     </ScrollView>
   );
