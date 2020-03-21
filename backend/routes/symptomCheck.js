@@ -6,7 +6,6 @@ const nlpScriptRoute = __dirname + "/scripts/new_symptom.py";
 const jsonPath = __dirname + "/scripts/Symptom-Percentages.json";
 
 function getSympInfo(symptom) {
-  console.log(symptom);
   for (const prop in symptomData) {
     if (symptomData[prop].Symptom.toLowerCase() === symptom) {
       return symptomData[prop];
