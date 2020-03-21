@@ -1,0 +1,46 @@
+[
+  {
+    "Symptom": "Fever",
+    "Percentage": 88
+  },
+  {
+    "Symptom": "Cough",
+    "Percentage": 68
+  },
+  {
+    "Symptom": "Fatigue",
+    "Percentage": 0.38
+  },
+  {
+    "Symptom": "Shortness of breath",
+    "Percentage": 19
+  },
+  {
+    "Symptom": "Aches and pains",
+    "Percentage": 15
+  },
+  {
+    "Symptom": "Sore throat",
+    "Percentage": 14
+  },
+  {
+    "Symptom": "Headaches",
+    "Percentage": 14
+  },
+  {
+    "Symptom": "Chills",
+    "Percentage": 11
+  },
+  {
+    "Symptom": "Nausea",
+    "Percentage": 5
+  },
+  {
+    "Symptom": "Nasal Congestion",
+    "Percentage": 5
+  },
+  {
+    "Symptom": "Diarrhea",
+    "Percentage": 4
+  }
+]

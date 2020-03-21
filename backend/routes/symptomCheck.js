@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const spawn = require("child_process").spawn;
 const symptomData = require("./../data/Symptom-Percentages.json");
-const nlpScriptRoute = __dirname + "/scripts/testScript.py";
+const nlpScriptRoute = __dirname + "/scripts/new_symptom.py";
+const jsonPath = __dirname + "/scripts/Symptom-Percentages.json";
 
 function getSympInfo(symptom) {
   for (const prop in symptomData) {
-    if (symptomData[prop].Symptom === symptom) {
+    if (symptomData[prop].Symptom.toLowerCase() === symptom) {
       return symptomData[prop];
     }
   }
@@ -16,7 +17,10 @@ function getSympInfo(symptom) {
 
 router.post("/", async (req, res) => {
   var symptoms = req.body.symptoms;
-  var nlpScript = spawn("python", [nlpScriptRoute, symptoms]);
+  if (!symptoms) {
+    return res.status(400).send("No text sent!");
+  }
+  var nlpScript = spawn("python", [nlpScriptRoute, symptoms, jsonPath]);
   nlpScript.stdout.on("data", function(data) {
     var pythonReturn = data.toString();
     var responseList = [];
@@ -28,7 +32,7 @@ router.post("/", async (req, res) => {
       sympList[0] === "No matches found"
     ) {
       return res.send({
-        message: "No Symptoms found"
+        message: "No symptoms found"
       });
     }
     var jsonArray = [];
