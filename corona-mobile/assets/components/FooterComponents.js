@@ -135,15 +135,13 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
       {expanded && (
         <React.Fragment>
           {sourcesList.map(source => {
-              return [
-                  <View style={{height: 10}}/>,
+              return (
                   <SourceLink
                       source={source}
                       key={source}
                       navigation={navigation}
                   />
-
-              ];
+              );
           })}
         </React.Fragment>
       )}
@@ -158,7 +156,8 @@ export function SourceLink({ source, navigation }) {
         navigation.navigate("ViewSource", {
           url: source
         });
-      }}
+          }}
+          style={{marginTop: 10}}
     >
       <Text style={styles.linkButtonTitle}>{source}</Text>
     </TouchableOpacity>
