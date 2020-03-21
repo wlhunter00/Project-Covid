@@ -20,9 +20,9 @@ router.post("/", async (req, res) => {
   if (!symptoms) {
     return res.status(400).send("No text sent!");
   }
-  return res.send(jsonPath);
   var nlpScript = spawn("python", [nlpScriptRoute, symptoms, jsonPath]);
   nlpScript.stdout.on("data", function(data) {
+    return res.send(data);
     var pythonReturn = data.toString();
     var responseList = [];
     var sympList = pythonReturn.split(";");
