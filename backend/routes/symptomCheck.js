@@ -30,9 +30,7 @@ router.post("/", async (req, res) => {
         message: "No Symptoms found"
       });
     }
-    sympList.pop();
     var jsonArray = [];
-    return res.send(sympList);
     for (symp in sympList) {
       jsonArray.push(getSympInfo(sympList[symp]));
     }
