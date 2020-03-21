@@ -18,8 +18,20 @@ export async function registerForPushNotifications() {
   const body = { token };
 }
 
-export async function sendSymptoms(symptoms) {
-  return (await axios.post("./../backend/routes/symptomCheck", {
+export async function sendSymptoms(symptoms, updateFunc) {
+  await axios.post("https://projectcovid-backend.herokuapp.com/symptoms", {
     symptoms: symptoms
-  })).data;
+  }).then(response => {
+    console.log(response.data);
+    updateFunc(response.data);
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+  })
 }
+
+// export async function sendSymptoms(symptoms) {
+//   return (await axios.post("https://projectcovid-backend.herokuapp.com/symptoms", {
+//     symptoms: symptoms
+//   })).data;
+// }

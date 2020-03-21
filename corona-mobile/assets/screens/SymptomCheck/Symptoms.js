@@ -19,16 +19,16 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   }
   
   const advanceQuestion = (newResponse) => {
-    changeResponse(response + newResponse + " ");
     updateAnswer(newResponse);
+    changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
     changeQuestionNumber(questionNumber + 1);
   }
 
   const advanceQuestionSend = (newResponse) => {
-    changeResponse(response + newResponse + " ");
     updateAnswer(newResponse);
+    changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
     changeQuestionNumber(questionNumber + 1);
-    changeBackendResponse(sendSymptoms(response));
+    sendSymptoms(response, changeBackendResponse);
     changeSurveyDone(true);
   }
 
