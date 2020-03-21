@@ -29,9 +29,3 @@ export async function sendSymptoms(symptoms, updateFunc) {
     console.log(error);
   })
 }
-
-// export async function sendSymptoms(symptoms) {
-//   return (await axios.post("https://projectcovid-backend.herokuapp.com/symptoms", {
-//     symptoms: symptoms
-//   })).data;
-// }

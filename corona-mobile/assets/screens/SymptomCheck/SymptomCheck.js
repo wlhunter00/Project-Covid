@@ -5,19 +5,32 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { Diagnosis } from "./Diagnosis.js";
 import { Symptoms } from "./Symptoms.js";
 import { defaults } from "./../../styles/styles.js";
+import { SurveyButton } from '../../components/Buttons';
 
 export default function SymptomCheck({ navigation }) {
   const [backendResponse, changeBackendResponse] = React.useState("");
   const [surveyDone, changeSurveyDone] = React.useState(false);
+  const [reset, changeReset] = React.useState(false);
+  const [instanceKey, setInstanceKey] = React.useState(0);
+
+  const retakeSurvey = () => {
+    changeSurveyDone(false);
+    changeBackendResponse("");
+    setInstanceKey(i => i + 1);
+  }
 
   return (
     <View style={styles.container}>
       <Symptoms
+        key={instanceKey}
         changeBackendResponse={changeBackendResponse}
         changeSurveyDone={changeSurveyDone}
       />
       {surveyDone && (
-        <Diagnosis response={backendResponse} navigation={navigation} />
+        <View>
+          <Diagnosis key={instanceKey} response={backendResponse} navigation={navigation} />
+          <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
+        </View>
       )}
     </View>
   );

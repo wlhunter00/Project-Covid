@@ -110,7 +110,7 @@ export const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderBottomWidth: 3,
     borderColor: defaults.primarycolor,
-    height: 50,
+    height: 140,
     shadowRadius: 2,
     elevation: 1,
     marginLeft: 10,

@@ -17,7 +17,9 @@ export function Diagnosis({navigation, response}) {
   for(a in response){
     symptoms.push({title : response[a]["Symptom"], body : response[a]["Percentage"]});
   }
-  console.log(response);
+  if (response == "") {
+    symptoms = [];
+  }
     return (
     <ScrollView>
       <Text style={styles.title}> Diagnosis Results</Text>

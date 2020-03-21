@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Button, ScrollView, Alert } from "react-native";
 import { styles, boxStyles } from "./../../styles/styles.js";
 import { MultipleChoiceQuestion, ShortAnswerQuestion } from './SurveyQuestion';
 import { sendSymptoms } from './../../APIService.js';
@@ -22,8 +22,10 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
     updateAnswer(newResponse);
     changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
     if (newResponse.trim() != "") {
-      console.log("hey " + newResponse.trim());
       changeQuestionNumber(questionNumber + 1);
+    }
+    else {
+      Alert.alert('Please enter an answer before continuing.');
     }
   }
 
@@ -34,6 +36,9 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
       changeQuestionNumber(questionNumber + 1);
       sendSymptoms(response, changeBackendResponse);
       changeSurveyDone(true);
+    }
+    else {
+      Alert.alert('Please enter an answer before continuing.');
     }
   }
 
@@ -117,10 +122,6 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
         </View>
       )
       }
-      {/* {questionNumber > 4 && (
-        // <Text style={styles.surveyQuestionText}>Thank you for completing the survey. Please give us a moment while we calculate your results.</Text> 
-      )
-      } */}
     </ScrollView>
   );
 }

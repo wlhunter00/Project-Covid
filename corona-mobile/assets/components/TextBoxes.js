@@ -5,10 +5,12 @@ import { styles } from "../styles/styles";
 export function ResponseTextBox({ defaultText, changeFunction }) {
     return (
         <View style = {styles.textBox}>
-                <TextInput 
+            <TextInput 
+                multiline={true}
                 onChange={changeFunction}
                 defaultValue={defaultText}
-                />
+                numberOfLines={5}
+            />
             <View style={{ flex: 1 }} />
         </View>
     );
