@@ -13,7 +13,7 @@ export const defaults = {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: defaults.backgroundcolor
+    backgroundColor: defaults.backgroundcolor,
   },
   containerRowCenter: {
     flex: 1,
@@ -75,7 +75,7 @@ export const styles = StyleSheet.create({
     width: "85%",
     height: 50,
     margin: "1.75%",
-    marginTop: 30,
+    marginBottom: 20,
     alignSelf: "center"
   },
   surveyButtonTitle: {
@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
-  surveyQuestionText: {
+  boldQuestionText: {
     color: "black",
     fontSize: 16,
     fontWeight: "bold",
@@ -92,17 +92,26 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10
   },
+  surveyQuestionText: {
+    color: defaults.headercolor,
+    fontSize: 16,
+    marginTop: 15,
+    marginLeft: 10,
+    marginRight: 10,
+  },
   textBox: {
-    borderWidth: 1,
+    borderWidth: 3,
     borderRadius: 2,
     borderColor: "#ddd",
-    borderBottomWidth: 1,
+    borderBottomWidth: 3,
+    borderColor: defaults.primarycolor,
     height: 40,
     shadowRadius: 2,
     elevation: 1,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 15,
+    marginBottom: 20,
     padding: 10
   },
   linkButtonTitle: {
