@@ -9,7 +9,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
-import { styles } from "../styles/styles";
+import { styles, boxStyles } from "../styles/styles";
 
 export function PageButton({
   navigation,
@@ -23,7 +23,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(navigationName);
       }}
-      style={{ marginBottom: 4 }}
+      style={{ marginBottom: 6 }}
     >
       <View style={styles.navButton}>
         {icon}
@@ -46,6 +46,7 @@ export function SiteButton({ site, navigation }) {
           site: site
         });
       }}
+      style={{ marginBottom: 6 }}
     >
       <View style={styles.navButton}>
         <Image

@@ -59,7 +59,18 @@ export function FAQItem({ question, answer }) {
     setExpanded(!expanded);
   };
   return [
-    <View style={{ marginBottom: 8, padding: 15, backgroundColor: "white" }}>
+    <View
+      style={{
+        marginBottom: 8,
+        padding: 15,
+        backgroundColor: "white",
+        shadowColor: "rgba(67, 160, 71, 0.2)",
+        shadowRadius: 6,
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 1,
+        borderRadius: 5
+      }}
+    >
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={[boxStyles.questionText, { color: color }]}>
