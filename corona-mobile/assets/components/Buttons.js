@@ -81,6 +81,15 @@ export function SurveyButton({ title, action }) {
     </TouchableOpacity>
   );
 }
+export function SurveyButtonSmall({ title, action }) {
+  return (
+    <TouchableOpacity onPress={action} style={styles.surveyButtonLess}>
+      <View>
+        <Text style={styles.surveyButtonTitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
 export function SurveyNavigationButton({ title, navigation, navigationName }) {
   return (
     <TouchableOpacity

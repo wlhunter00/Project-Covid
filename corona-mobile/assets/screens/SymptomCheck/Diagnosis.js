@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { styles, boxStyles } from "./../../styles/styles.js";
-import { SurveyNavigationButton, SurveyNavigationButtonLarge } from '../../components/Buttons';
+import { SurveyNavigationButton, SurveyNavigationButtonLarge, SurveyButtonSmall } from '../../components/Buttons';
 import { InfoViewDiagnosis } from './../../components/InfoViewDiagnosis';
 
 
@@ -12,7 +12,7 @@ var symptoms = [];
 
 var a;
 
-export function Diagnosis({navigation, response}) {
+export function Diagnosis({navigation, response, retakeSurvey}) {
   for (a in response) {
     if (response[a]["Percentage"]) {
       symptoms.push({ title: response[a]["Symptom"], body: response[a]["Percentage"] });
@@ -50,6 +50,7 @@ export function Diagnosis({navigation, response}) {
             <SurveyNavigationButtonLarge title={"Find Center"} navigation={navigation} navigationName={"TestingCenters"} />
       </View>
     </View >
+    <SurveyButtonSmall title="Retake Symptom Check" action={retakeSurvey} />
     </ScrollView>
   );
 
