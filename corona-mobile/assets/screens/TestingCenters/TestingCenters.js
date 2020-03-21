@@ -154,8 +154,8 @@ export default class TestingCenters extends React.Component {
 
   render() {
     return (
-      <View>
-        <ScrollView contentContainerStyle={{paddingHorizontal: 15, paddingTop: 15}}>
+      <View style={{backgroundColor: defaults.backgroundcolor}}>
+        <ScrollView contentContainerStyle={{paddingHorizontal: 15, paddingTop: 15, backgroundColor: defaults.backgroundcolor}}>
           <InfoView
             title="Step 1"
             body={

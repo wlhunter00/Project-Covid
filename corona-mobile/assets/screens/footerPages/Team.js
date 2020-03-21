@@ -46,7 +46,7 @@ export default function Team({ route, navigation }) {
       />
       <CompactTeamMemberBox
         name="Giorgio Guttilla"
-        position="Leader Mobile App Developer"
+        position="Lead Mobile App Developer"
         schoolAndYear="Washington University, St. Louis, Junior"
       />
       <CompactTeamMemberBox
