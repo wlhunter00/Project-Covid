@@ -6,6 +6,8 @@ const emails = [
 
 const Notification = require("../models/notification");
 
+const PushToken = require("../models/pushtoken");
+
 
 
 const chars = ['a','b','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -67,6 +69,20 @@ function sendEmail(email){
 	return {email:email, code:undefined, success:false}
 }
 
+function addPushToken(pushToken, responseFunction){
+	let pushToken = new PushToken();
+	pushToken.token = pushToken;
+
+	pushToken.save(function(err,savedPushToken){
+		if(err){
+			console.log(err);
+			return responseFunction(err);
+		}
+		return responseFunction(savedPushToken);
+
+	})
+}
+
 function sendNotification(requestBody, responseFunction){
 	let newNotification = new Notification();
 	newNotification.title = requestBody.title;
@@ -83,5 +99,6 @@ function sendNotification(requestBody, responseFunction){
 
 module.exports = {
 	sendEmail : sendEmail,
-	sendNotification: sendNotification
+	sendNotification: sendNotification,
+	addPushToken: addPushToken,
 }

@@ -37,6 +37,15 @@ router.post("/notification", function(req,res){
 		console.log(response);
 		return res.send({success:true, message:"The push notification has been successfully sent"});
 	})
+});
+
+router.post("/pushtoken", function(req,res){
+	utils.addPushToken(req.body, function(response){
+		if(response instanceof Error){
+			return res.send(success:false, message:"Could not save push token to DB");
+		}
+		return res.send({success:true, message:"The push token was successfully saved."});
+	})
 })
 
 module.exports = router;
