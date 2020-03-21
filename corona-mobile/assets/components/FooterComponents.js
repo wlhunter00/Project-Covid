@@ -92,3 +92,45 @@ export function FAQItem({ question, answer }) {
     </View>
   ];
 }
+
+export function SourceItem({ question, answer }) {
+  const [expanded, setExpanded] = useState(false);
+  const color = expanded ? "black" : "grey";
+  const toggleExpanded = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpanded(!expanded);
+  };
+  return [
+    <View
+      style={{
+        marginBottom: 8,
+        padding: 15,
+        backgroundColor: "white",
+        shadowColor: "rgba(67, 160, 71, 0.2)",
+        shadowRadius: 6,
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 1,
+        borderRadius: 5
+      }}
+    >
+      <TouchableOpacity onPress={toggleExpanded}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text style={[boxStyles.questionText, { color: color }]}>
+            {question}
+          </Text>
+          <View style={{ flex: 1 }} />
+          <Ionicons
+            name={expanded ? "ios-close" : "ios-add"}
+            size={18}
+            color={color}
+          />
+        </View>
+      </TouchableOpacity>
+      {expanded && (
+        <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
+          <Text style={boxStyles.answerText}>{answer}</Text>
+        </Hyperlink>
+      )}
+    </View>
+  ];
+}
