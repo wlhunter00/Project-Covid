@@ -66,7 +66,7 @@ export function ActionButton({ title, action }) {
   return (
     <TouchableOpacity onPress={action} style={styles.actionButton}>
       <View>
-        <Text style={styles.actionButtonTitle}>{title}</Text>
+        <Text style={[styles.actionButtonTitle, {textAlign: 'center'}]}>{title}</Text>
       </View>
     </TouchableOpacity>
   );

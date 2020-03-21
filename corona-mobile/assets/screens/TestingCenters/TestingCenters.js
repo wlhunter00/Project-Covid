@@ -188,7 +188,7 @@ export default class TestingCenters extends React.Component {
             title="Step 4"
             body={
               <Text style={boxStyles.bio}>
-                Samples are sent to labs for analysis \n\nTiming to get results back range from 5 to 48 hours, with an average of 24 hours.
+                Samples are sent to labs for analysis. Timing to get results back range from 5 to 48 hours, with an average of 24 hours.
               </Text>
             }
           />
