@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { styles } from "./../../styles/styles.js";
 import { SurveyNavigationButton } from '../../components/Buttons';
-import { InfoView } from './../../components/InfoView';
+import { InfoViewDiagnosis } from './../../components/InfoView';
 import { SurveyButton } from '../../components/Buttons';
 
 
@@ -24,7 +24,7 @@ export function Diagnosis({navigation, response}) {
       <ScrollView style={styles.container}>
         {symptoms.map(symptom => {
         return (
-          <InfoView title={symptom.title} body={symptom.body + "% of people who tested positive have this symptom."}  />
+          <InfoViewDiagnosis title={symptom.title} body={symptom.body + "% of people who tested positive have this symptom."}  />
         );
       })}
     </ScrollView>

@@ -22,9 +22,7 @@ export function InfoView({ title, body, chevron }) {
           <View />
         )}
       </View>
-      <View style={styles.infoViewBodyView}>
-        <Text>{body}</Text>
-      </View>
+      <View style={styles.infoViewBodyView}>{body}</View>
     </View>
   );
 }
