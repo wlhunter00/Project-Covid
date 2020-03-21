@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
   nlpScript.stdout.on("data", function(data) {
     var pythonReturn = data.toString();
     var responseList = [];
-    var sympList = pythonReturn.split("\r\n");
+    var sympList = pythonReturn.split(";");
     if (
       sympList === undefined ||
       sympList.length == 0 ||
