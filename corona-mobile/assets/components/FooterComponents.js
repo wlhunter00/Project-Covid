@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, LayoutAnimation } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
-import { defaults, styles } from "../styles/styles";
+import { defaults, styles, boxStyles } from "../styles/styles";
 import { SimpleButton } from "./Buttons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -14,18 +14,18 @@ export function TeamMemberBox({ image, profile }) {
     setBioExpanded(!bioExpanded);
   };
   return (
-    <View style={localStyles.container}>
+    <View style={boxStyles.container}>
       <View style={{ flexDirection: "row", marginBottom: 10 }}>
         <View style={{ flexShrink: 1 }}>
-          <Text style={localStyles.compactName}>{name}</Text>
-          <Text style={localStyles.position}>{position}</Text>
-          <Text style={localStyles.school}>{schoolAndYear}</Text>
+          <Text style={boxStyles.compactName}>{name}</Text>
+          <Text style={boxStyles.position}>{position}</Text>
+          <Text style={boxStyles.school}>{schoolAndYear}</Text>
         </View>
         <View style={{ flex: 1 }} />
-        <Image source={image} style={localStyles.profileImages} />
+        <Image source={image} style={boxStyles.profileImages} />
       </View>
-      <View style={localStyles.divider} />
-      <Text style={localStyles.bio} numberOfLines={bioExpanded ? 0 : 2}>
+      <View style={boxStyles.divider} />
+      <Text style={boxStyles.bio} numberOfLines={bioExpanded ? 0 : 2}>
         {bio}
       </Text>
       <View style={{ flexDirection: "row", marginTop: 6 }}>
@@ -43,10 +43,10 @@ export function TeamMemberBox({ image, profile }) {
 
 export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
   return (
-    <View style={localStyles.container}>
-      <Text style={localStyles.compactName}>{name}</Text>
-      <Text style={localStyles.position}>{position}</Text>
-      <Text style={localStyles.school}>{schoolAndYear}</Text>
+    <View style={boxStyles.container}>
+      <Text style={boxStyles.compactName}>{name}</Text>
+      <Text style={boxStyles.position}>{position}</Text>
+      <Text style={boxStyles.school}>{schoolAndYear}</Text>
     </View>
   );
 }
@@ -62,7 +62,7 @@ export function FAQItem({ question, answer }) {
     <View style={{ marginBottom: 8, padding: 15, backgroundColor: "white" }}>
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={[localStyles.questionText, { color: color }]}>
+          <Text style={[boxStyles.questionText, { color: color }]}>
             {question}
           </Text>
           <View style={{ flex: 1 }} />
@@ -75,65 +75,9 @@ export function FAQItem({ question, answer }) {
       </TouchableOpacity>
       {expanded && (
         <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
-          <Text style={localStyles.answerText}>{answer}</Text>
+          <Text style={boxStyles.answerText}>{answer}</Text>
         </Hyperlink>
       )}
     </View>
   ];
 }
-
-const localStyles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    shadowColor: "rgba(67, 160, 71, 0.2)",
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 15
-  },
-  divider: {
-    height: 1,
-    backgroundColor: "#e1e8ee",
-    marginVertical: 10
-  },
-  profileImages: {
-    height: 100,
-    width: 66,
-    resizeMode: "contain"
-  },
-  name: {
-    fontSize: 30,
-    fontWeight: "600"
-  },
-  compactName: {
-    fontSize: 24
-  },
-  position: {
-    fontSize: 16,
-    fontWeight: "700",
-    color: "grey"
-  },
-  school: {
-    fontSize: 16,
-    fontWeight: "500",
-    color: "grey",
-    flexShrink: 1
-  },
-  bio: {
-    color: "#000",
-    fontSize: 16,
-    color: "grey"
-  },
-  questionText: {
-    fontSize: 16,
-    fontWeight: "600",
-    flexShrink: 1
-  },
-  answerText: {
-    fontSize: 16,
-    color: "grey",
-    marginTop: 10
-  }
-});

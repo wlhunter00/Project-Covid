@@ -152,3 +152,59 @@ export const styles = StyleSheet.create({
     marginRight: 10
   }
 });
+
+export const boxStyles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    shadowColor: "rgba(67, 160, 71, 0.2)",
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 15
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#e1e8ee",
+    marginVertical: 10
+  },
+  profileImages: {
+    height: 100,
+    width: 66,
+    resizeMode: "contain"
+  },
+  name: {
+    fontSize: 30,
+    fontWeight: "600"
+  },
+  compactName: {
+    fontSize: 24
+  },
+  position: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "grey"
+  },
+  school: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "grey",
+    flexShrink: 1
+  },
+  bio: {
+    color: "#000",
+    fontSize: 16,
+    color: "grey"
+  },
+  questionText: {
+    fontSize: 16,
+    fontWeight: "600",
+    flexShrink: 1
+  },
+  answerText: {
+    fontSize: 16,
+    color: "grey",
+    marginTop: 10
+  }
+});
