@@ -46,7 +46,9 @@ export default function HomeScreen({ navigation }) {
       <PageButton
         title="Frequently Asked Questions"
         navigationName="Faq"
-        icon={<FontAwesome name="question" size={25} style={{marginRight: 9}}/>}
+        icon={
+          <FontAwesome name="question" size={25} style={{ marginRight: 9 }} />
+        }
         description="Find answers to questions about the app."
         navigation={navigation}
       />
@@ -55,6 +57,13 @@ export default function HomeScreen({ navigation }) {
         navigationName="Team"
         icon={<MaterialIcons name="people" size={25} />}
         description="See who created this app."
+        navigation={navigation}
+      />
+      <PageButton
+        title="Contact Us"
+        navigationName="ContactUs"
+        icon={<Entypo name="mail" size={25} />}
+        description="Get in touch with us."
         navigation={navigation}
       />
     </ScrollView>

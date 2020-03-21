@@ -26,6 +26,7 @@ import TwitterFeed from "./assets/screens/TwitterFeed.js";
 import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
+import ContactUs from "./assets/screens/footerPages/ContactUs.js";
 import ViewSource from "./assets/screens/footerPages/ViewSource.js";
 
 import {
@@ -139,6 +140,11 @@ const HomeStack = () => (
       name="ViewSource"
       component={ViewSource}
       options={{ title: "View the Source" }}
+    />
+    <Stack.Screen
+      name="ContactUs"
+      component={ContactUs}
+      options={{ title: "Contact Us" }}
     />
   </Stack.Navigator>
 );
