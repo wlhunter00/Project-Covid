@@ -15,7 +15,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { InfoView } from "./../../components/InfoView";
 import { ActionButton } from "./../../components/Buttons";
-import { styles, defaults } from "../../styles/styles";
+import { styles, defaults, boxStyles } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
 
@@ -29,30 +29,30 @@ const contactNotFound = (
   <View>
     <Text
       style={[
-        styles.primaryTextBold,
-        { padding: defaults.padding, paddingTop: 0 }
+        boxStyles.position,
+        { paddingBottom: 10, paddingTop: 0 }
       ]}
     >
       We're currently unable to identify your location
     </Text>
 
-    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
+    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
       - Contact your health provider or a nearby urgent care center
     </Text>
 
-    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
+    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
       - Use a telemedicine service - Teladoc
     </Text>
 
-    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
+    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
       - Call 9-1-1 if a medical emergency
     </Text>
 
-    <Text style={[styles.primaryText, { padding: defaults.padding }]}>
+    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
       - Contact state/county health department (211 if no number is listed)
     </Text>
 
-    <Text style={[styles.primaryTextBold, { padding: defaults.padding }]}>
+    <Text style={[boxStyles.position, { paddingBottom: 10 }]}>
       Please enable location services to find state contact information
     </Text>
   </View>
@@ -68,16 +68,18 @@ function ContactInfo(location) {
   return (
     <View>
       <View>
-        <View style={{ padding: defaults.padding, paddingTop: 0 }}>
-          <Text style={styles.primaryText}>
-            <Text style={styles.primaryTextBold}>Your current location: </Text>
+        {/* <View style={{ padding: defaults.padding, paddingTop: 0 }}> */}
+        <View style={{ paddingBottom: 10 }}>
+          <Text style={boxStyles.bio}>
+            <Text style={boxStyles.position}>Your current location: </Text>
             <Text>{location.location["State"]}</Text>
           </Text>
         </View>
 
-        <View style={{ padding: defaults.padding }}>
-          <Text style={styles.primaryText}>
-            <Text style={styles.primaryTextBold}>Contact: </Text>
+        {/* <View style={{ padding: defaults.padding }}> */}
+        <View style={{ paddingBottom: 10 }}>
+          <Text style={boxStyles.bio}>
+            <Text style={boxStyles.position}>Contact: </Text>
             <Text>{location.location["State Department"]}</Text>
           </Text>
         </View>
@@ -152,71 +154,47 @@ export default class TestingCenters extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: defaults.secondarycolor }}>
-        <ScrollView
-          contentContainerStyle={{
-            alignItems: "center",
-            backgroundColor: defaults.secondarycolor,
-            paddingVertical: 10
-          }}
-        >
+      <View>
+        <ScrollView contentContainerStyle={{paddingHorizontal: 15, paddingTop: 15}}>
           <InfoView
             title="Step 1"
             body={
-              <PrimaryText
-                padding={defaults.padding}
-                text={
-                  "If you're feeling sick and exhibit symptoms of COVID-19, you should contact your primary healthcare provider if possible, else use a telemedicine app (Teladoc), or contact the health deparment based on your state."
-                }
-              />
+              <Text style={boxStyles.bio}>
+                If you're feeling sick and exhibit symptoms of COVID-19, you should contact your primary healthcare provider if possible, else use a telemedicine app (Teladoc), or contact the health deparment based on your state.
+              </Text>
             }
-            chevron={true}
           />
           <InfoView
             title="Contact Information"
             body={this.state.contact}
-            chevron={false}
           />
           <InfoView
             title="Step 2"
             body={
-              <PrimaryText
-                padding={defaults.padding}
-                text={
-                  "To be tested, you must be apporved by your healthcare provider or health department according to state criteria based on symptoms or if you've had exposure to an infected individual."
-                }
-              />
+              <Text style={boxStyles.bio}>
+                  To be tested, you must be apporved by your healthcare provider or health department according to state criteria based on symptoms or if you've had exposure to an infected individual.
+              </Text>
             }
-            chevron={true}
           />
           <InfoView
             title="Step 3"
             body={
-              <PrimaryText
-                padding={defaults.padding}
-                text={
-                  "The test procedure involves taking a swab of the patient's nose. Free testing is available in public facilities and price ranges from $50 - $100 for commercial lab testing if you don't meet state criteria or want an expedited process."
-                }
-              />
+              <Text style={boxStyles.bio}>
+                  The test procedure involves taking a swab of the patient's nose. Free testing is available in public facilities and price ranges from $50 - $100 for commercial lab testing if you don't meet state criteria or want an expedited process.
+              </Text>
             }
-            chevron={true}
           />
           <InfoView
             title="Step 4"
             body={
-              <PrimaryText
-                padding={defaults.padding}
-                text={
-                  "Samples are sent to labs for analysis \n\nTiming to get results back range from 5 to 48 hours, with an average of 24 hours."
-                }
-              />
+              <Text style={boxStyles.bio}>
+                Samples are sent to labs for analysis \n\nTiming to get results back range from 5 to 48 hours, with an average of 24 hours.
+              </Text>
             }
-            chevron={true}
           />
           <InfoView
             title="Information Sources"
-            body={<PrimaryText text={"--All links from research--"} />}
-            chevron={true}
+            body={<Text style={boxStyles.bio}>--All links from research--</Text>}
           />
         </ScrollView>
       </View>
