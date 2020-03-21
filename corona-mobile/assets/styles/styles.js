@@ -39,10 +39,15 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderBottomColor: "#c8c7cc",
-    borderBottomWidth: 1.5,
+    borderBottomWidth: 1,
     borderTopColor: "#c8c7cc",
-    borderTopWidth: 1.5,
-    height: 78
+    borderTopWidth: 1,
+    height: 78,
+    shadowColor: "rgba(67, 160, 71, 0.2)",
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 1,
+    borderRadius: 5
   },
   navButtonTitle: {
     fontSize: 18,
