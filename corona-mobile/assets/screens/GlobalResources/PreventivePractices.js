@@ -46,7 +46,14 @@ export default class PreventativePractices extends React.Component {
             "\u2022 Cover your coughs and sneezes with your elbow, facing away from others",
             "\u2022 Avoid handshaking and hugs when greeting others professionally and socially",
             "\u2022 Masks: N95 masks should ONLY be used in those showing symptoms, or those around the potentially infected",
-            "\u2022 Surfaces: COVID-19 can live on fabrics and hard surfaces for a predicted period of several days, clean surfaces routinely with disinfectants"
+            "\u2022 Surfaces: COVID-19 can live on fabrics and hard surfaces for a predicted period of several days, clean surfaces routinely with disinfectants",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ],
           id: "1"
         },
@@ -60,7 +67,14 @@ export default class PreventativePractices extends React.Component {
             "\u2022 Worry, concern, frustration, and loneliness are expected: remind yourself of the greater good you are promoting and advocating for by social distancing",
             "\u2022 Those previously experiencing substance abuse and mental health concern may be more likely to struggle in social isolation, consult appropriate providers/resources",
             "\u2022 Employees/students are advised to work from home/participate in online courses",
-            "\u2022 If you absolutely must leave the house, support small businesses"
+            "\u2022 If you absolutely must leave the house, support small businesses",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ],
           id: "2"
         },
@@ -76,7 +90,14 @@ export default class PreventativePractices extends React.Component {
             "\u2027 Take action: express your support to those who may have experienced stigma amidst COVID-19, and refer to mental health services as needed",
             "\u2022 As a population, we must remember to protect our mental health and coping methods",
             "\u2027 Those who previously may have struggled with mental health and/or substance abuse may be at risk of exacerbation",
-            "\u2027 If you or someone you know is struggling reach out to appropriate resources"
+            "\u2027 If you or someone you know is struggling reach out to appropriate resources",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ]
         },
         {
@@ -92,7 +113,14 @@ export default class PreventativePractices extends React.Component {
             "When in stores:",
             "\u2022 Sanitize your carts and hands; most retailers have stations",
             "\u2022 Avoid clashing with other customers",
-            "\u2022 Thank the employees! They are working around the clock to keep shelves stocked"
+            "\u2022 Thank the employees! They are working around the clock to keep shelves stocked",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ]
         },
         {
@@ -110,7 +138,14 @@ export default class PreventativePractices extends React.Component {
             "\u2022 Call ahead to emergent health services so they can anticipate arrival",
             " ",
             "If a non-vulnerable population member shows symptoms",
-            "\u2022 Call local healthcare provider and/or health department to seek testing"
+            "\u2022 Call local healthcare provider and/or health department to seek testing",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ]
         },
         {
@@ -127,7 +162,14 @@ export default class PreventativePractices extends React.Component {
             "Viral shedding: the period of time bodily secretions can transmit the virus",
             "\u2022 To date, the viral shedding period of COVID-19 is unknown",
             "\u2022 For this reason, continuously practice proper hygiene and cleaning",
-            "\u2022 COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals"
+            "\u2022 COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals",
+            " ",
+            "Sources:",
+            "1. https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+            "2. https://www.who.int/health-topics/coronavirus",
+            "3. https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+            "4. https://store.samhsa.gov/system/files/sma14-4894.pdf",
+            "5. https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
           ]
         }
       ]
