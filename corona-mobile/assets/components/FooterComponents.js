@@ -4,16 +4,13 @@ import {
   View,
   Image,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   LayoutAnimation
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
 import { defaults, styles, boxStyles } from "../styles/styles";
 import { SimpleButton } from "./Buttons";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function TeamMemberBox({ image, profile }) {
   const { name, position, schoolAndYear, bio } = profile;
@@ -136,17 +133,17 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
         </View>
       </TouchableOpacity>
       {expanded && (
-        <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
+        <React.Fragment>
           {sourcesList.map(source => {
-            return (
-              <SourceLink
-                source={source}
-                key={source}
-                navigation={navigation}
-              />
-            );
+              return (
+                  <SourceLink
+                      source={source}
+                      key={source}
+                      navigation={navigation}
+                  />
+              );
           })}
-        </Hyperlink>
+        </React.Fragment>
       )}
     </View>
   ];
@@ -154,14 +151,15 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
 
 export function SourceLink({ source, navigation }) {
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       onPress={() => {
         navigation.navigate("ViewSource", {
           url: source
         });
-      }}
+          }}
+          style={{marginTop: 10}}
     >
-      <Text style={boxStyles.answerText}>{source}</Text>
-    </TouchableHighlight>
+      <Text style={styles.linkButtonTitle}>{source}</Text>
+    </TouchableOpacity>
   );
 }

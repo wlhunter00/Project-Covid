@@ -36,5 +36,16 @@ for i in range((l>0)*l):
 if l == 0:
 	print("no apparent symptoms")
 
+s = ""
 print(req)
+for i in req:
+	s = s + i + ";"
+print(s)
+
+
+
+
+
+
+
 
