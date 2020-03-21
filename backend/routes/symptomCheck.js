@@ -22,7 +22,6 @@ router.post("/", async (req, res) => {
   }
   var nlpScript = spawn("python", [nlpScriptRoute, symptoms, jsonPath]);
   nlpScript.stdout.on("data", function(data) {
-    return res.send(data);
     var pythonReturn = data.toString();
     var responseList = [];
     var sympList = pythonReturn.split(";");
@@ -33,7 +32,7 @@ router.post("/", async (req, res) => {
       sympList[0] === "No matches found"
     ) {
       return res.send({
-        message: "No Symptoms found"
+        message: "No symptoms found"
       });
     }
     var jsonArray = [];

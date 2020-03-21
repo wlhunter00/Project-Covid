@@ -1,12 +1,14 @@
 import sys
 import json
+import io
+
 user_text = str(sys.argv[1])
 jsonPath = str(sys.argv[2])
 user_text = user_text.split()
 for i in user_text:
 	i = i.lower()
 
-with open(jsonPath, encoding = 'utf-8') as F:
+with io.open(jsonPath,'r', encoding='utf8') as F:
 	json_data = json.loads(F.read())
 
 found_sym = []
