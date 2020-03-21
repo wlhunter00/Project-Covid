@@ -5,11 +5,14 @@ import {
   Text,
   Dimensions,
   ImageBackground,
-  StyleSheet
+  StyleSheet,
+  Button
 } from "react-native";
 
 import Modal from 'react-native-modal';
-import { TouchableWithoutFeedback, ScrollView } from "react-native-gesture-handler";
+import { TouchableWithoutFeedback, ScrollView, TouchableHighlight } from "react-native-gesture-handler";
+import { boxStyles } from "../styles/styles";
+import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 
 export class ModalImage extends React.Component {
@@ -22,7 +25,7 @@ export class ModalImage extends React.Component {
     this.scrollRef = React.createRef();
   }
 
-  _head = item => {
+  _head = (item, x) => {
     const dimensions = Dimensions.get("window");
     const imageHeight = Math.round((dimensions.width * 3) / 4);
     const imageWidth = dimensions.width;
@@ -38,6 +41,20 @@ export class ModalImage extends React.Component {
             styles.headerImage
           ]}
         >
+          {x ?
+            <View style={{alignItems: 'flex-end'}}>
+              <TouchableWithoutFeedback title='collapse' onPress={this.ToggleModalOff}>
+                <Entypo 
+                  name="cross" 
+                  size={40} 
+                  adjustsFontSizeToFit={true}
+                  style={{color: 'white', width: 40, height: 40}}
+                /> 
+              </TouchableWithoutFeedback>
+            </View> 
+            : <View/>
+          }
+          
           <Text
             numberOfLines={1}
             adjustsFontSizeToFit={true}
@@ -54,12 +71,14 @@ export class ModalImage extends React.Component {
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
     const bulletPoints = item.body.map((text, i) => (
-      <Text key={i} style={{ marginBottom: 5 }}>{text}</Text>
+      <Text key={i} style={{ marginBottom: 0 }}>{text}</Text>
     ));
     return (
       <View style={styles.content}>
-        {this._head(item)}
-        {bulletPoints}
+        {this._head(item, true)}
+        <Text style={boxStyles.bio}>
+          {bulletPoints}
+        </Text> 
       </View>
       
     );
@@ -87,19 +106,16 @@ export class ModalImage extends React.Component {
   render(){
     return(
       <View>
-        <TouchableWithoutFeedback onPress={this.ToggleModalOn}>
-          {this._head(this.props.item)}
+        <TouchableWithoutFeedback onPress={this.ToggleModalOn} style={{padding: 5}}>
+          {this._head(this.props.item, false)}
         </TouchableWithoutFeedback>
         <Modal 
           isVisible={this.state.isVisible} 
           propagateSwipe={true}
           onBackdropPress={this.ToggleModalOff}
           onSwipeComplete={this.ToggleModalOff}
-          // swipeDirection={['left']}
           scrollTo={this.handleScrollTo}
           scrollOffset={this.state.scrollOffset}
-          // scrollOffsetMax={300}
-          // style={{flex:1}}
         >
           <View style={{flex: 1}}>
             <ScrollView 
@@ -107,13 +123,14 @@ export class ModalImage extends React.Component {
               onScroll={this.handleOnScroll}
               scrollEventThrottle={8}
               nestedScrollEnabled={true}
+              contentContainerStyle={{paddingTop: 30}}
             >
               <View>
-                <TouchableWithoutFeedback 
+                {/* <TouchableWithoutFeedback 
                   onPress={this.ToggleModalOff}
-                >
+                > */}
                   {this._body(this.props.item)}
-                </TouchableWithoutFeedback>
+                {/* </TouchableWithoutFeedback> */}
               </View>
             </ScrollView>
           </View>
@@ -134,7 +151,7 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   header: {
-    padding: 5,
+    padding: 0,
     marginBottom: 5,
     borderRadius: 50,
     borderBottomRightRadius: 100,
@@ -143,8 +160,9 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 10,
-    backgroundColor: "#b8dedd",
-    borderRadius: 10,
+    paddingTop: 0,
+    backgroundColor: "white",
+    borderRadius: 5,
     marginBottom: 10
   },
   headerText: {
@@ -167,6 +185,6 @@ const styles = StyleSheet.create({
     elevation: 3,
     overflow: "hidden",
     resizeMode: "cover",
-    borderRadius: 15
+    borderRadius: 5
   }
 });
