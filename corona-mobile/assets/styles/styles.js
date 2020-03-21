@@ -33,6 +33,15 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10
   },
+  sectionTitleCenter: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: defaults.headercolor,
+    marginBottom: 5,
+    marginTop: 10,
+    marginLeft: 5,
+    textAlign: 'center'
+  },
   navButton: {
     flexDirection: "row",
     alignItems: "center",
@@ -83,6 +92,30 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     alignSelf: "center"
   },
+  surveyButtonFull: {
+    backgroundColor: defaults.primarycolor,
+    borderRadius: 25,
+    padding: 15,
+    paddingBottom: 0,
+    width: "90%",
+    height: 50,
+    margin: "1.75%",
+    marginBottom: 15,
+    marginTop: 15,
+    alignSelf: "center"
+  },
+  surveyButtonLess: {
+    backgroundColor: defaults.primarycolor,
+    borderRadius: 25,
+    padding: 15,
+    paddingBottom: 0,
+    width: "60%",
+    height: 50,
+    margin: "1.75%",
+    marginBottom: 15,
+    marginTop: 15,
+    alignSelf: "center"
+  },
   surveyButtonTitle: {
     color: "white",
     fontSize: 16,
@@ -103,6 +136,15 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     marginLeft: 10,
     marginRight: 10,
+  },
+  surveyQuestionTextUnderline: {
+    color: defaults.headercolor,
+    fontSize: 16,
+    marginTop: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 15,
+    textDecorationLine: 'underline'
   },
   textBox: {
     borderWidth: 3,

@@ -31,10 +31,11 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
 
   const advanceQuestionSend = (newResponse) => {
     updateAnswer(newResponse);
-    changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
+    let fullNew = allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + newResponse;
+    changeResponse(fullNew);
     if (newResponse.trim() != "") {
       changeQuestionNumber(questionNumber + 1);
-      sendSymptoms(response, changeBackendResponse);
+      sendSymptoms(fullNew, changeBackendResponse);
       changeSurveyDone(true);
     }
     else {
