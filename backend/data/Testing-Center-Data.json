@@ -1,338 +1,358 @@
 {
-  "1": {
-    "Abbreviation": "AL",
-    "State": "Alabama",
-    "State Department": "Alabama Department of Public Health",
-    "Phone Number": "1-888-264-2256",
-    "URL": "http://alabamapublichealth.gov/infectiousdiseases/cov-testing.html"
-  },
-  "2": {
-    "Abbreviation": "AK",
-    "State": "Alaska",
-    "State Department": "Alaska Department of Health and Social Services",
-    "URL": "http://dhss.alaska.gov/dph/Epi/id/Pages/COVID-19/general.aspx"
-  },
-  "3": {
-    "Abbreviation": "AZ",
-    "State": "Arizona",
-    "State Department": "Arizona Deparment of Health Services",
-    "Phone Number": "1-844-542-8201",
-    "URL": "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/index.php#novel-coronavirus-home"
-  },
-  "4": {
-    "Abbreviation": "AR",
-    "State": "Arkansas",
-    "State Department": "Arkansas Department of Health",
-    "Phone Number": "800-803-7847",
-    "URL": "https://www.healthy.arkansas.gov/programs-services/topics/novel-coronavirus"
-  },
-  "5": {
-    "Abbreviation": "CA",
-    "State": "California",
-    "State Department": "California Department of Public Health",
-    "URL": "https://www.cdph.ca.gov/Programs/CCLHO/CDPH%20Document%20Library/LHD_CD_Contact_Info_ADA.pdf"
-  },
-  "6": {
-    "Abbreviation": "CO",
-    "State": "Colorado",
-    "State Department": "Colorado Department of Public Health & Environment",
-    "Phone Number": "1-877-462-2911",
-    "URL": "https://www.colorado.gov/pacific/cdphe/2019-novel-coronavirus"
-  },
-  "7": {
-    "Abbreviation": "CT",
-    "State": "Connecticut",
-    "State Department": "Connecticut Department of Public Health",
-    "URL": "https://portal.ct.gov/DPH/Local-Health-Admin/LHA/Local-Health-Administration---Site-Map"
-  },
-  "8": {
-    "Abbreviation": "DE",
-    "State": "Delaware",
-    "State Department": "Delaware Division of Public Health",
-    "Phone Number": "1-866-408-1899",
-    "URL": "https://dhss.delaware.gov/dhss/dph/epi/2019novelcoronavirus.html"
-  },
-  "9": {
-    "Abbreviation": "DC",
-    "State": "Washington DC",
-    "State Department": "DC Health",
-    "URL": "https://coronavirus.dc.gov/"
-  },
-  "10": {
-    "Abbreviation": "FL",
-    "State": "Florida",
-    "State Department": "Florida Department of Health",
-    "Phone Number": "1-866-779-6121",
-    "URL": "http://www.floridahealth.gov/all-county-locations.html?utm_source=floridahealth.gov/programs-and-services/county-health-departments/find-a-county-health-department/index"
-  },
-  "11": {
-    "Abbreviation": "GA",
-    "State": "Georgia",
-    "State Department": "Georgia Department of Public Health",
-    "Phone Number": "1-866-782-4584",
-    "URL": "https://dph.georgia.gov/novelcoronavirus"
-  },
-  "12": {
-    "Abbreviation": "HI",
-    "State": "Hawaii",
-    "State Department": "Hawaii Department of Health",
-    "URL": "https://health.hawaii.gov/docd/advisories/novel-coronavirus-2019/#do"
-  },
-  "13": {
-    "Abbreviation": "ID",
-    "State": "Idaho",
-    "State Department": "Idaho Department of Health",
-    "URL": "https://coronavirus.idaho.gov/contact/"
-  },
-  "14": {
-    "Abbreviation": "IL",
-    "State": "Illinois",
-    "State Department": "Illinois Department of Public Health",
-    "Phone Number": "1-800-889-3931",
-    "URL": "http://www.dph.illinois.gov/topics-services/diseases-and-conditions/diseases-a-z-list/coronavirus"
-  },
-  "15": {
-    "Abbreviation": "IN",
-    "State": "Indiana",
-    "State Department": "Indiana State Department of Health",
-    "Phone Number": "877-826-0011",
-    "URL": "https://www.in.gov/coronavirus/"
-  },
-  "16": {
-    "Abbreviation": "IA",
-    "State": "Iowa",
-    "State Department": "Iowa Department of Public Health",
-    "URL": "https://idph.iowa.gov/emerging-health-issues/novel-coronavirus"
-  },
-  "17": {
-    "Abbreviation": "KS",
-    "State": "Kansas",
-    "State Department": "Kansas Department of Health and Environment",
-    "Phone Number": "1-866-534-3463",
-    "URL": "http://www.kdheks.gov/coronavirus/index.htm"
-  },
-  "18": {
-    "Abbreviation": "KY",
-    "State": "Kentucky",
-    "State Department": "Kentucky Cabinet for Health and Family Services",
-    "Phone Number": "800-722-5725",
-    "URL": "https://chfs.ky.gov/agencies/dph/pages/covid19.aspx"
-  },
-  "19": {
-    "Abbreviation": "LA",
-    "State": "Louisiana",
-    "State Department": "Louisiana Department of Health",
-    "URL": "http://ldh.la.gov/Coronavirus/"
-  },
-  "20": {
-    "Abbreviation": "ME",
-    "State": "Maine",
-    "State Department": "Maine Division of Disease Surveillance",
-    "URL": "https://www.maine.gov/dhhs/mecdc/infectious-disease/epi/airborne/coronavirus.shtml"
-  },
-  "21": {
-    "Abbreviation": "MD",
-    "State": "Maryland",
-    "State Department": "Maryland Department of Health",
-    "URL": "https://coronavirus.maryland.gov/"
-  },
-  "22": {
-    "Abbreviation": "MA",
-    "State": "Massachusetts",
-    "State Department": "Massachusetts Department of Public Health",
-    "URL": "https://www.mass.gov/resource/information-on-the-outbreak-of-coronavirus-disease-2019-covid-19"
-  },
-  "23": {
-    "Abbreviation": "MI",
-    "State": "Michigan",
-    "State Department": "Michigan Department of Health and Human Services",
-    "Phone Number": "1-888-535-6136",
-    "URL": "https://www.michigan.gov/coronavirus"
-  },
-  "24": {
-    "Abbreviation": "MN",
-    "State": "Minnesota",
-    "State Department": "Minnesota Department of Health",
-    "Phone Number": "1-800-657-3903",
-    "URL": "https://www.health.state.mn.us/diseases/coronavirus/index.html"
-  },
-  "25": {
-    "Abbreviation": "MS",
-    "State": "Mississippi",
-    "State Department": "Mississippi Department of Health",
-    "Phone Number": "877-978-6453",
-    "URL": "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
-  },
-  "26": {
-    "Abbreviation": "MO",
-    "State": "Missouri",
-    "State Department": "Missouri Department of Health and Senior Services",
-    "Phone Number": "877-435-8411",
-    "URL": "https://health.mo.gov/living/healthcondiseases/communicable/novel-coronavirus/"
-  },
-  "27": {
-    "Abbreviation": "MT",
-    "State": "Montana",
-    "State Department": "Montana Department of Public Health and Human Services",
-    "Phone Number": "406-444-0273",
-    "URL": "https://dphhs.mt.gov/publichealth/FCSS/countytribalhealthdepts"
-  },
-  "28": {
-    "Abbreviation": "NE",
-    "State": "Nebraska",
-    "State Department": "Nebraska Department of Health and Human Services",
-    "Phone Number": "402-552-6645",
-    "URL": "http://dhhs.ne.gov/Pages/Coronavirus.aspx"
-  },
-  "29": {
-    "Abbreviation": "NV",
-    "State": "Nevada",
-    "State Department": "Nevada Department of Health and Human Services",
-    "URL": "http://dpbh.nv.gov/Programs/OPHIE/dta/Hot_Topics/Coronavirus/"
-  },
-  "30": {
-    "Abbreviation": "NH",
-    "State": "New Hampshire",
-    "State Department": "New Hampshire Department of Health and Human Services",
-    "URL": "https://www.dhhs.nh.gov/dphs/cdcs/2019-ncov-clinicans.htm"
-  },
-  "31": {
-    "Abbreviation": "NJ",
-    "State": "New Jersey",
-    "State Department": "New Jersey Department of Health",
-    "Phone Number": "1-800-962-1253",
-    "URL": "https://www.state.nj.us/health/lh/community/index.shtml"
-  },
-  "32": {
-    "Abbreviation": "NM",
-    "State": "New Mexico",
-    "State Department": "New Mexico Department of Health",
-    "Phone Number": "1-855-600-3453",
-    "URL": "https://cv.nmhealth.org/"
-  },
-  "33": {
-    "Abbreviation": "NY",
-    "State": "New York",
-    "State Department": "New York Department of Health",
-    "Phone Number": "1-888-364-3065",
-    "URL": "https://health.ny.gov/diseases/communicable/coronavirus/"
-  },
-  "34": {
-    "Abbreviation": "NC",
-    "State": "North Carolina",
-    "State Department": "North Carolina Department of Health and Human Services",
-    "Phone Number": "866-462-3821",
-    "URL": "https://www.ncdhhs.gov/divisions/public-health/county-health-departments"
-  },
-  "35": {
-    "Abbreviation": "ND",
-    "State": "North Dakota",
-    "State Department": "North Dakota Department of Health",
-    "Phone Number": "1-866-207-2880",
-    "URL": "https://www.health.nd.gov/diseases-conditions/coronavirus/coronavirus-public"
-  },
-  "36": {
-    "Abbreviation": "OH",
-    "State": "Ohio",
-    "State Department": "Ohio Department of Health",
-    "Phone Number": "1-833-427-5634",
-    "URL": "https://coronavirus.ohio.gov/wps/portal/gov/covid-19/home/resources/COVID-19-ODH-Call-center"
-  },
-  "37": {
-    "Abbreviation": "OK",
-    "State": "Oklahoma",
-    "State Department": "Oklahoma State Department of Health",
-    "Phone Number": "877-215-8336",
-    "URL": "https://www.ok.gov/health/Prevention_and_Preparedness/Acute_Disease_Service/Disease_Information/Coronavirus_Disease_2019/index.html"
-  },
-  "38": {
-    "Abbreviation": "OR",
-    "State": "Oregon",
-    "State Department": "Oregon Health Authority",
-    "URL": "https://www.oregon.gov/oha/PH/DISEASESCONDITIONS/DISEASESAZ/Pages/emerging-respiratory-infections.aspx"
-  },
-  "39": {
-    "Abbreviation": "PA",
-    "State": "Pennsylvania",
-    "State Department": "Pennsylvania Department of Health",
-    "Phone Number": "1-877-724-3528",
-    "URL": "https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx"
-  },
-  "40": {
-    "Abbreviation": "RI",
-    "State": "Rhode Island",
-    "State Department": "Rhode Island Department of Health",
-    "URL": "https://health.ri.gov/diseases/ncov2019/"
-  },
-  "41": {
-    "Abbreviation": "SC",
-    "State": "South Carolina",
-    "State Department": "South Carolina Department of Health and Environmental Control",
-    "Phone Number": "1-855-472-3432",
-    "URL": "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19"
-  },
-  "42": {
-    "Abbreviation": "SD",
-    "State": "South Dakota",
-    "State Department": "South Dakota Department of Health",
-    "Phone Number": "1-800-997-2880",
-    "URL": "https://doh.sd.gov/news/Coronavirus.aspx"
-  },
-  "43": {
-    "Abbreviation": "TN",
-    "State": "Tennessee",
-    "State Department": "Tennessee Department of Health",
-    "Phone Number": "877-857-2945",
-    "URL": "https://www.tn.gov/health/cedep/ncov.html"
-  },
-  "44": {
-    "Abbreviation": "TX",
-    "State": "Texas",
-    "State Department": "Texas Department of State Health Services",
-    "URL": "https://dshs.texas.gov/coronavirus/"
-  },
-  "45": {
-    "Abbreviation": "UT",
-    "State": "Utah",
-    "State Department": "Utah Department of Health",
-    "Phone Number": "1-800-456-7707",
-    "URL": "https://coronavirus.utah.gov/"
-  },
-  "46": {
-    "Abbreviation": "VT",
-    "State": "Vermont",
-    "State Department": "Vermont Department of Health",
-    "URL": "https://www.healthvermont.gov/"
-  },
-  "47": {
-    "Abbreviation": "VA",
-    "State": "Virginia",
-    "State Department": "Virginia Department of Health",
-    "URL": "http://www.vdh.virginia.gov/surveillance-and-investigation/novel-coronavirus/"
-  },
-  "48": {
-    "Abbreviation": "WA",
-    "State": "Washington ",
-    "State Department": "Washington State Department of Health",
-    "URL": "https://www.doh.wa.gov/Emergencies/Coronavirus"
-  },
-  "49": {
-    "Abbreviation": "WV",
-    "State": "West Virginia",
-    "State Department": "West Virginia Department of Health and Human Resources",
-    "Phone Number": "1-800-887-4304",
-    "URL": "https://dhhr.wv.gov/COVID-19/Pages/default.aspx"
-  },
-  "50": {
-    "Abbreviation": "WI",
-    "State": "Wisconsin",
-    "State Department": "Wisconsin Department of Health Services",
-    "URL": "https://www.dhs.wisconsin.gov/covid-19/index.htm"
-  },
-  "51": {
-    "Abbreviation": "WY",
-    "State": "Wyoming",
-    "State Department": "Wyoming Department of Health",
-    "URL": "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/"
+  "Sheet1": {
+    "1": {
+      "Abbreviation": "AL",
+      "State": "Alabama",
+      "State Department": "Alabama Department of Public Health",
+      "Crisis Phone Number": "1-888-264-2256",
+      "URL": "http://alabamapublichealth.gov/infectiousdiseases/cov-testing.html",
+      "Local Info": "https://www.southalabama.edu/departments/counseling/coronavirus.html"
+    },
+    "2": {
+      "Abbreviation": "AK",
+      "State": "Alaska",
+      "State Department": "Alaska Department of Health and Social Services",
+      "Crisis Phone Number": "907-563-3200",
+      "URL": "http://dhss.alaska.gov/dph/Epi/id/Pages/COVID-19/general.aspx",
+      "Local Info": "https://alaska.providence.org/services/c/crisis-recovery-center"
+    },
+    "3": {
+      "Abbreviation": "AZ",
+      "State": "Arizona",
+      "State Department": "Arizona Deparment of Health Services",
+      "Crisis Phone Number": "1-844-542-8201",
+      "URL": "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/index.php#novel-coronavirus-home",
+      "Local Info": "https://des.az.gov/services/basic-needs/shelter-housing/short-term-crisis-services"
+    },
+    "4": {
+      "Abbreviation": "AR",
+      "State": "Arkansas",
+      "State Department": "Arkansas Department of Health",
+      "Crisis Phone Number": "800-803-7847",
+      "URL": "https://www.healthy.arkansas.gov/programs-services/topics/novel-coronavirus"
+    },
+    "5": {
+      "Abbreviation": "CA",
+      "State": "California",
+      "State Department": "California Department of Public Health",
+      "URL": "https://www.cdph.ca.gov/Programs/CCLHO/CDPH%20Document%20Library/LHD_CD_Contact_Info_ADA.pdf"
+    },
+    "6": {
+      "Abbreviation": "CO",
+      "State": "Colorado",
+      "State Department": "Colorado Department of Public Health & Environment",
+      "Crisis Phone Number": "1-877-462-2911",
+      "URL": "https://www.colorado.gov/pacific/cdphe/2019-novel-coronavirus"
+    },
+    "7": {
+      "Abbreviation": "CT",
+      "State": "Connecticut",
+      "State Department": "Connecticut Department of Public Health",
+      "URL": "https://portal.ct.gov/DPH/Local-Health-Admin/LHA/Local-Health-Administration---Site-Map",
+      "Local Info": "https://uwc.211ct.org/coronavirus-novel-in-connecticut-general-information/"
+    },
+    "8": {
+      "Abbreviation": "DE",
+      "State": "Delaware",
+      "State Department": "Delaware Division of Public Health",
+      "Crisis Phone Number": "1-866-408-1899",
+      "URL": "https://dhss.delaware.gov/dhss/dph/epi/2019novelcoronavirus.html",
+      "Local Info": "https://www.namidelaware.org/resources"
+    },
+    "9": {
+      "Abbreviation": "DC",
+      "State": "Washington DC",
+      "State Department": "DC Health",
+      "URL": "https://coronavirus.dc.gov/"
+    },
+    "10": {
+      "Abbreviation": "FL",
+      "State": "Florida",
+      "State Department": "Florida Department of Health",
+      "Crisis Phone Number": "1-866-779-6121",
+      "URL": "http://www.floridahealth.gov/all-county-locations.html?utm_source=floridahealth.gov/programs-and-services/county-health-departments/find-a-county-health-department/index"
+    },
+    "11": {
+      "Abbreviation": "GA",
+      "State": "Georgia",
+      "State Department": "Georgia Department of Public Health",
+      "Crisis Phone Number": "1-866-782-4584",
+      "URL": "https://dph.georgia.gov/novelcoronavirus"
+    },
+    "12": {
+      "Abbreviation": "HI",
+      "State": "Hawaii",
+      "State Department": "Hawaii Department of Health",
+      "URL": "https://health.hawaii.gov/docd/advisories/novel-coronavirus-2019/#do"
+    },
+    "13": {
+      "Abbreviation": "ID",
+      "State": "Idaho",
+      "State Department": "Idaho Department of Health",
+      "URL": "https://coronavirus.idaho.gov/contact/"
+    },
+    "14": {
+      "Abbreviation": "IL",
+      "State": "Illinois",
+      "State Department": "Illinois Department of Public Health",
+      "Crisis Phone Number": "1-800-889-3931",
+      "URL": "http://www.dph.illinois.gov/topics-services/diseases-and-conditions/diseases-a-z-list/coronavirus"
+    },
+    "15": {
+      "Abbreviation": "IN",
+      "State": "Indiana",
+      "State Department": "Indiana State Department of Health",
+      "Crisis Phone Number": "877-826-0011",
+      "URL": "https://www.in.gov/coronavirus/"
+    },
+    "16": {
+      "Abbreviation": "IA",
+      "State": "Iowa",
+      "State Department": "Iowa Department of Public Health",
+      "URL": "https://idph.iowa.gov/emerging-health-issues/novel-coronavirus",
+      "Local Info": "https://www.polkcountyiowa.gov/health/programs/covid-19/"
+    },
+    "17": {
+      "Abbreviation": "KS",
+      "State": "Kansas",
+      "State Department": "Kansas Department of Health and Environment",
+      "Crisis Phone Number": "1-866-534-3463",
+      "URL": "http://www.kdheks.gov/coronavirus/index.htm",
+      "Local Info": "http://www.kdheks.gov/coronavirus/COVID-19_Resource_Center.htm"
+    },
+    "18": {
+      "Abbreviation": "KY",
+      "State": "Kentucky",
+      "State Department": "Kentucky Cabinet for Health and Family Services",
+      "Crisis Phone Number": "800-722-5725",
+      "URL": "https://chfs.ky.gov/agencies/dph/pages/covid19.aspx"
+    },
+    "19": {
+      "Abbreviation": "LA",
+      "State": "Louisiana",
+      "State Department": "Louisiana Department of Health",
+      "URL": "http://ldh.la.gov/Coronavirus/",
+      "Local Info": "http://ldh.la.gov/coronavirus/"
+    },
+    "20": {
+      "Abbreviation": "ME",
+      "State": "Maine",
+      "State Department": "Maine Division of Disease Surveillance",
+      "URL": "https://www.maine.gov/dhhs/mecdc/infectious-disease/epi/airborne/coronavirus.shtml"
+    },
+    "21": {
+      "Abbreviation": "MD",
+      "State": "Maryland",
+      "State Department": "Maryland Department of Health",
+      "URL": "https://coronavirus.maryland.gov/"
+    },
+    "22": {
+      "Abbreviation": "MA",
+      "State": "Massachusetts",
+      "State Department": "Massachusetts Department of Public Health",
+      "URL": "https://www.mass.gov/resource/information-on-the-outbreak-of-coronavirus-disease-2019-covid-19",
+      "Local Info": "https://www.mass.gov/resource/information-on-the-outbreak-of-coronavirus-disease-2019-covid-19"
+    },
+    "23": {
+      "Abbreviation": "MI",
+      "State": "Michigan",
+      "State Department": "Michigan Department of Health and Human Services",
+      "Crisis Phone Number": "1-888-535-6136",
+      "URL": "https://www.michigan.gov/coronavirus"
+    },
+    "24": {
+      "Abbreviation": "MN",
+      "State": "Minnesota",
+      "State Department": "Minnesota Department of Health",
+      "Crisis Phone Number": "1-800-657-3903",
+      "URL": "https://www.health.state.mn.us/diseases/coronavirus/index.html"
+    },
+    "25": {
+      "Abbreviation": "MS",
+      "State": "Mississippi",
+      "State Department": "Mississippi Department of Health",
+      "Crisis Phone Number": "877-978-6453",
+      "URL": "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
+    },
+    "26": {
+      "Abbreviation": "MO",
+      "State": "Missouri",
+      "State Department": "Missouri Department of Health and Senior Services",
+      "Crisis Phone Number": "877-435-8411",
+      "URL": "https://health.mo.gov/living/healthcondiseases/communicable/novel-coronavirus/"
+    },
+    "27": {
+      "Abbreviation": "MT",
+      "State": "Montana",
+      "State Department": "Montana Department of Public Health and Human Services",
+      "Crisis Phone Number": "406-444-0273",
+      "URL": "https://dphhs.mt.gov/publichealth/FCSS/countytribalhealthdepts"
+    },
+    "28": {
+      "Abbreviation": "NE",
+      "State": "Nebraska",
+      "State Department": "Nebraska Department of Health and Human Services",
+      "Crisis Phone Number": "402-552-6645",
+      "URL": "http://dhhs.ne.gov/Pages/Coronavirus.aspx",
+      "Local Info": "https://www.douglascounty-ne.gov/coronavirus-covid-19-information"
+    },
+    "29": {
+      "Abbreviation": "NV",
+      "State": "Nevada",
+      "State Department": "Nevada Department of Health and Human Services",
+      "Crisis Phone Number": "775-328-2427",
+      "URL": "http://dpbh.nv.gov/Programs/OPHIE/dta/Hot_Topics/Coronavirus/"
+    },
+    "30": {
+      "Abbreviation": "NH",
+      "State": "New Hampshire",
+      "State Department": "New Hampshire Department of Health and Human Services",
+      "Crisis Phone Number": "603-668-1547",
+      "URL": "https://www.dhhs.nh.gov/dphs/cdcs/2019-ncov-clinicans.htm"
+    },
+    "31": {
+      "Abbreviation": "NJ",
+      "State": "New Jersey",
+      "State Department": "New Jersey Department of Health",
+      "Crisis Phone Number": "1-800-962-1253",
+      "URL": "https://www.state.nj.us/health/lh/community/index.shtml"
+    },
+    "32": {
+      "Abbreviation": "NM",
+      "State": "New Mexico",
+      "State Department": "New Mexico Department of Health",
+      "Crisis Phone Number": "1-855-600-3453",
+      "URL": "https://cv.nmhealth.org/"
+    },
+    "33": {
+      "Abbreviation": "NY",
+      "State": "New York",
+      "State Department": "New York Department of Health",
+      "Crisis Phone Number": "1-888-364-3065",
+      "URL": "https://health.ny.gov/diseases/communicable/coronavirus/"
+    },
+    "34": {
+      "Abbreviation": "NC",
+      "State": "North Carolina",
+      "State Department": "North Carolina Department of Health and Human Services",
+      "Crisis Phone Number": "866-462-3821",
+      "URL": "https://www.ncdhhs.gov/divisions/public-health/county-health-departments",
+      "Local Info": "https://www.ncdhhs.gov/divisions/public-health/coronavirus-disease-2019-covid-19-response-north-carolina"
+    },
+    "35": {
+      "Abbreviation": "ND",
+      "State": "North Dakota",
+      "State Department": "North Dakota Department of Health",
+      "Crisis Phone Number": "1-866-207-2880",
+      "URL": "https://www.health.nd.gov/diseases-conditions/coronavirus/coronavirus-public"
+    },
+    "36": {
+      "Abbreviation": "OH",
+      "State": "Ohio",
+      "State Department": "Ohio Department of Health",
+      "Crisis Phone Number": "1-833-427-5634",
+      "URL": "https://coronavirus.ohio.gov/wps/portal/gov/covid-19/home/resources/COVID-19-ODH-Call-center"
+    },
+    "37": {
+      "Abbreviation": "OK",
+      "State": "Oklahoma",
+      "State Department": "Oklahoma State Department of Health",
+      "Crisis Phone Number": "877-215-8336",
+      "URL": "https://www.ok.gov/health/Prevention_and_Preparedness/Acute_Disease_Service/Disease_Information/Coronavirus_Disease_2019/index.html"
+    },
+    "38": {
+      "Abbreviation": "OR",
+      "State": "Oregon",
+      "State Department": "Oregon Health Authority",
+      "URL": "https://www.oregon.gov/oha/PH/DISEASESCONDITIONS/DISEASESAZ/Pages/emerging-respiratory-infections.aspx"
+    },
+    "39": {
+      "Abbreviation": "PA",
+      "State": "Pennsylvania",
+      "State Department": "Pennsylvania Department of Health",
+      "Crisis Phone Number": "1-877-724-3528",
+      "URL": "https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx",
+      "Local Info": "https://www.health.pa.gov/topics/disease/coronavirus/Pages/Coronavirus.aspx"
+    },
+    "40": {
+      "Abbreviation": "RI",
+      "State": "Rhode Island",
+      "State Department": "Rhode Island Department of Health",
+      "URL": "https://health.ri.gov/diseases/ncov2019/"
+    },
+    "41": {
+      "Abbreviation": "SC",
+      "State": "South Carolina",
+      "State Department": "South Carolina Department of Health and Environmental Control",
+      "Crisis Phone Number": "1-855-472-3432",
+      "URL": "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19"
+    },
+    "42": {
+      "Abbreviation": "SD",
+      "State": "South Dakota",
+      "State Department": "South Dakota Department of Health",
+      "Crisis Phone Number": "1-800-997-2880",
+      "URL": "https://doh.sd.gov/news/Coronavirus.aspx"
+    },
+    "43": {
+      "Abbreviation": "TN",
+      "State": "Tennessee",
+      "State Department": "Tennessee Department of Health",
+      "Crisis Phone Number": "877-857-2945",
+      "URL": "https://www.tn.gov/health/cedep/ncov.html"
+    },
+    "44": {
+      "Abbreviation": "TX",
+      "State": "Texas",
+      "State Department": "Texas Department of State Health Services",
+      "URL": "https://dshs.texas.gov/coronavirus/",
+      "Local Info": "https://hhs.texas.gov"
+    },
+    "45": {
+      "Abbreviation": "UT",
+      "State": "Utah",
+      "State Department": "Utah Department of Health",
+      "Crisis Phone Number": "1-800-456-7707",
+      "URL": "https://coronavirus.utah.gov/"
+    },
+    "46": {
+      "Abbreviation": "VT",
+      "State": "Vermont",
+      "State Department": "Vermont Department of Health",
+      "URL": "https://www.healthvermont.gov/"
+    },
+    "47": {
+      "Abbreviation": "VA",
+      "State": "Virginia",
+      "State Department": "Virginia Department of Health",
+      "URL": "http://www.vdh.virginia.gov/surveillance-and-investigation/novel-coronavirus/"
+    },
+    "48": {
+      "Abbreviation": "WA",
+      "State": "Washington ",
+      "State Department": "Washington State Department of Health",
+      "URL": "https://www.doh.wa.gov/Emergencies/Coronavirus"
+    },
+    "49": {
+      "Abbreviation": "WV",
+      "State": "West Virginia",
+      "State Department": "West Virginia Department of Health and Human Resources",
+      "Crisis Phone Number": "1-800-887-4304",
+      "URL": "https://dhhr.wv.gov/COVID-19/Pages/default.aspx",
+      "Local Info": "https://wvde.us/covid19/"
+    },
+    "50": {
+      "Abbreviation": "WI",
+      "State": "Wisconsin",
+      "State Department": "Wisconsin Department of Health Services",
+      "URL": "https://www.dhs.wisconsin.gov/covid-19/index.htm",
+      "Local Info": "https://coronavirus.uwhealth.org/frequently-asked-questions/"
+    },
+    "51": {
+      "Abbreviation": "WY",
+      "State": "Wyoming",
+      "State Department": "Wyoming Department of Health",
+      "URL": "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/"
+    }
   }
 }
