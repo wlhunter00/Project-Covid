@@ -28,7 +28,7 @@ export default function SymptomCheck({ navigation }) {
       />
       {surveyDone && (
         <View>
-          <Diagnosis key={instanceKey} response={backendResponse} navigation={navigation} />
+          <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} />
           <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
         </View>
       )}

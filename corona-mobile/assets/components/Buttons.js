@@ -87,6 +87,21 @@ export function SurveyNavigationButton({ title, navigation, navigationName }) {
       onPress={() => {
         navigation.navigate(navigationName);
       }}
+      style = {styles.surveyButtonFull}
+    >
+      <View>
+        <Text style={styles.surveyButtonTitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+export function SurveyNavigationButtonLarge({ title, navigation, navigationName }) {
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(navigationName);
+      }}
+      style={styles.surveyButtonLess}
     >
       <View>
         <Text style={styles.surveyButtonTitle}>{title}</Text>
