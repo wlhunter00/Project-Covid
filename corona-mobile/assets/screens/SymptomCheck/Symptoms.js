@@ -47,13 +47,15 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   return (
     <ScrollView>
       {questionNumber == 0 && (
-        <View style={{ marginTop: 10, marginRight: 5, marginLeft: 5, alignItems: "center" }}>
-          <View style={boxStyles.container}>
+        <View style={{ marginTop: 10, marginRight: 5, marginLeft: 5}}>
+        <View style={boxStyles.container}>
+          <View style={{ alignItems: "center" }}>
             <FontAwesome name="stethoscope" size={100}/>
             <Text style={styles.surveyQuestionText}>Welcome to Symptom Check</Text>
             <Text style={styles.subtitle}>Here, you can fill out some questions to let us know how you're feeling. We will provide you with information and recommendations based on your responses.</Text>
             <SurveyButton title="Begin" action={advanceQuestionSimple} />
           </View>
+        </View>
         </View>
       )}
       {questionNumber == 1 && (

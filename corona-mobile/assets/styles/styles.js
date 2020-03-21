@@ -157,9 +157,8 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   subtitle: {
-    color: "black",
+    color: defaults.headercolor,
     fontSize: 16,
-    fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
     marginLeft: 10,

@@ -11,7 +11,7 @@ import { Entypo } from "@expo/vector-icons";
 import { styles, defaults } from "../styles/styles";
 import { PrimaryTextBold } from "./Texts";
 
-export function InfoView({ title, body, chevron }) {
+export function InfoViewDiagnosis({ title, body, chevron }) {
     return (
         <View style={styles.infoViewOuterView}>
             <View style={[styles.infoViewTitleView, { paddingLeft: 14.5 }]}>

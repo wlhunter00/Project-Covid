@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { styles } from "./../../styles/styles.js";
 import { SurveyNavigationButton } from '../../components/Buttons';
-import { InfoViewDiagnosis } from './../../components/InfoView';
+import { InfoViewDiagnosis } from './../../components/InfoViewDiagnosis';
 import { SurveyButton } from '../../components/Buttons';
 
 
