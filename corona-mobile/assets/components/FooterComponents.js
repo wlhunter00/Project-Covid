@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Text, LayoutAnimation } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableHighlight,
+  LayoutAnimation
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
 import { defaults, styles, boxStyles } from "../styles/styles";
 import { SimpleButton } from "./Buttons";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function TeamMemberBox({ image, profile }) {
@@ -93,7 +102,7 @@ export function FAQItem({ question, answer }) {
   ];
 }
 
-export function SourceItem({ question, answer }) {
+export function SourceItem({ navigation, typeSource, sourcesList }) {
   const [expanded, setExpanded] = useState(false);
   const color = expanded ? "black" : "grey";
   const toggleExpanded = () => {
@@ -116,7 +125,7 @@ export function SourceItem({ question, answer }) {
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={[boxStyles.questionText, { color: color }]}>
-            {question}
+            {typeSource}
           </Text>
           <View style={{ flex: 1 }} />
           <Ionicons
@@ -128,9 +137,31 @@ export function SourceItem({ question, answer }) {
       </TouchableOpacity>
       {expanded && (
         <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
-          <Text style={boxStyles.answerText}>{answer}</Text>
+          {sourcesList.map(source => {
+            return (
+              <SourceLink
+                source={source}
+                key={source}
+                navigation={navigation}
+              />
+            );
+          })}
         </Hyperlink>
       )}
     </View>
   ];
+}
+
+export function SourceLink({ source, navigation }) {
+  return (
+    <TouchableHighlight
+      onPress={() => {
+        navigation.navigate("ViewSource", {
+          url: source
+        });
+      }}
+    >
+      <Text style={boxStyles.answerText}>{source}</Text>
+    </TouchableHighlight>
+  );
 }

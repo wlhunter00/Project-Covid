@@ -11,10 +11,30 @@ export default function Sources({ route, navigation }) {
       style={{ backgroundColor: defaults.backgroundcolor }}
       contentContainerStyle={styles.container}
     >
-      <SourceItem question="Research Journals" answer={"TBD"} key="1" />
-      <SourceItem question="Health Organizations" answer={"WHO"} key="2" />
-      <SourceItem question="News Outlets" answer={"CNN"} key="3" />
-      <SourceItem question="Government Agencies" answer={"CDC"} key="4" />
+      <SourceItem
+        navigation={navigation}
+        typeSource={"Research Journals"}
+        sourcesList={["https://www.who.int/", "https://www.google.com/"]}
+        key={"researchJourn"}
+      />
+      <SourceItem
+        navigation={navigation}
+        typeSource={"Health Organizations"}
+        sourcesList={["https://www.who.int/", "https://www.google.com/"]}
+        key={"healthOrg"}
+      />
+      <SourceItem
+        navigation={navigation}
+        typeSource={"News Outlet"}
+        sourcesList={["https://www.who.int/", "https://www.google.com/"]}
+        key={"newsOut"}
+      />
+      <SourceItem
+        navigation={navigation}
+        typeSource={"Government Agencies"}
+        sourcesList={["https://www.who.int/", "https://www.google.com/"]}
+        key={"govAgen"}
+      />
     </ScrollView>
   );
 }

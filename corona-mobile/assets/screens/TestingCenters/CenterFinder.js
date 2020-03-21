@@ -12,7 +12,7 @@ import { ActionButton } from "../../components/Buttons";
 import { styles } from "../../styles/styles";
 import { WebView } from "react-native-webview";
 
-export default function Diagnosis({ route, navigation }) {
+export default function CenterFinder({ route, navigation }) {
   const openUrl = () => {
     Linking.canOpenURL(route.params.url).then(canOpen => {
       if (canOpen) {
@@ -36,4 +36,3 @@ export default function Diagnosis({ route, navigation }) {
     </View>
   );
 }
-

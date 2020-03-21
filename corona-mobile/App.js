@@ -28,6 +28,7 @@ import TwitterFeed from "./assets/screens/TwitterFeed.js";
 import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
+import ViewSource from "./assets/screens/footerPages/ViewSource.js";
 
 import {
   Entypo,
@@ -145,6 +146,11 @@ const HomeStack = () => (
       name="Sources"
       component={Sources}
       options={{ title: "Sources" }}
+    />
+    <Stack.Screen
+      name="ViewSource"
+      component={ViewSource}
+      options={{ title: "View the Source" }}
     />
   </Stack.Navigator>
 );
