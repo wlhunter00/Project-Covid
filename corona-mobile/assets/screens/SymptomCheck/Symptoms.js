@@ -21,15 +21,20 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   const advanceQuestion = (newResponse) => {
     updateAnswer(newResponse);
     changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
-    changeQuestionNumber(questionNumber + 1);
+    if (newResponse.trim() != "") {
+      console.log("hey " + newResponse.trim());
+      changeQuestionNumber(questionNumber + 1);
+    }
   }
 
   const advanceQuestionSend = (newResponse) => {
     updateAnswer(newResponse);
     changeResponse(allAnswers[0] + " " + allAnswers[1] + " " + allAnswers[2] + " " + allAnswers[3]);
-    changeQuestionNumber(questionNumber + 1);
-    sendSymptoms(response, changeBackendResponse);
-    changeSurveyDone(true);
+    if (newResponse.trim() != "") {
+      changeQuestionNumber(questionNumber + 1);
+      sendSymptoms(response, changeBackendResponse);
+      changeSurveyDone(true);
+    }
   }
 
   const updateAnswer = (newAnswer) => {
@@ -43,7 +48,6 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
     changeQuestionNumber(questionNumber - 1);
   }
 
-  console.log(response);
   return (
     <ScrollView>
       {questionNumber == 0 && (
@@ -51,7 +55,7 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
         <View style={boxStyles.container}>
           <View style={{ alignItems: "center" }}>
             <FontAwesome name="stethoscope" size={100}/>
-            <Text style={styles.surveyQuestionText}>Welcome to Symptom Check</Text>
+            <Text style={styles.headerTextBold}>Welcome to Symptom Check</Text>
             <Text style={styles.subtitle}>Here, you can fill out some questions to let us know how you're feeling. We will provide you with information and recommendations based on your responses.</Text>
             <SurveyButton title="Begin" action={advanceQuestionSimple} />
           </View>

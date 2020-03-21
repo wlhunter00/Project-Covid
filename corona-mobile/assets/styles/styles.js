@@ -110,14 +110,14 @@ export const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderBottomWidth: 3,
     borderColor: defaults.primarycolor,
-    height: 40,
+    height: 50,
     shadowRadius: 2,
     elevation: 1,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 15,
     marginBottom: 20,
-    padding: 10
+    padding: 15
   },
   linkButtonTitle: {
     color: defaults.primarycolor,
@@ -130,6 +130,11 @@ export const styles = StyleSheet.create({
   primaryText: {
     color: defaults.primarycolor,
     fontSize: 16
+  },
+  headerTextBold: {
+    color: defaults.headercolor,
+    fontSize: 16,
+    fontWeight: "bold"
   },
   primaryTextBold: {
     color: defaults.primarycolor,

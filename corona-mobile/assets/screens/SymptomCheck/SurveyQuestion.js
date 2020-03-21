@@ -51,7 +51,7 @@ export function ShortAnswerQuestion({
   defaultText,
   goBack
 }) {
-  const [currAnswer, changeAnswer] = React.useState("");
+  const [currAnswer, changeAnswer] = React.useState(defaultText);
 
   const setAnswer = React.useCallback(event => {
     {
