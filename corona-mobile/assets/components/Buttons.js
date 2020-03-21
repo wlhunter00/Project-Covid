@@ -64,10 +64,10 @@ export function SiteButton({ site, navigation }) {
 
 export function ActionButton({ title, action }) {
   return (
-    <TouchableOpacity onPress={action} style={styles.actionButton}>
-      <View>
-        <Text style={[styles.actionButtonTitle, {textAlign: 'center'}]}>{title}</Text>
-      </View>
+    <TouchableOpacity onPress={action} style={[styles.actionButton, {flex: 1, alignItems: 'center'}]}>
+      {/* <View> */}
+        <Text style={[styles.actionButtonTitle]}>{title}</Text>
+      {/* </View> */}
     </TouchableOpacity>
   );
 }
