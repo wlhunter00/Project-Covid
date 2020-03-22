@@ -15,7 +15,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { InfoView } from "./../../components/InfoView";
 import { ActionButton } from "./../../components/Buttons";
-import { styles, defaults, boxStyles } from "../../styles/styles";
+import { useStyle } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
 import { SourceItem } from "../../components/FooterComponents";
@@ -26,56 +26,29 @@ const contactLoading = (
   </View>
 );
 
-const contactNotFound = (
-  <View>
-    <Text style={[boxStyles.position, { paddingBottom: 10, paddingTop: 0 }]}>
-      We're currently unable to identify your location
-    </Text>
-
-    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
-      - Contact your health provider or a nearby urgent care center
-    </Text>
-
-    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
-      - Use a telemedicine service - Teladoc
-    </Text>
-
-    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
-      - Call 9-1-1 if a medical emergency
-    </Text>
-
-    <Text style={[boxStyles.bio, { paddingBottom: 10 }]}>
-      - Contact state/county health department (211 if no number is listed)
-    </Text>
-
-    <Text style={[boxStyles.position, { paddingBottom: 10 }]}>
-      Please enable location services to find state contact information
-    </Text>
-  </View>
-);
 
 const call = tel => {
   Linking.openURL("tel:" + tel);
 };
 
 function ContactInfo(location) {
+  const { styles } = useStyle("bioText", "positionText", "containerRowCenter");
+
   const navigation = useNavigation();
 
   return (
     <View>
       <View>
-        {/* <View style={{ padding: defaults.padding, paddingTop: 0 }}> */}
         <View style={{ paddingBottom: 10 }}>
-          <Text style={boxStyles.bio}>
-            <Text style={boxStyles.position}>Your current location: </Text>
+          <Text style={styles.bioText}>
+            <Text style={styles.positionText}>Your current location: </Text>
             <Text>{location.location["State"]}</Text>
           </Text>
         </View>
 
-        {/* <View style={{ padding: defaults.padding }}> */}
         <View style={{ paddingBottom: 10 }}>
-          <Text style={boxStyles.bio}>
-            <Text style={boxStyles.position}>Contact: </Text>
+          <Text style={styles.bioText}>
+            <Text style={styles.positionText}>Contact: </Text>
             <Text>{location.location["State Department"]}</Text>
           </Text>
         </View>
@@ -139,7 +112,12 @@ function LocalSourceObject() {
   );
 }
 
-export default class TestingCenters extends React.Component {
+export default function StyledTestingCenters() {
+  const { styles, colors } = useStyle("bioText", "positionText");
+  return <TestingCenters styles={styles} colors={colors}/>;
+}
+
+class TestingCenters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -148,6 +126,35 @@ export default class TestingCenters extends React.Component {
       contact: contactLoading
     };
   }
+
+
+  contactNotFound = (
+    <View>
+      <Text style={[this.props.styles.positionText, { paddingBottom: 10, paddingTop: 0 }]}>
+        We're currently unable to identify your location
+    </Text>
+
+      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
+        - Contact your health provider or a nearby urgent care center
+    </Text>
+
+      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
+        - Use a telemedicine service - Teladoc
+    </Text>
+
+      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
+        - Call 9-1-1 if a medical emergency
+    </Text>
+
+      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
+        - Contact state/county health department (211 if no number is listed)
+    </Text>
+
+      <Text style={[this.props.styles.positionText, { paddingBottom: 10 }]}>
+        Please enable location services to find state contact information
+    </Text>
+    </View>
+  );
 
   componentDidMount() {
     const locResp = getLocationAsync().then(locResp => {
@@ -182,19 +189,20 @@ export default class TestingCenters extends React.Component {
   }
 
   render() {
+    const { styles, colors } = this.props;
     return (
-      <View style={{ backgroundColor: defaults.backgroundcolor }}>
+      <View style={{ backgroundColor: colors.backgroundcolor }}>
         <ScrollView
           contentContainerStyle={{
             paddingHorizontal: 15,
             paddingTop: 15,
-            backgroundColor: defaults.backgroundcolor
+            backgroundColor: colors.backgroundcolor
           }}
         >
           <InfoView
             title="Step 1"
             body={
-              <Text style={boxStyles.bio}>
+              <Text style={styles.bioText}>
                 If you're feeling sick and exhibit symptoms of COVID-19, you
                 should contact your primary healthcare provider if possible,
                 else use a telemedicine app (Teladoc), or contact the health
@@ -206,7 +214,7 @@ export default class TestingCenters extends React.Component {
           <InfoView
             title="Step 2"
             body={
-              <Text style={boxStyles.bio}>
+              <Text style={styles.bioText}>
                 To be tested, you must be apporved by your healthcare provider
                 or health department according to state criteria based on
                 symptoms or if you've had exposure to an infected individual.
@@ -216,7 +224,7 @@ export default class TestingCenters extends React.Component {
           <InfoView
             title="Step 3"
             body={
-              <Text style={boxStyles.bio}>
+              <Text style={styles.bioText}>
                 The test procedure involves taking a swab of the patient's nose.
                 Free testing is available in public facilities and price ranges
                 from $50 - $100 for commercial lab testing if you don't meet
@@ -227,7 +235,7 @@ export default class TestingCenters extends React.Component {
           <InfoView
             title="Step 4"
             body={
-              <Text style={boxStyles.bio}>
+              <Text style={styles.bioText}>
                 Samples are sent to labs for analysis. Timing to get results
                 back range from 5 to 48 hours, with an average of 24 hours.
               </Text>

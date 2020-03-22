@@ -63,10 +63,10 @@ export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
 }
 
 export function FAQItem({ question, answer }) {
-  const { styles } = useStyle("questionText", "answerText");
+  const { styles, colors } = useStyle("questionText", "answerText", "expandableItem");
 
   const [expanded, setExpanded] = useState(false);
-  const color = expanded ? "black" : "grey";
+  const color = expanded ? colors.textcolor : colors.secondarytextcolor;
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpanded(!expanded);
@@ -74,16 +74,7 @@ export function FAQItem({ question, answer }) {
 
   return [
     <View
-      style={{
-        marginBottom: 8,
-        padding: 15,
-        backgroundColor: "white",
-        shadowColor: "rgba(67, 160, 71, 0.2)",
-        shadowRadius: 6,
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 1,
-        borderRadius: 5
-      }}
+      style={styles.expandableItem}
     >
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -108,28 +99,17 @@ export function FAQItem({ question, answer }) {
 }
 
 export function SourceItem({ navigation, typeSource, sourcesList }) {
-  const { styles } = useStyle("questionText", "answerText");
+  const { styles, colors, isDark } = useStyle("questionText", "answerText", "expandableItem");
 
   const [expanded, setExpanded] = useState(false);
-  const color = expanded ? "black" : "grey";
+  const color = expanded ? colors.textcolor : colors.secondarytextcolor;
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpanded(!expanded);
   };
 
   return [
-    <View
-      style={{
-        marginBottom: 8,
-        padding: 15,
-        backgroundColor: "white",
-        shadowColor: "rgba(67, 160, 71, 0.2)",
-        shadowRadius: 6,
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 1,
-        borderRadius: 5
-      }}
-    >
+    <View style={styles.expandableItem} >
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={[styles.questionText, { color: color }]}>
@@ -162,7 +142,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
 }
 
 export function SourceLink({ url, title, navigation }) {
-  const { styles } = useStyle("linkButtonText");
+  const { styles } = useStyle("linkButtonTitle");
 
   return (
     <TouchableOpacity

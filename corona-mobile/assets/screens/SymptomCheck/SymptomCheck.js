@@ -4,10 +4,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { Diagnosis } from "./Diagnosis.js";
 import { Symptoms } from "./Symptoms.js";
-import { defaults } from "./../../styles/styles.js";
+import { useStyle } from "./../../styles/styles.js";
 import { SurveyButton } from '../../components/Buttons';
 
 export default function SymptomCheck({ navigation }) {
+  const { styles } = useStyle("container");
+
   const [backendResponse, changeBackendResponse] = React.useState("");
   const [surveyDone, changeSurveyDone] = React.useState(false);
   const [reset, changeReset] = React.useState(false);
@@ -20,7 +22,7 @@ export default function SymptomCheck({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {padding: 10}]}>
       <Symptoms
         key={instanceKey}
         changeBackendResponse={changeBackendResponse}
@@ -34,17 +36,3 @@ export default function SymptomCheck({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "stretch",
-    backgroundColor: defaults.backgroundcolor,
-    padding: 10
-  },
-  title: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
-});

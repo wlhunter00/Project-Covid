@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { styles, boxStyles } from "./../../styles/styles.js";
+import { useStyle } from "./../../styles/styles.js";
 import {
   SurveyNavigationButton,
   SurveyNavigationButtonLarge,
@@ -15,6 +15,8 @@ var symptoms = [];
 var a;
 
 export function Diagnosis({ navigation, response, retakeSurvey }) {
+  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText");
+
   for (a in response) {
     if (response[a]["Percentage"]) {
       symptoms.push({
@@ -28,7 +30,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   }
   return (
     <ScrollView>
-      <Text style={styles.sectionTitleCenter}> Diagnosis Results</Text>
+      <Text style={[styles.sectionTitle, {textAlign: "center", marginLeft: 5}]}> Diagnosis Results</Text>
       <ScrollView style={styles.container}>
         {symptoms.map(symptom => {
           return (
@@ -45,7 +47,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
         })}
       </ScrollView>
       <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10 }}>
-        <View style={boxStyles.container}>
+        <View style={styles.boxContainer}>
           <Text style={styles.surveyQuestionText}>
             Based on your symptoms, we recommend utlizing the following
             knowledge resources:
@@ -69,7 +71,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
         </View>
       </View>
       <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10 }}>
-        <View style={boxStyles.container}>
+        <View style={styles.boxContainer}>
           <Text style={styles.surveyQuestionText}>
             You can also find local information on COVID-19 data, and find
             testing centers for help:

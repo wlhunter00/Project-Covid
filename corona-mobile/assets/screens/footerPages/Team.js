@@ -4,18 +4,20 @@ import {
   TeamMemberBox,
   CompactTeamMemberBox
 } from "../../components/FooterComponents";
-import { defaults, styles } from "../../styles/styles";
+import { useStyle } from "../../styles/styles";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg");
 
 export default function Team({ route, navigation }) {
+  const { styles } = useStyle("container", "answerText", "sectionTitle");
+
   return (
     <ScrollView
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
-      <Text style={localStyles.sectionTitle}>Founders</Text>
+      <Text style={styles.sectionTitle}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}
         profile={{
@@ -38,7 +40,7 @@ export default function Team({ route, navigation }) {
           socials: []
         }}
       />
-      <Text style={localStyles.sectionTitle}>Technology Development</Text>
+      <Text style={styles.sectionTitle}>Technology Development</Text>
       <CompactTeamMemberBox
         name="Michael Ginn"
         position="Lead Software Engineer"
@@ -100,7 +102,7 @@ export default function Team({ route, navigation }) {
         schoolAndYear="University of Massachusetts, Amherst, Junior"
       />
 
-      <Text style={localStyles.sectionTitle}>Research Volunteers</Text>
+      <Text style={styles.sectionTitle}>Research Volunteers</Text>
 
       <CompactTeamMemberBox
         name="Veeraj Shah"
@@ -155,13 +157,3 @@ export default function Team({ route, navigation }) {
     </ScrollView>
   );
 }
-
-const localStyles = StyleSheet.create({
-  sectionTitle: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: defaults.headercolor,
-    marginBottom: 10,
-    marginTop: 20
-  }
-});

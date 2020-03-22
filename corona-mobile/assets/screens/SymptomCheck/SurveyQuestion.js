@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { SurveyButton } from "../../components/Buttons";
 import { ResponseTextBox } from "../../components/TextBoxes";
-import { styles } from "../../styles/styles";
+import { useStyle } from "../../styles/styles";
 
 export function MultipleChoiceQuestion({
   prompt,
@@ -16,6 +16,8 @@ export function MultipleChoiceQuestion({
   currResponse,
   saveAnswer
 }) {
+  const { styles, colors} = useStyle("navButtonTitle", "surveyQuestionText");
+
   const [currAnswer, changeAnswer] = React.useState("");
   const setAnswer = React.useCallback(
     answer => event => {
@@ -51,6 +53,8 @@ export function ShortAnswerQuestion({
   defaultText,
   goBack
 }) {
+  const { styles, colors } = useStyle("surveyQuestionText");
+  
   const [currAnswer, changeAnswer] = React.useState(defaultText);
 
   const setAnswer = React.useCallback(event => {

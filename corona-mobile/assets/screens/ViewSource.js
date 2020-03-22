@@ -9,7 +9,7 @@ import {
   Linking
 } from "react-native";
 import { ActionButton } from "../components/Buttons";
-import { styles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 import { WebView } from "react-native-webview";
 
 export default function ViewSource({ route, navigation }) {

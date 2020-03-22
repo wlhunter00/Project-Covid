@@ -32,7 +32,6 @@ const colors = {
   tertiarycolor: "#dcedc8",
   backgroundcolor: "#d1dbd0",
   secondarybackgroundcolor: "white",
-  tertiarybackgroundcolor: "white",
   headercolor: "#444",
   textcolor: "black",
   secondarytextcolor: "grey",
@@ -44,8 +43,7 @@ const colorsDark = {
   secondarycolor: "#a5d6a7",
   tertiarycolor: "#dcedc8",
   backgroundcolor: "black",
-  secondarybackgroundcolor: "#121312",
-  tertiarybackgroundcolor: "#1C1C1E",
+  secondarybackgroundcolor: "#1C1C1E",
   headercolor: "#CCC",
   textcolor: "white",
   secondarytextcolor: "grey",
@@ -90,7 +88,7 @@ const allStyles = StyleSheet.create({
   navButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.tertiarybackgroundcolor,
+    backgroundColor: colors.secondarybackgroundcolor,
     padding: 15,
     borderBottomColor: colors.accentcolor,
     borderBottomWidth: 1,
@@ -104,7 +102,7 @@ const allStyles = StyleSheet.create({
     borderRadius: 5
   },
   navButtonDark: {
-    backgroundColor: colorsDark.tertiarybackgroundcolor,
+    backgroundColor: colorsDark.secondarybackgroundcolor,
     borderTopColor: colorsDark.accentcolor,
     borderBottomColor: colorsDark.accentcolor,
   },
@@ -179,17 +177,23 @@ const allStyles = StyleSheet.create({
     textAlign: "center"
   },
   boldQuestionText: {
-    color: "black",
+    color: colors.textcolor,
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 15,
     marginHorizontal: 10,
+  },
+  boldQuestionTextDark: {
+    color: colorsDark.textcolor
   },
   surveyQuestionText: {
     color: colors.headercolor,
     fontSize: 16,
     marginTop: 15,
     marginHorizontal: 10,
+  },
+  surveyQuestionTextDark: {
+    color: colorsDark.headercolor
   },
   surveyQuestionTextUnderline: {
     color: colors.headercolor,
@@ -213,6 +217,9 @@ const allStyles = StyleSheet.create({
     marginBottom: 20,
     padding: 15
   },
+  textBoxDark: {
+    color: colorsDark.textcolor
+  },
   linkButtonTitle: {
     color: colors.primarycolor,
     fontSize: 16,
@@ -230,6 +237,9 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold"
   },
+  headerTextBoldDark: {
+    color: colorsDark.headercolor
+  },
   primaryTextBold: {
     color: colors.primarycolor,
     fontWeight: "bold",
@@ -241,6 +251,9 @@ const allStyles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     marginHorizontal: 10,
+  },
+  subtitleDark: {
+    color: colorsDark.headercolor
   },
   // BOX STYLES
   boxContainer: {
@@ -255,6 +268,8 @@ const allStyles = StyleSheet.create({
   },
   boxContainerDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
+    borderColor: colorsDark.accentcolor,
+    borderWidth: 1,
   },
   profileImages: {
     height: 100,
@@ -292,6 +307,23 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     color: "grey",
     marginTop: 10
+  },
+  expandableItem: {
+    marginBottom: 8,
+    padding: 15,
+    backgroundColor: colors.secondarybackgroundcolor,
+    shadowColor: "rgba(67, 160, 71, 0.2)",
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 1,
+    borderRadius: 5,
+  },
+  expandableItemDark: {
+    backgroundColor: colorsDark.secondarybackgroundcolor,
+    borderBottomColor: colorsDark.accentcolor,
+    borderBottomWidth: 1,
+    borderTopColor: colorsDark.accentcolor,
+    borderTopWidth: 1,
   }
 });
 
