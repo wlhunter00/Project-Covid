@@ -79,11 +79,11 @@ function ContactInfo(location) {
         </View>
 
         <View style={styles.containerRowCenter}>
-          {location.location.hasOwnProperty("Phone Number") ? (
+          {location.location.hasOwnProperty("Crisis Phone Number") ? (
             <ActionButton
               title="Call"
               action={() => {
-                call(location.location["Phone Number"]);
+                call(location.location["Crisis Phone Number"]);
               }}
             />
           ) : (

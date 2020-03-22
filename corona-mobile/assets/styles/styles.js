@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     color: defaults.headercolor,
     marginBottom: 15,
     marginTop: 10,
-    marginLeft: 5,
+    marginLeft: 0,
     textAlign: 'center'
   },
   navButton: {
