@@ -1,13 +1,9 @@
 import React from "react";
 import { AccordionList } from "accordion-collapse-react-native";
-import {
-  View,
-  ScrollView
-} from "react-native";
+import { View, ScrollView } from "react-native";
 
 import image1 from "./../../images/studentResources/image1.jpg";
 import image2 from "./../../images/studentResources/image2.jpg";
-
 
 import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
@@ -24,7 +20,7 @@ class StudentResources extends React.Component {
       list: [
         {
           image: image1,
-          title: "Stress Managment",
+          title: "Stress Management",
           body: [
             "-  Discount with OurBus- LEAVINGCAMPUS - This code takes 10% off the price of the bus ticket, up to $5 through March 31, 2020",
             "\n-  Check your college website for resources. Most of them have different grants for travel if you need to go back home",
@@ -65,8 +61,8 @@ class StudentResources extends React.Component {
   render() {
     const { styles } = this.props;
     return (
-      <View style={styles.container} >
-        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
             return <ModalImage item={item} key={item.id} />;
           })}

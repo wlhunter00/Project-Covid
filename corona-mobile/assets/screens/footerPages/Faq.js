@@ -4,11 +4,9 @@ import { FAQItem } from "../../components/FooterComponents";
 import { useStyle } from "./../../styles/styles.js";
 
 export default function Faq({ route, navigation }) {
-  const { styles } = useStyle("container")
+  const { styles } = useStyle("container");
   return (
-    <ScrollView
-      style={styles.container}
-    >
+    <ScrollView style={styles.container}>
       <FAQItem
         question="What is Project Covid?"
         answer={
@@ -19,7 +17,7 @@ export default function Faq({ route, navigation }) {
       <FAQItem
         question="What are your sources, what gives you credibility?"
         answer={
-          "Our goal behind creating this app was to identify and curate verified information and resources from trusted and reliable sources. All the information that you find on our platform has been curated only from these sources, and we have had a team of health literacy experts from Harvard Medical School and the University of Maryland thoroughly vet them prior to utilizing them. \n\nBelow is the list of all the information sources that we’ve utilized: \n\n• The Lancet Commission\n\n•  World Health Organization (WHO)\n\n• UNICEF\n\n• Centers for Disease Control and Prevention (CDC)\n\n• MMR Journal\n\n• TIME Magazine\n\n• John Hopkins University - Department of Medicine\n\n• Harvard University - Department of Health\n\n• University of Michigan - Department of Medicine\n\n• Substance Abuse and Mental Health Services Administration (SAMHSA)\n\n• National Health Commission of the People's Republic of China\n\n• European Centre for Disease Prevention and Control\n\nWe aimed to utilize a lot of pre-existing resources that we know are trustworthy for our technological development:\n\n• Embed Twitter Feed\n\n• WHO\n\n• CNN\n\n• BBC\n\n• New York Times\n\n• Aljazeera\n\n• Reuters\n\n• CNBC\n\n• Sky News\n\n• CDC\n\n• Coronavirus.app\n\n• Coronavirusapi\n\nThe coronavirus.app is a trustworthy web application that we integrated into mobile. This is the list of the sources they use to keep the tracker up to date. It is updated in real-time. We have gotten their permission to embed their web application in our mobile application.\n\nThe coronavirusapi uses the same data sources as coronavirus.app but presents the data in a way so that our backend server can parse it."
+          "Our goal behind creating this app was to identify and curate verified information and resources from trusted and reliable sources. All the information that you find on our platform has been curated only from these sources, and we have had a team of health literacy experts from Harvard Medical School and the University of Maryland thoroughly vet them prior to utilizing them. \n\nBelow is the list of all the information sources that we’ve utilized: \n\n• The Lancet Commission\n\n•  World Health Organization (WHO)\n\n• UNICEF\n\n• Centers for Disease Control and Prevention (CDC)\n\n• MMR Journal\n\n• TIME Magazine\n\n• John Hopkins University - Department of Medicine\n\n• Harvard University - Department of Health\n\n• University of Michigan - Department of Medicine\n\n• Substance Abuse and Mental Health Services Administration (SAMHSA)\n\n• National Health Commission of the People's Republic of China\n\n• European Centre for Disease Prevention and Control\n\nWe aimed to utilize a lot of pre-existing resources that we know are trustworthy for our technological development:\n\n• Embed Twitter Feed\n\n• WHO\n\n• CNN\n\n• BBC\n\n• New York Times\n\n• Aljazeera\n\n• Reuters\n\n• CNBC\n\n• Sky News\n\n• CDC\n\n• Coronavirus.app\n\n• Coronavirusapi\n\nThe Coronavirus.app is a trustworthy web application that we integrated into mobile. This is the list of the sources they use to keep the tracker up to date. It is updated in real-time. We have gotten their permission to embed their web application in our mobile application.\n\nThe Coronavirusapi uses the same data sources as Coronavirus.app but presents the data in a way so that our server can use it."
         }
         key="2"
       />
@@ -78,6 +76,13 @@ export default function Faq({ route, navigation }) {
           "We have a lot of features planned for the future:\n\n• We want to have a page featuring the latest information on global travel bans in effect, and once we find a data source that we can trust and use, we will implement it right away.\n\n• We plan on implementing a smart news feed. What this means is the ability to pull the most noteworthy headlines from trustworthy sources in the app itself. We want these to include headlines that are local to tailor the app to the user. \n\n• We are also in the midst of developing a sentiment based news feature which will allow our users to filter news based on the type (positive or negative) of news content that you would like to see.\n\n• We aim to improve the testing center feature. One goal is for the users to put in a custom location to find information for that area. When information about testing centers is more widely available, we would like a feature where you can find the nearest testing location to you on a map.\n\n• We also have other broader plans such as displaying more statistics as well as video content. If you have any other ideas on how to improve the app, please let us know!"
         }
         key="10"
+      />
+      <FAQItem
+        question="How does Symptom Check Work?"
+        answer={
+          "As of now we are implementing a very basic version of the symptom check. We currently only look at the answer for the first question, “Could you describe your overall wellness over the past few days? Do you have any unusual symptoms or feel unwell?”. \n\nThe other questions are not used currently but will be implemented in our algorithms soon. We look through the response and try to find the key symptoms outlined by the CDC. We then send back the symptoms that we found to your phone. The statistics regarding people with the symptoms was found in a CDC report. \n\nWe cannot give a recommendation on if you should get tested or not, but we do recommend that you contact any local health officials if you have any questions or doubts."
+        }
+        key="11"
       />
     </ScrollView>
   );
