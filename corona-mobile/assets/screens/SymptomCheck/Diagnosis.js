@@ -81,7 +81,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           <SurveyNavigationButtonLarge
             title={"Find Center"}
             navigation={navigation}
-            navigationName={"TestingCenters"}
+            navigationName={"Testing"}
           />
         </View>
         <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
