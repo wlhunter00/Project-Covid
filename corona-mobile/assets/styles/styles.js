@@ -60,6 +60,9 @@ const allStyles = StyleSheet.create({
   containerDark: {
     backgroundColor: colorsDark.backgroundcolor
   },
+  scrollViewContent: {
+    paddingHorizontal: 15
+  },
   containerRowCenter: {
     flex: 1,
     flexDirection: "row",
@@ -129,51 +132,14 @@ const allStyles = StyleSheet.create({
     borderRadius: 50,
     paddingHorizontal: 15,
     paddingVertical: 16,
-    margin: "1.75%"
+    alignItems: "center",
+    marginVertical: 10
   },
   actionButtonTitle: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
-  },
-  surveyButton: {
-    backgroundColor: colors.primarycolor,
-    borderRadius: 50,
-    width: "85%",
-    paddingHorizontal: 15,
-    paddingVertical: 16,
-    margin: "1.75%",
-    marginBottom: 20,
-    alignSelf: "center"
-  },
-  surveyButtonFull: {
-    backgroundColor: colors.primarycolor,
-    borderRadius: 50,
-    width: "90%",
-    paddingHorizontal: 15,
-    paddingVertical: 16,
-    margin: "1.75%",
-    marginVertical: 15,
-    alignSelf: "center"
-  },
-  surveyButtonLess: {
-    backgroundColor: colors.primarycolor,
-    borderRadius: 50,
-    paddingBottom: 0,
-    width: "60%",
-    paddingHorizontal: 15,
-    paddingVertical: 16,
-    margin: "1.75%",
-    marginBottom: 15,
-    marginTop: 15,
-    alignSelf: "center"
-  },
-  surveyButtonTitle: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center"
   },
   boldQuestionText: {
     color: colors.textcolor,
@@ -188,7 +154,6 @@ const allStyles = StyleSheet.create({
   surveyQuestionText: {
     color: colors.headercolor,
     fontSize: 16,
-    marginTop: 15,
     marginHorizontal: 10,
   },
   surveyQuestionTextDark: {
@@ -307,6 +272,9 @@ const allStyles = StyleSheet.create({
   },
   compactNameSmall: {
     fontSize: 18
+  },
+  compactNameSmallDark: {
+    color: colorsDark.textcolor
   },
   positionText: {
     fontSize: 16,

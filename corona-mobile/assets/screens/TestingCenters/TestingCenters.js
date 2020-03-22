@@ -55,7 +55,7 @@ function ContactInfo(location) {
 
         {/* <View style={styles.containerRowCenter}> */}
         <View
-          style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
+          style={{ flex: 1, justifyContent: "center"}}
         >
           {location.location.hasOwnProperty("Crisis Phone Number") && (
             <ActionButton
@@ -63,6 +63,7 @@ function ContactInfo(location) {
               action={() => {
                 call(location.location["Crisis Phone Number"]);
               }}
+              style={{marginBottom: 10}}
             />
           )}
 
@@ -74,6 +75,7 @@ function ContactInfo(location) {
                   url: location.location["Local Info"]
                 });
               }}
+              style={{marginBottom: 10}}
             />
           )}
 

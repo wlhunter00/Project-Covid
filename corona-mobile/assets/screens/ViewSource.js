@@ -1,14 +1,8 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import {
-  StyleSheet,
-  Text,
   View,
-  TouchableOpacity,
   Linking
 } from "react-native";
-import { ActionButton } from "../components/Buttons";
 import { useStyle } from "../styles/styles";
 import { WebView } from "react-native-webview";
 

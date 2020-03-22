@@ -62,62 +62,13 @@ export function SiteButton({ site, navigation }) {
   );
 }
 
-export function ActionButton({ title, action }) {
+export function ActionButton({ title, action, style }) {
   const { styles } = useStyle("actionButton", "actionButtonTitle");
   return (
-    <TouchableOpacity onPress={action} style={[styles.actionButton, {flex: 1, alignItems: 'center'}]}>
-        <Text style={[styles.actionButtonTitle]}>{title}</Text>
-    </TouchableOpacity>
-  );
-}
-
-export function SurveyButton({ title, action }) {
-  const { styles } = useStyle("surveyButton", "surveyButtonTitle");
-  return (
-    <TouchableOpacity onPress={action} style={styles.surveyButton}>
+    <TouchableOpacity onPress={action} style={[styles.actionButton, style]}>
       <View>
-        <Text style={styles.surveyButtonTitle}>{title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
-export function SurveyButtonSmall({ title, action }) {
-  const { styles } = useStyle("surveyButtonLess", "surveyButtonTitle");
-  return (
-    <TouchableOpacity onPress={action} style={styles.surveyButtonLess}>
-      <View>
-        <Text style={styles.surveyButtonTitle}>{title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
-export function SurveyNavigationButton({ title, navigation, navigationName }) {
-  const { styles } = useStyle("surveyButtonFull", "surveyButtonTitle");
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate(navigationName);
-      }}
-      style = {styles.surveyButtonFull}
-    >
-      <View>
-        <Text style={styles.surveyButtonTitle}>{title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
-export function SurveyNavigationButtonLarge({ title, navigation, navigationName }) {
-  const { styles } = useStyle("surveyButtonLess", "surveyButtonTitle");
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate(navigationName);
-      }}
-      style={styles.surveyButtonLess}
-    >
-      <View>
-        <Text style={styles.surveyButtonTitle}>{title}</Text>
-      </View>
+        <Text style={styles.actionButtonTitle}>{title}</Text>
+        </View>
     </TouchableOpacity>
   );
 }
