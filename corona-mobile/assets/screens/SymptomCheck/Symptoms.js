@@ -76,11 +76,13 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
               <Text style={styles.headerTextBold}>
                 Welcome to Symptom Check
               </Text>
-              <Text style={styles.subtitle}>
-                Here, you can fill out some questions to let us know how you're
-                feeling. We will provide you with information and
-                recommendations based on your responses.
-              </Text>
+              <View style={{ marginBottom: 10 }}>
+                <Text style={styles.subtitle}>
+                  Here you can fill out some questions to let us know how you're
+                  feeling. We will provide you with information and
+                  recommendations based on your responses.
+                </Text>
+              </View>
               <SurveyButton title="Begin" action={advanceQuestionSimple} />
             </View>
           </View>

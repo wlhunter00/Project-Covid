@@ -79,7 +79,9 @@ function ContactInfo(location) {
         </View>
 
         {/* <View style={styles.containerRowCenter}> */}
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+        <View
+          style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
+        >
           {location.location.hasOwnProperty("Crisis Phone Number") && (
             <ActionButton
               title="Call"
@@ -87,8 +89,7 @@ function ContactInfo(location) {
                 call(location.location["Crisis Phone Number"]);
               }}
             />
-          )
-          }
+          )}
 
           {location.location.hasOwnProperty("Local Info") && (
             <ActionButton
@@ -99,8 +100,7 @@ function ContactInfo(location) {
                 });
               }}
             />
-          )
-          }
+          )}
 
           <ActionButton
             title="Visit Website"
@@ -124,24 +124,31 @@ function LocalSourceObject() {
       typeSource={"Information Sources"}
       sourcesList={[
         {
+          title: "Bloomberg",
+          headline:
+            "Coronavirus Tests From LabCorp, Quest Will Cost $50 to $100",
+          url:
+            "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
+        },
+        {
           title: "NBC News",
+          headline:
+            "What to do if you are concerned you have COVID-19, according to state health departments",
           url:
             "https://www.nbcnews.com/health/health-news/coronavirus-testing-information-covid-19-tests-according-state-health-departments-n1158041"
         },
         {
           title: "NPR",
+          headline:
+            "Seattle Health Care System Offers Drive-Through Coronavirus Testing For Workers",
           url:
             "https://www.npr.org/sections/health-shots/2020/03/08/813501632/seattle-health-care-system-offers-drive-through-coronavirus-testing-for-workers"
         },
         {
           title: "CDC",
+          headline: "Testing in U.S",
           url:
             "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
-        },
-        {
-          title: "Bloomberg",
-          url:
-            "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
         }
       ]}
       key={"sourceList"}
