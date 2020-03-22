@@ -8,7 +8,6 @@ export default function Faq({ route, navigation }) {
   return (
     <ScrollView
       style={styles.container}
-      contentContainerStyle={styles.container}
     >
       <FAQItem
         question="What is Project Covid?"
