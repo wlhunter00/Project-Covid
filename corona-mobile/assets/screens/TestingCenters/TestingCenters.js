@@ -64,7 +64,6 @@ function ContactInfo(location) {
   return (
     <View>
       <View>
-        {/* <View style={{ padding: defaults.padding, paddingTop: 0 }}> */}
         <View style={{ paddingBottom: 10 }}>
           <Text style={boxStyles.bio}>
             <Text style={boxStyles.position}>Your current location: </Text>
@@ -72,7 +71,6 @@ function ContactInfo(location) {
           </Text>
         </View>
 
-        {/* <View style={{ padding: defaults.padding }}> */}
         <View style={{ paddingBottom: 10 }}>
           <Text style={boxStyles.bio}>
             <Text style={boxStyles.position}>Contact: </Text>
@@ -81,11 +79,11 @@ function ContactInfo(location) {
         </View>
 
         <View style={styles.containerRowCenter}>
-          {location.location.hasOwnProperty("Phone Number") ? (
+          {location.location.hasOwnProperty("Crisis Phone Number") ? (
             <ActionButton
               title="Call"
               action={() => {
-                call(location.location["Phone Number"]);
+                call(location.location["Crisis Phone Number"]);
               }}
             />
           ) : (
