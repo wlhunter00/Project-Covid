@@ -38,8 +38,9 @@ export default function SymptomCheck({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    backgroundColor: defaults.backgroundcolor
+    alignItems: "stretch",
+    backgroundColor: defaults.backgroundcolor,
+    padding: 10
   },
   title: {
     fontSize: 20,
