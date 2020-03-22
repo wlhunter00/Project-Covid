@@ -2,18 +2,14 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
-  StyleSheet,
-  Text,
   ScrollView,
-  View,
-  Image,
-  TouchableHighlight
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { styles } from "../../styles/styles";
+import { useStyle } from "../../styles/styles";
 import { SiteButton } from "../../components/Buttons";
 
 export default function LatestNews({ navigation }) {
+  const { styles } = useStyle("container");
   const sites = [
     {
       title: "WHO",

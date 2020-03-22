@@ -1,42 +1,46 @@
 import React, { useState } from "react";
 import {
-  StyleSheet,
   View,
   Image,
   Text,
   TouchableOpacity,
   LayoutAnimation
 } from "react-native";
+
 import { Ionicons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
-import { defaults, styles, boxStyles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 import { SimpleButton } from "./Buttons";
 
 export function TeamMemberBox({ image, profile }) {
+  const { styles } = useStyle("boxContainer", "compactTeamMemberNameText", "positionText", "schoolText", "profileImages", "divider", "bioText");
   const { name, position, schoolAndYear, bio } = profile;
   const [bioExpanded, setBioExpanded] = useState(false);
+
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setBioExpanded(!bioExpanded);
   };
+
   return (
-    <View style={boxStyles.container}>
+    <View style={styles.boxContainer}>
       <View style={{ flexDirection: "row", marginBottom: 10 }}>
         <View style={{ flexShrink: 1 }}>
-          <Text style={boxStyles.compactName}>{name}</Text>
-          <Text style={boxStyles.position}>{position}</Text>
-          <Text style={boxStyles.school}>{schoolAndYear}</Text>
+          <Text style={styles.compactTeamMemberNameText}>{name}</Text>
+          <Text style={styles.positionText}>{position}</Text>
+          <Text style={styles.schoolText}>{schoolAndYear}</Text>
         </View>
         <View style={{ flex: 1 }} />
-        <Image source={image} style={boxStyles.profileImages} />
+        <Image source={image} style={styles.profileImages} />
       </View>
-      <View style={boxStyles.divider} />
-      <Text style={boxStyles.bio} numberOfLines={bioExpanded ? 0 : 2}>
+      <View style={styles.divider} />
+      <View style={{height: 10}}/>
+      <Text style={styles.bioText} numberOfLines={bioExpanded ? 0 : 2}>
         {bio}
       </Text>
       <View style={{ flexDirection: "row", marginTop: 6 }}>
         <View style={{ flex: 1 }} />
-        <View style={{ backgroundColor: "white", paddingHorizontal: 3 }}>
+        <View style={{ paddingHorizontal: 3 }}>
           <SimpleButton
             title={bioExpanded ? "Show less" : "Show more"}
             action={toggleExpanded}
@@ -48,22 +52,26 @@ export function TeamMemberBox({ image, profile }) {
 }
 
 export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
+  const { styles } = useStyle("boxContainer", "compactTeamMemberNameText", "positionText", "schoolText");
   return (
-    <View style={boxStyles.container}>
-      <Text style={boxStyles.compactName}>{name}</Text>
-      <Text style={boxStyles.position}>{position}</Text>
-      <Text style={boxStyles.school}>{schoolAndYear}</Text>
+    <View style={styles.boxContainer}>
+      <Text style={styles.compactTeamMemberNameText}>{name}</Text>
+      <Text style={styles.positionText}>{position}</Text>
+      <Text style={styles.schoolText}>{schoolAndYear}</Text>
     </View>
   );
 }
 
 export function FAQItem({ question, answer }) {
+  const { styles } = useStyle("questionText", "answerText");
+
   const [expanded, setExpanded] = useState(false);
   const color = expanded ? "black" : "grey";
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpanded(!expanded);
   };
+
   return [
     <View
       style={{
@@ -79,7 +87,7 @@ export function FAQItem({ question, answer }) {
     >
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={[boxStyles.questionText, { color: color }]}>
+          <Text style={[styles.questionText, { color: color }]}>
             {question}
           </Text>
           <View style={{ flex: 1 }} />
@@ -92,7 +100,7 @@ export function FAQItem({ question, answer }) {
       </TouchableOpacity>
       {expanded && (
         <Hyperlink linkDefault linkStyle={styles.linkButtonTitle}>
-          <Text style={boxStyles.answerText}>{answer}</Text>
+          <Text style={styles.answerText}>{answer}</Text>
         </Hyperlink>
       )}
     </View>
@@ -100,12 +108,15 @@ export function FAQItem({ question, answer }) {
 }
 
 export function SourceItem({ navigation, typeSource, sourcesList }) {
+  const { styles } = useStyle("questionText", "answerText");
+
   const [expanded, setExpanded] = useState(false);
   const color = expanded ? "black" : "grey";
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpanded(!expanded);
   };
+
   return [
     <View
       style={{
@@ -121,7 +132,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
     >
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={[boxStyles.questionText, { color: color }]}>
+          <Text style={[styles.questionText, { color: color }]}>
             {typeSource}
           </Text>
           <View style={{ flex: 1 }} />
@@ -151,6 +162,8 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
 }
 
 export function SourceLink({ url, title, navigation }) {
+  const { styles } = useStyle("linkButtonText");
+
   return (
     <TouchableOpacity
       onPress={() => {
