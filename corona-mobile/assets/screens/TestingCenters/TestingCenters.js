@@ -78,17 +78,29 @@ function ContactInfo(location) {
           </Text>
         </View>
 
-        <View style={styles.containerRowCenter}>
-          {location.location.hasOwnProperty("Crisis Phone Number") ? (
+        {/* <View style={styles.containerRowCenter}> */}
+        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+          {location.location.hasOwnProperty("Crisis Phone Number") && (
             <ActionButton
               title="Call"
               action={() => {
                 call(location.location["Crisis Phone Number"]);
               }}
             />
-          ) : (
-            <View />
-          )}
+          )
+          }
+
+          {location.location.hasOwnProperty("Local Info") && (
+            <ActionButton
+              title="Local Info"
+              action={() => {
+                navigation.navigate("CenterFinder", {
+                  url: location.location["Local Info"]
+                });
+              }}
+            />
+          )
+          }
 
           <ActionButton
             title="Visit Website"
