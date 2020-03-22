@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import { AppearanceProvider } from 'react-native-appearance';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -194,35 +195,37 @@ const TestingCentersStack = () => (
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) =>
-            ({
-              Home: <Entypo name="home" size={size} color={color} />,
-              "Live Tracker": (
-                <MaterialCommunityIcons
-                  name="radar"
-                  size={size}
-                  color={color}
-                />
-              ),
-              Symptoms: (
-                <FontAwesome name="stethoscope" size={size} color={color} />
-              ),
-              Testing: <FontAwesome name="building" size={size} color={color} />
-            }[route.name])
-        })}
-        tabBarOptions={{
-          activeTintColor: defaults.primarycolor,
-          style: { paddingVertical: defaults.padding }
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Live Tracker" component={TrackerStack} />
-        <Tab.Screen name="Symptoms" component={SymptomStack} />
-        <Tab.Screen name="Testing" component={TestingCentersStack} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AppearanceProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) =>
+              ({
+                Home: <Entypo name="home" size={size} color={color} />,
+                "Live Tracker": (
+                  <MaterialCommunityIcons
+                    name="radar"
+                    size={size}
+                    color={color}
+                  />
+                ),
+                Symptoms: (
+                  <FontAwesome name="stethoscope" size={size} color={color} />
+                ),
+                Testing: <FontAwesome name="building" size={size} color={color} />
+              }[route.name])
+          })}
+          tabBarOptions={{
+            activeTintColor: defaults.primarycolor,
+            style: { paddingVertical: defaults.padding }
+          }}
+        >
+          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Live Tracker" component={TrackerStack} />
+          <Tab.Screen name="Symptoms" component={SymptomStack} />
+          <Tab.Screen name="Testing" component={TestingCentersStack} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </AppearanceProvider>
   );
 }
