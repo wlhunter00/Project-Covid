@@ -9,6 +9,7 @@ import {
   SurveyButton
 } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
+import { SourceItem } from "../../components/FooterComponents";
 
 var symptoms = [];
 
@@ -28,18 +29,19 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   }
   return (
     <ScrollView>
-      <View style={{padding: 15, paddingTop: 0}}>
+      <View style={{ padding: 15, paddingTop: 0 }}>
         <Text style={styles.sectionTitleCenter}> Diagnosis Results</Text>
         <ScrollView contentContainerStyle={styles.container}>
           {symptoms.map(symptom => {
             return (
-              <View style={{marginLeft: 0, marginRight: 0}}>
-              <InfoViewDiagnosis
-                title={symptom.title}
-                body={
-                  symptom.body +
-                  "% of people who tested positive have this symptom."
-                }
+              <View style={{ marginLeft: 0, marginRight: 0 }}>
+                <InfoViewDiagnosis
+                  title={symptom.title}
+                  key={symptom.title}
+                  body={
+                    symptom.body +
+                    "% of people who tested positive have this symptom."
+                  }
                 />
               </View>
             );
@@ -83,6 +85,18 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           </View>
         </View>
         <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
+        <SourceItem
+          navigation={navigation}
+          typeSource={"Information Sources"}
+          sourcesList={[
+            {
+              title: "WHO",
+              url:
+                "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf"
+            }
+          ]}
+          key={"sourceList"}
+        />
       </View>
     </ScrollView>
   );

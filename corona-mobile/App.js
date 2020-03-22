@@ -179,6 +179,11 @@ const SymptomStack = () => (
       options={{ title: "Preventative Practices" }}
       component={PreventativePractices}
     />
+    <Stack.Screen
+      name="ViewSource"
+      options={{ title: "View Source" }}
+      component={ViewSource}
+    />
   </Stack.Navigator>
 );
 

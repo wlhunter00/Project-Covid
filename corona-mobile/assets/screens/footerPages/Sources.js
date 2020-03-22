@@ -67,6 +67,11 @@ export default function Sources({ route, navigation }) {
               "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
           },
           {
+            title: "World Health Organization",
+            url:
+              "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf"
+          },
+          {
             title: "Johns Hopkins Medicine",
             url:
               "https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/2019-novel-coronavirus-myth-versus-fact"
