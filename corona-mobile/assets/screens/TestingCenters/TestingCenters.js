@@ -68,7 +68,6 @@ function ContactInfo(location) {
   return (
     <View>
       <View>
-        {/* <View style={{ padding: defaults.padding, paddingTop: 0 }}> */}
         <View style={{ paddingBottom: 10 }}>
           <Text style={boxStyles.bio}>
             <Text style={boxStyles.position}>Your current location: </Text>
@@ -76,7 +75,6 @@ function ContactInfo(location) {
           </Text>
         </View>
 
-        {/* <View style={{ padding: defaults.padding }}> */}
         <View style={{ paddingBottom: 10 }}>
           <Text style={boxStyles.bio}>
             <Text style={boxStyles.position}>Contact: </Text>

@@ -6,6 +6,7 @@ import { Diagnosis } from "./Diagnosis.js";
 import { Symptoms } from "./Symptoms.js";
 import { defaults } from "./../../styles/styles.js";
 import { SurveyButton } from '../../components/Buttons';
+import { boxStyles } from './../../styles/styles'
 
 export default function SymptomCheck({ navigation }) {
   const [backendResponse, changeBackendResponse] = React.useState("");
@@ -20,7 +21,7 @@ export default function SymptomCheck({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[defaults.backgroundcolor, {backgroundColor: 'black'}]}>
       <Symptoms
         key={instanceKey}
         changeBackendResponse={changeBackendResponse}
