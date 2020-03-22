@@ -90,7 +90,9 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           typeSource={"Information Sources"}
           sourcesList={[
             {
-              title: "WHO",
+              title: "World Health Organization",
+              headline:
+                "Report of the WHO-China Joint Mission on Coronavirus Disease 2019 (COVID-19)",
               url:
                 "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf"
             }
