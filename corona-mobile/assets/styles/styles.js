@@ -147,6 +147,7 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline'
   },
   textBox: {
+    fontSize: 16,
     borderWidth: 3,
     borderRadius: 2,
     borderColor: "#ddd",
