@@ -62,7 +62,7 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
         <View style={{ marginTop: 10, marginRight: 5, marginLeft: 5}}>
         <View style={styles.boxContainer}>
           <View style={{ alignItems: "center" }}>
-            <FontAwesome name="stethoscope" size={100}/>
+              <FontAwesome name="stethoscope" size={100} color={colors.textcolor  }/>
               <Text style={[styles.headerTextBold, {marginTop: 20}]}>Welcome to Symptom Check</Text>
               <Text style={[styles.subtitle, {marginBottom: 20}]}>Here, you can fill out some questions to let us know how you're feeling. We will provide you with information and recommendations based on your responses.</Text>
             <SurveyButton title="Begin" action={advanceQuestionSimple} />
