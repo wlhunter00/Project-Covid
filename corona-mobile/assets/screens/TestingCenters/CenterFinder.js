@@ -13,6 +13,8 @@ import { useStyle } from "../../styles/styles";
 import { WebView } from "react-native-webview";
 
 export default function CenterFinder({ route, navigation }) {
+  const { styles } = useStyle("containerFull", "webView");
+
   const openUrl = () => {
     Linking.canOpenURL(route.params.url).then(canOpen => {
       if (canOpen) {
