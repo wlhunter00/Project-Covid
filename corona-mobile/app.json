@@ -1,13 +1,16 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Project Covid",
+    "description": "NEED TO DO",
+    "backgroundColor": "#d1dbd0",
     "slug": "corona-mobile",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/logo-notext.png",
+    "githubUrl": "https://github.com/wlhunter00/CoronaInfo/",
     "splash": {
       "image": "./assets/images/logo-text-nobackground.png",
       "resizeMode": "contain",
