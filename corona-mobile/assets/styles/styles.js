@@ -187,7 +187,12 @@ export const styles = StyleSheet.create({
   headerTextBold: {
     color: defaults.headercolor,
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginBottom: 8
+  },
+  blackText: {
+    fontSize: 16,
+    color: "black"
   },
   primaryTextBold: {
     color: defaults.primarycolor,

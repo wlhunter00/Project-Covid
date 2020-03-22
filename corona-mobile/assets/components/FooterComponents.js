@@ -168,8 +168,10 @@ export function SourceLink({ url, title, navigation, headline }) {
       style={{ marginTop: 10 }}
     >
       <View style={styles.sourcesBox}>
-        <Text style={styles.headerText}>{title}</Text>
-        <Text style={styles.underlineText}> {headline} </Text>
+        <View style={{ marginLeft: 10, marginRight: 10 }}>
+          <Text style={styles.headerTextBold}>{title}</Text>
+          <Text style={styles.underlineText}> {headline} </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
