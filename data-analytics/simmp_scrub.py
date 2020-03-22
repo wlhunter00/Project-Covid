@@ -4,10 +4,13 @@ from nltk import tokenize
 from nltk.corpus import wordnet as wn
 import re
 
+nltk.download('stopwords')
+nltk.download('punkt')
+
 usertext = "I haven't slept much the past few days. I have a fever and can't stop coughing. I traveled to my home in New York from South Korea and have been sick ever since."
 
 def symptom_match(usertext):
-    
+
     stemmer = SnowballStemmer("english", ignore_stopwords=True)
 
 
@@ -42,23 +45,23 @@ def symptom_match(usertext):
 symptom_match(usertext)
 
 
-"""
-Stuff below is in progress
-"""
-
-#function below creates bigrams based on a tokenized list from user input
-
-def all_bigrams(tokens):
-    def bigram_at(tokens, i):
-    # Takes a list of tokens and an index i and returns the bigram at that index
-        return (tokens[i], tokens[i+1])
-    big = []
-    for i in range(len(tokens)-1):
-        big.append(bigram_at(tokens, i))
-    return big
-
-user_bigrams = all_bigrams(tokenize.word_tokenize(usertext))
-
-for gram in user_bigrams:
-    
-print(user_bigrams)
+# """
+# Stuff below is in progress
+# """
+#
+# #function below creates bigrams based on a tokenized list from user input
+#
+# def all_bigrams(tokens):
+#     def bigram_at(tokens, i):
+#     # Takes a list of tokens and an index i and returns the bigram at that index
+#         return (tokens[i], tokens[i+1])
+#     big = []
+#     for i in range(len(tokens)-1):
+#         big.append(bigram_at(tokens, i))
+#     return big
+#
+# user_bigrams = all_bigrams(tokenize.word_tokenize(usertext))
+#
+# for gram in user_bigrams:
+#
+# print(user_bigrams)

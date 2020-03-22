@@ -36,7 +36,7 @@ export default class InformationalToolkit extends React.Component {
             "\n-  COVID-19 is the name of the disease caused by Coronavirus, originally discovered in Wuhan, China, that can be transmitted from human to human",
             "\n-  The CoronaVirus 2020 outbreak is officially considered a pandemic by the World Health Organization (WHO)",
             " ",
-            "\nHow does one get affected?",
+            "\nHow does one get infected?",
             "\n-  Close contact with people (within 6 feet) who are infected",
             "\n-  It may be possible for someone to get COVID-19 by touching a surface with the virus on it and then touching their mouth, nose, eyes, or face",
             "\n",
