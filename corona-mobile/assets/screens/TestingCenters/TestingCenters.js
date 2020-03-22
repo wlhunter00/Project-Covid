@@ -26,7 +26,6 @@ const contactLoading = (
   </View>
 );
 
-
 const call = tel => {
   Linking.openURL("tel:" + tel);
 };
@@ -54,16 +53,14 @@ function ContactInfo(location) {
         </View>
 
         {/* <View style={styles.containerRowCenter}> */}
-        <View
-          style={{ flex: 1, justifyContent: "center"}}
-        >
+        <View style={{ flex: 1, justifyContent: "center" }}>
           {location.location.hasOwnProperty("Crisis Phone Number") && (
             <ActionButton
               title="Call"
               action={() => {
                 call(location.location["Crisis Phone Number"]);
               }}
-              style={{marginBottom: 10}}
+              style={{ marginBottom: 10 }}
             />
           )}
 
@@ -75,7 +72,7 @@ function ContactInfo(location) {
                   url: location.location["Local Info"]
                 });
               }}
-              style={{marginBottom: 10}}
+              style={{ marginBottom: 10 }}
             />
           )}
 
@@ -101,9 +98,17 @@ function LocalSourceObject() {
       typeSource={"Information Sources"}
       sourcesList={[
         {
+          title: "CDC",
+          headline: "Testing in U.S",
+          key: "Testing in U.S",
+          url:
+            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
+        },
+        {
           title: "Bloomberg",
           headline:
             "Coronavirus Tests From LabCorp, Quest Will Cost $50 to $100",
+          key: "Coronavirus Tests From LabCorp, Quest Will Cost $50 to $100",
           url:
             "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
         },
@@ -111,21 +116,19 @@ function LocalSourceObject() {
           title: "NBC News",
           headline:
             "What to do if you are concerned you have COVID-19, according to state health departments",
+          key:
+            "What to do if you are concerned you have COVID-19, according to state health departments",
           url:
             "https://www.nbcnews.com/health/health-news/coronavirus-testing-information-covid-19-tests-according-state-health-departments-n1158041"
         },
         {
           title: "NPR",
+          key:
+            "Seattle Health Care System Offers Drive-Through Coronavirus Testing For Workers",
           headline:
             "Seattle Health Care System Offers Drive-Through Coronavirus Testing For Workers",
           url:
             "https://www.npr.org/sections/health-shots/2020/03/08/813501632/seattle-health-care-system-offers-drive-through-coronavirus-testing-for-workers"
-        },
-        {
-          title: "CDC",
-          headline: "Testing in U.S",
-          url:
-            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
         }
       ]}
       key={"sourceList"}
@@ -135,7 +138,7 @@ function LocalSourceObject() {
 
 export default function StyledTestingCenters() {
   const { styles, colors } = useStyle("bioText", "positionText", "container");
-  return <TestingCenters styles={styles} colors={colors}/>;
+  return <TestingCenters styles={styles} colors={colors} />;
 }
 
 class TestingCenters extends React.Component {
@@ -148,32 +151,36 @@ class TestingCenters extends React.Component {
     };
   }
 
-
   contactNotFound = (
     <View>
-      <Text style={[this.props.styles.positionText, { paddingBottom: 10, paddingTop: 0 }]}>
+      <Text
+        style={[
+          this.props.styles.positionText,
+          { paddingBottom: 10, paddingTop: 0 }
+        ]}
+      >
         We're currently unable to identify your location
-    </Text>
+      </Text>
 
       <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
         - Contact your health provider or a nearby urgent care center
-    </Text>
+      </Text>
 
       <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
         - Use a telemedicine service - Teladoc
-    </Text>
+      </Text>
 
       <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
         - Call 9-1-1 if a medical emergency
-    </Text>
+      </Text>
 
       <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
         - Contact state/county health department (211 if no number is listed)
-    </Text>
+      </Text>
 
       <Text style={[this.props.styles.positionText, { paddingBottom: 10 }]}>
         Please enable location services to find state contact information
-    </Text>
+      </Text>
     </View>
   );
 
@@ -212,58 +219,58 @@ class TestingCenters extends React.Component {
   render() {
     const { styles, colors } = this.props;
     return (
-        <ScrollView
-          contentContainerStyle={{
-            paddingHorizontal: 15,
-            paddingTop: 15,
-            backgroundColor: colors.backgroundcolor
+      <ScrollView
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingTop: 15,
+          backgroundColor: colors.backgroundcolor
         }}
         style={styles.container}
-        >
-          <InfoView
-            title="Step 1"
-            body={
-              <Text style={styles.bioText}>
-                If you're feeling sick and exhibit symptoms of COVID-19, you
-                should contact your primary healthcare provider if possible,
-                else use a telemedicine app (Teladoc), or contact the health
-                deparment based on your state.
-              </Text>
-            }
-          />
-          <InfoView title="Contact Information" body={this.state.contact} />
-          <InfoView
-            title="Step 2"
-            body={
-              <Text style={styles.bioText}>
-                To be tested, you must be apporved by your healthcare provider
-                or health department according to state criteria based on
-                symptoms or if you've had exposure to an infected individual.
-              </Text>
-            }
-          />
-          <InfoView
-            title="Step 3"
-            body={
-              <Text style={styles.bioText}>
-                The test procedure involves taking a swab of the patient's nose.
-                Free testing is available in public facilities and price ranges
-                from $50 - $100 for commercial lab testing if you don't meet
-                state criteria or want an expedited process.
-              </Text>
-            }
-          />
-          <InfoView
-            title="Step 4"
-            body={
-              <Text style={styles.bioText}>
-                Samples are sent to labs for analysis. Timing to get results
-                back range from 5 to 48 hours, with an average of 24 hours.
-              </Text>
-            }
-          />
-          <LocalSourceObject />
-        </ScrollView>
+      >
+        <InfoView
+          title="Step 1"
+          body={
+            <Text style={styles.bioText}>
+              If you're feeling sick and exhibit symptoms of COVID-19, you
+              should contact your primary healthcare provider if possible, else
+              use a telemedicine app (Teladoc), or contact the health deparment
+              based on your state.
+            </Text>
+          }
+        />
+        <InfoView title="Contact Information" body={this.state.contact} />
+        <InfoView
+          title="Step 2"
+          body={
+            <Text style={styles.bioText}>
+              To be tested, you must be apporved by your healthcare provider or
+              health department according to state criteria based on symptoms or
+              if you've had exposure to an infected individual.
+            </Text>
+          }
+        />
+        <InfoView
+          title="Step 3"
+          body={
+            <Text style={styles.bioText}>
+              The test procedure involves taking a swab of the patient's nose.
+              Free testing is available in public facilities and price ranges
+              from $50 - $100 for commercial lab testing if you don't meet state
+              criteria or want an expedited process.
+            </Text>
+          }
+        />
+        <InfoView
+          title="Step 4"
+          body={
+            <Text style={styles.bioText}>
+              Samples are sent to labs for analysis. Timing to get results back
+              range from 5 to 48 hours, with an average of 24 hours.
+            </Text>
+          }
+        />
+        <LocalSourceObject />
+      </ScrollView>
     );
   }
 }
