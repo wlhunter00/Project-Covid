@@ -13,7 +13,7 @@ export const defaults = {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: defaults.backgroundcolor,
+    backgroundColor: defaults.backgroundcolor
   },
   containerRowCenter: {
     flex: 1,
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 10,
     marginLeft: 0,
-    textAlign: 'center'
+    textAlign: "center"
   },
   navButton: {
     flexDirection: "row",
@@ -135,7 +135,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 15,
     marginLeft: 10,
-    marginRight: 10,
+    marginRight: 10
   },
   surveyQuestionTextUnderline: {
     color: defaults.headercolor,
@@ -144,7 +144,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginBottom: 15,
-    textDecorationLine: 'underline'
+    textDecorationLine: "underline"
   },
   textBox: {
     fontSize: 16,
@@ -168,6 +168,17 @@ export const styles = StyleSheet.create({
   },
   boldPrimary: {
     color: defaults.primarycolor,
+    fontWeight: "bold"
+  },
+  underlineText: {
+    fontSize: 16,
+    textDecorationLine: "underline",
+    color: "rgb(113, 113, 113)",
+    marginBottom: 10
+  },
+  headerText: {
+    fontSize: 16,
+    color: defaults.headercolor,
     fontWeight: "bold"
   },
   primaryText: {
@@ -211,6 +222,13 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
     marginRight: 10
+  },
+  sourcesBox: {
+    backgroundColor: defaults.tertiarycolor,
+
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 15
   }
 });
 

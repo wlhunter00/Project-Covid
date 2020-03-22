@@ -18,7 +18,9 @@ export default function Sources({ route, navigation }) {
           {
             title: "The Lancet",
             url:
-              "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext"
+              "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext",
+            headline:
+              "A familial cluster of pneumonia associated with the 2019 novel coronavirus indicating person-to-person transmission: a study of a family cluster"
           },
           {
             title: "The Lancet",
