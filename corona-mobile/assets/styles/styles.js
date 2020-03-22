@@ -233,7 +233,6 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: "underline",
     color: "rgb(113, 113, 113)",
-    marginBottom: 10
   },
   headerText: {
     fontSize: 16,
@@ -290,7 +289,8 @@ const allStyles = StyleSheet.create({
   sourcesBox: {
     backgroundColor: colors.tertiarycolor,
     borderRadius: 5,
-    padding: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
     marginBottom: 15
   },
   profileImages: {

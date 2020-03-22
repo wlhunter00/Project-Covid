@@ -99,7 +99,7 @@ export function FAQItem({ question, answer }) {
 }
 
 export function SourceItem({ navigation, typeSource, sourcesList }) {
-  const { styles, colors, isDark } = useStyle("questionText", "answerText", "expandableItem");
+  const { styles, colors } = useStyle("questionText", "answerText", "expandableItem");
 
   const [expanded, setExpanded] = useState(false);
   const color = expanded ? colors.textcolor : colors.secondarytextcolor;
@@ -111,7 +111,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
   return [
     <View style={styles.expandableItem} >
       <TouchableOpacity onPress={toggleExpanded}>
-        <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={[styles.questionText, { color: color }]}>
             {typeSource}
           </Text>
@@ -125,6 +125,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
       </TouchableOpacity>
       {expanded && (
         <React.Fragment>
+          <View style={{height: 8}}/>
           {sourcesList.map(source => {
             return (
               <SourceLink
@@ -143,7 +144,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
 }
 
 export function SourceLink({ url, title, navigation, headline }) {
-  const { styles } = useStyle("linkButtonTitle");
+  const { styles } = useStyle("linkButtonTitle", "headerTextBold", "underlineText", "sourcesBox");
 
   return (
     <TouchableOpacity
@@ -155,10 +156,8 @@ export function SourceLink({ url, title, navigation, headline }) {
       style={{ marginTop: 10 }}
     >
       <View style={styles.sourcesBox}>
-        <View style={{ marginLeft: 10, marginRight: 10 }}>
           <Text style={styles.headerTextBold}>{title}</Text>
           <Text style={styles.underlineText}> {headline} </Text>
-        </View>
       </View>
     </TouchableOpacity>
   );
