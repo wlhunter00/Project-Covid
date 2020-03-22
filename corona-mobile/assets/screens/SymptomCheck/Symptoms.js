@@ -55,7 +55,7 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   }
 
   return (
-    <View style={{ flexDirection:'column' }}>
+    <View>
       {questionNumber == 0 && (
         <View style={{ marginTop: 10, marginRight: 5, marginLeft: 5}}>
         <View style={boxStyles.container}>
