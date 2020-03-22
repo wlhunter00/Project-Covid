@@ -4,11 +4,9 @@ import { FAQItem } from "../../components/FooterComponents";
 import { useStyle } from "./../../styles/styles.js";
 
 export default function Faq({ route, navigation }) {
-  const { styles } = useStyle("container")
+  const { styles } = useStyle("container");
   return (
-    <ScrollView
-      style={styles.container}
-    >
+    <ScrollView style={styles.container}>
       <FAQItem
         question="What is Project Covid?"
         answer={
@@ -78,6 +76,13 @@ export default function Faq({ route, navigation }) {
           "We have a lot of features planned for the future:\n\n• We want to have a page featuring the latest information on global travel bans in effect, and once we find a data source that we can trust and use, we will implement it right away.\n\n• We plan on implementing a smart news feed. What this means is the ability to pull the most noteworthy headlines from trustworthy sources in the app itself. We want these to include headlines that are local to tailor the app to the user. \n\n• We are also in the midst of developing a sentiment based news feature which will allow our users to filter news based on the type (positive or negative) of news content that you would like to see.\n\n• We aim to improve the testing center feature. One goal is for the users to put in a custom location to find information for that area. When information about testing centers is more widely available, we would like a feature where you can find the nearest testing location to you on a map.\n\n• We also have other broader plans such as displaying more statistics as well as video content. If you have any other ideas on how to improve the app, please let us know!"
         }
         key="10"
+      />
+      <FAQItem
+        question="How does Symptom Check Work?"
+        answer={
+          "As of now we are implementing a very basic version of the symptom check. We currently only look at the answer for the first question, “Could you describe your overall wellness over the past few days? Do you have any unusual symptoms or feel unwell?”. \n\nThe other questions are not used currently but will be implemented in our algorithms soon. We look through the response and try to find the key symptoms outlined by the CDC. We then send back the symptoms that we found to your phone. The statistics regarding people with the symptoms was found in a CDC report. \n\nWe cannot give a recommendation on if you should get tested or not, but we do recommend that you contact any local health officials if you have any questions or doubts."
+        }
+        key="11"
       />
     </ScrollView>
   );

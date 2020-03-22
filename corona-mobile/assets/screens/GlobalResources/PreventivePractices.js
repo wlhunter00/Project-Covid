@@ -24,11 +24,11 @@ import {
 } from "react-native-gesture-handler";
 
 import ModalImage from "./../../components/ModalImage";
-import { useStyle} from "../../styles/styles";
+import { useStyle } from "../../styles/styles";
 
 export default function StyledPreventativePractices() {
   const { styles } = useStyle("container");
-  return <PreventativePractices styles={styles}/>
+  return <PreventativePractices styles={styles} />;
 }
 class PreventativePractices extends React.Component {
   constructor(props) {
@@ -106,7 +106,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image4,
-          title: "Preperation",
+          title: "Preparation",
           id: "4",
           body: [
             "-  Two Week’s Supply: If you display symptoms, you are advised to self-quarantine for two weeks; develop a two week’s supply of food, medical and cleaning supplies needed in the event you must self-quarantine",
@@ -129,18 +129,17 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image5,
-          title: "Protecting others",
+          title: "Protecting Others",
           id: "5",
           body: [
             "-  Current observation indicates mild symptoms in non-vulnerable populations",
             "\n-  Vulnerable populations: older adults (65+) and immunocompromised (chronic-diseased) are subject to severe symptoms of illness",
             "\n-  Vulnerable populations may need emergent health services if infected:",
             "\n- ICU (intensive care unit) or ventilators",
-            "\n- These resources are subject to becoming strained as caseload picks up in the United States (following Chin and Italy’s events)",
+            "\n- These resources are subject to becoming strained as caseload picks up in the United States (following China and Italy’s events)",
             "\n ",
             "\nIf a vulnerable population member shows symptoms:",
             "\n-  Call ahead to emergent health services so they can anticipate arrival",
-            "\n ",
             "\n-  Call local healthcare provider and/or health department to seek testing",
             "\nIf a non-vulnerable population member shows symptoms",
             "\n ",
@@ -188,10 +187,8 @@ class PreventativePractices extends React.Component {
   render() {
     const { styles } = this.props;
     return (
-      <View
-        style={styles.container}
-      >
-        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
             return <ModalImage item={item} key={item.id} />;
           })}

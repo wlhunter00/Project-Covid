@@ -55,9 +55,9 @@ class InformationalToolkit extends React.Component {
             "\n-  Those with serious chronic medical conditions like heart disease, diabetes, and lung disease",
             "\n-  The immunocompromised, such as people with HIV, those taking corticosteroids, those with cancer and current/recent chemotherapy treatment",
             "\n-  The elderly",
-            "\n ",
-            "\n-  There are currently no drug treatments approved, but several drugs that are used for other conditions are being studied to see whether they could help treat COVID-19",
+            "\n",
             "\nHow is Coronavirus treated? Can I take antibiotics?",
+            "\n-  There are currently no drug treatments approved, but several drugs that are used for other conditions are being studied to see whether they could help treat COVID-19",
             "\n-  Antibiotics are not effective against the virus",
             "\n",
             "\nSources:",
@@ -122,7 +122,7 @@ class InformationalToolkit extends React.Component {
           id: "3",
           body: [
             "What should I be doing if I am sick?",
-            "\n-  The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice.'",
+            "\n-  The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice",
             "\n-  Look to your state or local guidelines surrounding best practices, testing criteria, and available healthcare facilities caring for patients with suspected COVID-19",
             "\n-  Infected or possibly infected individuals should stay home (and avoid travel) except to get medical care",
             "\n-  Call ahead before visiting a healthcare provider (they may have protocols such as meeting you outside to avoid many sick people coming into a waiting room)",
@@ -192,10 +192,8 @@ class InformationalToolkit extends React.Component {
     const { styles } = this.props;
 
     return (
-      <View
-        style={styles.container}
-      >
-        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
             return <ModalImage item={item} key={item.id} />;
           })}
