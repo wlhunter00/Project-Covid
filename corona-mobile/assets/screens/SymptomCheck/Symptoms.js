@@ -55,7 +55,7 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
   }
 
   return (
-    <ScrollView>
+    <View style={{ flexDirection:'column' }}>
       {questionNumber == 0 && (
         <View style={{ marginTop: 10, marginRight: 5, marginLeft: 5}}>
         <View style={boxStyles.container}>
@@ -123,6 +123,6 @@ export function Symptoms({ changeBackendResponse, changeSurveyDone }) {
         </View>
       )
       }
-    </ScrollView>
+    </View>
   );
 }

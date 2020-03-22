@@ -38,7 +38,6 @@ export default function SymptomCheck({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: defaults.backgroundcolor
   },

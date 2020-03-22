@@ -6,7 +6,7 @@ import { styles, boxStyles } from "./../../styles/styles.js";
 import {
   SurveyNavigationButton,
   SurveyNavigationButtonLarge,
-  SurveyButtonSmall
+  SurveyButton
 } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
 
@@ -32,13 +32,15 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
       <ScrollView style={styles.container}>
         {symptoms.map(symptom => {
           return (
+            <View style={{marginLeft: 10, marginRight: 10}}>
             <InfoViewDiagnosis
               title={symptom.title}
               body={
                 symptom.body +
                 "% of people who tested positive have this symptom."
               }
-            />
+              />
+            </View>
           );
         })}
       </ScrollView>
@@ -79,7 +81,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           />
         </View>
       </View>
-      <SurveyButtonSmall title="Retake Symptom Check" action={retakeSurvey} />
+      <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
     </ScrollView>
   );
 }

@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: defaults.headercolor,
-    marginBottom: 5,
+    marginBottom: 10,
     marginTop: 10,
     marginLeft: 5,
     textAlign: 'center'
