@@ -134,7 +134,7 @@ function LocalSourceObject() {
 }
 
 export default function StyledTestingCenters() {
-  const { styles, colors } = useStyle("bioText", "positionText");
+  const { styles, colors } = useStyle("bioText", "positionText", "container");
   return <TestingCenters styles={styles} colors={colors}/>;
 }
 
@@ -212,13 +212,13 @@ class TestingCenters extends React.Component {
   render() {
     const { styles, colors } = this.props;
     return (
-      <View style={{ backgroundColor: colors.backgroundcolor }}>
         <ScrollView
           contentContainerStyle={{
             paddingHorizontal: 15,
             paddingTop: 15,
             backgroundColor: colors.backgroundcolor
-          }}
+        }}
+        style={styles.container}
         >
           <InfoView
             title="Step 1"
@@ -264,7 +264,6 @@ class TestingCenters extends React.Component {
           />
           <LocalSourceObject />
         </ScrollView>
-      </View>
     );
   }
 }
