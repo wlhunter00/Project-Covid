@@ -237,7 +237,7 @@ const allStyles = StyleSheet.create({
   },
   headerText: {
     fontSize: 16,
-    color: defaults.headercolor
+    color: colors.headercolor
   },
   primaryText: {
     color: colors.primarycolor,
@@ -288,8 +288,7 @@ const allStyles = StyleSheet.create({
     borderWidth: 1,
   },
   sourcesBox: {
-    backgroundColor: defaults.tertiarycolor,
-
+    backgroundColor: colors.tertiarycolor,
     borderRadius: 5,
     padding: 10,
     marginBottom: 15
