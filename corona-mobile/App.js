@@ -40,7 +40,7 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const { style, colors, isDark } = useStyle();
+  const { styles, colors, isDark } = useStyle();
   console.log(colors);
   const globalScreenOptions = {
     headerStyle: {
@@ -78,7 +78,7 @@ export default function App() {
       name="Home"
       component={HomeScreen}
       options={{
-        title: "Project Covid"
+        title: <Text style={{fontWeight: "bold"}}>Project<Text style={{ fontWeight: "normal" }}>Covid</Text></Text>
       }}
     />
     <Stack.Screen
