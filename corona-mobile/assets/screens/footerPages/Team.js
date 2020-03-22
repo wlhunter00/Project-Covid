@@ -17,7 +17,7 @@ export default function Team({ route, navigation }) {
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
-      <Text style={styles.sectionTitle}>Founders</Text>
+      <Text style={[styles.sectionTitle, {marginTop: 20 }]}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}
         profile={{
