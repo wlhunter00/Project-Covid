@@ -13,6 +13,8 @@ import { useStyle } from "../styles/styles";
 import { WebView } from "react-native-webview";
 
 export default function ViewSource({ route, navigation }) {
+  const { styles } = useStyle("containerFull");
+  
   const openUrl = () => {
     Linking.canOpenURL(route.params.url).then(canOpen => {
       if (canOpen) {
@@ -31,7 +33,7 @@ export default function ViewSource({ route, navigation }) {
         source={{
           uri: route.params.url
         }}
-        style={styles.webView}
+        style={{flex: 1}}
       />
     </View>
   );
