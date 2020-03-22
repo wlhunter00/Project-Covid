@@ -242,6 +242,9 @@ export const boxStyles = StyleSheet.create({
   compactName: {
     fontSize: 24
   },
+  compactNameSmall: {
+    fontSize: 18
+  },
   position: {
     fontSize: 16,
     fontWeight: "700",
