@@ -111,7 +111,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
   return [
     <View style={styles.expandableItem} >
       <TouchableOpacity onPress={toggleExpanded}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
           <Text style={[styles.questionText, { color: color }]}>
             {typeSource}
           </Text>
@@ -130,6 +130,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
               <SourceLink
                 url={source.url}
                 title={source.title}
+                headline={source.headline}
                 key={source.url}
                 navigation={navigation}
               />
@@ -141,7 +142,7 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
   ];
 }
 
-export function SourceLink({ url, title, navigation }) {
+export function SourceLink({ url, title, navigation, headline }) {
   const { styles } = useStyle("linkButtonTitle");
 
   return (
@@ -153,7 +154,12 @@ export function SourceLink({ url, title, navigation }) {
       }}
       style={{ marginTop: 10 }}
     >
-      <Text style={styles.linkButtonTitle}>{title}</Text>
+      <View style={styles.sourcesBox}>
+        <View style={{ marginLeft: 10, marginRight: 10 }}>
+          <Text style={styles.headerTextBold}>{title}</Text>
+          <Text style={styles.underlineText}> {headline} </Text>
+        </View>
+      </View>
     </TouchableOpacity>
   );
 }

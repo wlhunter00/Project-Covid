@@ -81,6 +81,7 @@ const allStyles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.headercolor,
     marginVertical: 10,
+    textAlign: "center"
   },
   sectionTitleDark: {
     color: colorsDark.headercolor,
@@ -126,7 +127,7 @@ const allStyles = StyleSheet.create({
     borderRadius: 25,
     padding: 15,
     paddingBottom: 0,
-    width: "45%",
+    // width: "45%",
     height: 50,
     margin: "1.75%"
   },
@@ -228,6 +229,16 @@ const allStyles = StyleSheet.create({
     color: colors.primarycolor,
     fontWeight: "bold"
   },
+  underlineText: {
+    fontSize: 16,
+    textDecorationLine: "underline",
+    color: "rgb(113, 113, 113)",
+    marginBottom: 10
+  },
+  headerText: {
+    fontSize: 16,
+    color: defaults.headercolor
+  },
   primaryText: {
     color: colors.primarycolor,
     fontSize: 16
@@ -235,7 +246,12 @@ const allStyles = StyleSheet.create({
   headerTextBold: {
     color: colors.headercolor,
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginBottom: 8
+  },
+  blackText: {
+    fontSize: 16,
+    color: "black"
   },
   headerTextBoldDark: {
     color: colorsDark.headercolor
@@ -271,6 +287,13 @@ const allStyles = StyleSheet.create({
     borderColor: colorsDark.accentcolor,
     borderWidth: 1,
   },
+  sourcesBox: {
+    backgroundColor: defaults.tertiarycolor,
+
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 15
+  },
   profileImages: {
     height: 100,
     width: 66,
@@ -281,6 +304,9 @@ const allStyles = StyleSheet.create({
   },
   compactTeamMemberNameTextDark: {
     color: colorsDark.textcolor
+  },
+  compactNameSmall: {
+    fontSize: 18
   },
   positionText: {
     fontSize: 16,

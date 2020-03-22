@@ -53,148 +53,163 @@ export default function App() {
   };
   
   const HomeStack = () => (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={({ navigation, route }) => ({
-        headerRight: () =>
-          route.name !== "Home" && (
-            <Entypo
-              name="home"
-              color={"white"}
-              size={25}
-              style={{ marginRight: 20 }}
-              onPress={() => {
-                if (navigation.canGoBack()) {
-                  navigation.dispatch(StackActions.popToTop());
-                }
-              }}
-            />
-          ),
-        headerBackTitle: "Back",
-        ...globalScreenOptions
-      })}
-    >
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          title: "Project Covid"
-        }}
-      />
-      <Stack.Screen
-        name="LatestNews"
-        component={LatestNews}
-        options={{
-          title: "Latest News"
-        }}
-      />
-      <Stack.Screen name="NewsScreen" component={NewsScreen} />
-      <Stack.Screen
-        name="GlobalResources"
-        options={{ title: "Global Resources" }}
-        component={GlobalResourcesMain}
-      />
-      <Stack.Screen
-        name="TravelInformation"
-        options={{ title: "Travel Information" }}
-        component={TravelInformation}
-      />
-      <Stack.Screen
-        name="TravelStatus"
-        options={{ title: "Travel Status" }}
-        component={TravelStatus}
-      />
-      <Stack.Screen
-        name="InformationalToolkit"
-        options={{ title: "Info to Use" }}
-        component={InformationalToolkit}
-      />
-      <Stack.Screen
-        name="PreventativePractices"
-        options={{ title: "Preventative Practices" }}
-        component={PreventativePractices}
-      />
-      <Stack.Screen
-        name="MentalHealth"
-        component={MentalHealth}
-        options={{ title: "Mental Health" }}
-      />
-      <Stack.Screen
-        name="StudentResources"
-        component={StudentResources}
-        options={{ title: "Student Resources" }}
-      />
-      <Stack.Screen
-        name="TwitterFeed"
-        component={TwitterFeed}
-        options={{ title: "Curated Tweets" }}
-      />
-      <Stack.Screen
-        name="Team"
-        component={Team}
-        options={{ title: "Created By" }}
-      />
-      <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
-      <Stack.Screen
-        name="Sources"
-        component={Sources}
-        options={{ title: "Sources" }}
-      />
-      <Stack.Screen
-        name="ViewSource"
-        component={ViewSource}
-        options={{ title: "View the Source" }}
-      />
-      <Stack.Screen
-        name="ContactUs"
-        component={ContactUs}
-        options={{ title: "Contact Us" }}
-      />
-    </Stack.Navigator>
-  );
+  <Stack.Navigator
+    initialRouteName="Home"
+    screenOptions={({ navigation, route }) => ({
+      headerRight: () =>
+        route.name !== "Home" && (
+          <Entypo
+            name="home"
+            color={"white"}
+            size={25}
+            style={{ marginRight: 20 }}
+            onPress={() => {
+              if (navigation.canGoBack()) {
+                navigation.dispatch(StackActions.popToTop());
+              }
+            }}
+          />
+        ),
+      headerBackTitle: "Back",
+      ...globalScreenOptions
+    })}
+  >
+    <Stack.Screen
+      name="Home"
+      component={HomeScreen}
+      options={{
+        title: "Project Covid"
+      }}
+    />
+    <Stack.Screen
+      name="LatestNews"
+      component={LatestNews}
+      options={{
+        title: "Latest News"
+      }}
+    />
+    <Stack.Screen name="NewsScreen" component={NewsScreen} />
+    <Stack.Screen
+      name="GlobalResources"
+      options={{ title: "Global Resources" }}
+      component={GlobalResourcesMain}
+    />
+    <Stack.Screen
+      name="TravelInformation"
+      options={{ title: "Travel Information" }}
+      component={TravelInformation}
+    />
+    <Stack.Screen
+      name="TravelStatus"
+      options={{ title: "Travel Status" }}
+      component={TravelStatus}
+    />
+    <Stack.Screen
+      name="InformationalToolkit"
+      options={{ title: "Info to Use" }}
+      component={InformationalToolkit}
+    />
+    <Stack.Screen
+      name="PreventativePractices"
+      options={{ title: "Preventative Practices" }}
+      component={PreventativePractices}
+    />
+    <Stack.Screen
+      name="MentalHealth"
+      component={MentalHealth}
+      options={{ title: "Mental Health" }}
+    />
+    <Stack.Screen
+      name="StudentResources"
+      component={StudentResources}
+      options={{ title: "Student Resources" }}
+    />
+    <Stack.Screen
+      name="TwitterFeed"
+      component={TwitterFeed}
+      options={{ title: "Curated Tweets" }}
+    />
+    <Stack.Screen
+      name="Team"
+      component={Team}
+      options={{ title: "Created By" }}
+    />
+    <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
+    <Stack.Screen
+      name="Sources"
+      component={Sources}
+      options={{ title: "Sources" }}
+    />
+    <Stack.Screen
+      name="ViewSource"
+      component={ViewSource}
+      options={{ title: "View the Source" }}
+    />
+    <Stack.Screen
+      name="ContactUs"
+      component={ContactUs}
+      options={{ title: "Contact Us" }}
+    />
+  </Stack.Navigator>
+);
   
   const TrackerStack = () => (
-    <Stack.Navigator
-      initialRouteName="LiveTracker"
-      screenOptions={globalScreenOptions}
-    >
-      <Stack.Screen
-        name="LiveTracker"
-        component={TrackerStatus}
-        options={{ title: "Live Tracker" }}
-      />
-    </Stack.Navigator>
-  );
-  
-  const SymptomStack = () => (
-    <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
-      <Stack.Screen
-        name="SymptomCheck"
-        component={SymptomCheck}
-        options={{ title: "Symptom Check" }}
-      />
-    </Stack.Navigator>
-  );
-  
-  const TestingCentersStack = () => (
-    <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
-      <Stack.Screen
-        name="TestingCenters"
-        options={{ title: "Testing Centers" }}
-        component={TestingCenters}
-      />
-      <Stack.Screen
-        name="CenterFinder"
-        options={{ title: "Center Information" }}
-        component={CenterFinder}
-      />
-      <Stack.Screen
-        name="ViewSource"
-        options={{ title: "View Source" }}
-        component={ViewSource}
-      />
-    </Stack.Navigator>
-  );
+  <Stack.Navigator
+    initialRouteName="LiveTracker"
+    screenOptions={globalScreenOptions}
+  >
+    <Stack.Screen
+      name="LiveTracker"
+      component={TrackerStatus}
+      options={{ title: "Live Tracker" }}
+    />
+  </Stack.Navigator>
+);
+
+const SymptomStack = () => (
+  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
+    <Stack.Screen
+      name="SymptomCheck"
+      component={SymptomCheck}
+      options={{ title: "Symptom Check" }}
+    />
+    <Stack.Screen
+      name="InformationalToolkit"
+      options={{ title: "Info to Use" }}
+      component={InformationalToolkit}
+    />
+    <Stack.Screen
+      name="PreventativePractices"
+      options={{ title: "Preventative Practices" }}
+      component={PreventativePractices}
+    />
+    <Stack.Screen
+      name="ViewSource"
+      options={{ title: "View Source" }}
+      component={ViewSource}
+    />
+  </Stack.Navigator>
+);
+
+const TestingCentersStack = () => (
+  <Stack.Navigator initialRouteName="Home" screenOptions={globalScreenOptions}>
+    <Stack.Screen
+      name="TestingCenters"
+      options={{ title: "Testing Centers" }}
+      component={TestingCenters}
+    />
+    <Stack.Screen
+      name="CenterFinder"
+      options={{ title: "Center Information" }}
+      component={CenterFinder}
+    />
+    <Stack.Screen
+      name="ViewSource"
+      options={{ title: "View Source" }}
+      component={ViewSource}
+    />
+  </Stack.Navigator>
+);
 
   return (
     <AppearanceProvider>

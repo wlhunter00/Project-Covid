@@ -90,7 +90,7 @@ class PreventativePractices extends React.Component {
             "- Asian descending, recent travelers and healthcare responders are at risk of stigma",
             "\n \u2027 Stigmatized populations are subject to social avoidance/rejection, denial of resources, and verbal and/or physical violence",
             "\n-  We are ALL responsible citizens in practicing cultural competency and community support for these stigmatized populations",
-            "\n \u2027 WTake action: share your knowledge from this application and other national/global resources to dissolve myths and public stigma",
+            "\n \u2027 Take action: share your knowledge from this application and other national/global resources to dissolve myths and public stigma",
             "\n \u2027 Take action: express your support to those who may have experienced stigma amidst COVID-19, and refer to mental health services as needed",
             "\n-  As a population, we must remember to protect our mental health and coping methods",
             "\n \u2027 Those who previously may have struggled with mental health and/or substance abuse may be at risk of exacerbation",
@@ -106,7 +106,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image4,
-          title: "Preparation for the Potential",
+          title: "Preperation",
           id: "4",
           body: [
             "-  Two Week’s Supply: If you display symptoms, you are advised to self-quarantine for two weeks; develop a two week’s supply of food, medical and cleaning supplies needed in the event you must self-quarantine",
@@ -129,7 +129,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image5,
-          title: "Protecting the Immunocompromised",
+          title: "Protecting others",
           id: "5",
           body: [
             "-  Current observation indicates mild symptoms in non-vulnerable populations",

@@ -9,6 +9,7 @@ import {
   SurveyButton
 } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
+import { SourceItem } from "../../components/FooterComponents";
 
 var symptoms = [];
 
@@ -19,6 +20,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
 
   for (a in response) {
     if (response[a]["Percentage"]) {
+      console.log(response[a]["Symptom"]);
       symptoms.push({
         title: response[a]["Symptom"],
         body: response[a]["Percentage"]
@@ -31,10 +33,10 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   return (
     <ScrollView>
       <Text style={[styles.sectionTitle, {textAlign: "center", marginLeft: 5}]}> Diagnosis Results</Text>
-      <ScrollView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         {symptoms.map(symptom => {
           return (
-            <View style={{marginLeft: 10, marginRight: 10}}>
+            <View>
             <InfoViewDiagnosis
               title={symptom.title}
               body={
@@ -70,7 +72,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           </View>
         </View>
       </View>
-      <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10 }}>
+      <View style={{ marginTop: 10}}>
         <View style={styles.boxContainer}>
           <Text style={styles.surveyQuestionText}>
             You can also find local information on COVID-19 data, and find
@@ -82,8 +84,20 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
             navigationName={"TestingCenters"}
           />
         </View>
+        <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
+        <SourceItem
+          navigation={navigation}
+          typeSource={"Information Sources"}
+          sourcesList={[
+            {
+              title: "WHO",
+              url:
+                "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf"
+            }
+          ]}
+          key={"sourceList"}
+        />
       </View>
-      <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
     </ScrollView>
   );
 }
