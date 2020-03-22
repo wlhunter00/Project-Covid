@@ -45,8 +45,8 @@ export default function ContactUs({ route, navigation }) {
       style={{flex: 1}}
       />
     <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10, marginBottom: 40 }}>
-    <View style={styles.boxContainer}>
-        <Text style={styles.subtitle}>Also feel free to reach out to us at satvik@runawayapp.com.</Text>
+    <View style={[styles.boxContainer,{marginBottom: 0}]}>
+        <Text style={[styles.subtitle,{marginTop: 0}]}>Also feel free to reach out to us at satvik@runawayapp.com.</Text>
     </View>
     </View>
   </View>
