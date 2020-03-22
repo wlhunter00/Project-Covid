@@ -3,7 +3,10 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { WebView } from "react-native-webview";
 
+import { useStyle } from "../../styles/styles";
+
 export default function NewsScreen({ route, navigation }) {
+  const { styles } = useStyle("container");
   const { site } = route.params;
   navigation.setOptions({ title: site.title });
 
@@ -11,27 +14,10 @@ export default function NewsScreen({ route, navigation }) {
     <View style={styles.container}>
       <WebView
         source={{ uri: site.source }}
-        style={styles.webview}
+        style={styles.container}
         startInLoadingState
         originWhitelist={["*"]}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
-  },
-  title: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  webview: {
-    flex: 1
-  }
-});

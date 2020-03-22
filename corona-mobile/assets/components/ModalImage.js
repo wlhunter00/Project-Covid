@@ -11,11 +11,15 @@ import {
 
 import Modal from 'react-native-modal';
 import { TouchableWithoutFeedback, ScrollView, TouchableHighlight } from "react-native-gesture-handler";
-import { boxStyles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
+export default function StyledModalImage(props) {
+  const { styles, colors } = useStyle("bioText");
+  return <ModalImage {...props} styles={styles} colors={colors}/>
+}
 
-export class ModalImage extends React.Component {
+class ModalImage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -30,7 +34,7 @@ export class ModalImage extends React.Component {
     const imageHeight = Math.round((dimensions.width * 3) / 4);
     const imageWidth = dimensions.width;
     return (
-      <View style={styles.header}>
+      <View style={localStyles.header}>
         <ImageBackground
           source={item.image}
           style={[
@@ -38,7 +42,7 @@ export class ModalImage extends React.Component {
               width: imageWidth * 0.9,
               height: imageHeight
             },
-            styles.headerImage
+            localStyles.headerImage
           ]}
         >
           {x ?
@@ -58,7 +62,7 @@ export class ModalImage extends React.Component {
           <Text
             numberOfLines={1}
             adjustsFontSizeToFit={true}
-            style={[{ top: x ? imageHeight - 82 : imageHeight - 37 }, styles.headerText]}
+            style={[{ top: x ? imageHeight - 82 : imageHeight - 37 }, localStyles.headerText]}
           >
             {item.title}
           </Text>
@@ -68,15 +72,18 @@ export class ModalImage extends React.Component {
   };
 
   _body = item => {
+    const { colors } = this.props;
+
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
     const bulletPoints = item.body.map((text, i) => (
       <Text key={i} style={{ marginBottom: 0 }}>{text}</Text>
     ));
     return (
-      <View style={styles.content}>
+      <View style={[localStyles.content, {backgroundColor: colors.secondarybackgroundcolor}]}>
         {this._head(item, true)}
-        <Text style={boxStyles.bio}>
+        <View style={{height: 10}}/>
+        <Text style={this.props.styles.bioText}>
           {bulletPoints}
         </Text> 
       </View>
@@ -103,7 +110,8 @@ export class ModalImage extends React.Component {
     }
   }
 
-  render(){
+  render() {
+    const { colors } = this.props;
     return(
       <View>
         <TouchableWithoutFeedback onPress={this.ToggleModalOn} style={{padding: 5}}>
@@ -141,15 +149,7 @@ export class ModalImage extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#f7f7f7",
-    paddingHorizontal: 5,
-    paddingTop: 10,
-    height: "100%"
-  },
+const localStyles = StyleSheet.create({
   header: {
     padding: 0,
     marginBottom: 5,
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
   content: {
     padding: 10,
     paddingTop: 0,
-    backgroundColor: "white",
     borderRadius: 5,
     marginBottom: 10
   },

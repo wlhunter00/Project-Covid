@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import { AppearanceProvider } from 'react-native-appearance';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackActions } from "@react-navigation/native";
 
-import { styles, defaults } from "./assets/styles/styles";
+import { useStyle } from "./assets/styles/styles";
 
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
@@ -38,17 +39,20 @@ import {
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const globalScreenOptions = {
-  headerStyle: {
-    backgroundColor: defaults.primarycolor
-  },
-  headerTintColor: "#fff",
-  headerTitleStyle: {
-    fontWeight: "bold"
-  }
-};
-
-const HomeStack = () => (
+export default function App() {
+  const { style, colors, isDark } = useStyle();
+  console.log(colors);
+  const globalScreenOptions = {
+    headerStyle: {
+      backgroundColor: colors.primarycolor
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+  
+  const HomeStack = () => (
   <Stack.Navigator
     initialRouteName="Home"
     screenOptions={({ navigation, route }) => ({
@@ -148,8 +152,8 @@ const HomeStack = () => (
     />
   </Stack.Navigator>
 );
-
-const TrackerStack = () => (
+  
+  const TrackerStack = () => (
   <Stack.Navigator
     initialRouteName="LiveTracker"
     screenOptions={globalScreenOptions}
@@ -207,37 +211,41 @@ const TestingCentersStack = () => (
   </Stack.Navigator>
 );
 
-export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) =>
-            ({
-              Home: <Entypo name="home" size={size} color={color} />,
-              "Live Tracker": (
-                <MaterialCommunityIcons
-                  name="radar"
-                  size={size}
-                  color={color}
-                />
-              ),
-              Symptoms: (
-                <FontAwesome name="stethoscope" size={size} color={color} />
-              ),
-              Testing: <FontAwesome name="building" size={size} color={color} />
-            }[route.name])
-        })}
-        tabBarOptions={{
-          activeTintColor: defaults.primarycolor,
-          style: { paddingVertical: defaults.padding }
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Live Tracker" component={TrackerStack} />
-        <Tab.Screen name="Symptoms" component={SymptomStack} />
-        <Tab.Screen name="Testing" component={TestingCentersStack} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AppearanceProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) =>
+              ({
+                Home: <Entypo name="home" size={size} color={color} />,
+                "Live Tracker": (
+                  <MaterialCommunityIcons
+                    name="radar"
+                    size={size}
+                    color={color}
+                  />
+                ),
+                Symptoms: (
+                  <FontAwesome name="stethoscope" size={size} color={color} />
+                ),
+                Testing: <FontAwesome name="building" size={size} color={color} />
+              }[route.name])
+          })}
+          tabBarOptions={{
+            activeTintColor: colors.primarycolor,
+            style: [{
+              paddingVertical: 5,
+              backgroundColor: colors.secondarybackgroundcolor,
+            }, isDark ? { borderTopWidth: 0 } : {}]
+          }}
+        >
+          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Live Tracker" component={TrackerStack} />
+          <Tab.Screen name="Symptoms" component={SymptomStack} />
+          <Tab.Screen name="Testing" component={TestingCentersStack} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </AppearanceProvider>
   );
 }

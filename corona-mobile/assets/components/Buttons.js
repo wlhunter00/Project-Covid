@@ -6,10 +6,8 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
-import { styles, boxStyles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 
 export function PageButton({
   navigation,
@@ -18,6 +16,7 @@ export function PageButton({
   icon,
   description
 }) {
+  const { styles } = useStyle("navButton", "navButtonTitle", "navButtonDescription");
   return (
     <TouchableHighlight
       onPress={() => {
@@ -39,6 +38,7 @@ export function PageButton({
 }
 
 export function SiteButton({ site, navigation }) {
+  const { styles } = useStyle("navButton", "navButtonTitle");
   return (
     <TouchableHighlight
       onPress={() => {
@@ -63,16 +63,16 @@ export function SiteButton({ site, navigation }) {
 }
 
 export function ActionButton({ title, action }) {
+  const { styles } = useStyle("actionButton", "actionButtonTitle");
   return (
     <TouchableOpacity onPress={action} style={[styles.actionButton, {flex: 1, alignItems: 'center'}]}>
-      {/* <View> */}
         <Text style={[styles.actionButtonTitle]}>{title}</Text>
-      {/* </View> */}
     </TouchableOpacity>
   );
 }
 
 export function SurveyButton({ title, action }) {
+  const { styles } = useStyle("surveyButton", "surveyButtonTitle");
   return (
     <TouchableOpacity onPress={action} style={styles.surveyButton}>
       <View>
@@ -82,6 +82,7 @@ export function SurveyButton({ title, action }) {
   );
 }
 export function SurveyButtonSmall({ title, action }) {
+  const { styles } = useStyle("surveyButtonLess", "surveyButtonTitle");
   return (
     <TouchableOpacity onPress={action} style={styles.surveyButtonLess}>
       <View>
@@ -91,6 +92,7 @@ export function SurveyButtonSmall({ title, action }) {
   );
 }
 export function SurveyNavigationButton({ title, navigation, navigationName }) {
+  const { styles } = useStyle("surveyButtonFull", "surveyButtonTitle");
   return (
     <TouchableOpacity
       onPress={() => {
@@ -105,6 +107,7 @@ export function SurveyNavigationButton({ title, navigation, navigationName }) {
   );
 }
 export function SurveyNavigationButtonLarge({ title, navigation, navigationName }) {
+  const { styles } = useStyle("surveyButtonLess", "surveyButtonTitle");
   return (
     <TouchableOpacity
       onPress={() => {
@@ -120,8 +123,10 @@ export function SurveyNavigationButtonLarge({ title, navigation, navigationName 
 }
 // A simple button that's styled like a hyperlink
 export function SimpleButton({ title, action }) {
+  const { styles } = useStyle("linkButtonTitle");
+
   return (
-    <TouchableOpacity onPress={action}>
+    <TouchableOpacity onPress={action} >
       <Text style={styles.linkButtonTitle}>{title}</Text>
     </TouchableOpacity>
   );

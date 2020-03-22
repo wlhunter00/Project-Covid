@@ -1,12 +1,13 @@
 import * as React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { FAQItem } from "../../components/FooterComponents";
-import { defaults } from "./../../styles/styles.js";
+import { useStyle } from "./../../styles/styles.js";
 
 export default function Faq({ route, navigation }) {
+  const { styles } = useStyle("container")
   return (
     <ScrollView
-      style={{ backgroundColor: defaults.backgroundcolor }}
+      style={styles.container}
       contentContainerStyle={styles.container}
     >
       <FAQItem

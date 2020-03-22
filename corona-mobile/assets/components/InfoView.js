@@ -7,15 +7,17 @@ import {
   Image,
   StyleSheet
 } from "react-native";
-import { styles, defaults, boxStyles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 import { PrimaryTextBold } from "./Texts";
 
 export function InfoView({ title, body }) {
+  const { styles } = useStyle("boxContainer", "compactTeamMemberNameText", "divider", "bioText");
+
   return (
-    <View style={boxStyles.container}>
-      <Text style={boxStyles.compactName}>{title}</Text>
-      <View style={boxStyles.divider} />
-      <View style={boxStyles.bio}>{body}</View>
+    <View style={styles.boxContainer}>
+      <Text style={styles.compactTeamMemberNameText}>{title}</Text>
+      <View style={[styles.divider, {marginVertical: 10}]} />
+      <View style={styles.bio}>{body}</View>
     </View>
   );
 }

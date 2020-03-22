@@ -7,7 +7,7 @@ import {
   Image,
   StyleSheet
 } from "react-native";
-import { styles, defaults, boxStyles } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 import { PrimaryTextBold } from "./Texts";
 
 export function InfoViewDiagnosis({ title, body }) {
