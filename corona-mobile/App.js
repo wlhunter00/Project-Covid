@@ -27,7 +27,7 @@ import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 import ContactUs from "./assets/screens/footerPages/ContactUs.js";
-import ViewSource from "./assets/screens/footerPages/ViewSource.js";
+import ViewSource from "./assets/screens/ViewSource.js";
 
 import {
   Entypo,
@@ -183,6 +183,11 @@ const TestingCentersStack = () => (
       name="CenterFinder"
       options={{ title: "Center Information" }}
       component={CenterFinder}
+    />
+    <Stack.Screen
+      name="ViewSource"
+      options={{ title: "View Source" }}
+      component={ViewSource}
     />
   </Stack.Navigator>
 );

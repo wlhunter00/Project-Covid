@@ -96,6 +96,16 @@ export default function Sources({ route, navigation }) {
             title: "Time Magazine",
             url:
               "https://time.com/5804092/experimental-covid-19-vaccine-test-begins-as-u-s-volunteer-receives-first-shot"
+          },
+          {
+            title: "Bloomberg",
+            url:
+              "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
+          },
+          {
+            title: "NBC News",
+            url:
+              "https://www.nbcnews.com/health/health-news/coronavirus-testing-information-covid-19-tests-according-state-health-departments-n1158041"
           }
         ]}
         key={"newsOut"}
@@ -138,6 +148,11 @@ export default function Sources({ route, navigation }) {
             title: "Centers for Disease Control and Prevention",
             url:
               "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html"
+          },
+          {
+            title: "Centers for Disease Control and Prevention",
+            url:
+              "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
           }
         ]}
         key={"govAgen"}

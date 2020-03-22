@@ -18,6 +18,7 @@ import { ActionButton } from "./../../components/Buttons";
 import { styles, defaults, boxStyles } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
+import { SourceItem } from "../../components/FooterComponents";
 
 const contactLoading = (
   <View style={{ height: 100, justifyContent: "center" }}>
@@ -102,6 +103,39 @@ function ContactInfo(location) {
         </View>
       </View>
     </View>
+  );
+}
+
+function LocalSourceObject() {
+  const navigation = useNavigation();
+  return (
+    <SourceItem
+      navigation={navigation}
+      typeSource={"Information Sources"}
+      sourcesList={[
+        {
+          title: "NBC News",
+          url:
+            "https://www.nbcnews.com/health/health-news/coronavirus-testing-information-covid-19-tests-according-state-health-departments-n1158041"
+        },
+        {
+          title: "NPR",
+          url:
+            "https://www.npr.org/sections/health-shots/2020/03/08/813501632/seattle-health-care-system-offers-drive-through-coronavirus-testing-for-workers"
+        },
+        {
+          title: "CDC",
+          url:
+            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
+        },
+        {
+          title: "Bloomberg",
+          url:
+            "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
+        }
+      ]}
+      key={"sourceList"}
+    />
   );
 }
 
@@ -199,12 +233,7 @@ export default class TestingCenters extends React.Component {
               </Text>
             }
           />
-          <InfoView
-            title="Information Sources"
-            body={
-              <Text style={boxStyles.bio}>--All links from research--</Text>
-            }
-          />
+          <LocalSourceObject />
         </ScrollView>
       </View>
     );
