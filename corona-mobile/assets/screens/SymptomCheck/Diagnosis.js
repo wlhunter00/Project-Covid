@@ -26,7 +26,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   }
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
-      <Text style={[styles.sectionTitle, { textAlign: "center" }]}> Diagnosis Results</Text>
+      <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 30 }]}> Diagnosis Results</Text>
       
       {symptoms.map(symptom => {
         return (
