@@ -92,11 +92,6 @@ export default function Team({ route, navigation }) {
         schoolAndYear="Washington University, St. Louis, Sophomore"
       />
       <CompactTeamMemberBox
-        name="David Easton"
-        position="Mobile App Developer"
-        schoolAndYear="Washington University, St. Louis, Junior"
-      />
-      <CompactTeamMemberBox
         name="Ayush Khandelwal"
         position="Full Stack Developer"
         schoolAndYear="University of Massachusetts, Amherst, Junior"
