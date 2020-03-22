@@ -178,8 +178,7 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 16,
-    color: defaults.headercolor,
-    fontWeight: "bold"
+    color: defaults.headercolor
   },
   primaryText: {
     color: defaults.primarycolor,
