@@ -8,7 +8,7 @@ import {
   StyleSheet
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { styles, defaults } from "../styles/styles";
+import { useStyle } from "../styles/styles";
 
 export function PrimaryText({ text, padding }) {
   return (

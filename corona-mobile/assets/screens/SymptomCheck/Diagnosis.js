@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { styles, boxStyles } from "./../../styles/styles.js";
+import { useStyle } from "./../../styles/styles.js";
 import {
   SurveyNavigationButton,
   SurveyNavigationButtonLarge,
@@ -16,6 +16,8 @@ var symptoms = [];
 var a;
 
 export function Diagnosis({ navigation, response, retakeSurvey }) {
+  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText");
+
   for (a in response) {
     if (response[a]["Percentage"]) {
       console.log(response[a]["Symptom"]);
@@ -30,60 +32,57 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   }
   return (
     <ScrollView>
-      <View style={{ padding: 15, paddingTop: 0 }}>
-        <Text style={styles.sectionTitleCenter}> Diagnosis Results</Text>
-        <ScrollView contentContainerStyle={styles.container}>
-          {symptoms.map(symptom => {
-            return (
-              <View style={{ marginLeft: 0, marginRight: 0 }}>
-                <InfoViewDiagnosis
-                  title={symptom.title}
-                  key={symptom.title}
-                  body={
-                    symptom.body +
-                    "% of people who tested positive have this symptom."
-                  }
-                />
-              </View>
-            );
-          })}
-        </ScrollView>
-        <View style={{ marginTop: 10, marginRight: 0, marginLeft: 0 }}>
-          <View style={boxStyles.container}>
-            <Text style={styles.surveyQuestionText}>
-              Based on your symptoms, we recommend utlizing the following
-              knowledge resources:
-            </Text>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ flex: 1 }}>
-                <SurveyNavigationButton
-                  title={"Info Toolkit"}
-                  navigation={navigation}
-                  navigationName={"InformationalToolkit"}
-                />
-              </View>
-              <View style={{ flex: 1 }}>
-                <SurveyNavigationButton
-                  title={"Prevention"}
-                  navigation={navigation}
-                  navigationName={"PreventativePractices"}
-                />
-              </View>
+      <Text style={[styles.sectionTitle, {textAlign: "center", marginLeft: 5}]}> Diagnosis Results</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        {symptoms.map(symptom => {
+          return (
+            <View>
+            <InfoViewDiagnosis
+              title={symptom.title}
+              body={
+                symptom.body +
+                "% of people who tested positive have this symptom."
+              }
+              />
+            </View>
+          );
+        })}
+      </ScrollView>
+      <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10 }}>
+        <View style={styles.boxContainer}>
+          <Text style={styles.surveyQuestionText}>
+            Based on your symptoms, we recommend utlizing the following
+            knowledge resources:
+          </Text>
+          <View style={{ flexDirection: "row" }}>
+            <View style={{ flex: 1 }}>
+              <SurveyNavigationButton
+                title={"Info Toolkit"}
+                navigation={navigation}
+                navigationName={"InformationalToolkit"}
+              />
+            </View>
+            <View style={{ flex: 1 }}>
+              <SurveyNavigationButton
+                title={"Prevention"}
+                navigation={navigation}
+                navigationName={"PreventativePractices"}
+              />
             </View>
           </View>
         </View>
-        <View style={{ marginTop: 10, marginRight: 0, marginLeft: 0 }}>
-          <View style={boxStyles.container}>
-            <Text style={styles.surveyQuestionText}>
-              You can also find local information on COVID-19 data, and find
-              testing centers for help:
-            </Text>
-            <SurveyNavigationButtonLarge
-              title={"Find Center"}
-              navigation={navigation}
-              navigationName={"TestingCenters"}
-            />
-          </View>
+      </View>
+      <View style={{ marginTop: 10}}>
+        <View style={styles.boxContainer}>
+          <Text style={styles.surveyQuestionText}>
+            You can also find local information on COVID-19 data, and find
+            testing centers for help:
+          </Text>
+          <SurveyNavigationButtonLarge
+            title={"Find Center"}
+            navigation={navigation}
+            navigationName={"TestingCenters"}
+          />
         </View>
         <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
         <SourceItem
