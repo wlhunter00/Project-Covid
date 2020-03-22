@@ -19,10 +19,15 @@ import {
   ScrollView
 } from "react-native-gesture-handler";
 
-import { ModalImage } from "./../../components/ModalImage";
-import { defaults } from "../../styles/styles";
+import ModalImage from "./../../components/ModalImage";
+import { useStyle } from "../../styles/styles";
 
-export default class MentalHealth extends React.Component {
+export default function StyledMentalHealth() {
+  const { styles } = useStyle("container");
+  return <MentalHealth styles={styles}  />;
+}
+
+class MentalHealth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -107,14 +112,10 @@ export default class MentalHealth extends React.Component {
   }
 
   render() {
+    const { styles } = this.props;
     return (
-      <View
-        style={[
-          styles.container,
-          { backgroundColor: defaults.backgroundcolor }
-        ]}
-      >
-        <ScrollView>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
           {this.state.list.map(item => {
             return <ModalImage item={item} key={item.id} />;
           })}
@@ -123,50 +124,3 @@ export default class MentalHealth extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#f7f7f7",
-    paddingHorizontal: 5,
-    paddingTop: 10,
-    height: "100%"
-  },
-  header: {
-    padding: 5,
-    marginBottom: 5,
-    borderRadius: 50,
-    borderBottomRightRadius: 100,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  content: {
-    padding: 10,
-    backgroundColor: "#b8dedd",
-    borderRadius: 10,
-    marginBottom: 10
-  },
-  headerText: {
-    fontWeight: "bold",
-    fontSize: 25,
-    color: "white",
-    position: "relative",
-    left: 9,
-    textShadowColor: "black",
-    textShadowRadius: 2
-  },
-  headerImage: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
-    overflow: "hidden",
-    resizeMode: "cover",
-    borderRadius: 15
-  }
-});

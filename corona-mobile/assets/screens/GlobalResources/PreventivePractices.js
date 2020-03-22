@@ -191,7 +191,7 @@ class PreventativePractices extends React.Component {
       <View
         style={styles.container}
       >
-        <ScrollView contentContainerStyle={{paddingVertical: 15}}>
+        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
           {this.state.list.map(item => {
             return <ModalImage item={item} key={item.id} />;
           })}
