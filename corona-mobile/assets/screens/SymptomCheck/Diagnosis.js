@@ -18,6 +18,7 @@ var a;
 export function Diagnosis({ navigation, response, retakeSurvey }) {
   for (a in response) {
     if (response[a]["Percentage"]) {
+      console.log(response[a]["Symptom"]);
       symptoms.push({
         title: response[a]["Symptom"],
         body: response[a]["Percentage"]
