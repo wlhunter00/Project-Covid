@@ -1,28 +1,23 @@
 import * as React from "react";
 import {
-    Text,
-    View,
-    TouchableHighlight,
-    TouchableOpacity,
-    Image,
-    StyleSheet
+  Text,
+  View,
+  TouchableHighlight,
+  TouchableOpacity,
+  Image,
+  StyleSheet
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import { styles, defaults } from "../styles/styles";
+import { styles, defaults, boxStyles } from "../styles/styles";
 import { PrimaryTextBold } from "./Texts";
 
-export function InfoViewDiagnosis({ title, body, chevron }) {
-    return (
-        <View style={styles.infoViewOuterView}>
-            <View style={[styles.infoViewTitleView, { paddingLeft: 14.5 }]}>
-                <PrimaryTextBold text={title} padding={0} />
-                {chevron ? (
-                    <Entypo name="chevron-thin-right" style={styles.primaryTextBold} />
-                ) : (
-                        <View />
-                    )}
-            </View>
-            <View style={styles.infoViewBodyView}><Text>{body}</Text></View>
-        </View>
-    );
+export function InfoViewDiagnosis({ title, body }) {
+  return (
+    <View style={boxStyles.container}>
+      <Text style={boxStyles.compactNameSmall}>{title}</Text>
+      <View style={boxStyles.divider} />
+      <View style={boxStyles.bio}>
+        <Text>{body}</Text>
+      </View>
+    </View>
+  );
 }

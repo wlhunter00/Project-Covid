@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: defaults.headercolor,
-    marginBottom: 5,
+    marginBottom: 15,
     marginTop: 10,
     marginLeft: 5,
     textAlign: 'center'
@@ -147,6 +147,7 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline'
   },
   textBox: {
+    fontSize: 16,
     borderWidth: 3,
     borderRadius: 2,
     borderColor: "#ddd",
@@ -240,6 +241,9 @@ export const boxStyles = StyleSheet.create({
   },
   compactName: {
     fontSize: 24
+  },
+  compactNameSmall: {
+    fontSize: 18
   },
   position: {
     fontSize: 16,

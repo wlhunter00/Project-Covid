@@ -18,6 +18,7 @@ import { ActionButton } from "./../../components/Buttons";
 import { styles, defaults, boxStyles } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
+import { SourceItem } from "../../components/FooterComponents";
 
 const contactLoading = (
   <View style={{ height: 100, justifyContent: "center" }}>
@@ -27,12 +28,7 @@ const contactLoading = (
 
 const contactNotFound = (
   <View>
-    <Text
-      style={[
-        boxStyles.position,
-        { paddingBottom: 10, paddingTop: 0 }
-      ]}
-    >
+    <Text style={[boxStyles.position, { paddingBottom: 10, paddingTop: 0 }]}>
       We're currently unable to identify your location
     </Text>
 
@@ -83,16 +79,16 @@ function ContactInfo(location) {
         </View>
 
         <View style={styles.containerRowCenter}>
-          
-          {location.location.hasOwnProperty("Phone Number")
-          ? <ActionButton
-            title="Call"
-            action={() => {
-              call(location.location["Phone Number"]);
-            }}
-          />
-          : <View/>
-          }
+          {location.location.hasOwnProperty("Phone Number") ? (
+            <ActionButton
+              title="Call"
+              action={() => {
+                call(location.location["Phone Number"]);
+              }}
+            />
+          ) : (
+            <View />
+          )}
 
           <ActionButton
             title="Visit Website"
@@ -105,6 +101,39 @@ function ContactInfo(location) {
         </View>
       </View>
     </View>
+  );
+}
+
+function LocalSourceObject() {
+  const navigation = useNavigation();
+  return (
+    <SourceItem
+      navigation={navigation}
+      typeSource={"Information Sources"}
+      sourcesList={[
+        {
+          title: "NBC News",
+          url:
+            "https://www.nbcnews.com/health/health-news/coronavirus-testing-information-covid-19-tests-according-state-health-departments-n1158041"
+        },
+        {
+          title: "NPR",
+          url:
+            "https://www.npr.org/sections/health-shots/2020/03/08/813501632/seattle-health-care-system-offers-drive-through-coronavirus-testing-for-workers"
+        },
+        {
+          title: "CDC",
+          url:
+            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/testing-in-us.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftesting-in-us.html"
+        },
+        {
+          title: "Bloomberg",
+          url:
+            "https://www.bloomberg.com/news/articles/2020-03-15/coronavirus-tests-from-labcorp-quest-will-cost-50-to-100"
+        }
+      ]}
+      key={"sourceList"}
+    />
   );
 }
 
@@ -152,25 +181,33 @@ export default class TestingCenters extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: defaults.backgroundcolor}}>
-        <ScrollView contentContainerStyle={{paddingHorizontal: 15, paddingTop: 15, backgroundColor: defaults.backgroundcolor}}>
+      <View style={{ backgroundColor: defaults.backgroundcolor }}>
+        <ScrollView
+          contentContainerStyle={{
+            paddingHorizontal: 15,
+            paddingTop: 15,
+            backgroundColor: defaults.backgroundcolor
+          }}
+        >
           <InfoView
             title="Step 1"
             body={
               <Text style={boxStyles.bio}>
-                If you're feeling sick and exhibit symptoms of COVID-19, you should contact your primary healthcare provider if possible, else use a telemedicine app (Teladoc), or contact the health deparment based on your state.
+                If you're feeling sick and exhibit symptoms of COVID-19, you
+                should contact your primary healthcare provider if possible,
+                else use a telemedicine app (Teladoc), or contact the health
+                deparment based on your state.
               </Text>
             }
           />
-          <InfoView
-            title="Contact Information"
-            body={this.state.contact}
-          />
+          <InfoView title="Contact Information" body={this.state.contact} />
           <InfoView
             title="Step 2"
             body={
               <Text style={boxStyles.bio}>
-                  To be tested, you must be apporved by your healthcare provider or health department according to state criteria based on symptoms or if you've had exposure to an infected individual.
+                To be tested, you must be apporved by your healthcare provider
+                or health department according to state criteria based on
+                symptoms or if you've had exposure to an infected individual.
               </Text>
             }
           />
@@ -178,7 +215,10 @@ export default class TestingCenters extends React.Component {
             title="Step 3"
             body={
               <Text style={boxStyles.bio}>
-                  The test procedure involves taking a swab of the patient's nose. Free testing is available in public facilities and price ranges from $50 - $100 for commercial lab testing if you don't meet state criteria or want an expedited process.
+                The test procedure involves taking a swab of the patient's nose.
+                Free testing is available in public facilities and price ranges
+                from $50 - $100 for commercial lab testing if you don't meet
+                state criteria or want an expedited process.
               </Text>
             }
           />
@@ -186,14 +226,12 @@ export default class TestingCenters extends React.Component {
             title="Step 4"
             body={
               <Text style={boxStyles.bio}>
-                Samples are sent to labs for analysis. Timing to get results back range from 5 to 48 hours, with an average of 24 hours.
+                Samples are sent to labs for analysis. Timing to get results
+                back range from 5 to 48 hours, with an average of 24 hours.
               </Text>
             }
           />
-          <InfoView
-            title="Information Sources"
-            body={<Text style={boxStyles.bio}>--All links from research--</Text>}
-          />
+          <LocalSourceObject />
         </ScrollView>
       </View>
     );

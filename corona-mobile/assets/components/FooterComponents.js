@@ -135,13 +135,14 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
       {expanded && (
         <React.Fragment>
           {sourcesList.map(source => {
-              return (
-                  <SourceLink
-                      source={source}
-                      key={source}
-                      navigation={navigation}
-                  />
-              );
+            return (
+              <SourceLink
+                url={source.url}
+                title={source.title}
+                key={source.url}
+                navigation={navigation}
+              />
+            );
           })}
         </React.Fragment>
       )}
@@ -149,17 +150,17 @@ export function SourceItem({ navigation, typeSource, sourcesList }) {
   ];
 }
 
-export function SourceLink({ source, navigation }) {
+export function SourceLink({ url, title, navigation }) {
   return (
     <TouchableOpacity
       onPress={() => {
         navigation.navigate("ViewSource", {
-          url: source
+          url: url
         });
-          }}
-          style={{marginTop: 10}}
+      }}
+      style={{ marginTop: 10 }}
     >
-      <Text style={styles.linkButtonTitle}>{source}</Text>
+      <Text style={styles.linkButtonTitle}>{title}</Text>
     </TouchableOpacity>
   );
 }

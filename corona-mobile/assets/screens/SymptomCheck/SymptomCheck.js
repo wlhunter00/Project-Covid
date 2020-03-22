@@ -29,8 +29,7 @@ export default function SymptomCheck({ navigation }) {
       />
       {surveyDone && (
         <View>
-          <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} />
-          <SurveyButton title="Retake Symptom Check" action={retakeSurvey} />
+          <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} retakeSurvey={retakeSurvey}/>
         </View>
       )}
     </View>
@@ -40,9 +39,9 @@ export default function SymptomCheck({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: defaults.backgroundcolor
+    alignItems: "stretch",
+    backgroundColor: defaults.backgroundcolor,
+    padding: 10
   },
   title: {
     fontSize: 20,

@@ -65,6 +65,7 @@ async function getStateInfo(address) {
       return centerData[prop];
     }
   }
+  console.log(address);
   var notState = { message: "Location is not a state!" };
   return notState;
 }

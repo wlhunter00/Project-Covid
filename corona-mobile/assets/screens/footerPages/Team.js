@@ -60,11 +60,6 @@ export default function Team({ route, navigation }) {
         schoolAndYear="Washington University, St. Louis, Junior"
       />
       <CompactTeamMemberBox
-        name="Adam Jacobowitz"
-        position="Back End Developer"
-        schoolAndYear="Ohio State University, Working Professional"
-      />
-      <CompactTeamMemberBox
         name="Pryce Yebesi"
         position="Mobile App Developer"
         schoolAndYear="Washington University, St. Louis, Sophomore"
@@ -75,19 +70,34 @@ export default function Team({ route, navigation }) {
         schoolAndYear="University of Nigeria, Working Professional"
       />
       <CompactTeamMemberBox
+        name="Adam Jacobowitz"
+        position="Back End Developer"
+        schoolAndYear="Ohio State University, Working Professional"
+      />
+      <CompactTeamMemberBox
         name="Kevin Huang"
         position="Front End Developer"
         schoolAndYear="Harvard University, First Year"
       />
       <CompactTeamMemberBox
-        name="Ayush Khandelwal"
-        position="Full Stack Developer"
-        schoolAndYear="University of Massachusetts, Amherst, Junior"
-      />
-      <CompactTeamMemberBox
         name="Katie Lund"
         position="Mobile App Developer"
         schoolAndYear="Washington University, St. Louis, Sophomore"
+      />
+      <CompactTeamMemberBox
+        name="Zach Glabman"
+        position="Natural Langauge Processing"
+        schoolAndYear="Washington University, St. Louis, Sophomore"
+      />
+      <CompactTeamMemberBox
+        name="David Easton"
+        position="Mobile App Developer"
+        schoolAndYear="Washington University, St. Louis, Junior"
+      />
+      <CompactTeamMemberBox
+        name="Ayush Khandelwal"
+        position="Full Stack Developer"
+        schoolAndYear="University of Massachusetts, Amherst, Junior"
       />
 
       <Text style={localStyles.sectionTitle}>Research Volunteers</Text>
