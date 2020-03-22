@@ -42,7 +42,7 @@ export default class StudentResources extends React.Component {
         },
         {
           image: image2,
-          title: "Organizations and Resources",
+          title: "Helpful Organizations",
           body: [
             "Resources:",
             "-  Code Academy is offering free access to its premium training platform",

@@ -43,7 +43,7 @@ export default class MentalHealth extends React.Component {
             "\n",
             "\nDaily Activities to Help With Stress:",
             "\n-  “If distress impacts activities of your daily life for several days or weeks, talk to a clergy member, counselor, or doctor, or contact the SAMHSA helpline at 1-800-985-5990.” - CDC",
-            "\n-  Sleeping well, exercising† and maintaining a healthy diet will promote your mental health",
+            "\n-  Sleeping well, exercising and maintaining a healthy diet will promote your mental health",
             "\n-  Take mental breaks, time to unwind and reflect. Deep breathing. Do activities you usually enjoy",
             "\n-  Share your concerns and feelings with friends and family",
             "\n ",
@@ -60,7 +60,7 @@ export default class MentalHealth extends React.Component {
         },
         {
           image: image2,
-          title: "Resources",
+          title: "Resources to Use",
           body: [
             "-  Mental Health America:",
             "\nMHA has compiled a range of resources and information to assist you and your community. Visit if you’re looking for mental health information and resources related to COVID-19, isolation, anxiety, stress, and more",
