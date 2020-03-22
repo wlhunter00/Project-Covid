@@ -36,6 +36,7 @@ export default function ContactUs({ route, navigation }) {
       javaScriptEnabled={true}
       domStorageEnabled={true}
       startInLoadingState={true}
+      scrollEnabled={false}
       source={{
         uri: "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
       }}
