@@ -1,19 +1,64 @@
 import { StyleSheet } from "react-native";
+import { useColorScheme } from 'react-native-appearance'
 
-export const defaults = {
+/** Hook to get style objects that take into account the device appearance (dark or light mode). 
+ * 
+ * @param {} keys an array containing what styles are needed.
+ */
+export const useStyle = (...keys) => {
+  const theme = useColorScheme();
+  const isDark = theme === "dark";
+
+  const styles = {};
+  keys.forEach(styleKey => {
+    const defaultStyles = allStyles[styleKey];
+
+    if (isDark && allStyles[styleKey + "Dark"]) {
+      styles[styleKey] = { ...defaultStyles, ...allStyles[styleKey + "Dark"]};
+    } else {
+      styles[styleKey] = allStyles[styleKey];
+    }
+  });
+  
+  const colorsDynamic = isDark ? colorsDark : colors;
+
+  return { styles, colors: colorsDynamic, isDark };
+}
+
+
+const colors = {
   primarycolor: "#43a047",
   secondarycolor: "#a5d6a7",
   tertiarycolor: "#dcedc8",
   backgroundcolor: "#d1dbd0",
-  headercolor: "#404040",
-  borderRadius: 20,
-  padding: 5
+  secondarybackgroundcolor: "white",
+  tertiarybackgroundcolor: "white",
+  headercolor: "#444",
+  textcolor: "black",
+  secondarytextcolor: "grey",
+  accentcolor: "#c8c7cc"
 };
 
-export const styles = StyleSheet.create({
+const colorsDark = {
+  primarycolor: "#43a047",
+  secondarycolor: "#a5d6a7",
+  tertiarycolor: "#dcedc8",
+  backgroundcolor: "black",
+  secondarybackgroundcolor: "#121312",
+  tertiarybackgroundcolor: "#1C1C1E",
+  headercolor: "#CCC",
+  textcolor: "white",
+  secondarytextcolor: "grey",
+  accentcolor: "#28282A"
+};
+
+const allStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: defaults.backgroundcolor,
+    backgroundColor: colors.backgroundcolor,
+  },
+  containerDark: {
+    backgroundColor: colorsDark.backgroundcolor
   },
   containerRowCenter: {
     flex: 1,
@@ -33,23 +78,23 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10
   },
-  sectionTitleCenter: {
+  sectionTitle: {
     fontSize: 25,
     fontWeight: "bold",
-    color: defaults.headercolor,
-    marginBottom: 10,
-    marginTop: 10,
-    marginLeft: 5,
-    textAlign: 'center'
+    color: colors.headercolor,
+    marginVertical: 10,
+  },
+  sectionTitleDark: {
+    color: colorsDark.headercolor,
   },
   navButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: colors.tertiarybackgroundcolor,
     padding: 15,
-    borderBottomColor: "#c8c7cc",
+    borderBottomColor: colors.accentcolor,
     borderBottomWidth: 1,
-    borderTopColor: "#c8c7cc",
+    borderTopColor: colors.accentcolor,
     borderTopWidth: 1,
     height: 78,
     shadowColor: "rgba(67, 160, 71, 0.2)",
@@ -58,16 +103,28 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     borderRadius: 5
   },
+  navButtonDark: {
+    backgroundColor: colorsDark.tertiarybackgroundcolor,
+    borderTopColor: colorsDark.accentcolor,
+    borderBottomColor: colorsDark.accentcolor,
+  },
   navButtonTitle: {
     fontSize: 18,
-    fontWeight: "400"
+    fontWeight: "400",
+    color: colors.textcolor
+  },
+  navButtonTitleDark: {
+    color: colorsDark.textcolor
   },
   navButtonDescription: {
-    color: "grey",
+    color: colors.secondarytextcolor,
     marginTop: 4
   },
+  navButtonDescriptionDark: {
+    color: colorsDark.secondarytextcolor,
+  },
   actionButton: {
-    backgroundColor: defaults.primarycolor,
+    backgroundColor: colors.primarycolor,
     borderRadius: 25,
     padding: 15,
     paddingBottom: 0,
@@ -82,7 +139,7 @@ export const styles = StyleSheet.create({
     textAlign: "center"
   },
   surveyButton: {
-    backgroundColor: defaults.primarycolor,
+    backgroundColor: colors.primarycolor,
     borderRadius: 25,
     padding: 15,
     paddingBottom: 0,
@@ -93,19 +150,18 @@ export const styles = StyleSheet.create({
     alignSelf: "center"
   },
   surveyButtonFull: {
-    backgroundColor: defaults.primarycolor,
+    backgroundColor: colors.primarycolor,
     borderRadius: 25,
     padding: 15,
     paddingBottom: 0,
     width: "90%",
     height: 50,
     margin: "1.75%",
-    marginBottom: 15,
-    marginTop: 15,
+    marginVertical: 15,
     alignSelf: "center"
   },
   surveyButtonLess: {
-    backgroundColor: defaults.primarycolor,
+    backgroundColor: colors.primarycolor,
     borderRadius: 25,
     padding: 15,
     paddingBottom: 0,
@@ -127,23 +183,19 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 15,
-    marginLeft: 10,
-    marginRight: 10
+    marginHorizontal: 10,
   },
   surveyQuestionText: {
-    color: defaults.headercolor,
+    color: colors.headercolor,
     fontSize: 16,
     marginTop: 15,
-    marginLeft: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
   },
   surveyQuestionTextUnderline: {
-    color: defaults.headercolor,
+    color: colors.headercolor,
     fontSize: 16,
-    marginTop: 15,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 15,
+    marginVertical: 15,
+    marginHorizontal: 10,
     textDecorationLine: 'underline'
   },
   textBox: {
@@ -152,71 +204,47 @@ export const styles = StyleSheet.create({
     borderRadius: 2,
     borderColor: "#ddd",
     borderBottomWidth: 3,
-    borderColor: defaults.primarycolor,
+    borderColor: colors.primarycolor,
     height: 140,
     shadowRadius: 2,
     elevation: 1,
-    marginLeft: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
     marginTop: 15,
     marginBottom: 20,
     padding: 15
   },
   linkButtonTitle: {
-    color: defaults.primarycolor,
-    fontSize: 16
+    color: colors.primarycolor,
+    fontSize: 16,
   },
   boldPrimary: {
-    color: defaults.primarycolor,
+    color: colors.primarycolor,
     fontWeight: "bold"
   },
   primaryText: {
-    color: defaults.primarycolor,
+    color: colors.primarycolor,
     fontSize: 16
   },
   headerTextBold: {
-    color: defaults.headercolor,
+    color: colors.headercolor,
     fontSize: 16,
     fontWeight: "bold"
   },
   primaryTextBold: {
-    color: defaults.primarycolor,
+    color: colors.primarycolor,
     fontWeight: "bold",
     fontSize: 16
   },
-  infoViewOuterView: {
-    width: "90%",
-    backgroundColor: defaults.tertiarycolor,
-    borderRadius: defaults.borderRadius,
-    padding: 0,
-    margin: 10
-  },
-  infoViewTitleView: {
-    width: "100%",
-    backgroundColor: "#fff",
-    borderRadius: defaults.borderRadius,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10
-  },
-  infoViewBodyView: {
-    margin: 10,
-    flex: 1
-  },
   subtitle: {
-    color: defaults.headercolor,
+    color: colors.headercolor,
     fontSize: 16,
     textAlign: "center",
     marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10
-  }
-});
-
-export const boxStyles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
+    marginHorizontal: 10,
+  },
+  // BOX STYLES
+  boxContainer: {
+    backgroundColor: colors.secondarybackgroundcolor,
     shadowColor: "rgba(67, 160, 71, 0.2)",
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
@@ -225,35 +253,32 @@ export const boxStyles = StyleSheet.create({
     padding: 10,
     marginBottom: 15
   },
-  divider: {
-    height: 1,
-    backgroundColor: "#e1e8ee",
-    marginVertical: 10
+  boxContainerDark: {
+    backgroundColor: colorsDark.secondarybackgroundcolor,
   },
   profileImages: {
     height: 100,
     width: 66,
     resizeMode: "contain"
   },
-  name: {
-    fontSize: 30,
-    fontWeight: "600"
-  },
-  compactName: {
+  compactTeamMemberNameText: {
     fontSize: 24
   },
-  position: {
+  compactTeamMemberNameTextDark: {
+    color: colorsDark.textcolor
+  },
+  positionText: {
     fontSize: 16,
     fontWeight: "700",
     color: "grey"
   },
-  school: {
+  schoolText: {
     fontSize: 16,
     fontWeight: "500",
     color: "grey",
     flexShrink: 1
   },
-  bio: {
+  bioText: {
     color: "#000",
     fontSize: 16,
     color: "grey"
@@ -269,3 +294,4 @@ export const boxStyles = StyleSheet.create({
     marginTop: 10
   }
 });
+
