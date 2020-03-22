@@ -169,6 +169,16 @@ const SymptomStack = () => (
       component={SymptomCheck}
       options={{ title: "Symptom Check" }}
     />
+    <Stack.Screen
+      name="InformationalToolkit"
+      options={{ title: "Info to Use" }}
+      component={InformationalToolkit}
+    />
+    <Stack.Screen
+      name="PreventativePractices"
+      options={{ title: "Preventative Practices" }}
+      component={PreventativePractices}
+    />
   </Stack.Navigator>
 );
 
