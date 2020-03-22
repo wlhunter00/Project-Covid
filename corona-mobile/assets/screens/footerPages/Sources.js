@@ -9,8 +9,7 @@ export default function Sources({ route, navigation }) {
   const { styles, colors } = useStyle("container");
   return (
     <ScrollView
-      style={{ backgroundColor: colors.backgroundcolor }}
-      contentContainerStyle={styles.container}
+      style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
     >
       <SourceItem
         navigation={navigation}

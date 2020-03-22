@@ -32,6 +32,7 @@ const colors = {
   tertiarycolor: "#dcedc8",
   backgroundcolor: "#d1dbd0",
   secondarybackgroundcolor: "white",
+  tertiarybackgroundcolor: "white",
   headercolor: "#444",
   textcolor: "black",
   secondarytextcolor: "grey",
@@ -44,6 +45,7 @@ const colorsDark = {
   tertiarycolor: "#dcedc8",
   backgroundcolor: "black",
   secondarybackgroundcolor: "#1C1C1E",
+  tertiarybackgroundcolor: "#393933",
   headercolor: "#CCC",
   textcolor: "white",
   secondarytextcolor: "grey",
@@ -292,6 +294,9 @@ const allStyles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginBottom: 15
+  },
+  sourcesBoxDark: {
+    backgroundColor: colorsDark.tertiarybackgroundcolor
   },
   profileImages: {
     height: 100,
