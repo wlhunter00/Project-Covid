@@ -60,7 +60,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
             </View>
             <View style={{ flex: 1 }}>
               <SurveyNavigationButton
-                title={"Best Practices"}
+                title={"Prevention"}
                 navigation={navigation}
                 navigationName={"PreventativePractices"}
               />
