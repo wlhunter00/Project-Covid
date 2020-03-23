@@ -15,7 +15,9 @@ export default function NewsScreen({ route, navigation }) {
       <WebView
         source={{ uri: site.source }}
         style={styles.container}
-        startInLoadingState
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        startInLoadingState={true}
         originWhitelist={["*"]}
       />
     </View>
