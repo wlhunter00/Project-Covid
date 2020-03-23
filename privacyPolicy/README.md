@@ -1,4 +1,4 @@
-_Privacy Policy_
+**Privacy Policy**
 
 Satvik Sethi built the Project Covid app as a Free app. This SERVICE is provided by Satvik Sethi at no cost and is intended for use as is.
 
