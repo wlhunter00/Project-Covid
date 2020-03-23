@@ -9,10 +9,10 @@
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo-notext.png",
+    "icon": "../assets/images/icon.png",
     "githubUrl": "https://github.com/wlhunter00/CoronaInfo/",
     "splash": {
-      "image": "./assets/images/icon.png",
+      "image": "./assets/images/logo-notext.png",
       "resizeMode": "contain",
       "backgroundColor": "#bbf5ad"
     },
