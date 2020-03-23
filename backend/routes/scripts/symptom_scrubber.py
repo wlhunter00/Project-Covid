@@ -3,7 +3,7 @@ from nltk.stem import *
 from nltk import tokenize
 from nltk.corpus import wordnet as wn
 import re
-user_text = str(sys.argv[1])
+import sys
 
 usertext = str(sys.argv[1])
 # usertext = "I haven't slept much the past few days becasue of my Fatigue. I have a fever, some muscle pain and difficulty breathing, and can't stop coughing. I traveled to my home in New York from South Korea and have been sick ever since."
