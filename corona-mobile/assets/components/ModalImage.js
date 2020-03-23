@@ -77,15 +77,16 @@ class ModalImage extends React.Component {
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
     const bulletPoints = item.body.map((text, i) => (
-      <Text key={i} style={{ marginBottom: 0 }}>{text}</Text>
+      <Text key={i} style={this.props.styles.bioText}>{text}</Text>
     ));
     return (
       <View style={[localStyles.content, {backgroundColor: colors.secondarybackgroundcolor}]}>
         {this._head(item, true)}
         <View style={{height: 10}}/>
-        <Text style={this.props.styles.bioText}>
+        <View>
           {bulletPoints}
-        </Text> 
+          {console.log(this.props.styles)}
+        </View> 
       </View>
       
     );
@@ -101,7 +102,6 @@ class ModalImage extends React.Component {
 
   handleOnScroll = event => {
     this.setState({scrollOffset: event.nativeEvent.contentOffset.y});
-    console.log(this.state.scrollOffset)
   }
 
   handleScrollTo = p => {
