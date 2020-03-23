@@ -1,9 +1,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-  ScrollView,
-} from "react-native";
+import { ScrollView } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { SiteButton } from "../../components/Buttons";
@@ -51,7 +49,7 @@ export default function LatestNews({ navigation }) {
     {
       title: "Sky News",
       source: "https://news.sky.com/topic/coronavirus-8483",
-      imagesrc: require("./../../images/newsLogos/sky.jpg")
+      imagesrc: require("./../../images/newsLogos/sky.png")
     },
     {
       title: "CDC",

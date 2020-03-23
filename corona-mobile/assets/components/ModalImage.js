@@ -9,23 +9,27 @@ import {
   Button
 } from "react-native";
 
-import Modal from 'react-native-modal';
-import { TouchableWithoutFeedback, ScrollView, TouchableHighlight } from "react-native-gesture-handler";
+import Modal from "react-native-modal";
+import {
+  TouchableWithoutFeedback,
+  ScrollView,
+  TouchableHighlight
+} from "react-native-gesture-handler";
 import { useStyle } from "../styles/styles";
 import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 export default function StyledModalImage(props) {
   const { styles, colors } = useStyle("bioText");
-  return <ModalImage {...props} styles={styles} colors={colors}/>
+  return <ModalImage {...props} styles={styles} colors={colors} />;
 }
 
 class ModalImage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isVisible: false,
       scrollOffset: 0
-    }
+    };
     this.scrollRef = React.createRef();
   }
 
@@ -45,24 +49,31 @@ class ModalImage extends React.Component {
             localStyles.headerImage
           ]}
         >
-          {x ?
-            <View style={{alignItems: 'flex-end'}}>
-              <TouchableWithoutFeedback title='collapse' onPress={this.ToggleModalOff}>
-                <Entypo 
-                  name="cross" 
-                  size={40} 
+          {x ? (
+            <View style={{ alignItems: "flex-end" }}>
+              <TouchableWithoutFeedback
+                title="collapse"
+                onPress={this.ToggleModalOff}
+              >
+                <Entypo
+                  name="cross"
+                  size={40}
                   adjustsFontSizeToFit={true}
-                  style={{color: 'white'}}
-                /> 
+                  style={{ color: "black" }}
+                />
               </TouchableWithoutFeedback>
-            </View> 
-            : <View/>
-          }
-          
+            </View>
+          ) : (
+            <View />
+          )}
+
           <Text
             numberOfLines={1}
             adjustsFontSizeToFit={true}
-            style={[{ top: x ? imageHeight - 82 : imageHeight - 37 }, localStyles.headerText]}
+            style={[
+              { top: x ? imageHeight - 90 : imageHeight - 45 },
+              localStyles.headerText
+            ]}
           >
             {item.title}
           </Text>
@@ -77,72 +88,78 @@ class ModalImage extends React.Component {
     const dimensions = Dimensions.get("window");
     const imageWidth = dimensions.width;
     const bulletPoints = item.body.map((text, i) => (
-      <Text key={i} style={{ marginBottom: 0 }}>{text}</Text>
+      <Text key={i} style={{ marginBottom: 0 }}>
+        {text}
+      </Text>
     ));
     return (
-      <View style={[localStyles.content, {backgroundColor: colors.secondarybackgroundcolor}]}>
+      <View
+        style={[
+          localStyles.content,
+          { backgroundColor: colors.secondarybackgroundcolor }
+        ]}
+      >
         {this._head(item, true)}
-        <View style={{height: 10}}/>
-        <Text style={this.props.styles.bioText}>
-          {bulletPoints}
-        </Text> 
+        <View style={{ height: 10 }} />
+        <Text style={this.props.styles.bioText}>{bulletPoints}</Text>
       </View>
-      
     );
   };
 
   ToggleModalOff = () => {
-    this.setState({isVisible: false})
-  }
+    this.setState({ isVisible: false });
+  };
 
   ToggleModalOn = () => {
-    this.setState({isVisible: true})
-  }
+    this.setState({ isVisible: true });
+  };
 
   handleOnScroll = event => {
-    this.setState({scrollOffset: event.nativeEvent.contentOffset.y});
-    console.log(this.state.scrollOffset)
-  }
+    this.setState({ scrollOffset: event.nativeEvent.contentOffset.y });
+    console.log(this.state.scrollOffset);
+  };
 
   handleScrollTo = p => {
-    if(this.scrollRef.current) {
+    if (this.scrollRef.current) {
       this.scrollRef.current.scrollTo(p);
     }
-  }
+  };
 
   render() {
     const { colors } = this.props;
-    return(
+    return (
       <View>
-        <TouchableWithoutFeedback onPress={this.ToggleModalOn} style={{padding: 5}}>
+        <TouchableWithoutFeedback
+          onPress={this.ToggleModalOn}
+          style={{ padding: 5 }}
+        >
           {this._head(this.props.item, false)}
         </TouchableWithoutFeedback>
-        <Modal 
-          isVisible={this.state.isVisible} 
+        <Modal
+          isVisible={this.state.isVisible}
           propagateSwipe={true}
           onBackdropPress={this.ToggleModalOff}
           onSwipeComplete={this.ToggleModalOff}
           scrollTo={this.handleScrollTo}
           scrollOffset={this.state.scrollOffset}
         >
-          <View style={{flex: 1}}>
-            <ScrollView 
+          <View style={{ flex: 1 }}>
+            <ScrollView
               ref={this.scrollRef}
               onScroll={this.handleOnScroll}
               scrollEventThrottle={8}
               nestedScrollEnabled={true}
-              contentContainerStyle={{paddingTop: 30}}
+              contentContainerStyle={{ paddingTop: 30 }}
             >
               <View>
-                {/* <TouchableWithoutFeedback 
+                {/* <TouchableWithoutFeedback
                   onPress={this.ToggleModalOff}
                 > */}
-                  {this._body(this.props.item)}
+                {this._body(this.props.item)}
                 {/* </TouchableWithoutFeedback> */}
               </View>
             </ScrollView>
           </View>
-          
         </Modal>
       </View>
     );
