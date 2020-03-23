@@ -7,12 +7,13 @@ const emails = [
 const Notification = require("../models/notification");
 
 const PushToken = require("../models/pushtoken");
+const Notifier = require("./notifications.js");
 
 
 
 const chars = ['a','b','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-				'1','2','3','4','5','6','7','8','9','0']
+				'1','2','3','4','5','6','7','8','9','0'];
 /*
 	creates a unique pass code that would be used to authenticate users
 */
@@ -87,7 +88,7 @@ function sendNotification(requestBody, responseFunction){
 	let newNotification = new Notification();
 	newNotification.title = requestBody.title;
 	newNotification.body = requestBody.body;
-	// send notification sequence
+	Notifier.sendNotification(requestBody);
 	newNotification.save(function(err, savedNotification){
 		if(err){
 			console.log(err);
