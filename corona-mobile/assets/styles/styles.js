@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
-import { useColorScheme } from 'react-native-appearance'
+import { useColorScheme } from "react-native-appearance";
 
-/** Hook to get style objects that take into account the device appearance (dark or light mode). 
- * 
+/** Hook to get style objects that take into account the device appearance (dark or light mode).
+ *
  * @param {} keys an array containing what styles are needed.
  */
 export const useStyle = (...keys) => {
@@ -14,17 +14,16 @@ export const useStyle = (...keys) => {
     const defaultStyles = allStyles[styleKey];
 
     if (isDark && allStyles[styleKey + "Dark"]) {
-      styles[styleKey] = { ...defaultStyles, ...allStyles[styleKey + "Dark"]};
+      styles[styleKey] = { ...defaultStyles, ...allStyles[styleKey + "Dark"] };
     } else {
       styles[styleKey] = allStyles[styleKey];
     }
   });
-  
+
   const colorsDynamic = isDark ? colorsDark : colors;
 
   return { styles, colors: colorsDynamic, isDark };
-}
-
+};
 
 const colors = {
   primarycolor: "#43a047",
@@ -55,7 +54,7 @@ const colorsDark = {
 const allStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.backgroundcolor,
+    backgroundColor: colors.backgroundcolor
   },
   containerDark: {
     backgroundColor: colorsDark.backgroundcolor
@@ -89,7 +88,7 @@ const allStyles = StyleSheet.create({
     textAlign: "center"
   },
   sectionTitleDark: {
-    color: colorsDark.headercolor,
+    color: colorsDark.headercolor
   },
   navButton: {
     flexDirection: "row",
@@ -110,7 +109,7 @@ const allStyles = StyleSheet.create({
   navButtonDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
     borderTopColor: colorsDark.accentcolor,
-    borderBottomColor: colorsDark.accentcolor,
+    borderBottomColor: colorsDark.accentcolor
   },
   navButtonTitle: {
     fontSize: 18,
@@ -125,7 +124,7 @@ const allStyles = StyleSheet.create({
     marginTop: 4
   },
   navButtonDescriptionDark: {
-    color: colorsDark.secondarytextcolor,
+    color: colorsDark.secondarytextcolor
   },
   actionButton: {
     backgroundColor: colors.primarycolor,
@@ -139,14 +138,14 @@ const allStyles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center"
   },
   boldQuestionText: {
     color: colors.textcolor,
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 15,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
   boldQuestionTextDark: {
     color: colorsDark.textcolor
@@ -154,7 +153,7 @@ const allStyles = StyleSheet.create({
   surveyQuestionText: {
     color: colors.headercolor,
     fontSize: 16,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
   surveyQuestionTextDark: {
     color: colorsDark.headercolor
@@ -164,7 +163,7 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 15,
     marginHorizontal: 10,
-    textDecorationLine: 'underline'
+    textDecorationLine: "underline"
   },
   textBox: {
     fontSize: 16,
@@ -186,7 +185,7 @@ const allStyles = StyleSheet.create({
   },
   linkButtonTitle: {
     color: colors.primarycolor,
-    fontSize: 16,
+    fontSize: 16
   },
   boldPrimary: {
     color: colors.primarycolor,
@@ -195,7 +194,7 @@ const allStyles = StyleSheet.create({
   underlineText: {
     fontSize: 16,
     textDecorationLine: "underline",
-    color: "rgb(113, 113, 113)",
+    color: "rgb(113, 113, 113)"
   },
   headerText: {
     fontSize: 16,
@@ -228,7 +227,7 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     marginTop: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
   subtitleDark: {
     color: colorsDark.headercolor
@@ -247,7 +246,7 @@ const allStyles = StyleSheet.create({
   boxContainerDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
     borderColor: colorsDark.accentcolor,
-    borderWidth: 1,
+    borderWidth: 1
   },
   sourcesBox: {
     backgroundColor: colors.tertiarycolor,
@@ -292,6 +291,19 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     color: "grey"
   },
+  tosText: {
+    color: "#000",
+    fontSize: 16,
+    color: "grey",
+    marginBottom: 20
+  },
+  tosBold: {
+    color: "#000",
+    fontSize: 16,
+    color: "white",
+    marginBottom: 20,
+    fontWeight: "bold"
+  },
   questionText: {
     fontSize: 16,
     fontWeight: "600",
@@ -310,14 +322,13 @@ const allStyles = StyleSheet.create({
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 1,
-    borderRadius: 5,
+    borderRadius: 5
   },
   expandableItemDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
     borderBottomColor: colorsDark.accentcolor,
     borderBottomWidth: 1,
     borderTopColor: colorsDark.accentcolor,
-    borderTopWidth: 1,
+    borderTopWidth: 1
   }
 });
-
