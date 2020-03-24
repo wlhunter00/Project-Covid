@@ -88,7 +88,7 @@ export default function Team({ route, navigation }) {
       />
       <CompactTeamMemberBox
         name="Zach Glabman"
-        position="Natural Langauge Processing"
+        position="Natural Langauge Engineer"
         schoolAndYear="Washington University, St. Louis, Sophomore"
       />
       <CompactTeamMemberBox
