@@ -48,7 +48,7 @@ export default function LatestNews({ navigation }) {
     {
       title: "Reuters",
       source: "https://www.reuters.com/search/news?blob=coronavirus",
-      imagesrc: require("./../../images/newsLogos/Reuters.jpg")
+      imagesrc: require("./../../images/newsLogos/reuters.png")
     },
     {
       title: "New York Times",
