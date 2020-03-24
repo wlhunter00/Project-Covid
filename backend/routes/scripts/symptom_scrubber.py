@@ -5,11 +5,13 @@ from nltk.corpus import wordnet as wn
 import re
 from nltk.corpus import stopwords
 import sys
+
 stopWords = stopwords.words('english')
 
-user_text = str(sys.argv[1])
+# user_text = str(sys.argv[1])
 
 usertext = str(sys.argv[1])
+
 # usertext = "I've felt really tired the last few days. I have some congestion, I feel feverish, have difficulty breathing, and can't stop coughing. I traveled to my home in New York from South Korea and have been sick ever since."
 
 symptoms = ["fever", "cough", "shortness of breath",
@@ -65,7 +67,7 @@ def symptom_match(usertext, symptoms, locations):
         for inp in userinput:
             if inp not in stopWords:
                 if len(inp)>4:
-                    if inp in eachitem:
+                    if inp in eachitem or eachitem in inp:
                         l.append(inp)
                     if stemmer.stem(inp) in eachitem:
                         l.append(stemmer.stem(inp))
@@ -109,13 +111,14 @@ def symptom_match(usertext, symptoms, locations):
                 newlist3.append(gram)
 
 
-    newlist = list(set(newlist))
+    newlist = list(set((newlist)))
+
 
 #   print(newlist)
 
     if len(newlist) == 0:
         print("No matches found")
     if len(newlist) > 0:
-        print(";".join(newlist) + ';')
+        print(";".join(newlist) + ";")
 
 symptom_match(usertext, symptoms, locations)
