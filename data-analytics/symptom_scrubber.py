@@ -57,7 +57,7 @@ def symptom_match(usertext, symptoms, locations):
     user_bigram_list = bigram_strings(user_bigrams," ") #used to compare against 2 word symptoms or locations
 
     userinput = tokenize.word_tokenize(usertext)
-        
+
     corpusdict= {}
     for eachitem in symptoms:
         l = []
@@ -69,7 +69,7 @@ def symptom_match(usertext, symptoms, locations):
                         l.append(inp)
                     if stemmer.stem(inp) in eachitem:
                         l.append(stemmer.stem(inp))
-        
+
         corpusdict[eachitem]= l
 
     userdict = {}
@@ -81,7 +81,7 @@ def symptom_match(usertext, symptoms, locations):
         for key, val in d.items():
             if value == val:
                 return key
-            
+
     def get_listkey(value,d):
         for key, val in d.items():
             for listitem in val:
@@ -94,7 +94,7 @@ def symptom_match(usertext, symptoms, locations):
             for symptom in symptomlist:
                 if humanword == symptom or humanstem ==symptom:
                     newlist.append(get_listkey(symptom,corpusdict))
-            
+
 #     newlist2 =[]
     for gram in user_bigram_list:
         stemmed = stemmer.stem(gram)
@@ -107,15 +107,16 @@ def symptom_match(usertext, symptoms, locations):
         for location in locations:
             if gram == location:
                 newlist3.append(gram)
-            
-            
-    newlist = list(set(newlist))            
-    
+
+
+    newlist = list(set(newlist))
 #   print(newlist)
-    
     if len(newlist) == 0:
         print("No matches found")
     if len(newlist) > 0:
-        print("; ".join(newlist))
+        finString = ''
+        for symptom in newList:
+            finString = finString + symptom + ';'
+        print(finString)
         
 symptom_match(usertext, symptoms, locations)
