@@ -33,7 +33,7 @@ export default function Team({ route, navigation }) {
         image={willImage}
         profile={{
           name: "Will Hunter",
-          position: "Co-Founder, Product Manager",
+          position: "Co-Founder, Head of Product",
           schoolAndYear: "Washington University, St. Louis, Sophomore",
           bio:
             "Will Hunter is a sophomore at Washington University, St. Louis and brings to the team an expansive knowledge and know-how in technological development. \n\nWill has expertise in full-stack development and delivering products that are intuitive for the user. He has development experience in multiple languages and frameworks and strength in scoping large projects to be worked on by a team. \n\nWill has a professional background in Data Science, working on multiple predictive analytics projects and is a part of Alvarez & Marsal’s forensic technology services team. He has a passion for data security and personal privacy and seeks to find technological solutions for large global problems.",
