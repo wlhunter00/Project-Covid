@@ -4,10 +4,14 @@ import {
   View,
   TouchableHighlight,
   TouchableOpacity,
-  Image
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Dimensions
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 export function PageButton({
   navigation,
@@ -82,3 +86,88 @@ export function SimpleButton({ title, action }) {
     </TouchableOpacity>
   );
 }
+
+export function ImageButton({ title, source, body, navigation }){
+  
+
+  const dimensions = Dimensions.get("window");
+  const imageHeight = Math.round((dimensions.width * 3) / 4);
+  const imageWidth = dimensions.width;
+
+  return (
+    <TouchableWithoutFeedback 
+      style={localStyles.header} 
+      onPress={() => {navigation.navigate("ResourceTopic", {
+          title: title,
+          source: source,
+          body: body
+        })}
+      }
+    >
+      <ImageBackground
+        source={source}
+        style={[
+          {
+            width: imageWidth * 0.9,
+            height: imageHeight
+          },
+          localStyles.headerImage
+        ]}
+      >
+        <Text
+          numberOfLines={1}
+          adjustsFontSizeToFit={true}
+          style={[
+            { top: imageHeight - 45 },
+            localStyles.headerText
+          ]}
+        >
+          {title}
+        </Text>
+      </ImageBackground>
+    </TouchableWithoutFeedback>
+  );
+}
+
+
+
+
+
+const localStyles = StyleSheet.create({
+  header: {
+    padding: 0,
+    marginBottom: 5,
+    borderRadius: 50,
+    borderBottomRightRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  content: {
+    padding: 10,
+    paddingTop: 0,
+    borderRadius: 5,
+    marginBottom: 10
+  },
+  headerText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "white",
+    position: "relative",
+    left: 9,
+    textShadowColor: "black",
+    textShadowRadius: 2
+  },
+  headerImage: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    overflow: "hidden",
+    resizeMode: "cover",
+    borderRadius: 5
+  }
+});

@@ -1,43 +1,90 @@
 import React from "react";
-import { AccordionList } from "accordion-collapse-react-native";
 import {
   View,
   Text,
+  Image,
+  TouchableWithoutFeedback,
   StyleSheet,
-  Dimensions,
   ImageBackground,
-  Button
 } from "react-native";
 
-import image1 from "../../images/preventativePractice/handwash.png";
-import image2 from "../../images/preventativePractice/image3.gif";
-import image3 from "../../images/preventativePractice/image2.jpg";
-import image4 from "../../images/preventativePractice/image4.jpg";
-import image5 from "../../images/preventativePractice/image5C.jpg";
-import image6 from "../../images/preventativePractice/image6.jpg";
-
-import Modal from "react-native-modal";
-import {
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  ScrollView
-} from "react-native-gesture-handler";
-
-import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
+import { ScrollView } from "react-native-gesture-handler";
 
-export default function StyledResourceTopic() {
+export default function StyledResourceTopic(props) {
   const { styles } = useStyle("container");
-  return <ResourceTopic styles={styles} />;
+  // console.log(props)
+  return <ResourceTopic {...props} styles={styles} />;
 }
 class ResourceTopic extends React.Component {
   constructor(props){
     super(props);
   }
 
+  componentDidMount(){
+    console.log(this.props.route.params)
+    console.log('asdf')
+  }
+
   render(){
     return(
-      <View></View>
+      <ScrollView>
+        <ImageBackground
+          source={this.props.route.params.source}
+          style={[
+            {
+              width: 400,
+              height: 400
+            }
+          ]}
+        >
+          <Text>
+            {this.props.route.params.title}
+          </Text>
+        </ImageBackground>
+        <View>
+          {this.props.route.params.body}
+        </View>
+      </ScrollView>
     );
   }
 }
+
+const localStyles = StyleSheet.create({
+  header: {
+    padding: 0,
+    marginBottom: 5,
+    borderRadius: 50,
+    borderBottomRightRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  content: {
+    padding: 10,
+    paddingTop: 0,
+    borderRadius: 5,
+    marginBottom: 10
+  },
+  headerText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "white",
+    position: "relative",
+    left: 9,
+    textShadowColor: "black",
+    textShadowRadius: 2
+  },
+  headerImage: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    overflow: "hidden",
+    resizeMode: "cover",
+    borderRadius: 5
+  }
+});

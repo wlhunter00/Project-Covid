@@ -23,6 +23,7 @@ import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import TwitterFeed from "./assets/screens/TwitterFeed.js";
+import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
 
 import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
@@ -128,6 +129,11 @@ export default function App() {
         name="StudentResources"
         component={StudentResources}
         options={{ title: "Student Resources" }}
+      />
+      <Stack.Screen
+        name="ResourceTopic"
+        component={ResourceTopic}
+        options={{title: ""}}
       />
       <Stack.Screen
         name="TwitterFeed"
