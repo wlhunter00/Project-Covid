@@ -66,7 +66,7 @@ function ContactInfo(location) {
 
           {location.location.hasOwnProperty("Local Info") && (
             <ActionButton
-              title="Local Info"
+              title="Crisis Contact"
               action={() => {
                 navigation.navigate("CenterFinder", {
                   url: location.location["Local Info"]

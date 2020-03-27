@@ -64,7 +64,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image2,
-          title: "Social Distancing",
+          title: "Physical Distancing",
           body: [
             "-\n Social distancing is advised to prevent an exponential infection of the American people. As observed in Italy and China, ICUs and ventilators are not infinite",
             "\n-  Avoid large gatherings and close-contact environments (including gyms)",

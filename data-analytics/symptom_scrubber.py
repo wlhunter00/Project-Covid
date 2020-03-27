@@ -3,17 +3,23 @@ from nltk.stem import *
 from nltk import tokenize
 from nltk.corpus import wordnet as wn
 import re
-user_text = str(sys.argv[1])
+from nltk.corpus import stopwords
+import sys
+
+stopWords = stopwords.words('english')
+
+# user_text = str(sys.argv[1])
 
 usertext = str(sys.argv[1])
-# usertext = "I haven't slept much the past few days becasue of my Fatigue. I have a fever, some muscle pain and difficulty breathing, and can't stop coughing. I traveled to my home in New York from South Korea and have been sick ever since."
+
+# usertext = "I've felt really tired the last few days. I have some congestion, I feel feverish, have difficulty breathing, and can't stop coughing. I traveled to my home in New York from South Korea and have been sick ever since."
 
 symptoms = ["fever", "cough", "shortness of breath",
         "fatigue",  "headache", "aches and pains", "sore throat", "chills",
          "nausea", "nasal congestion", "diarrhea"]
 
 #maybe link this part to some json or list of places with high infection rates
-locations = ["china", "italy", "iran", "south korea", "france", "spain", "germany", "switzerland", "washington", "new york", "california"]
+locations = ["china", "italy", "europe", "japan", "iran", "south korea", "france", "spain", "germany", "switzerland", "washington", "new york", "california"]
 
 def symptom_match(usertext, symptoms, locations):
 
@@ -52,12 +58,23 @@ def symptom_match(usertext, symptoms, locations):
 
     user_bigram_list = bigram_strings(user_bigrams," ") #used to compare against 2 word symptoms or locations
 
+    userinput = tokenize.word_tokenize(usertext)
+
     corpusdict= {}
     for eachitem in symptoms:
-        corpusdict[eachitem]= stemmer.stem(eachitem)
+        l = []
+        l.append(stemmer.stem(eachitem))
+        for inp in userinput:
+            if inp not in stopWords:
+                if len(inp)>4:
+                    if inp in eachitem or eachitem in inp:
+                        l.append(inp)
+                    if stemmer.stem(inp) in eachitem:
+                        l.append(stemmer.stem(inp))
+
+        corpusdict[eachitem]= l
 
     userdict = {}
-    userinput = tokenize.word_tokenize(usertext)
     for eachword in userinput:
         userdict[eachword] = stemmer.stem(eachword)
 
@@ -67,11 +84,19 @@ def symptom_match(usertext, symptoms, locations):
             if value == val:
                 return key
 
+    def get_listkey(value,d):
+        for key, val in d.items():
+            for listitem in val:
+                if listitem == value:
+                    return key
+
     newlist =[]
-    for humanword in userdict.values():
-        for symptom in corpusdict.values():
-            if humanword == symptom:
-                newlist.append(get_key(symptom,corpusdict))
+    for humanword, humanstem in userdict.items():
+        for symptomlist in corpusdict.values():
+            for symptom in symptomlist:
+                if humanword == symptom or humanstem ==symptom:
+                    newlist.append(get_listkey(symptom,corpusdict))
+
 #     newlist2 =[]
     for gram in user_bigram_list:
         stemmed = stemmer.stem(gram)
@@ -85,18 +110,15 @@ def symptom_match(usertext, symptoms, locations):
             if gram == location:
                 newlist3.append(gram)
 
+
+    newlist = list(set((newlist)))
+
+
+#   print(newlist)
+
     if len(newlist) == 0:
         print("No matches found")
     if len(newlist) > 0:
-        s = ""
-        for symptom in enumerate(newlist,1):
-            s = s + symptom[1] + ";"
-        print(s)
-    # if len(newlist3) == 0:
-    #     print("No problem areas indicated.")
-    # if len(newlist3) > 0 and len(newlist3) < 3:
-    #     print("Because you've traveled to " + " and ".join(newlist3) + ", it is advised you check in with a medical professional.")
-    # if len(newlist3) >= 3:
-    #     print("Because you've traveled to " + ", ".join(newlist3) + ", it is advised you check in with a medical professional.")
+        print(";".join(newlist) + ";")
 
 symptom_match(usertext, symptoms, locations)
