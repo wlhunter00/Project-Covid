@@ -141,6 +141,11 @@ export default function App() {
         component={Sources}
         options={{ title: "Sources" }}
       />
+      <Stack.Screen
+        name="Symptoms"
+        component={SymptomCheck}
+        options={{ title: "Symptoms" }}
+      />
     </Stack.Navigator>
   );
 
