@@ -21,10 +21,14 @@ import {
 
 import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
+import { ImageButton } from "../../components/Buttons";
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function StyledMentalHealth() {
   const { styles } = useStyle("container");
-  return <MentalHealth styles={styles}  />;
+  const navigation = useNavigation();
+  return <MentalHealth styles={styles} navigation={navigation} />;
 }
 
 class MentalHealth extends React.Component {
@@ -117,7 +121,13 @@ class MentalHealth extends React.Component {
       <View style={styles.container}>
         <ScrollView contentContainerStyle={{paddingVertical: 10}}>
           {this.state.list.map(item => {
-            return <ModalImage item={item} key={item.id} />;
+            return <ImageButton 
+              title={item.title} 
+              source={item.image}
+              body={<Text>{item.body}</Text>}
+              navigation={this.props.navigation}
+            />;
+            // return <ModalImage item={item} key={item.id} />;
           })}
         </ScrollView>
       </View>

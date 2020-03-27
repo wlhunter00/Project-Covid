@@ -1,16 +1,21 @@
 import React from "react";
 import { AccordionList } from "accordion-collapse-react-native";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Text } from "react-native";
 
 import image1 from "./../../images/studentResources/image1.jpg";
 import image2 from "./../../images/studentResources/image2.jpg";
 
 import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
+import { ImageButton } from "../../components/Buttons";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 export default function StyledStudentResources() {
   const { styles } = useStyle("container");
-  return <StudentResources styles={styles} />;
+  const navigation = useNavigation();
+  return <StudentResources styles={styles} navigation={navigation} />;
 }
 
 class StudentResources extends React.Component {
@@ -64,7 +69,13 @@ class StudentResources extends React.Component {
       <View style={styles.container}>
         <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
-            return <ModalImage item={item} key={item.id} />;
+            return <ImageButton 
+              title={item.title} 
+              source={item.image}
+              body={<Text>{item.body}</Text>}
+              navigation={this.props.navigation}
+            />;
+            // return <ModalImage item={item} key={item.id} />;
           })}
         </ScrollView>
       </View>
