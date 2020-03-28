@@ -11,6 +11,8 @@ import {
 import { useStyle } from "../../styles/styles";
 import { ScrollView } from "react-native-gesture-handler";
 
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
+
 export default function StyledResourceTopic(props) {
   const { styles } = useStyle("container");
   // console.log(props)
@@ -28,27 +30,73 @@ class ResourceTopic extends React.Component {
 
   render(){
     return(
-      <ScrollView>
-        <ImageBackground
-          source={this.props.route.params.source}
-          style={[
-            {
-              width: 400,
-              height: 400
-            }
-          ]}
-        >
+      <ParallaxScrollView
+        // backgroundColor="blue"
+        // contentBackgroundColor="pink"
+        parallaxHeaderHeight={300}
+        renderBackground={() => (
+          <ImageBackground
+            source={this.props.route.params.source}
+            style={[
+              {
+                width: 400,
+                height: 400
+              }
+            ]}
+          >
+          </ImageBackground>
+        )}
+        renderForeground={() => (
           <Text>
             {this.props.route.params.title}
           </Text>
-        </ImageBackground>
+        )}>
         <View>
           {this.props.route.params.body}
         </View>
-      </ScrollView>
+      </ParallaxScrollView>
     );
   }
 }
+
+// export default function StyledResourceTopic(props) {
+//   const { styles } = useStyle("container");
+//   // console.log(props)
+//   return <ResourceTopic {...props} styles={styles} />;
+// }
+// class ResourceTopic extends React.Component {
+//   constructor(props){
+//     super(props);
+//   }
+
+//   componentDidMount(){
+//     console.log(this.props.route.params)
+//     console.log('asdf')
+//   }
+
+//   render(){
+//     return(
+//       <ScrollView>
+//         <ImageBackground
+//           source={this.props.route.params.source}
+//           style={[
+//             {
+//               width: 400,
+//               height: 400
+//             }
+//           ]}
+//         >
+//           <Text>
+//             {this.props.route.params.title}
+//           </Text>
+//         </ImageBackground>
+//         <View>
+//           {this.props.route.params.body}
+//         </View>
+//       </ScrollView>
+//     );
+//   }
+// }
 
 const localStyles = StyleSheet.create({
   header: {
