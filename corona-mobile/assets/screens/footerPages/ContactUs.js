@@ -6,7 +6,6 @@ import { useStyle } from "./../../styles/styles.js";
 import { SourceItem } from "../../components/FooterComponents";
 import { WebView } from "react-native-webview";
 
-
 export default function ContactUs({ route, navigation }) {
   const { styles } = useStyle("container", "boxContainer", "subtitle");
 
@@ -34,21 +33,31 @@ export default function ContactUs({ route, navigation }) {
   // );
   return (
     <View style={styles.container}>
-    <WebView
-      javaScriptEnabled={true}
-      domStorageEnabled={true}
-      startInLoadingState={true}
-      scrollEnabled={false}
-      source={{
-        uri: "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
-      }}
-      style={{flex: 1}}
+      <WebView
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        startInLoadingState={true}
+        scrollEnabled={false}
+        source={{
+          uri:
+            "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
+        }}
+        style={{ flex: 1 }}
       />
-    <View style={{ marginTop: 10, marginRight: 10, marginLeft: 10, marginBottom: 40 }}>
-    <View style={[styles.boxContainer,{marginBottom: 0}]}>
-        <Text style={[styles.subtitle,{marginTop: 0}]}>Also feel free to reach out to us at satvik@runawayapp.com.</Text>
+      <View
+        style={{
+          marginTop: 10,
+          marginRight: 10,
+          marginLeft: 10,
+          marginBottom: 40
+        }}
+      >
+        <View style={[styles.boxContainer, { marginBottom: 0 }]}>
+          <Text style={[styles.subtitle, { marginTop: 0 }]}>
+            Also feel free to reach out to us at info@LFRinternational.org.
+          </Text>
+        </View>
+      </View>
     </View>
-    </View>
-  </View>
   );
 }

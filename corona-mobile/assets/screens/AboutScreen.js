@@ -18,6 +18,15 @@ export default function AboutScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <PageButton
+        title="About LFR"
+        navigationName="AboutLFR"
+        icon={
+          <FontAwesome name="heartbeat" size={25} color={colors.textcolor} />
+        }
+        description="Learn about LFR International."
+        navigation={navigation}
+      />
+      <PageButton
         title="Frequently Asked Questions"
         navigationName="Faq"
         icon={

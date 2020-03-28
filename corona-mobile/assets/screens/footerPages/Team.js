@@ -149,6 +149,14 @@ export default function Team({ route, navigation }) {
         position="Research"
         schoolAndYear="Harvard Medical School"
       />
+      <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
+        LFR International
+      </Text>
+      <CompactTeamMemberBox
+        name="Zach Eisner"
+        position="Operations Director"
+        schoolAndYear="Washington University, St. Louis, Junior"
+      />
     </ScrollView>
   );
 }

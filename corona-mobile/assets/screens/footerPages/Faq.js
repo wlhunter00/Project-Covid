@@ -29,32 +29,11 @@ export default function Faq({ route, navigation }) {
         key="3"
       />
       <FAQItem
-        question="Are you storing my symptom data?"
-        answer={
-          "Much like the location information, we do not store any symptom data. The answers given by the user allows our algorithm to flag any notable symptoms, directly visible on the user’s device. Subsequently, the server deletes all symptom information."
-        }
-        key="4"
-      />
-      <FAQItem
-        question="How does Symptom Check Work?"
-        answer={
-          "As of now, we are implementing a beta version of the symptom check. Right now, we only look at the answer to the first question, “Could you describe your overall wellness over the past few days? Do you have any unusual symptoms or feel unwell?”.\n\nThe other questions are not yet used, but our algorithms are constantly changing.\n\nWe look through the response and try to find the key symptoms outlined by the CDC. We then send back the symptoms that we found to your phone. The statistics regarding people with the symptoms were found in a CDC report.\n\nLegally, we cannot give a recommendation as to whether you should be tested. We always recommend that you contact any local health officials if you have any questions/doubts."
-        }
-        key="11"
-      />
-      <FAQItem
         question="What technology does the app use?"
         answer={
           "The app is coded in React Native. This allows us to deploy to both Android and iOS at the same time. We are using Expo, React Navigation, and React Elements inside the mobile app. We embed the twitter feed and coronavirus.app by using a WebView.\n\nThe backend is coded in Node.JS and is an Express server. We use it to communicate with third-party APIs. This backend is hosted on Heroku. This is our backend server. All sensitive user information has tokens to ensure data security. All other data regarding the app is available to the public for GET requests, although the data received would be very similar to other public APIs. The APIs we use are:\n\n• Coronavirusapi (Data on the spread of virus)\n\n• News API (News Data)\n\n• MapQuest (Reverse Geocoding)\n\n• NLTK (NLP Processing)\n\nWe store user permission tokens for push notifications and user services in a MongoDB database hosted by Atlas. We do not store any other data from our users.\n\nWe have some backend functionality regarding word processing and machine learning in Python. This information is then routed back into Node.JS."
         }
         key="5"
-      />
-      <FAQItem
-        question="Who is part of the Founding Team?"
-        answer={
-          "Project Covid was founded by Satvik Sethi, a senior at Binghamton University, New York. Satvik has been deeply involved in the global mental health and healthcare ecosystem and has worked with organizations like UNICEF, World Health Organization, and Mental Health America to conduct research, create policy, and to advocate for better mental health resources and accessibility for students around the world.\n\nSatvik has been recognized as 1 of 8 inspiring mental health youth activists by Mashable, and 1 of 15 students changing collegiate mental health by Mental Health America for the impact he has carried through his advocacy. He has also had the opportunity to give talks at events like the Millennial Summit and has been interviewed in media outlets like Vice, Arianna Huffington’s Thrive Global, Times of India, and Subconscious, for his entrepreneurial and social endeavors that have inspired and motivated people of all ages around the world. Satvik has also garnered immense professional experience, having worked with organizations like Jones Lang LaSalle, Deloitte, EY, and Mastercard.\n\nSatvik connected with Will Hunter, a sophomore at Washington University, St. Louis and brought him on as a Co-Founder owing to Will’s knowledge and skills in technological development. Will has expertise in full-stack development and delivering intuitive products to users. His development experience spans multiple programming languages and frameworks, and he excels at scoping large team-based projects. Will has a professional background in Data Science, working on multiple predictive analytics projects and is part of Alvarez and Marsal’s forensic technology services team. He has a passion for data security and personal privacy and seeks to find technological solutions for large global problems."
-        }
-        key="6"
       />
       <FAQItem
         question="Why is this app important?"
