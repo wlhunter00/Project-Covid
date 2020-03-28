@@ -7,7 +7,8 @@ import { ActionButton } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
 
-export function Diagnosis({ navigation, response, retakeSurvey }) {
+
+export function Diagnosis({ navigation, response }) {
   const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent");
 
   var symptoms = [];
@@ -26,7 +27,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
   }
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
-      <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 20 }]}> Diagnosis Results</Text>
+      <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 20 }]}>Symptoms</Text>
       
       {symptoms.map(symptom => {
         return (
@@ -58,7 +59,7 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
             />
         </View>
       </View>
-      <View style={{ height: 50 }} />
+      {/* <View style={{ height: 50 }} /> */}
       <View style={styles.boxContainer}>
         <Text style={styles.surveyQuestionText}>
           You can also find local information on COVID-19 data, and find
@@ -70,9 +71,6 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           action={() => navigation.navigate("Testing")}
         style={{marginHorizontal: 10}}
         />
-      </View>
-      <View style={[styles.boxContainer, { paddingHorizontal: 20 }]}>
-        <ActionButton title="Retake Symptom Check" action={retakeSurvey} />
       </View>
       <SourceItem
         navigation={navigation}

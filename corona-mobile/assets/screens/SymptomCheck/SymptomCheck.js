@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { Diagnosis } from "./Diagnosis.js";
 import { Symptoms } from "./Symptoms.js";
 import { useStyle } from "./../../styles/styles.js";
+import { getSymptoms } from './../../APIService.js';
+
 
 export default function SymptomCheck({ navigation }) {
   const { styles } = useStyle("container");
@@ -14,25 +16,11 @@ export default function SymptomCheck({ navigation }) {
   const [reset, changeReset] = React.useState(false);
   const [instanceKey, setInstanceKey] = React.useState(0);
 
-  const retakeSurvey = () => {
-    changeSurveyDone(false);
-    changeBackendResponse("");
-    setInstanceKey(i => i + 1);
-  }
+  getSymptoms(changeBackendResponse);
 
   return (
     <View style={styles.container}>
-      {!surveyDone ?
-        (
-          <Symptoms
-            key={instanceKey}
-            changeBackendResponse={changeBackendResponse}
-            changeSurveyDone={changeSurveyDone}
-          />
-        ) : (
-          <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} retakeSurvey={retakeSurvey} />
-        )
-      }
+        <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} />
     </View>
   );
 }

@@ -29,3 +29,14 @@ export async function sendSymptoms(symptoms, updateFunc) {
     console.log(error);
   })
 }
+
+export async function getSymptoms(updateFunc) {
+  await axios.post("https://projectcovid-backend.herokuapp.com/symptoms/allData", {
+  }).then(response => {
+    console.log(response.data);
+    updateFunc(response.data);
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+  })
+}
