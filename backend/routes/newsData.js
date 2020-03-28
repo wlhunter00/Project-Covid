@@ -94,7 +94,7 @@ router.get("/", async (req, res) => {
     }
   }
   var params = {
-    q: "corona",
+    q: "virus",
     country: country
   };
   if (locCountry === "N/A") {
