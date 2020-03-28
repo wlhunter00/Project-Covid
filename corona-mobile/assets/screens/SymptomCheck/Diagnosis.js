@@ -40,30 +40,11 @@ export function Diagnosis({ navigation, response }) {
           />
         );
       })}
-      <View style={styles.boxContainer}>
-        <Text style={styles.surveyQuestionText}>
-          Based on your symptoms, we recommend utlizing the following
-          knowledge resources:
-          </Text>
-        <View style={{ flexDirection: "row", paddingHorizontal: 10, marginTop: 10 }}>
-            <ActionButton
-              title={"Info Toolkit"}
-            action={() => navigation.navigate("InformationalToolkit")}
-            style={{flex: 1}}
-          />
-          <View style={{width: 20}}/>
-            <ActionButton
-              title={"Prevention"}
-            action={() => navigation.navigate("PreventativePractices")}
-            style={{flex: 1}}
-            />
-        </View>
-      </View>
       {/* <View style={{ height: 50 }} /> */}
       <View style={styles.boxContainer}>
         <Text style={styles.surveyQuestionText}>
-          You can also find local information on COVID-19 data, and find
-          testing centers for help:
+          You can find local information on COVID-19 data and 
+          testing centers here:
           </Text>
         <View style={{ height: 10 }} />
         <ActionButton
