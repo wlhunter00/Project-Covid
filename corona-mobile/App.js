@@ -53,7 +53,8 @@ export default function App() {
     headerTintColor: "#fff",
     headerTitleStyle: {
       fontWeight: "bold"
-    }
+    },
+    headerBackTitle: " "
   };
 
   const HomeStack = () => (
