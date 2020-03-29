@@ -12,42 +12,50 @@ import { useStyle } from "../../styles/styles";
 import { ScrollView } from "react-native-gesture-handler";
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import { useNavigation } from "@react-navigation/native";
 
 export default function StyledResourceTopic(props) {
-  const { styles } = useStyle("container");
-  // console.log(props)
-  return <ResourceTopic {...props} styles={styles} />;
+  const { styles } = useStyle("container", "imageButtonHeader", "imageButtonText", "imageButtonImage");
+  const navigation = useNavigation()
+  return <ResourceTopic {...props} styles={styles} navigation={navigation}/>;
 }
 class ResourceTopic extends React.Component {
   constructor(props){
     super(props);
+    this.headerHeight = 300;
   }
 
   componentDidMount(){
     console.log(this.props.route.params)
     console.log('asdf')
+    this.props.navigation.setOptions({ title: this.props.route.params.title})
   }
 
   render(){
     return(
       <ParallaxScrollView
-        // backgroundColor="blue"
-        // contentBackgroundColor="pink"
-        parallaxHeaderHeight={300}
+        parallaxHeaderHeight={this.headerHeight}
         renderBackground={() => (
           <ImageBackground
             source={this.props.route.params.source}
             style={[
               {
-                width: 400,
-                height: 400
-              }
+                width: '100%',
+                height: '100%'
+              },
             ]}
           >
           </ImageBackground>
         )}
         renderForeground={() => (
-          <Text>
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit={true}
+            style={[
+              { top: this.headerHeight - 45 },
+              this.props.styles.imageButtonText
+            ]}
+          >
             {this.props.route.params.title}
           </Text>
         )}>

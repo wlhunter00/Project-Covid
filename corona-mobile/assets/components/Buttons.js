@@ -89,14 +89,15 @@ export function SimpleButton({ title, action }) {
 
 export function ImageButton({ title, source, body, navigation }){
   
+  const { styles } = useStyle("imageButtonHeader", "imageButtonText", "imageButtonImage")
 
   const dimensions = Dimensions.get("window");
   const imageHeight = Math.round((dimensions.width * 3) / 4);
   const imageWidth = dimensions.width;
-
+  console.log(styles)
   return (
     <TouchableWithoutFeedback 
-      style={localStyles.header} 
+      style={styles.imageButtonHeader} 
       onPress={() => {navigation.navigate("ResourceTopic", {
           title: title,
           source: source,
@@ -111,7 +112,7 @@ export function ImageButton({ title, source, body, navigation }){
             width: imageWidth * 0.9,
             height: imageHeight
           },
-          localStyles.headerImage
+          styles.imageButtonImage
         ]}
       >
         <Text
@@ -119,7 +120,7 @@ export function ImageButton({ title, source, body, navigation }){
           adjustsFontSizeToFit={true}
           style={[
             { top: imageHeight - 45 },
-            localStyles.headerText
+            styles.imageButtonText
           ]}
         >
           {title}

@@ -140,6 +140,36 @@ const allStyles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
+  imageButtonHeader: {
+    padding: 0,
+    marginBottom: 5,
+    borderRadius: 50,
+    borderBottomRightRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  imageButtonText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "white",
+    position: "relative",
+    left: 9,
+    textShadowColor: "black",
+    textShadowRadius: 2
+  },
+  imageButtonImage: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    overflow: "hidden",
+    resizeMode: "cover",
+    borderRadius: 5
+  },
   boldQuestionText: {
     color: colors.textcolor,
     fontSize: 16,
