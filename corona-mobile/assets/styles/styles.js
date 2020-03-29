@@ -321,6 +321,12 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     color: "grey"
   },
+  resourceText: {
+    color: "#000",
+    fontSize: 16,
+    color: "grey",
+    marginBottom: 10
+  },
   tosText: {
     color: "#000",
     fontSize: 16,

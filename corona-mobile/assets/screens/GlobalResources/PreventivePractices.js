@@ -30,7 +30,7 @@ import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "../../components/InfoView";
 
 export default function StyledPreventativePractices() {
-  const { styles } = useStyle("container", "bioText");
+  const { styles } = useStyle("container", "resourceText");
   const navigation = useNavigation();
   return <PreventativePractices styles={styles} navigation={navigation} />;
 }
@@ -44,52 +44,88 @@ class PreventativePractices extends React.Component {
           title: "Hygiene Habits",
           body: (
             <View>
-              <InfoView 
-                title={
-                  <Text>Hand Washing</Text>
-                }
+              <InfoView
+                title={<Text>Hand Washing</Text>}
                 body={
                   <View>
-                    <Text style={this.props.styles.bioText}>20 seconds (typically the chorus of a song), rubbing between fingers, over tops and palms, and under nail beds</Text>
-                    <Text style={this.props.styles.bioText}>Antibacterial soap or alcohol-based sanitizer</Text>
-                    <Text style={this.props.styles.bioText}>Avoid scalding hot water that may dry out skin, this may create microtears in the skin’s protective barrier</Text>  
+                    <Text style={this.props.styles.resourceText}>
+                      20 seconds (typically the chorus of a song), rubbing
+                      between fingers, over tops and palms, and under nail beds
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Antibacterial soap or alcohol-based sanitizer
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Avoid scalding hot water that may dry out skin, this may
+                      create microtears in the skin’s protective barrier
+                    </Text>
                   </View>
                 }
               />
-              <InfoView 
-                title={
-                  <Text>General Tips</Text>
-                }
+              <InfoView
+                title={<Text>General Tips</Text>}
                 body={
                   <View>
-                    <Text style={this.props.styles.bioText}>Avoid touching your face, become conscious of how often you do</Text>
-                    <Text style={this.props.styles.bioText}>Because COVID-19 can transmit to the eyes, avoid wearing contact lenses if possible which may trap contaminants and wear traditional glasses instead</Text>
-                    <Text style={this.props.styles.bioText}>Routinely sanitize personal belongings (phones, wallets, keys, glasses) and high contact surfaces (handles, counters, car steering wheels)</Text> 
-                    <Text style={this.props.styles.bioText}>Cover your coughs and sneezes with your elbow, facing away from others</Text> 
-                    <Text style={this.props.styles.bioText}>Avoid handshaking and hugs when greeting others professionally and socially</Text> 
-                    <Text style={this.props.styles.bioText}>Masks: N95 masks should ONLY be used in those showing symptoms, or those around the potentially infected</Text> 
-                    <Text style={this.props.styles.bioText}>Surfaces: COVID-19 can live on fabrics and hard surfaces for a predicted period of several days, clean surfaces routinely with disinfectants</Text>  
+                    <Text style={this.props.styles.resourceText}>
+                      Avoid touching your face, become conscious of how often
+                      you do
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Because COVID-19 can transmit to the eyes, avoid wearing
+                      contact lenses if possible which may trap contaminants and
+                      wear traditional glasses instead
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Routinely sanitize personal belongings (phones, wallets,
+                      keys, glasses) and high contact surfaces (handles,
+                      counters, car steering wheels)
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Cover your coughs and sneezes with your elbow, facing away
+                      from others
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Avoid handshaking and hugs when greeting others
+                      professionally and socially
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Masks: N95 masks should ONLY be used in those showing
+                      symptoms, or those around the potentially infected
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Surfaces: COVID-19 can live on fabrics and hard surfaces
+                      for a predicted period of several days, clean surfaces
+                      routinely with disinfectants
+                    </Text>
                   </View>
                 }
               />
-              <InfoView 
-                title={
-                  <Text>Sources</Text>
-                }
+              <InfoView
+                title={<Text>Sources</Text>}
                 body={
                   <View>
-                    <Text style={this.props.styles.bioText}>https://www.cdc.gov/coronavirus/2019-ncov/index.html</Text>
-                    <Text style={this.props.styles.bioText}>https://www.who.int/health-topics/coronavirus</Text>
-                    <Text style={this.props.styles.bioText}>https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help</Text> 
-                    <Text style={this.props.styles.bioText}>https://store.samhsa.gov/system/files/sma14-4894.pdf</Text> 
-                    <Text style={this.props.styles.bioText}>https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it</Text> 
+                    <Text style={this.props.styles.resourceText}>
+                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      https://www.who.int/health-topics/coronavirus
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      https://store.samhsa.gov/system/files/sma14-4894.pdf
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
+                    </Text>
                   </View>
                 }
               />
             </View>
           ),
           id: "1"
-        },
+        }
         // {
         //   image: image2,
         //   title: "Physical Distancing",
@@ -218,12 +254,14 @@ class PreventativePractices extends React.Component {
       <View style={styles.container}>
         <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
-            return <ImageButton 
-              title={item.title} 
-              source={item.image}
-              body={item.body}
-              navigation={this.props.navigation}
-            />;
+            return (
+              <ImageButton
+                title={item.title}
+                source={item.image}
+                body={item.body}
+                navigation={this.props.navigation}
+              />
+            );
           })}
         </ScrollView>
       </View>
