@@ -73,7 +73,7 @@ export default function LatestNews({ navigation }) {
     // },
   ];
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
       {sites.map(site => {
         return (
           <SiteButton site={site} key={site.title} navigation={navigation} />

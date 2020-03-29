@@ -51,7 +51,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(navigationName);
       }}
-      style={{ marginBottom: 15 }}
+      style={{ marginBottom: 15, borderRadius: 5 }}
     >
       <View style={styles.navButton}>
         {icon}
@@ -67,7 +67,7 @@ export function PageButton({
 }
 
 export function SiteButton({ site, navigation }) {
-  const { styles } = useStyle("navButton", "navButtonTitle");
+  const { styles, colors } = useStyle("navButton", "navButtonTitle");
   return (
     <TouchableHighlight
       onPress={() => {
@@ -75,7 +75,7 @@ export function SiteButton({ site, navigation }) {
           site: site
         });
       }}
-      style={{ marginBottom: 6 }}
+      style={{ marginBottom: 15, borderRadius: 5 }}
     >
       <View style={styles.navButton}>
         <Image
@@ -85,7 +85,7 @@ export function SiteButton({ site, navigation }) {
         />
         <Text style={styles.navButtonTitle}>{site.title}</Text>
         <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" />
+        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
       </View>
     </TouchableHighlight>
   );

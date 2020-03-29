@@ -13,7 +13,7 @@ import { ScrollView } from "react-native-gesture-handler";
 export default function GlobalResourcesMain({ navigation }) {
   const { styles, colors } = useStyle("container");
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
       <PageButton
         title="Informational Toolkit"
         navigationName="InformationalToolkit"
