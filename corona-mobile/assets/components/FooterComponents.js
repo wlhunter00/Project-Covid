@@ -11,9 +11,10 @@ import { Ionicons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
 import { useStyle } from "../styles/styles";
 import { SimpleButton } from "./Buttons";
+import { StandardText } from "./Texts";
 
 export function TeamMemberBox({ image, profile }) {
-  const { styles } = useStyle("boxContainer", "compactTeamMemberNameText", "positionText", "schoolText", "profileImages", "divider", "bioText");
+  const { styles } = useStyle("boxContainer", "positionText", "schoolText", "profileImages", "divider", "bioText");
   const { name, position, schoolAndYear, bio } = profile;
   const [bioExpanded, setBioExpanded] = useState(false);
 
@@ -26,18 +27,16 @@ export function TeamMemberBox({ image, profile }) {
     <View style={styles.boxContainer}>
       <View style={{ flexDirection: "row", marginBottom: 10 }}>
         <View style={{ flexShrink: 1 }}>
-          <Text style={styles.compactTeamMemberNameText}>{name}</Text>
-          <Text style={styles.positionText}>{position}</Text>
-          <Text style={styles.schoolText}>{schoolAndYear}</Text>
+        <StandardText fontSize={24} isBold style={{marginBottom: 10}}>{name}</StandardText>
+          <StandardText style={{marginBottom: 3}}>{position}</StandardText>
+          <StandardText>{schoolAndYear}</StandardText>
         </View>
         <View style={{ flex: 1 }} />
         <Image source={image} style={styles.profileImages} />
       </View>
       <View style={styles.divider} />
-      <View style={{height: 10}}/>
-      <Text style={styles.bioText} numberOfLines={bioExpanded ? 0 : 2}>
-        {bio}
-      </Text>
+      <View style={{ height: 10 }} />
+      <StandardText numberOfLines={bioExpanded ? 0 : 2}>{bio}</StandardText>
       <View style={{ flexDirection: "row", marginTop: 6 }}>
         <View style={{ flex: 1 }} />
         <View style={{ paddingHorizontal: 3 }}>
@@ -52,12 +51,12 @@ export function TeamMemberBox({ image, profile }) {
 }
 
 export function CompactTeamMemberBox({ name, schoolAndYear, position }) {
-  const { styles } = useStyle("boxContainer", "compactTeamMemberNameText", "positionText", "schoolText");
+  const { styles } = useStyle("boxContainer", "normalText", "positionText", "schoolText");
   return (
     <View style={styles.boxContainer}>
-      <Text style={styles.compactTeamMemberNameText}>{name}</Text>
-      <Text style={styles.positionText}>{position}</Text>
-      <Text style={styles.schoolText}>{schoolAndYear}</Text>
+      <StandardText fontSize={21} isBold style={{marginBottom: 7}}>{name}</StandardText>
+      <StandardText style={{marginBottom: 3}}>{position}</StandardText>
+      <StandardText>{schoolAndYear}</StandardText>
     </View>
   );
 }

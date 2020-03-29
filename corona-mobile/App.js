@@ -54,7 +54,7 @@ export default function App() {
     headerTitleStyle: {
       fontWeight: "bold"
     },
-    headerBackTitle: " "
+    headerBackTitle: " ",
   };
 
   const HomeStack = () => (
@@ -75,7 +75,6 @@ export default function App() {
               }}
             />
           ),
-        headerBackTitle: "Back",
         ...globalScreenOptions
       })}
     >
@@ -83,11 +82,7 @@ export default function App() {
         name="Home"
         component={HomeScreen}
         options={{
-          title: (
-            <Text style={{ fontWeight: "bold" }}>
-              Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-            </Text>
-          )
+          headerShown: false
         }}
       />
       <Stack.Screen

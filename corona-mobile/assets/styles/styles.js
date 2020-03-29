@@ -75,6 +75,28 @@ const allStyles = StyleSheet.create({
     height: 1,
     backgroundColor: "#e1e8ee"
   },
+  dividerDark: {
+    backgroundColor: colorsDark.accentcolor
+  },
+  homeScreenSection: {
+    backgroundColor: colors.secondarybackgroundcolor,
+    padding: 15,
+    paddingBottom: 0,
+    marginBottom: 15,
+    borderColor: colors.accentcolor,
+    borderWidth: 1,
+  },
+  shadow: {
+    shadowColor: "rgba(67, 160, 71, 0.2)",
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 1,
+    borderRadius: 5
+  },
+  homeScreenSectionDark: {
+    backgroundColor: colorsDark.secondarybackgroundcolor,
+    borderColor: colorsDark.accentcolor
+  },
   title: {
     fontSize: 20,
     textAlign: "center",
@@ -90,26 +112,37 @@ const allStyles = StyleSheet.create({
   sectionTitleDark: {
     color: colorsDark.headercolor
   },
+  normalText: {
+    fontSize: 16,
+    color: colors.textcolor,
+  },
+  normalTextDark: {
+    color: colorsDark.textcolor
+  },
   navButton: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.secondarybackgroundcolor,
     padding: 15,
-    borderBottomColor: colors.accentcolor,
-    borderBottomWidth: 1,
-    borderTopColor: colors.accentcolor,
-    borderTopWidth: 1,
+    borderWidth: 1,
+    borderColor: colors.accentcolor,
+    borderRadius: 5,
     height: 78,
     shadowColor: "rgba(67, 160, 71, 0.2)",
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 1,
-    borderRadius: 5
+  },
+  embeddedNavButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 15,
+    height: 78,
+    
   },
   navButtonDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
-    borderTopColor: colorsDark.accentcolor,
-    borderBottomColor: colorsDark.accentcolor
+    borderColor: colorsDark.accentcolor,
   },
   navButtonTitle: {
     fontSize: 18,
@@ -136,7 +169,6 @@ const allStyles = StyleSheet.create({
   },
   actionButtonTitle: {
     color: "white",
-    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center"
   },
@@ -200,27 +232,14 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     color: colors.headercolor
   },
-  primaryText: {
-    color: colors.primarycolor,
-    fontSize: 16
-  },
   headerTextBold: {
     color: colors.headercolor,
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 8
   },
-  blackText: {
-    fontSize: 16,
-    color: "black"
-  },
   headerTextBoldDark: {
     color: colorsDark.headercolor
-  },
-  primaryTextBold: {
-    color: colors.primarycolor,
-    fontWeight: "bold",
-    fontSize: 16
   },
   subtitle: {
     color: colors.headercolor,
@@ -262,12 +281,6 @@ const allStyles = StyleSheet.create({
     height: 100,
     width: 66,
     resizeMode: "contain"
-  },
-  compactTeamMemberNameText: {
-    fontSize: 24
-  },
-  compactTeamMemberNameTextDark: {
-    color: colorsDark.textcolor
   },
   compactNameSmall: {
     fontSize: 18

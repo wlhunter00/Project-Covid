@@ -8,29 +8,89 @@ import {
   TouchableHighlight,
   ScrollView
 } from "react-native";
-import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
-import { PageButton } from "../components/Buttons";
+import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
+import { StandardText } from "../components/Texts";
+
+function Section({ title, children, titleRight }) {
+  const { styles } = useStyle("homeScreenSection", "shadow");
+  return (
+    <View style={[styles.homeScreenSection, styles.shadow]}>
+      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
+        <StandardText fontSize="subtitle" isBold >{title}</StandardText>
+        <View style={{flex: 1}}/>
+        {titleRight}
+      </View>
+      {children}
+    </View>
+  );
+}
 
 export default function HomeScreen({ navigation }) {
-  const { styles, colors } = useStyle("container");
+  const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
 
   return (
-    <ScrollView style={styles.container}>
-      <PageButton
-        title="Latest News"
-        navigationName="LatestNews"
-        icon={<Entypo name="news" size={25} color={colors.textcolor} />}
-        description="Read updates from reliable news sites."
+    <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
+      <View style={{ marginBottom: 20 }}>
+        <StandardText fontSize="title" isBold style={{
+          marginTop: 60,
+          marginBottom: 10
+        }}>
+          Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+        </StandardText>
+        <StandardText>
+          Live tracking and resources to help you get through the pandemic.
+      </StandardText>
+      </View>
+
+      <Section title="Live Statistics">
+        <View style={{ height: 200 }} />
+      </Section>
+      <Section title="Latest News" titleRight={
+        <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron/>
+      }>
+        <View style={{ height: 200 }} />
+      </Section>
+      <Section title="Global Resources" titleRight={
+        <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron/>
+      } >
+        
+        <EmbeddedPageButton
+          title="Informational Toolkit"
+          navigationName="InformationalToolkit"
+          icon={
+            <MaterialCommunityIcons
+              name="toolbox"
+              size={25}
+              color={colors.textcolor}
+            />
+          }
+          description="All you need to know about COVID-19"
+          navigation={navigation}
+        />
+        <View style={styles.divider}/>
+        <EmbeddedPageButton
+          title="Symptoms"
+          navigationName="Symptoms"
+          icon={
+            <FontAwesome name="stethoscope" size={25} color={colors.textcolor} />
+          }
+          description="Learn about the symptoms of the virus."
+          navigation={navigation}
+        />
+        <View style={styles.divider} />
+        <EmbeddedPageButton
+        title="Preventative Practices"
+        navigationName="PreventativePractices"
+        icon={
+          <MaterialIcons name="healing" size={25} color={colors.textcolor} />
+        }
+        description="Tips for to stay healthy"
         navigation={navigation}
       />
-      <PageButton
-        title="Global Resources"
-        navigationName="GlobalResources"
-        icon={<Entypo name="globe" size={25} color={colors.textcolor} />}
-        description="Get info straight from the experts."
-        navigation={navigation}
-      />
+      </Section>
+
       <PageButton
         title="Live Twitter Feed"
         navigationName="TwitterFeed"
@@ -38,6 +98,7 @@ export default function HomeScreen({ navigation }) {
         description="View a curated feed from reliable sources."
         navigation={navigation}
       />
+
       <PageButton
         title="Sources"
         navigationName="Sources"

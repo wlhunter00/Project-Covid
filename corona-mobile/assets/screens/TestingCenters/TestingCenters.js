@@ -17,7 +17,6 @@ import { InfoView } from "./../../components/InfoView";
 import { ActionButton } from "./../../components/Buttons";
 import { useStyle } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
-import { PrimaryText, PrimaryTextBold } from "./../../components/Texts";
 import { SourceItem } from "../../components/FooterComponents";
 
 const contactLoading = (
