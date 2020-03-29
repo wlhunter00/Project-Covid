@@ -177,7 +177,7 @@ const allStyles = StyleSheet.create({
     elevation: 1,
     marginHorizontal: 10,
     marginTop: 15,
-    marginBottom: 20,
+    marginBottom: 15,
     padding: 10
   },
   textBoxDark: {

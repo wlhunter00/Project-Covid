@@ -48,7 +48,7 @@ export function Diagnosis({ navigation, response }) {
       <View style={styles.boxContainer}>
         <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
           <Text style={[styles.compactNameSmall, {textAlignVertical:'center', alignSelf:'center'}]}>Search:</Text>
-          <View style={{flex: 1, width: 100}}>
+          <View style={{flex: 1, width: 100, alignSelf: 'center', justifyContent: 'center'}}>
           <ResponseTextBox
             defaultText={""}
             changeFunction={setSearched}

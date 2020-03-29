@@ -32,7 +32,8 @@ import Sources from "./assets/screens/footerPages/Sources.js";
 import ContactUs from "./assets/screens/footerPages/ContactUs.js";
 import ViewSource from "./assets/screens/ViewSource.js";
 import PrivacyPolicy from "./assets/screens/footerPages/PrivacyPolicy.js";
-import AboutLFR from "./assets/screens/footerPages/AboutLFR.js";
+import AboutLFR from "./assets/screens/footerPages/AboutLFR/AboutLFR.js";
+import LFRSite from "./assets/screens/footerPages/AboutLFR/LFRSite.js";
 
 import {
   Entypo,
@@ -199,6 +200,7 @@ export default function App() {
         component={AboutLFR}
         options={{ title: "About LFR" }}
       />
+      <Stack.Screen name="LFRSite" component={LFRSite} />
       <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
     </Stack.Navigator>
   );
