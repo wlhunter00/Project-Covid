@@ -106,7 +106,7 @@ router.get("/", async (req, res) => {
   console.log(params);
   try {
     newsapi.v2.topHeadlines(params).then(response => {
-      res.send(response.articles.slice(0, 3));
+      res.send(response.articles);
     });
   } catch (err) {
     console.log(err);
