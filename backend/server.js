@@ -42,6 +42,9 @@ app.use("/symptoms", symptomCheck);
 const testingCenter = require("./routes/testingCenter.js");
 app.use("/centers", testingCenter);
 
+const location = require("./routes/location.js");
+app.use("/location", location);
+
 // Exporting the port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));

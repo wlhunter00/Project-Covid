@@ -66,6 +66,23 @@ export function SiteButton({ site, navigation }) {
   );
 }
 
+export function VisitButton({ site, navigation, style }) {
+  const { styles } = useStyle("actionButton", "actionButtonTitle");
+  return (
+    <TouchableOpacity 
+      onPress={() => {
+        navigation.navigate("LFRSite", {
+          site: site
+        });
+      }}
+      style={[styles.actionButton, style]}>
+      <View>
+        <Text style={styles.actionButtonTitle}>{site.title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
 export function ActionButton({ title, action, style }) {
   const { styles } = useStyle("actionButton", "actionButtonTitle");
   return (

@@ -52,6 +52,11 @@ export default function Team({ route, navigation }) {
         schoolAndYear="Washington University, St. Louis, Junior"
       />
       <CompactTeamMemberBox
+        name="Katie Lund"
+        position="Mobile App Developer"
+        schoolAndYear="Washington University, St. Louis, Sophomore"
+      />
+      <CompactTeamMemberBox
         name="Simar Kapoor"
         position="Data Scientist"
         schoolAndYear="Indiana University, Bloomington, Sophomore"
@@ -80,11 +85,6 @@ export default function Team({ route, navigation }) {
         name="Kevin Huang"
         position="Front End Developer"
         schoolAndYear="Harvard University, First Year"
-      />
-      <CompactTeamMemberBox
-        name="Katie Lund"
-        position="Mobile App Developer"
-        schoolAndYear="Washington University, St. Louis, Sophomore"
       />
       <CompactTeamMemberBox
         name="Zach Glabman"
@@ -148,6 +148,14 @@ export default function Team({ route, navigation }) {
         name="Gus Velasquez"
         position="Research"
         schoolAndYear="Harvard Medical School"
+      />
+      <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
+        LFR International
+      </Text>
+      <CompactTeamMemberBox
+        name="Zach Eisner"
+        position="Operations Director"
+        schoolAndYear="Washington University, St. Louis, Junior"
       />
     </ScrollView>
   );

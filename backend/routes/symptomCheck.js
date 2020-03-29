@@ -47,4 +47,8 @@ router.post("/", async (req, res) => {
   });
 });
 
+router.post("/allData", async (req, res) => {
+  return res.send(symptomData);
+});
+
 module.exports = router;

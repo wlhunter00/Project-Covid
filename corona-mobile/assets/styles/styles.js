@@ -202,13 +202,13 @@ const allStyles = StyleSheet.create({
     borderColor: "#ddd",
     borderBottomWidth: 3,
     borderColor: colors.primarycolor,
-    height: 140,
+    height: 40,
     shadowRadius: 2,
     elevation: 1,
     marginHorizontal: 10,
     marginTop: 15,
-    marginBottom: 20,
-    padding: 15
+    marginBottom: 15,
+    padding: 10
   },
   textBoxDark: {
     color: colorsDark.textcolor

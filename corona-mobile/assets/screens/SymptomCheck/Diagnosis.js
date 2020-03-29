@@ -1,68 +1,79 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Button, ScrollView, FlatList } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useStyle } from "./../../styles/styles.js";
 import { ActionButton } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
+import { ResponseTextBox } from "../../components/TextBoxes";
 
-export function Diagnosis({ navigation, response, retakeSurvey }) {
-  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent");
 
-  var symptoms = [];
 
-  for (var a in response) {
-    if (response[a]["Percentage"]) {
-      console.log(response[a]["Symptom"]);
-      symptoms.push({
-        title: response[a]["Symptom"],
-        body: response[a]["Percentage"]
-      });
+export function Diagnosis({ navigation, response }) {
+  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent", "compactNameSmall");
+  const [searched, changeSearched] = React.useState([]);
+  const [firstSet, changeFirst] = React.useState(true);
+
+  
+
+  if (firstSet && response !== "") {
+    changeFirst(false);
+    changeSearched(response);
+  }
+
+  const setSearched = React.useCallback(event => {
+    if (typeof event.target == 'undefined' || event.nativeEvent.text.trim() == "") {
+      if (response !== "") {
+        changeSearched(response);
+      }
     }
-  }
-  if (response == "") {
-    symptoms = [];
-  }
+    else if (typeof event.target != 'undefined') {
+      if (response !== "") {
+        changeSearched(response.filter(symptom => symptom.title.includes(event.nativeEvent.text)));
+      }
+      }
+      event.persist();
+    },
+    [response]
+  );
+
+  
+
+  
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
-      <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 20 }]}> Diagnosis Results</Text>
+      <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 20 }]}>Symptoms</Text>
+
+      <View style={styles.boxContainer}>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
+          <Text style={[styles.compactNameSmall, {textAlignVertical:'center', alignSelf:'center'}]}>Search:</Text>
+          <View style={{flex: 1, width: 100, alignSelf: 'center', justifyContent: 'center'}}>
+          <ResponseTextBox
+            defaultText={""}
+            changeFunction={setSearched}
+            />
+          </View>
+        </View>
       
-      {symptoms.map(symptom => {
-        return (
+      </View>
+      
+      <FlatList
+        data={searched}
+        renderItem={({ item }) => (
           <InfoViewDiagnosis
-            title={symptom.title}
+            title={item.title}
             body={
-              symptom.body +
+              item.body +
               "% of people who tested positive have this symptom."
             }
           />
-        );
-      })}
+        )}
+      />
       <View style={styles.boxContainer}>
         <Text style={styles.surveyQuestionText}>
-          Based on your symptoms, we recommend utlizing the following
-          knowledge resources:
-          </Text>
-        <View style={{ flexDirection: "row", paddingHorizontal: 10, marginTop: 10 }}>
-            <ActionButton
-              title={"Info Toolkit"}
-            action={() => navigation.navigate("InformationalToolkit")}
-            style={{flex: 1}}
-          />
-          <View style={{width: 20}}/>
-            <ActionButton
-              title={"Prevention"}
-            action={() => navigation.navigate("PreventativePractices")}
-            style={{flex: 1}}
-            />
-        </View>
-      </View>
-      <View style={{ height: 50 }} />
-      <View style={styles.boxContainer}>
-        <Text style={styles.surveyQuestionText}>
-          You can also find local information on COVID-19 data, and find
-          testing centers for help:
+          You can find local information on COVID-19 data and 
+          testing centers here:
           </Text>
         <View style={{ height: 10 }} />
         <ActionButton
@@ -70,9 +81,6 @@ export function Diagnosis({ navigation, response, retakeSurvey }) {
           action={() => navigation.navigate("Testing")}
         style={{marginHorizontal: 10}}
         />
-      </View>
-      <View style={[styles.boxContainer, { paddingHorizontal: 20 }]}>
-        <ActionButton title="Retake Symptom Check" action={retakeSurvey} />
       </View>
       <SourceItem
         navigation={navigation}

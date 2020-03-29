@@ -9,6 +9,7 @@ import { StackActions } from "@react-navigation/native";
 import { useStyle } from "./assets/styles/styles";
 
 import HomeScreen from "./assets/screens/HomeScreen";
+
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
 import SymptomCheck from "./assets/screens/SymptomCheck/SymptomCheck";
@@ -25,12 +26,15 @@ import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import TwitterFeed from "./assets/screens/TwitterFeed.js";
 import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
 
+import AboutScreen from "./assets/screens/AboutScreen";
 import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 import ContactUs from "./assets/screens/footerPages/ContactUs.js";
 import ViewSource from "./assets/screens/ViewSource.js";
 import PrivacyPolicy from "./assets/screens/footerPages/PrivacyPolicy.js";
+import AboutLFR from "./assets/screens/footerPages/AboutLFR/AboutLFR.js";
+import LFRSite from "./assets/screens/footerPages/AboutLFR/LFRSite.js";
 
 import {
   Entypo,
@@ -51,7 +55,8 @@ export default function App() {
     headerTintColor: "#fff",
     headerTitleStyle: {
       fontWeight: "bold"
-    }
+    },
+    headerBackTitle: " "
   };
 
   const HomeStack = () => (
@@ -141,15 +146,40 @@ export default function App() {
         options={{ title: "Curated Tweets" }}
       />
       <Stack.Screen
-        name="Team"
-        component={Team}
-        options={{ title: "Created By" }}
-      />
-      <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
-      <Stack.Screen
         name="Sources"
         component={Sources}
         options={{ title: "Sources" }}
+      />
+      <Stack.Screen
+        name="Symptoms"
+        component={SymptomCheck}
+        options={{ title: "Symptoms" }}
+      />
+    </Stack.Navigator>
+  );
+
+  const TrackerStack = () => (
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={globalScreenOptions}
+    >
+      <Stack.Screen
+        name="LiveTracker"
+        component={TrackerStatus}
+        options={{ title: "Live Tracker" }}
+      />
+    </Stack.Navigator>
+  );
+
+  const AboutStack = () => (
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={globalScreenOptions}
+    >
+      <Stack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{ title: "About the App" }}
       />
       <Stack.Screen
         name="ViewSource"
@@ -166,47 +196,18 @@ export default function App() {
         component={PrivacyPolicy}
         options={{ title: "Privacy Policy" }}
       />
-    </Stack.Navigator>
-  );
-
-  const TrackerStack = () => (
-    <Stack.Navigator
-      initialRouteName="LiveTracker"
-      screenOptions={globalScreenOptions}
-    >
       <Stack.Screen
-        name="LiveTracker"
-        component={TrackerStatus}
-        options={{ title: "Live Tracker" }}
-      />
-    </Stack.Navigator>
-  );
-
-  const SymptomStack = () => (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={globalScreenOptions}
-    >
-      <Stack.Screen
-        name="SymptomCheck"
-        component={SymptomCheck}
-        options={{ title: "Symptom Check" }}
+        name="Team"
+        component={Team}
+        options={{ title: "Created By" }}
       />
       <Stack.Screen
-        name="InformationalToolkit"
-        options={{ title: "Info to Use" }}
-        component={InformationalToolkit}
+        name="AboutLFR"
+        component={AboutLFR}
+        options={{ title: "About LFR" }}
       />
-      <Stack.Screen
-        name="PreventativePractices"
-        options={{ title: "Preventative Practices" }}
-        component={PreventativePractices}
-      />
-      <Stack.Screen
-        name="ViewSource"
-        options={{ title: "View Source" }}
-        component={ViewSource}
-      />
+      <Stack.Screen name="LFRSite" component={LFRSite} />
+      <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
     </Stack.Navigator>
   );
 
@@ -248,11 +249,11 @@ export default function App() {
                     color={color}
                   />
                 ),
-                Symptoms: (
-                  <FontAwesome name="stethoscope" size={size} color={color} />
-                ),
                 Testing: (
                   <FontAwesome name="building" size={size} color={color} />
+                ),
+                About: (
+                  <Entypo name="info-with-circle" size={size} color={color} />
                 )
               }[route.name])
           })}
@@ -269,8 +270,8 @@ export default function App() {
         >
           <Tab.Screen name="Home" component={HomeStack} />
           <Tab.Screen name="Live Tracker" component={TrackerStack} />
-          <Tab.Screen name="Symptoms" component={SymptomStack} />
           <Tab.Screen name="Testing" component={TestingCentersStack} />
+          <Tab.Screen name="About" component={AboutStack} />
         </Tab.Navigator>
       </NavigationContainer>
     </AppearanceProvider>

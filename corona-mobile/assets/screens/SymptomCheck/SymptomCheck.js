@@ -3,36 +3,40 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { Diagnosis } from "./Diagnosis.js";
-import { Symptoms } from "./Symptoms.js";
 import { useStyle } from "./../../styles/styles.js";
+import { getSymptoms } from './../../APIService.js';
+
 
 export default function SymptomCheck({ navigation }) {
   const { styles } = useStyle("container");
 
   const [backendResponse, changeBackendResponse] = React.useState("");
-  const [surveyDone, changeSurveyDone] = React.useState(false);
-  const [reset, changeReset] = React.useState(false);
+  const [parResp, changeParResp] = React.useState("");
   const [instanceKey, setInstanceKey] = React.useState(0);
+  const [firstSet, changeFirst] = React.useState(true);
 
-  const retakeSurvey = () => {
-    changeSurveyDone(false);
-    changeBackendResponse("");
-    setInstanceKey(i => i + 1);
+
+  React.useEffect(() => {
+    getSymptoms(changeBackendResponse);
+  }, []);
+  
+  if (firstSet && backendResponse !== "") {
+    changeFirst(false);
+    let sympt = [];
+    for (var a in backendResponse) {
+      if (backendResponse[a]["Percentage"]) {
+        sympt.push({
+          title: backendResponse[a]["Symptom"],
+          body: backendResponse[a]["Percentage"]
+        });
+      }
+    }
+    changeParResp(sympt);
   }
 
   return (
     <View style={styles.container}>
-      {!surveyDone ?
-        (
-          <Symptoms
-            key={instanceKey}
-            changeBackendResponse={changeBackendResponse}
-            changeSurveyDone={changeSurveyDone}
-          />
-        ) : (
-          <Diagnosis key={instanceKey} navigation={navigation} response={backendResponse} retakeSurvey={retakeSurvey} />
-        )
-      }
+        <Diagnosis key={instanceKey} navigation={navigation} response={parResp} />
     </View>
   );
 }
