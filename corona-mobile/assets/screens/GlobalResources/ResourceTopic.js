@@ -15,7 +15,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { useNavigation } from "@react-navigation/native";
 
 export default function StyledResourceTopic(props) {
-  const { styles } = useStyle("container", "imageButtonHeader", "imageButtonText", "imageButtonImage");
+  const { styles } = useStyle("container", "imageButtonHeader", "imageButtonText", "imageButtonImage", "bioText", "positionText", "container");
   const navigation = useNavigation()
   return <ResourceTopic {...props} styles={styles} navigation={navigation}/>;
 }
@@ -38,36 +38,39 @@ class ResourceTopic extends React.Component {
 
   render(){
     return(
-      <ParallaxScrollView
-        parallaxHeaderHeight={this.headerHeight}
-        renderBackground={() => (
-          <ImageBackground
-            source={this.props.route.params.source}
-            style={[
-              {
-                width: '100%',
-                height: '100%'
-              },
-            ]}
-          >
-          </ImageBackground>
-        )}
-        renderForeground={() => (
-          <Text
-            numberOfLines={1}
-            adjustsFontSizeToFit={true}
-            style={[
-              { top: this.headerHeight - 45 },
-              this.props.styles.imageButtonText
-            ]}
-          >
-            {this.props.route.params.title}
-          </Text>
-        )}>
-        <View>
-          {this.props.route.params.body}
-        </View>
-      </ParallaxScrollView>
+      <View style={this.props.styles.container}>
+        <ParallaxScrollView
+          contentBackgroundColor={this.props.styles.container.backgroundColor}
+          parallaxHeaderHeight={this.headerHeight}
+          renderBackground={() => (
+            <ImageBackground
+              source={this.props.route.params.source}
+              style={[
+                {
+                  width: '100%',
+                  height: '100%'
+                },
+              ]}
+            >
+            </ImageBackground>
+          )}
+          renderForeground={() => (
+            <Text
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+              style={[
+                { top: this.headerHeight - 45 },
+                this.props.styles.imageButtonText
+              ]}
+            >
+              {this.props.route.params.title}
+            </Text>
+          )}>
+          <View style={[this.props.styles.container, {height: '100%'}]}>
+            {this.props.route.params.body}
+          </View>
+        </ParallaxScrollView>
+      </View>
     );
   }
 }
