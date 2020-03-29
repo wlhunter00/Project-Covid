@@ -5,13 +5,15 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
+  Image,
   ScrollView
 } from "react-native";
 import { Entypo, FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
+
+const logo = require("../images/logo-notext.png")
 
 function Section({ title, children, titleRight }) {
   const { styles } = useStyle("homeScreenSection", "shadow");
@@ -32,9 +34,9 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
-      <View style={{ marginBottom: 20 }}>
+      <View style={{ marginBottom: 20, marginTop: 60, }}>
+        <Image source={logo} style={{height: 90, width: 90}}/>
         <StandardText fontSize="title" isBold style={{
-          marginTop: 60,
           marginBottom: 10
         }}>
           Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
