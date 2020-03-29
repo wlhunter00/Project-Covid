@@ -1,46 +1,75 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Button, ScrollView, FlatList } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useStyle } from "./../../styles/styles.js";
 import { ActionButton } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
+import { ResponseTextBox } from "../../components/TextBoxes";
+
 
 
 export function Diagnosis({ navigation, response }) {
-  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent");
+  const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent", "compactNameSmall");
+  const [searched, changeSearched] = React.useState([]);
+  const [firstSet, changeFirst] = React.useState(true);
 
-  var symptoms = [];
+  
 
-  for (var a in response) {
-    if (response[a]["Percentage"]) {
-      console.log(response[a]["Symptom"]);
-      symptoms.push({
-        title: response[a]["Symptom"],
-        body: response[a]["Percentage"]
-      });
+  if (firstSet && response !== "") {
+    changeFirst(false);
+    changeSearched(response);
+  }
+
+  const setSearched = React.useCallback(event => {
+    if (typeof event.target == 'undefined' || event.nativeEvent.text.trim() == "") {
+      if (response !== "") {
+        changeSearched(response);
+      }
     }
-  }
-  if (response == "") {
-    symptoms = [];
-  }
+    else if (typeof event.target != 'undefined') {
+      if (response !== "") {
+        changeSearched(response.filter(symptom => symptom.title.includes(event.nativeEvent.text)));
+      }
+      }
+      event.persist();
+    },
+    [response]
+  );
+
+  
+
+  
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
       <Text style={[styles.sectionTitle, { textAlign: "center", marginTop: 20 }]}>Symptoms</Text>
+
+      <View style={styles.boxContainer}>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
+          <Text style={[styles.compactNameSmall, {textAlignVertical:'center', alignSelf:'center'}]}>Search:</Text>
+          <View style={{flex: 1, width: 100}}>
+          <ResponseTextBox
+            defaultText={""}
+            changeFunction={setSearched}
+            />
+          </View>
+        </View>
       
-      {symptoms.map(symptom => {
-        return (
+      </View>
+      
+      <FlatList
+        data={searched}
+        renderItem={({ item }) => (
           <InfoViewDiagnosis
-            title={symptom.title}
+            title={item.title}
             body={
-              symptom.body +
+              item.body +
               "% of people who tested positive have this symptom."
             }
           />
-        );
-      })}
-      {/* <View style={{ height: 50 }} /> */}
+        )}
+      />
       <View style={styles.boxContainer}>
         <Text style={styles.surveyQuestionText}>
           You can find local information on COVID-19 data and 
