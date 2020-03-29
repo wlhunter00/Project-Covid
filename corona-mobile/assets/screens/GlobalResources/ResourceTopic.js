@@ -67,6 +67,7 @@ class ResourceTopic extends React.Component {
             </Text>
           )}>
           <View style={[this.props.styles.container, {height: '100%'}]}>
+          {/* <View style={{backgroundColor: 'white'}}> */}
             {this.props.route.params.body}
           </View>
         </ParallaxScrollView>

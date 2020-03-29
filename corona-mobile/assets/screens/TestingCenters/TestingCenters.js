@@ -190,39 +190,6 @@ class TestingCenters extends React.Component {
     };
   }
 
-  // contactNotFound = (
-  //   <View>
-  //     <Text
-  //       style={[
-  //         this.props.styles.positionText,
-  //         { paddingBottom: 10, paddingTop: 0 }
-  //       ]}
-  //     >
-  //       We're currently unable to identify your location
-  //     </Text>
-
-  //     <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-  //       - Contact your health provider or a nearby urgent care center
-  //     </Text>
-
-  //     <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-  //       - Use a telemedicine service - Teladoc
-  //     </Text>
-
-  //     <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-  //       - Call 9-1-1 if a medical emergency
-  //     </Text>
-
-  //     <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-  //       - Contact state/county health department (211 if no number is listed)
-  //     </Text>
-
-  //     <Text style={[this.props.styles.positionText, { paddingBottom: 10 }]}>
-  //       Please enable location services to find state contact information
-  //     </Text>
-  //   </View>
-  // );
-
   componentDidMount() {
     const locResp = getLocationAsync().then(locResp => {
       fetch("https://projectcovid-backend.herokuapp.com/centers/", {
