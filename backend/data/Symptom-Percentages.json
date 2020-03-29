@@ -4,12 +4,16 @@
     "Percentage": 88
   },
   {
-    "Symptom": "Cough",
+    "Symptom": "Dry Cough",
     "Percentage": 68
   },
   {
     "Symptom": "Fatigue",
     "Percentage": 38
+  },
+  {
+    "Symptom": "Cough with Muscus",
+    "Percentage": 33
   },
   {
     "Symptom": "Shortness of breath",
