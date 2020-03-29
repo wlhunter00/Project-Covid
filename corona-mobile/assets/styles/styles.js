@@ -141,7 +141,7 @@ const allStyles = StyleSheet.create({
     textAlign: "center"
   },
   imageButtonHeader: {
-    padding: 0,
+    padding: 5,
     marginBottom: 5,
     borderRadius: 50,
     borderBottomRightRadius: 100,

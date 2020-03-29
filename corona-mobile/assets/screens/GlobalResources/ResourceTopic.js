@@ -28,7 +28,12 @@ class ResourceTopic extends React.Component {
   componentDidMount(){
     console.log(this.props.route.params)
     console.log('asdf')
-    this.props.navigation.setOptions({ title: this.props.route.params.title})
+    this.props.navigation.setOptions({
+      title: this.props.route.params.title,
+      gestureResponseDistance: {
+        horizontal: 200
+      }
+    })
   }
 
   render(){
