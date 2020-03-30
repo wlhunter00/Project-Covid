@@ -151,19 +151,19 @@ function ContactNotFound() {
       </Text>
   
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-        - Contact your health provider or a nearby urgent care center
+      • Contact your health provider or a nearby urgent care center
       </Text>
   
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-        - Use a telemedicine service - Teladoc
+      • Use a telemedicine service - Teladoc
       </Text>
   
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-        - Call 9-1-1 if a medical emergency
+      • Call 9-1-1 if a medical emergency
       </Text>
   
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-        - Contact state/county health department (211 if no number is listed)
+      • Contact state/county health department (211 if no number is listed)
       </Text>
   
       <Text style={[styles.positionText, { paddingBottom: 10 }]}>
@@ -199,8 +199,17 @@ class TestingCenters extends React.Component {
         },
         body: JSON.stringify(locResp)
       })
-        .then(response => response.json())
+        .then(response => {
+          if(response.ok){
+            return response.json()
+          }
+          const contactNotFound = <ContactNotFound />;
+          this.setState({ contact: contactNotFound });
+        })
         .then(responseJson => {
+
+          if(responseJson === undefined) {return;}
+
           console.log(responseJson);
 
           if (responseJson.hasOwnProperty("message")) {
