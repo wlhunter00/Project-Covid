@@ -51,16 +51,16 @@ export default function HomeScreen({ navigation }) {
   }, []);
 
   return (
-    <View style={[styles.container, { paddingHorizontal: 15 }]}>
-      <ParallaxScrollView 
+    <View style={[styles.container]}>
+      <ParallaxScrollView
         parallaxHeaderHeight={260}
         stickyHeaderHeight={88}
-        backgroundColor={styles.container.backgroundColor}
-        contentBackgroundColor={styles.container.backgroundColor}
+        backgroundColor={colors.backgroundcolor}
+        contentBackgroundColor={colors.backgroundcolor}
         renderBackground={() => (<View style={styles.container}></View>)}
         renderForeground={() => (
-          <View style={{ marginBottom: 20, marginTop: 60, }}>
-            <Image source={logo} style={{height: 90, width: 90}}/>
+          <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15 }}>
+            <Image source={logo} style={{ height: 90, width: 90 }} />
             <StandardText fontSize="title" isBold style={{
               marginBottom: 10
             }}>
@@ -72,35 +72,39 @@ export default function HomeScreen({ navigation }) {
           </View>
         )}
         renderStickyHeader={() => (
-          <StandardText fontSize="title" isBold style={{
-            marginBottom: 10,
-            paddingTop: 40
-          }}>
-            Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-          </StandardText>
+          <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15 }}>
+            <StandardText fontSize="title" isBold style={{
+              marginBottom: 10,
+              paddingTop: 40
+            }}>
+              Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+            </StandardText>
+          </View>
         )}
+
+        contentContainerStyle={{ paddingHorizontal: 15 }}
       >
 
         <Section title="Live Statistics">
           {stats ? (
             stats.stats ?
-            <StatsView stats={stats.stats} /> : <ErrorBox />
+              <StatsView stats={stats.stats} /> : <ErrorBox />
           ) : <ActivityIndicator style={{ height: 200 }} />}
         </Section>
         
         <Section title="Latest News" titleRight={
-          <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron/>
+          <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron />
         }>
           {topNews ? (
-            topNews.news ? 
-            topNews.news.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation} />
-            ) : <ErrorBox/>
+            topNews.news ?
+              topNews.news.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation} />
+              ) : <ErrorBox />
           ) : <ActivityIndicator style={{ height: 200 }} />
           }
         </Section>
 
         <Section title="Global Resources" titleRight={
-          <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron/>
+          <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron />
         } >
           <EmbeddedPageButton
             title="Informational Toolkit"
@@ -115,7 +119,7 @@ export default function HomeScreen({ navigation }) {
             description="All you need to know about COVID-19"
             navigation={navigation}
           />
-          <View style={styles.divider}/>
+          <View style={styles.divider} />
           <EmbeddedPageButton
             title="Symptoms"
             navigationName="Symptoms"
@@ -127,14 +131,14 @@ export default function HomeScreen({ navigation }) {
           />
           <View style={styles.divider} />
           <EmbeddedPageButton
-          title="Preventative Practices"
-          navigationName="PreventativePractices"
-          icon={
-            <MaterialIcons name="healing" size={25} color={colors.textcolor} />
-          }
-          description="Tips for to stay healthy"
-          navigation={navigation}
-        />
+            title="Preventative Practices"
+            navigationName="PreventativePractices"
+            icon={
+              <MaterialIcons name="healing" size={25} color={colors.textcolor} />
+            }
+            description="Tips for to stay healthy"
+            navigation={navigation}
+          />
         </Section>
 
         <PageButton
@@ -153,93 +157,7 @@ export default function HomeScreen({ navigation }) {
           navigation={navigation}
         />
       </ParallaxScrollView>
-    </View>
-    // <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
-    //   <View style={{ marginBottom: 20, marginTop: 60, }}>
-    //     <Image source={logo} style={{height: 90, width: 90}}/>
-    //     <StandardText fontSize="title" isBold style={{
-    //       marginBottom: 10
-    //     }}>
-    //       Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-    //     </StandardText>
-    //     <StandardText>
-    //       Live tracking and resources to help you get through the pandemic.
-    //   </StandardText>
-    //   </View>
-
-    //   <Section title="Live Statistics">
-    //     {stats ? (
-    //       stats.stats ?
-    //       <StatsView stats={stats.stats} /> : <ErrorBox />
-    //     ) : <ActivityIndicator style={{ height: 200 }} />}
-    //   </Section>
-      
-    //   <Section title="Latest News" titleRight={
-    //     <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron/>
-    //   }>
-    //     {topNews ? (
-    //       topNews.news ? 
-    //       topNews.news.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation} />
-    //       ) : <ErrorBox/>
-    //     ) : <ActivityIndicator style={{ height: 200 }} />
-    //     }
-    //   </Section>
-
-    //   <Section title="Global Resources" titleRight={
-    //     <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron/>
-    //   } >
-    //     <EmbeddedPageButton
-    //       title="Informational Toolkit"
-    //       navigationName="InformationalToolkit"
-    //       icon={
-    //         <MaterialCommunityIcons
-    //           name="toolbox"
-    //           size={25}
-    //           color={colors.textcolor}
-    //         />
-    //       }
-    //       description="All you need to know about COVID-19"
-    //       navigation={navigation}
-    //     />
-    //     <View style={styles.divider}/>
-    //     <EmbeddedPageButton
-    //       title="Symptoms"
-    //       navigationName="Symptoms"
-    //       icon={
-    //         <FontAwesome name="stethoscope" size={25} color={colors.textcolor} />
-    //       }
-    //       description="Learn about the symptoms of the virus."
-    //       navigation={navigation}
-    //     />
-    //     <View style={styles.divider} />
-    //     <EmbeddedPageButton
-    //     title="Preventative Practices"
-    //     navigationName="PreventativePractices"
-    //     icon={
-    //       <MaterialIcons name="healing" size={25} color={colors.textcolor} />
-    //     }
-    //     description="Tips for to stay healthy"
-    //     navigation={navigation}
-    //   />
-    //   </Section>
-
-    //   <PageButton
-    //     title="Live Twitter Feed"
-    //     navigationName="TwitterFeed"
-    //     icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
-    //     description="View a curated feed from reliable sources."
-    //     navigation={navigation}
-    //   />
-
-    //   <PageButton
-    //     title="Sources"
-    //     navigationName="Sources"
-    //     icon={<FontAwesome name="book" size={25} color={colors.textcolor} />}
-    //     description="Learn where this information comes from."
-    //     navigation={navigation}
-    //   />
-    // </ScrollView>
-  );
+    </View>);
 }
 
 function Section({ title, children, titleRight }) {
@@ -288,7 +206,7 @@ function NewsArticle({ article, isLast,navigation}) {
 function StatsView({ stats }) {
   const {colors } = useStyle();
   return (
-    <View style={{marginBottom: 15}}>
+    <View style={{marginBottom: 15, marginTop: 10}}>
       <StandardText fontSize={30} isBold>{stats["TotalConfirmed"]}
         <StandardText>  Confirmed Cases</StandardText>
       </StandardText>
