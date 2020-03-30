@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }) {
       }
     }
     fetchStats();
-  });
+  }, []);
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
