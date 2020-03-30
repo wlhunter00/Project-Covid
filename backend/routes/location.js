@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 var request = require("request-promise");
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   if (Object.keys(req.body).length === 0) {
     return res.status(400).send({
       message: "Could not read location!"

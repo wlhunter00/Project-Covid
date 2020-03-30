@@ -104,7 +104,7 @@ const availableCountriesCheap = [
   "gr"
 ];
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   var locCountry = "us";
   if (Object.keys(req.body).length != 0) {
     var serverLocation = req.body;
@@ -160,7 +160,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/cheap", async (req, res) => {
+router.post("/cheap", async (req, res) => {
   var locCountry = "us";
   if (Object.keys(req.body).length != 0) {
     var serverLocation = req.body;

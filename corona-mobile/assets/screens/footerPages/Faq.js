@@ -22,6 +22,13 @@ export default function Faq({ route, navigation }) {
         key="2"
       />
       <FAQItem
+        question="Why is this app associated with LFR International?"
+        answer={
+          "In March of 2020, LFR International adopted the Project Covid Initiative, partnering with founders Satvik Sethi and Will Hunter to expand international access to the application. LFR International now serves as the primary publisher and regulatory organization for Project Covid.\n\nWe partnered with the original founders of Project Covid in order to increase access to trustworthy, reliable information regarding COVID-19 during this time of international crisis. The Project Covid mobile and web applications now are vital tools to fulfilling our mission of spreading equitable access to healthcare and empowering first responders around the globe. Thousands of LFR first responders around the globe use the Project Covid application to provide their communities with neccesary information regarding COVID-19, and LFR International is working with the development team to increase the international capabilities of Project Covid."
+        }
+        key="21"
+      />
+      <FAQItem
         question="What are you doing with my location?"
         answer={
           "We do not store any data related to an individual user’s location. Some of our features can be greatly enhanced by having access to location information, such as the testing center app, where we can tailor the information based on location by state. We plan on matching the latest headlines to local information, requiring the user’s location as well.\n\nA given location from the user is sent to our server in the form of coordinates. After sending necessary information about testing centers, outbreaks and current news to the user’s device, any and all location data extracted from the user is deleted.\n\nThe local news feature has not been implemented yet."
