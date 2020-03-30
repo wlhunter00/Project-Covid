@@ -49,28 +49,28 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Feelings of numbness, disbelief, anxiety or fear
+                    • Feelings of numbness, disbelief, anxiety or fear
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Changes in appetite, energy, and activity levels
+                    • Changes in appetite, energy, and activity levels
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Difficulty concentrating
+                    • Difficulty concentrating
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Difficulty sleeping or nightmares and upsetting thoughts and images
+                    • Difficulty sleeping or nightmares and upsetting thoughts and images
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Physical reactions, such as headaches, body pains, stomach problems, and skin rashes
+                    • Physical reactions, such as headaches, body pains, stomach problems, and skin rashes
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Worsening of chronic health problems
+                    • Worsening of chronic health problems
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Anger or short-temper
+                    • Anger or short-temper
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Increased use of alcohol, tobacco, or other drugs
+                    • Increased use of alcohol, tobacco, or other drugs
                     </Text>
                   </View>
                 }
@@ -80,16 +80,16 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      If distress impacts activities of your daily life for several days or weeks, talk to a clergy member, counselor, or doctor, or contact the SAMHSA helpline at 1-800-985-5990.” - CDC
+                    • If distress impacts activities of your daily life for several days or weeks, talk to a clergy member, counselor, or doctor, or contact the SAMHSA helpline at 1-800-985-5990.” - CDC
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Sleeping well, exercising and maintaining a healthy diet will promote your mental health
+                    • Sleeping well, exercising and maintaining a healthy diet will promote your mental health
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Take mental breaks, time to unwind and reflect. Deep breathing. Do activities you usually enjoy
+                    • Take mental breaks, time to unwind and reflect. Deep breathing. Do activities you usually enjoy
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Share your concerns and feelings with friends and family
+                    • Share your concerns and feelings with friends and family
                     </Text>
                   </View>
                 }

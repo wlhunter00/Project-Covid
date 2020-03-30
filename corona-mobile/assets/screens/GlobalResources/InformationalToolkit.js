@@ -64,10 +64,10 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Close contact with people (within 6 feet) who are infected
+                    • Close contact with people (within 6 feet) who are infected
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      It may be possible for someone to get COVID-19 by touching a surface with the virus on it and then touching their mouth, nose, eyes, or face
+                    • It may be possible for someone to get COVID-19 by touching a surface with the virus on it and then touching their mouth, nose, eyes, or face
                     </Text>
                   </View>
                 }
@@ -77,16 +77,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Common symptoms include fever, cough, and shortness of breath
+                    • Common symptoms include fever, cough, and shortness of breath
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Other symptoms include sneezing, runny nose, sore throat, and muscle aches
+                    • Other symptoms include sneezing, runny nose, sore throat, and muscle aches
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those infected can be non-symptomatic carriers of the virus
+                    • Those infected can be non-symptomatic carriers of the virus
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Different people may have different combinations of symptoms, even with the same virus
+                    • Different people may have different combinations of symptoms, even with the same virus
                     </Text>
                   </View>
                 }
@@ -96,13 +96,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Those with serious chronic medical conditions like heart disease, diabetes, and lung disease
+                    • Those with serious chronic medical conditions like heart disease, diabetes, and lung disease
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      The immunocompromised, such as people with HIV, those taking corticosteroids, those with cancer and current/recent chemotherapy treatment
+                    • The immunocompromised, such as people with HIV, those taking corticosteroids, those with cancer and current/recent chemotherapy treatment
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      The elderly
+                    • The elderly
                     </Text>
                   </View>
                 }
@@ -204,16 +204,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Frequent handwashing for at least 20 seconds several times throughout the day
+                    • Frequent handwashing for at least 20 seconds several times throughout the day
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Maintaining distance from others in public spaces (6 feet recommended)
+                    • Maintaining distance from others in public spaces (6 feet recommended)
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid touching one’s face
+                    • Avoid touching one’s face
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Wear a mask if you suspect you have been exposed or have the virus or if you are caring for someone who has
+                    • Wear a mask if you suspect you have been exposed or have the virus or if you are caring for someone who has
                     </Text>
                   </View>
                 }
@@ -223,16 +223,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Stay home as much as possible
+                    • Stay home as much as possible
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid travel and public spaces as much as possible
+                    • Avoid travel and public spaces as much as possible
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Practice social distancing by staying away from large groups and gatherings
+                    • Practice social distancing by staying away from large groups and gatherings
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those who suspect they may have the virus should wear a simple facemask around others
+                    • Those who suspect they may have the virus should wear a simple facemask around others
                     </Text>
                   </View>
                 }
@@ -255,13 +255,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      From one’s symptoms and risk factors
+                    • From one’s symptoms and risk factors
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      A nasal/throat swab or sputum sample
+                    • A nasal/throat swab or sputum sample
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      A chest CT scan
+                    • A chest CT scan
                     </Text>
                   </View>
                 }
@@ -271,13 +271,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Currently there is no vaccine
+                    • Currently there is no vaccine
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Vaccine trials are underway, but may be far from production even if effective
+                    • Vaccine trials are underway, but may be far from production even if effective
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      According to the WHO, a vaccine is not expected to become available until 2021 at the earliest
+                    • According to the WHO, a vaccine is not expected to become available until 2021 at the earliest
                     </Text>
                   </View>
                 }
@@ -366,43 +366,43 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice
+                    • The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Look to your state or local guidelines surrounding best practices, testing criteria, and available healthcare facilities caring for patients with suspected COVID-19
+                    • Look to your state or local guidelines surrounding best practices, testing criteria, and available healthcare facilities caring for patients with suspected COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Infected or possibly infected individuals should stay home (and avoid travel) except to get medical care
+                    • Infected or possibly infected individuals should stay home (and avoid travel) except to get medical care
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Call ahead before visiting a healthcare provider (they may have protocols such as meeting you outside to avoid many sick people coming into a waiting room)
+                    • Call ahead before visiting a healthcare provider (they may have protocols such as meeting you outside to avoid many sick people coming into a waiting room)
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you are sick, you should wear a facemask if available when around others in the home or in public
+                    • If you are sick, you should wear a facemask if available when around others in the home or in public
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Cover your face with a tissue when sneezing and coughing; then, dispose of the tissue and wash your hands for 20 seconds with soap and water
+                    • Cover your face with a tissue when sneezing and coughing; then, dispose of the tissue and wash your hands for 20 seconds with soap and water
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Use hand sanitizer with at least 60% alcohol content if you cannot wash your hands with soap and water - rub hands together until the alcohol dries without wiping it off on anything
+                    • Use hand sanitizer with at least 60% alcohol content if you cannot wash your hands with soap and water - rub hands together until the alcohol dries without wiping it off on anything
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid sharing personal household items
+                    • Avoid sharing personal household items
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Clean and disinfect commonly touched surfaces around the house daily
+                    • Clean and disinfect commonly touched surfaces around the house daily
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Maintain as much space between people as possible while in the same room; droplets carrying the virus can travel several feet. When possible, stay in a separate room and use a separate bathroom from other household members
+                    • Maintain as much space between people as possible while in the same room; droplets carrying the virus can travel several feet. When possible, stay in a separate room and use a separate bathroom from other household members
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Do not give aspirin to children with a fever as it can cause a serious condition called Reyes Syndrome
+                    • Do not give aspirin to children with a fever as it can cause a serious condition called Reyes Syndrome
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Do not leave home isolation until you are instructed to do so by healthcare providers in consultation with state and local health departments if you are confirmed to have COVID-19
+                    • Do not leave home isolation until you are instructed to do so by healthcare providers in consultation with state and local health departments if you are confirmed to have COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you develop difficulty breathing, pain or pressure in the chest, new confusion or inability to arouse, bluish lips or face, call your doctor or the local emergency room to find out the best way to get medical care immediately
+                    • If you develop difficulty breathing, pain or pressure in the chest, new confusion or inability to arouse, bluish lips or face, call your doctor or the local emergency room to find out the best way to get medical care immediately
                     </Text>
                   </View>
                 }
@@ -495,7 +495,7 @@ class InformationalToolkit extends React.Component {
                 }
               />
               <InfoView
-                title={<Text>Children are immune to Coronavirus</Text>}
+                title={<Text>Myth: Children are immune to Coronavirus</Text>}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
