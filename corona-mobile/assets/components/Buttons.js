@@ -30,11 +30,10 @@ export function EmbeddedPageButton({
     >
       <View style={styles.embeddedNavButton}>
         {icon}
-        <View style={{ marginLeft: 15 }}>
+        <View style={{ marginLeft: 15, flex: 1 }}>
           <Text style={styles.navButtonTitle}>{title}</Text>
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>
-        <View style={{ flex: 1 }} />
         <Entypo name="chevron-thin-right" color={colors.textcolor}/>
       </View>
     </TouchableOpacity>
@@ -176,9 +175,6 @@ export function ImageButton({ title, source, body, navigation }){
     </TouchableWithoutFeedback>
   );
 }
-
-
-
 
 
 const localStyles = StyleSheet.create({

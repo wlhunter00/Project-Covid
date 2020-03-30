@@ -137,7 +137,7 @@ const allStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 15,
-    height: 78,
+    minHeight: 78,
     
   },
   navButtonDark: {
