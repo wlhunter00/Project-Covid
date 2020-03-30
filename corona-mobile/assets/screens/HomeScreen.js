@@ -15,7 +15,6 @@ import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Butt
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view"
-import ViewPager from '@react-native-community/viewpager';
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
 
@@ -43,7 +42,7 @@ export default function HomeScreen({ navigation }) {
     const fetchStats = async () => {
       const resp = await getLatestStats();
       if (!resp.error) {
-        setStats({ stats: resp["Global_Stats"] });
+        setStats({ stats: resp });
       } else {
         setStats({ error: "Could not reach server" });
       }
@@ -85,10 +84,10 @@ export default function HomeScreen({ navigation }) {
         contentContainerStyle={{ paddingHorizontal: 15 }}
       >
 
-        <Section title="Live Statistics">
+        <Section >
           {stats ? (
             stats.stats ?
-              <StatsView stats={stats.stats} /> : <ErrorBox />
+              <StatsView stats={stats.stats}/> : <ErrorBox />
           ) : <ActivityIndicator style={{ height: 200 }} />}
         </Section>
         

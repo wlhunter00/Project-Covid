@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from "react";
 import {
-  StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
-  ActivityIndicator
 } from "react-native";
 import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
-import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
-import { getTopNews, getLatestStats } from "../APIService";
-import ParallaxScrollView from "react-native-parallax-scroll-view"
-import ViewPager from '@react-native-community/viewpager';
+import { Pages } from 'react-native-pages';
 
 export function Section({ title, children, titleRight }) {
     const { styles } = useStyle("homeScreenSection", "shadow");
     return (
-      <View style={[styles.homeScreenSection, styles.shadow]}>
-        <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
-          <StandardText fontSize="subtitle" isBold >{title}</StandardText>
-          <View style={{flex: 1}}/>
-          {titleRight}
-        </View>
+        <View style={[styles.homeScreenSection, styles.shadow]}>
+            {title && (
+                <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
+                    <StandardText fontSize="subtitle" isBold >{title}</StandardText>
+                    <View style={{ flex: 1 }} />
+                    {titleRight}
+                </View>
+            )
+            }
         {children}
       </View>
     );
@@ -56,35 +54,57 @@ export function Section({ title, children, titleRight }) {
         {!isLast && <View style={styles.divider} />}
       </View>
     );
-  }
+ }
   
-  export function StatsView({ stats }) {
-    const {colors } = useStyle();
+const BigStat = ({ name, val, color }) => (
+    <StandardText fontSize={30} isBold style={color ? { color: color } : {}}>{val}
+        <StandardText>  {name}</StandardText>
+    </StandardText>
+);
+
+const SmallStat = ({ name, val }) => {
+    const { colors } = useStyle();
     return (
-      <View style={{marginBottom: 15, marginTop: 5}}>
-        <StandardText fontSize={30} isBold>{stats["TotalConfirmed"]}
-          <StandardText>  Confirmed Cases</StandardText>
+        <StandardText fontSize={14} style={{ color: colors.secondarytextcolor }}>
+            <Ionicons name="ios-trending-up" size={16} /> {val} {name}
         </StandardText>
+    );
+};
+
+function StatsPage({ stats, title }) {
+    const { styles, colors } = useStyle("divider");
+    
+    return (
+        <View style={{ paddingHorizontal: 15 }}>
+            <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{fontWeight: '300'}}>for {title}</Text></StandardText>
+            <View style={[styles.divider, {marginVertical: 15}]}/>
+            <BigStat name="Confirmed Cases" val={stats["TotalConfirmed"] || stats["Confirmed"]} />
+            {stats["NewConfirmed"] && <SmallStat name="New Cases" val={stats["NewConfirmed"]} />}
+
+            <View style={{height: 10}}/>
+            <BigStat name="Total Deaths" val={stats["TotalDeaths"] || stats["Deaths"]} color="#CD4543"/>
+            {stats["NewDeaths"] && <SmallStat name="New Deaths" val={stats["NewDeaths"]} />}
+            <View style={{height: 10}}/>
+            <BigStat name="Recovered" val={stats["TotalRecovered"] || stats["Recovered"]} color={colors.primarycolor} />
+            {stats["NewRecovered"] && <SmallStat name="New Recovered" val={stats["NewRecovered"]} />}
+        </View>
+    );
+}
   
-        <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-          <Ionicons name="ios-trending-up" size={16}/> {stats["NewConfirmed"]} New Cases 
-        </StandardText>
-  
-        <StandardText fontSize={30} isBold style={{color: "#CD4543", marginTop: 10}}>{stats["TotalDeaths"]}
-          <StandardText>  Total Deaths</StandardText>
-        </StandardText>
-  
-        <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-          <Ionicons name="ios-trending-up" size={16}/> {stats["NewDeaths"]} New Deaths 
-        </StandardText>
-  
-        <StandardText fontSize={30} isBold style={{color: colors.primarycolor, marginTop: 10}}>{stats["TotalDeaths"]}
-          <StandardText>  Recovered</StandardText>
-        </StandardText>
-  
-        <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-          <Ionicons name="ios-trending-up" size={16}/> {stats["NewRecovered"]} New Recovered 
-        </StandardText>
+export function StatsView({ stats }) {
+    const { colors } = useStyle();
+    
+    return (
+        <View style={{ marginBottom: 15, marginTop: 5, marginHorizontal: -15 }}>
+            <Pages containerStyle={{ height: 290 }} indicatorColor={colors.textcolor}>
+                <StatsPage stats={stats["Global_Stats"]} key="Global" title="the World"/>
+                {stats.Country_Stats &&
+                    <StatsPage stats={stats["Country_Stats"]} key="National" title={stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country} />
+                }
+                {stats.Province_Stats && 
+                    <StatsPage stats={stats["Province_Stats"]} key="Local" title={stats.Province_Stats.Name} />
+                }
+            </Pages>
       </View>
     );
   }
