@@ -20,22 +20,10 @@ export async function registerForPushNotifications() {
   const body = { token };
 }
 
-export async function sendSymptoms(symptoms, updateFunc) {
-  await axios.post(`${BASE_URL}/symptoms`, {
-    symptoms: symptoms
-  }).then(response => {
-    console.log(response.data);
-    updateFunc(response.data);
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-  })
-}
-
 export async function getSymptoms(updateFunc) {
   await axios.post(`${BASE_URL}/symptoms/allData`, {
   }).then(response => {
-    console.log(response.data);
+    //console.log(response.data);
     updateFunc(response.data);
     return response.data;
   }).catch(error => {

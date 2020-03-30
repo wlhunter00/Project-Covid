@@ -172,6 +172,36 @@ const allStyles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
+  imageButtonHeader: {
+    padding: 5,
+    marginBottom: 5,
+    borderRadius: 50,
+    borderBottomRightRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  imageButtonText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "white",
+    position: "relative",
+    left: 9,
+    textShadowColor: "black",
+    textShadowRadius: 2
+  },
+  imageButtonImage: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    overflow: "hidden",
+    resizeMode: "cover",
+    borderRadius: 5
+  },
   boldQuestionText: {
     color: colors.textcolor,
     fontSize: 16,
@@ -204,13 +234,13 @@ const allStyles = StyleSheet.create({
     borderColor: "#ddd",
     borderBottomWidth: 3,
     borderColor: colors.primarycolor,
-    height: 140,
+    height: 40,
     shadowRadius: 2,
     elevation: 1,
     marginHorizontal: 10,
     marginTop: 15,
-    marginBottom: 20,
-    padding: 15
+    marginBottom: 15,
+    padding: 10
   },
   textBoxDark: {
     color: colorsDark.textcolor
@@ -303,6 +333,12 @@ const allStyles = StyleSheet.create({
     color: "#000",
     fontSize: 16,
     color: "grey"
+  },
+  resourceText: {
+    color: "#000",
+    fontSize: 16,
+    color: "grey",
+    marginBottom: 10
   },
   tosText: {
     color: "#000",

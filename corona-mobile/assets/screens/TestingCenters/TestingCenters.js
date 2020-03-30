@@ -135,6 +135,45 @@ function LocalSourceObject() {
   );
 }
 
+function ContactNotFound() {
+
+  const { styles } = useStyle("bioText", "positionText", "container")
+
+  return(
+    <View>
+      <Text
+        style={[
+          styles.positionText,
+          { paddingBottom: 10, paddingTop: 0 }
+        ]}
+      >
+        We're currently unable to identify your location
+      </Text>
+  
+      <Text style={[styles.bioText, { paddingBottom: 10 }]}>
+        - Contact your health provider or a nearby urgent care center
+      </Text>
+  
+      <Text style={[styles.bioText, { paddingBottom: 10 }]}>
+        - Use a telemedicine service - Teladoc
+      </Text>
+  
+      <Text style={[styles.bioText, { paddingBottom: 10 }]}>
+        - Call 9-1-1 if a medical emergency
+      </Text>
+  
+      <Text style={[styles.bioText, { paddingBottom: 10 }]}>
+        - Contact state/county health department (211 if no number is listed)
+      </Text>
+  
+      <Text style={[styles.positionText, { paddingBottom: 10 }]}>
+        Please enable location services to find state contact information
+      </Text>
+    </View>
+  );
+}
+
+
 export default function StyledTestingCenters() {
   const { styles, colors } = useStyle("bioText", "positionText", "container");
   return <TestingCenters styles={styles} colors={colors} />;
@@ -149,39 +188,6 @@ class TestingCenters extends React.Component {
       contact: contactLoading
     };
   }
-
-  contactNotFound = (
-    <View>
-      <Text
-        style={[
-          this.props.styles.positionText,
-          { paddingBottom: 10, paddingTop: 0 }
-        ]}
-      >
-        We're currently unable to identify your location
-      </Text>
-
-      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-        - Contact your health provider or a nearby urgent care center
-      </Text>
-
-      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-        - Use a telemedicine service - Teladoc
-      </Text>
-
-      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-        - Call 9-1-1 if a medical emergency
-      </Text>
-
-      <Text style={[this.props.styles.bioText, { paddingBottom: 10 }]}>
-        - Contact state/county health department (211 if no number is listed)
-      </Text>
-
-      <Text style={[this.props.styles.positionText, { paddingBottom: 10 }]}>
-        Please enable location services to find state contact information
-      </Text>
-    </View>
-  );
 
   componentDidMount() {
     const locResp = getLocationAsync().then(locResp => {
@@ -199,7 +205,7 @@ class TestingCenters extends React.Component {
 
           if (responseJson.hasOwnProperty("message")) {
             console.log("err");
-            this.setState({ isLoaded: true, contact: contactNotFound });
+            this.setState({ isLoaded: true, contact: <ContactNotFound/> });
           } else {
             this.setState({ isLoaded: true, location: responseJson });
             const contact = <ContactInfo location={this.state.location} />;
@@ -209,6 +215,7 @@ class TestingCenters extends React.Component {
           console.log(this.state.location);
         })
         .catch(error => {
+          const contactNotFound = <ContactNotFound />;
           this.setState({ contact: contactNotFound });
           console.error(error);
         });

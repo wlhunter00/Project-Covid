@@ -1,11 +1,6 @@
 import React from "react";
-import { AccordionList } from "accordion-collapse-react-native";
 import {
   View,
-  Text,
-  Dimensions,
-  ImageBackground,
-  StyleSheet
 } from "react-native";
 
 // import Modal from 'react-native-modal';
