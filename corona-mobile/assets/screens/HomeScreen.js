@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
@@ -6,31 +6,30 @@ import {
   Text,
   View,
   Image,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from "react-native";
 import { Entypo, FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
+import { getTopNews } from "../APIService";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const logo = require("../images/logo-notext.png")
 
-function Section({ title, children, titleRight }) {
-  const { styles } = useStyle("homeScreenSection", "shadow");
-  return (
-    <View style={[styles.homeScreenSection, styles.shadow]}>
-      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
-        <StandardText fontSize="subtitle" isBold >{title}</StandardText>
-        <View style={{flex: 1}}/>
-        {titleRight}
-      </View>
-      {children}
-    </View>
-  );
-}
-
 export default function HomeScreen({ navigation }) {
   const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
+
+  const [topNews, setTopNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      const resp = await getTopNews();
+       setTopNews(resp.slice(0,4));
+    }
+    fetchNews();
+  }, []);
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
@@ -49,15 +48,17 @@ export default function HomeScreen({ navigation }) {
       <Section title="Live Statistics">
         <View style={{ height: 200 }} />
       </Section>
+      
       <Section title="Latest News" titleRight={
         <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron/>
       }>
-        <View style={{ height: 200 }} />
+        {topNews.length > 0 ? topNews.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation}/>
+        ) : <ActivityIndicator style={{height: 200}}/>}
       </Section>
+
       <Section title="Global Resources" titleRight={
         <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron/>
       } >
-        
         <EmbeddedPageButton
           title="Informational Toolkit"
           navigationName="InformationalToolkit"
@@ -112,11 +113,35 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
-// Travel Info page commented out until we can actually get that information
-// <PageButton
-//   title="Travel Information"
-//   navigationName="TravelInformation"
-//   icon={<Entypo name="aircraft" size={25} />}
-//   description="Check travel status before you travel."
-//   navigation={navigation}
-// />
+function Section({ title, children, titleRight }) {
+  const { styles } = useStyle("homeScreenSection", "shadow");
+  return (
+    <View style={[styles.homeScreenSection, styles.shadow]}>
+      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
+        <StandardText fontSize="subtitle" isBold >{title}</StandardText>
+        <View style={{flex: 1}}/>
+        {titleRight}
+      </View>
+      {children}
+    </View>
+  );
+}
+
+function NewsArticle({ article, isLast,navigation}) {
+  const { urlToImage, url, title, publishedAt, description } = article;
+
+  const { styles, colors } = useStyle("divider");
+  
+  console.log(urlToImage);
+  return (
+    <View>
+      <TouchableOpacity onPress={() => { navigation.navigate("WebView", { title, url }) }}>
+      <View style={{ flexDirection: "row", paddingVertical: 10 }}>
+        <Image source={urlToImage ? { uri: urlToImage } : {}} style={{ width: 70, height: 50, borderRadius: 5, backgroundColor: colors.accentcolor }} resizeMode="cover" />
+        <StandardText style={{ flex: 1, marginLeft: 10, fontWeight: "400" }}>{title}</StandardText>
+        </View>
+        </TouchableOpacity>
+      {!isLast && <View style={styles.divider} />}
+    </View>
+  );
+}

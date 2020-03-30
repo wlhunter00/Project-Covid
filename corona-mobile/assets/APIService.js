@@ -1,6 +1,7 @@
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
 import axios from "axios";
+import { getLocationAsync } from "./Utils";
 
 // const axios = require("axios").default
 const BASE_URL = "https://projectcovid-backend.herokuapp.com";
@@ -43,5 +44,7 @@ export async function getSymptoms(updateFunc) {
 }
 
 export async function getTopNews() {
-  axios.post()
+  const loc = await getLocationAsync();
+  const url = `${BASE_URL}/news/`;
+  return (await axios.get(url)).data;
 }

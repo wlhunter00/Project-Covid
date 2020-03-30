@@ -39,6 +39,7 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
+import WebViewScreen from "./assets/screens/WebViewScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -142,6 +143,10 @@ export default function App() {
         name="Symptoms"
         component={SymptomCheck}
         options={{ title: "Symptoms" }}
+      />
+      <Stack.Screen
+        name="WebView"
+        component={WebViewScreen}
       />
     </Stack.Navigator>
   );
