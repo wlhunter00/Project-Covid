@@ -13,20 +13,49 @@ import { Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
+export function EmbeddedPageButton({
+  navigation,
+  title,
+  navigationName,
+  icon,
+  description,
+}) {
+  const { styles, colors } = useStyle( "navButtonTitle", "navButtonDescription", "embeddedNavButton");
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(navigationName);
+      }}
+    >
+      <View style={styles.embeddedNavButton}>
+        {icon}
+        <View style={{ marginLeft: 15 }}>
+          <Text style={styles.navButtonTitle}>{title}</Text>
+          <Text style={styles.navButtonDescription}>{description}</Text>
+        </View>
+        <View style={{ flex: 1 }} />
+        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
 export function PageButton({
   navigation,
   title,
   navigationName,
   icon,
-  description
+  description,
 }) {
-  const { styles } = useStyle("navButton", "navButtonTitle", "navButtonDescription");
+  const { styles, colors } = useStyle("navButton", "navButtonTitle", "navButtonDescription", "embeddedNavButton");
+
   return (
     <TouchableHighlight
       onPress={() => {
         navigation.navigate(navigationName);
       }}
-      style={{ marginBottom: 6 }}
+      style={{ marginBottom: 15, borderRadius: 5 }}
     >
       <View style={styles.navButton}>
         {icon}
@@ -35,14 +64,14 @@ export function PageButton({
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>
         <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" />
+        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
       </View>
     </TouchableHighlight>
   );
 }
 
 export function SiteButton({ site, navigation }) {
-  const { styles } = useStyle("navButton", "navButtonTitle");
+  const { styles, colors } = useStyle("navButton", "navButtonTitle");
   return (
     <TouchableHighlight
       onPress={() => {
@@ -50,7 +79,7 @@ export function SiteButton({ site, navigation }) {
           site: site
         });
       }}
-      style={{ marginBottom: 6 }}
+      style={{ marginBottom: 15, borderRadius: 5 }}
     >
       <View style={styles.navButton}>
         <Image
@@ -60,7 +89,7 @@ export function SiteButton({ site, navigation }) {
         />
         <Text style={styles.navButtonTitle}>{site.title}</Text>
         <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" />
+        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
       </View>
     </TouchableHighlight>
   );
@@ -94,12 +123,14 @@ export function ActionButton({ title, action, style }) {
   );
 }
 // A simple button that's styled like a hyperlink
-export function SimpleButton({ title, action }) {
-  const { styles } = useStyle("linkButtonTitle");
+export function SimpleButton({ title, action, hasChevron }) {
+  const { styles, colors } = useStyle("linkButtonTitle");
 
   return (
-    <TouchableOpacity onPress={action} >
+    <TouchableOpacity onPress={action} style={{flexDirection: "row", alignItems: "center"}}>
       <Text style={styles.linkButtonTitle}>{title}</Text>
+      {hasChevron && <Entypo name="chevron-thin-right" color={colors.primarycolor} size={20}/>}
+      
     </TouchableOpacity>
   );
 }

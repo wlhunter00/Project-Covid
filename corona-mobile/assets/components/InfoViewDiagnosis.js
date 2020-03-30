@@ -4,13 +4,14 @@ import {
   View,
 } from "react-native";
 import { useStyle } from "../styles/styles";
+import { StandardText } from "./Texts";
 
 export function InfoViewDiagnosis({ title, body }) {
-  const { styles } = useStyle("boxContainer", "compactNameSmall", "divider", "bioText", "surveyQuestionText");
+  const { styles } = useStyle("boxContainer", "normalText", "divider", "bioText", "surveyQuestionText");
 
   return (
     <View style={styles.boxContainer}>
-      <Text style={styles.compactNameSmall}>{title}</Text>
+      <StandardText fontSize={18}>{title}</StandardText>
       <View style={[styles.divider, {marginVertical: 10}]} />
       <View >
         <Text style={styles.bioText}>{body}</Text>

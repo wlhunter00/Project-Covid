@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 import { AppearanceProvider } from "react-native-appearance";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -41,6 +41,7 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
+import WebViewScreen from "./assets/screens/WebViewScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -56,7 +57,7 @@ export default function App() {
     headerTitleStyle: {
       fontWeight: "bold"
     },
-    headerBackTitle: " "
+    headerBackTitle: " ",
   };
 
   const HomeStack = () => (
@@ -77,7 +78,6 @@ export default function App() {
               }}
             />
           ),
-        headerBackTitle: "Back",
         ...globalScreenOptions
       })}
     >
@@ -85,11 +85,7 @@ export default function App() {
         name="Home"
         component={HomeScreen}
         options={{
-          title: (
-            <Text style={{ fontWeight: "bold" }}>
-              Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-            </Text>
-          )
+          headerShown: false
         }}
       />
       <Stack.Screen
@@ -154,6 +150,10 @@ export default function App() {
         name="Symptoms"
         component={SymptomCheck}
         options={{ title: "Symptoms" }}
+      />
+      <Stack.Screen
+        name="WebView"
+        component={WebViewScreen}
       />
       <Stack.Screen
         name="ViewSource"
@@ -241,6 +241,7 @@ export default function App() {
 
   return (
     <AppearanceProvider>
+      <StatusBar barStyle={isDark ? "light-content" : "dark-content"}/>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({

@@ -16,7 +16,7 @@ export default function AboutScreen({ navigation }) {
   const { styles, colors } = useStyle("container");
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
       <PageButton
         title="About LFR"
         navigationName="AboutLFR"
