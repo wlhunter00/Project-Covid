@@ -35,7 +35,7 @@ function getCountryAbrev(abbreviation) {
   return null;
 }
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   // Get country statistics
   var stats = {
     Global_Stats: {

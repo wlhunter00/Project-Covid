@@ -122,3 +122,4 @@ def symptom_match(usertext, symptoms, locations):
         print(";".join(newlist) + ";")
 
 symptom_match(usertext, symptoms, locations)
+ 
