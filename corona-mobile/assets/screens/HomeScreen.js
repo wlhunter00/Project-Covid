@@ -46,7 +46,9 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <Section title="Live Statistics">
-        <View style={{ height: 200 }} />
+        <View style={{height: 180, justifyContent: 'center', marginBottom: 20}}>
+          <Text style={{ textAlign: "center" }}>Stats coming soon</Text>
+          </View>
       </Section>
       
       <Section title="Latest News" titleRight={
@@ -131,14 +133,24 @@ function NewsArticle({ article, isLast,navigation}) {
   const { urlToImage, url, title, publishedAt, description } = article;
 
   const { styles, colors } = useStyle("divider");
-  
-  console.log(urlToImage);
+
+  const d = new Date(publishedAt);
+  const formatOptions = { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" };
+  const dateString = d.toLocaleDateString("en-US", formatOptions);
   return (
     <View>
       <TouchableOpacity onPress={() => { navigation.navigate("WebView", { title, url }) }}>
       <View style={{ flexDirection: "row", paddingVertical: 10 }}>
-        <Image source={urlToImage ? { uri: urlToImage } : {}} style={{ width: 70, height: 50, borderRadius: 5, backgroundColor: colors.accentcolor }} resizeMode="cover" />
-        <StandardText style={{ flex: 1, marginLeft: 10, fontWeight: "400" }}>{title}</StandardText>
+          <Image source={urlToImage ? { uri: urlToImage } : {}} style={{
+            width: 50,
+            height: 50,
+            borderRadius: 5,
+            backgroundColor: colors.accentcolor,
+            marginRight: 10
+          }} resizeMode="cover" />
+          <StandardText style={{ flex: 1, fontWeight: "400" }}>
+            {title} • <Text style={{ color: colors.secondarytextcolor }}>{dateString}</Text>
+          </StandardText>
         </View>
         </TouchableOpacity>
       {!isLast && <View style={styles.divider} />}
