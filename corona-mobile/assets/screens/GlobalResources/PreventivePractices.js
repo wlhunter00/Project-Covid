@@ -28,6 +28,8 @@ import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "../../components/InfoView";
+import { SourceItem } from "../../components/FooterComponents";
+
 
 export default function StyledPreventativePractices() {
   const { styles } = useStyle("container", "resourceText");
@@ -100,27 +102,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -158,27 +179,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -217,27 +257,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -283,27 +342,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -349,27 +427,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -421,27 +518,46 @@ class PreventativePractices extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/index.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/health-topics/coronavirus
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://store.samhsa.gov/system/files/sma14-4894.pdf
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    headline:
+                    "Coronavirus (COVID-19)"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/health-topics/coronavirus",
+                    headline:
+                    "Coronavirus"
+                  },
+                  {
+                    title: "Michigan Health",
+                    url:
+                      "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    headline:
+                      "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                  },
+                  {
+                    title: "SAMHSA",
+                    url:
+                      "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    headline: "Publications and Digital Products"
+                  },
+                  {
+                    title: "WKBW Buffalo",
+                    headline:
+                      "Spectrum to offer free broadband and WiFi to students without it",
+                    url:
+                      "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                  },
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),

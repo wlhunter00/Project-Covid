@@ -25,6 +25,8 @@ import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
+import { SourceItem } from "../../components/FooterComponents";
+
 
 
 
@@ -118,42 +120,75 @@ class InformationalToolkit extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      http://www.xinhuanet.com/english/2020-01/09/c_138690570.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30211-7/fulltext
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/about/transmission.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30183-5/fulltext
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(20)30150-9/fulltext
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      CDC: “Coronavirus Disease 2019 (COVID-19)
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.nature.com/articles/s41422-020-0282-0?fbclid=IwAR2wgEzxXL3pzUEefkN4dOTq_iIEoq5O88p9ZPRMgYlDxLpg_bISGT6RoZ4
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "The Lancet",
+                    url:
+                      "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext",
+                    headline:
+                    "A familial cluster of pneumonia associated with the 2019 novel coronavirus indicating person-to-person transmission: a study of a family cluster"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020",
+                    headline:
+                      "WHO Director-General's opening remarks at the media briefing on COVID-19 - 11 March 2020"
+                  },
+                  {
+                    title: "The clay Center for Young Healthy Minds",
+                    url:
+                      "https://www.mghclaycenter.org/hot-topics/7-ways-to-support-kids-and-teens-through-the-coronavirus-pandemic/",
+                    headline:
+                      "7 Ways to Support Kids and Teens Through the Coronavirus Pandemic"
+                  },
+                  {
+                    title: "The Lancet",
+                    url:
+                      "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30211-7/fulltext",
+                    headline:
+                      "Epidemiological and clinical characteristics of 99 cases of 2019 novel coronavirus pneumonia in Wuhan, China: a descriptive study"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/about/transmission.html",
+                    headline:
+                      "How Coronavirus Spreads"
+                  },
+                  {
+                    title: "The Lancet",
+                    url:
+                      "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30183-5/fulltext",
+                    headline:
+                      "Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html",
+                    headline:
+                      "People who are at higher risk for severe illness"
+                  },
+                  {
+                    title: "The Lancet",
+                    url:
+                      "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(20)30150-9/fulltext",
+                    headline:
+                      "Risk of COVID-19 for cancer patients"
+                  },
+                  {
+                    title: "Cell Research",
+                    url:
+                      "https://www.nature.com/articles/s41422-020-0282-0?fbclid=IwAR2wgEzxXL3pzUEefkN4dOTq_iIEoq5O88p9ZPRMgYlDxLpg_bISGT6RoZ4",
+                    headline:
+                      "Remdesivir and chloroquine effectively inhibit the recently emerged novel coronavirus (2019-nCoV) in vitro"
+                  }
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -247,36 +282,75 @@ class InformationalToolkit extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsymptoms.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://onlinelibrary.wiley.com/doi/full/10.1111/tmi.13383
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://mmrjournal.biomedcentral.com/articles/10.1186/s40779-020-0233-6
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.sciencedaily.com/releases/2020/02/200226151951.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://time.com/5804092/experimental-covid-19-vaccine-test-begins-as-u-s-volunteer-receives-first-shot
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
+                    headline:
+                    "Coronavirus disease (COVID-19) advice for the public"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html",
+                    headline:
+                      "What To Do if You Are Sick"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html",
+                    headline:
+                      "How to Protect Yourself"
+                  },
+                  {
+                    title: "The Lancet",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsymptoms.html",
+                    headline:
+                      "Symptoms of Coronavirus"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/about/transmission.html",
+                    headline:
+                      "How Coronavirus Spreads"
+                  },
+                  {
+                    title: "Wiley Online Library",
+                    url:
+                      "https://onlinelibrary.wiley.com/doi/full/10.1111/tmi.13383",
+                    headline:
+                      "The COVID‐19 epidemic"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html",
+                    headline:
+                      "People who are at higher risk for severe illness"
+                  },
+                  {
+                    title: "MMR",
+                    url:
+                      "https://mmrjournal.biomedcentral.com/articles/10.1186/s40779-020-0233-6",
+                    headline:
+                      "A rapid advice guideline for the diagnosis and treatment of 2019 novel coronavirus (2019-nCoV) infected pneumonia (standard version)"
+                  },
+                  {
+                    title: "TIME Magazine",
+                    url:
+                      "https://time.com/5804092/experimental-covid-19-vaccine-test-begins-as-u-s-volunteer-receives-first-shot",
+                    headline:
+                      "Experimental COVID-19 Vaccine Test Begins as U.S. Volunteer Receives First Shot"
+                  }
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -333,21 +407,33 @@ class InformationalToolkit extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html",
+                    headline:
+                    "What To Do if You Are Sick"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html",
+                    headline:
+                      "How to Protect Yourself"
+                  },
+                  {
+                    title: "WHO",
+                    url:
+                      "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
+                    headline:
+                      "Coronavirus disease (COVID-19) advice for the public"
+                  }
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
@@ -428,30 +514,33 @@ class InformationalToolkit extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      CDC: “How COVID-19 Spreads                    
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/2019-novel-coronavirus-myth-versus-fact
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/faq.html
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "Johns Hopkins Medicine",
+                    url:
+                      "https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/2019-novel-coronavirus-myth-versus-fact",
+                    headline:
+                    "Coronavirus Disease 2019: Myth vs. Fact"
+                  },
+                  {
+                    title: "Harvard Health",
+                    url:
+                      "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center",
+                    headline:
+                      "Coronavirus Resource Center"
+                  },
+                  {
+                    title: "CDC",
+                    url:
+                      "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html",
+                    headline:
+                      "Stop the Spread of Rumors"
+                  }
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),

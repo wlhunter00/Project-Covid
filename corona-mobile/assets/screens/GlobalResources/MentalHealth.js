@@ -24,6 +24,8 @@ import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
+import { SourceItem } from "../../components/FooterComponents";
+
 
 
 export default function StyledMentalHealth() {
@@ -92,21 +94,33 @@ class MentalHealth extends React.Component {
                   </View>
                 }
               />
-              <InfoView
-                title={<Text>Sources</Text>}
-                body={
-                  <View>
-                    <Text style={this.props.styles.resourceText}>
-                      https://emergency.cdc.gov/coping/selfcare.asp
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470658/
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      https://www.mghclaycenter.org/hot-topics/7-ways-to-support-kids-and-teens-through-the-coronavirus-pandemic/
-                    </Text>
-                  </View>
-                }
+              <SourceItem
+                navigation={this.props.navigation}
+                typeSource={"Sources"}
+                sourcesList={[
+                  {
+                    title: "CDC",
+                    url:
+                      "https://emergency.cdc.gov/coping/selfcare.asp",
+                    headline:
+                    "Taking Care of Your Emotional Health"
+                  },
+                  {
+                    title: "NCBI",
+                    url:
+                      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470658/",
+                    headline:
+                    "Exercise for Mental Health"
+                  },
+                  {
+                    title: "The clay Center for Young Healthy Minds",
+                    url:
+                      "https://www.mghclaycenter.org/hot-topics/7-ways-to-support-kids-and-teens-through-the-coronavirus-pandemic/",
+                    headline:
+                      "7 Ways to Support Kids and Teens Through the Coronavirus Pandemic"
+                  }
+                ]}
+                key={"researchJourn"}
               />
             </View>
           ),
