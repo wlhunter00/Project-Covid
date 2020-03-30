@@ -293,8 +293,7 @@ function StatsView({ stats }) {
       </StandardText>
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-        <Ionicons name="ios-trending-up" size={16}/>
-          {stats["NewConfirmed"]} New Cases 
+        <Ionicons name="ios-trending-up" size={16}/> {stats["NewConfirmed"]} New Cases 
       </StandardText>
 
       <StandardText fontSize={30} isBold style={{color: "#CD4543", marginTop: 10}}>{stats["TotalDeaths"]}
@@ -302,8 +301,7 @@ function StatsView({ stats }) {
       </StandardText>
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-        <Ionicons name="ios-trending-up" size={16}/>
-          {stats["NewDeaths"]} New Deaths 
+        <Ionicons name="ios-trending-up" size={16}/> {stats["NewDeaths"]} New Deaths 
       </StandardText>
 
       <StandardText fontSize={30} isBold style={{color: colors.primarycolor, marginTop: 10}}>{stats["TotalDeaths"]}
@@ -311,8 +309,7 @@ function StatsView({ stats }) {
       </StandardText>
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
-        <Ionicons name="ios-trending-up" size={16}/>
-          {stats["NewRecovered"]} New Recovered 
+        <Ionicons name="ios-trending-up" size={16}/> {stats["NewRecovered"]} New Recovered 
       </StandardText>
     </View>
   );
