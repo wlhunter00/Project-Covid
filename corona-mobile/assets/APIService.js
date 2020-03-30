@@ -3,6 +3,7 @@ import * as Permissions from "expo-permissions";
 import axios from "axios";
 
 // const axios = require("axios").default
+const BASE_URL = "https://projectcovid-backend.herokuapp.com";
 
 export async function registerForPushNotifications() {
   const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -19,7 +20,7 @@ export async function registerForPushNotifications() {
 }
 
 export async function sendSymptoms(symptoms, updateFunc) {
-  await axios.post("https://projectcovid-backend.herokuapp.com/symptoms", {
+  await axios.post(`${BASE_URL}/symptoms`, {
     symptoms: symptoms
   }).then(response => {
     console.log(response.data);
@@ -31,7 +32,7 @@ export async function sendSymptoms(symptoms, updateFunc) {
 }
 
 export async function getSymptoms(updateFunc) {
-  await axios.post("https://projectcovid-backend.herokuapp.com/symptoms/allData", {
+  await axios.post(`${BASE_URL}/symptoms/allData`, {
   }).then(response => {
     console.log(response.data);
     updateFunc(response.data);
@@ -39,4 +40,8 @@ export async function getSymptoms(updateFunc) {
   }).catch(error => {
     console.log(error);
   })
+}
+
+export async function getTopNews() {
+  axios.post()
 }
