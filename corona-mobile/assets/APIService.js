@@ -23,7 +23,7 @@ export async function registerForPushNotifications() {
 export async function getSymptoms(updateFunc) {
   await axios.post(`${BASE_URL}/symptoms/allData`, {
   }).then(response => {
-    //console.log(response.data);
+    console.log(response.data);
     updateFunc(response.data);
     return response.data;
   }).catch(error => {
@@ -33,6 +33,22 @@ export async function getSymptoms(updateFunc) {
 
 export async function getTopNews() {
   const loc = await getLocationAsync();
-  const url = `${BASE_URL}/news/`;
-  return (await axios.get(url)).data;
+  try {
+    const resp = (await axios.post(`${BASE_URL}/news/`, loc.errorMessage ? {} : loc)).data
+    return resp;
+  } catch (error) {
+    console.log(error)
+    return { error: error };
+  }
+}
+
+export async function getLatestStats() {
+  const loc = await getLocationAsync();
+  try {
+    const resp = (await axios.post(`${BASE_URL}/stats/`, loc.errorMessage ? {} : loc)).data
+    return resp;
+  } catch (error) {
+    console.log(error)
+    return { error: error };
+  }
 }
