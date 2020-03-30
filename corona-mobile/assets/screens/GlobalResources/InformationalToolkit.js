@@ -49,10 +49,10 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      COVID-19 is the name of the disease caused by Coronavirus, originally discovered in Wuhan, China, that can be transmitted from human to human",
+                      COVID-19 is the name of the disease caused by Coronavirus, originally discovered in Wuhan, China, that can be transmitted from human to human
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      The CoronaVirus 2020 outbreak is officially considered a pandemic by the World Health Organization (WHO)",
+                      The CoronaVirus 2020 outbreak is officially considered a pandemic by the World Health Organization (WHO)
                     </Text>
                   </View>
                 }
@@ -62,10 +62,10 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Close contact with people (within 6 feet) who are infected",
+                      Close contact with people (within 6 feet) who are infected
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      It may be possible for someone to get COVID-19 by touching a surface with the virus on it and then touching their mouth, nose, eyes, or face",
+                      It may be possible for someone to get COVID-19 by touching a surface with the virus on it and then touching their mouth, nose, eyes, or face
                     </Text>
                   </View>
                 }
@@ -75,16 +75,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Common symptoms include fever, cough, and shortness of breath",
+                      Common symptoms include fever, cough, and shortness of breath
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Other symptoms include sneezing, runny nose, sore throat, and muscle aches",
+                      Other symptoms include sneezing, runny nose, sore throat, and muscle aches
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those infected can be non-symptomatic carriers of the virus",
+                      Those infected can be non-symptomatic carriers of the virus
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Different people may have different combinations of symptoms, even with the same virus",
+                      Different people may have different combinations of symptoms, even with the same virus
                     </Text>
                   </View>
                 }
@@ -94,13 +94,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Those with serious chronic medical conditions like heart disease, diabetes, and lung disease",
+                      Those with serious chronic medical conditions like heart disease, diabetes, and lung disease
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      The immunocompromised, such as people with HIV, those taking corticosteroids, those with cancer and current/recent chemotherapy treatment",
+                      The immunocompromised, such as people with HIV, those taking corticosteroids, those with cancer and current/recent chemotherapy treatment
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      The elderly",
+                      The elderly
                     </Text>
                   </View>
                 }
@@ -110,10 +110,10 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      There are currently no drug treatments approved, but several drugs that are used for other conditions are being studied to see whether they could help treat COVID-19",
+                      There are currently no drug treatments approved, but several drugs that are used for other conditions are being studied to see whether they could help treat COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Antibiotics are not effective against the virus",
+                      Antibiotics are not effective against the virus
                     </Text>
                   </View>
                 }
@@ -123,34 +123,34 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      http://www.xinhuanet.com/english/2020-01/09/c_138690570.html",
+                      http://www.xinhuanet.com/english/2020-01/09/c_138690570.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext",
+                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30154-9/fulltext
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020",
+                      https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30211-7/fulltext",
+                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30211-7/fulltext
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/about/transmission.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/about/transmission.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30183-5/fulltext",
+                      https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30183-5/fulltext
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(20)30150-9/fulltext",
+                      https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(20)30150-9/fulltext
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      CDC: “Coronavirus Disease 2019 (COVID-19)",
+                      CDC: “Coronavirus Disease 2019 (COVID-19)
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.nature.com/articles/s41422-020-0282-0?fbclid=IwAR2wgEzxXL3pzUEefkN4dOTq_iIEoq5O88p9ZPRMgYlDxLpg_bISGT6RoZ4"
+                      https://www.nature.com/articles/s41422-020-0282-0?fbclid=IwAR2wgEzxXL3pzUEefkN4dOTq_iIEoq5O88p9ZPRMgYlDxLpg_bISGT6RoZ4
                     </Text>
                   </View>
                 }
@@ -169,16 +169,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Frequent handwashing for at least 20 seconds several times throughout the day",
+                      Frequent handwashing for at least 20 seconds several times throughout the day
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Maintaining distance from others in public spaces (6 feet recommended)",
+                      Maintaining distance from others in public spaces (6 feet recommended)
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid touching one’s face",
+                      Avoid touching one’s face
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Wear a mask if you suspect you have been exposed or have the virus or if you are caring for someone who has",
+                      Wear a mask if you suspect you have been exposed or have the virus or if you are caring for someone who has
                     </Text>
                   </View>
                 }
@@ -188,16 +188,16 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Stay home as much as possible",
+                      Stay home as much as possible
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid travel and public spaces as much as possible",
+                      Avoid travel and public spaces as much as possible
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Practice social distancing by staying away from large groups and gatherings",
+                      Practice social distancing by staying away from large groups and gatherings
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those who suspect they may have the virus should wear a simple facemask around others",
+                      Those who suspect they may have the virus should wear a simple facemask around others
                     </Text>
                   </View>
                 }
@@ -207,10 +207,10 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Research shows that after being exposed and infected by COVID-19 it takes between 2 and 14 days for symptoms to begin, with most beginning by day 5",
+                      Research shows that after being exposed and infected by COVID-19 it takes between 2 and 14 days for symptoms to begin, with most beginning by day 5
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you have been exposed, it is recommended you self-quarantine for 14 days, and longer if you develop symptoms or receive a positive test result. Government experts and healthcare providers can guide you in this case",
+                      If you have been exposed, it is recommended you self-quarantine for 14 days, and longer if you develop symptoms or receive a positive test result. Government experts and healthcare providers can guide you in this case
                     </Text>
                   </View>
                 }
@@ -220,13 +220,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      From one’s symptoms and risk factors",
+                      From one’s symptoms and risk factors
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      A nasal/throat swab or sputum sample",
+                      A nasal/throat swab or sputum sample
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      A chest CT scan",
+                      A chest CT scan
                     </Text>
                   </View>
                 }
@@ -236,13 +236,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Currently there is no vaccine",
+                      Currently there is no vaccine
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Vaccine trials are underway, but may be far from production even if effective",
+                      Vaccine trials are underway, but may be far from production even if effective
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      According to the WHO, a vaccine is not expected to become available until 2021 at the earliest",
+                      According to the WHO, a vaccine is not expected to become available until 2021 at the earliest
                     </Text>
                   </View>
                 }
@@ -252,28 +252,28 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
+                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsymptoms.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsymptoms.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://onlinelibrary.wiley.com/doi/full/10.1111/tmi.13383",
+                      https://onlinelibrary.wiley.com/doi/full/10.1111/tmi.13383
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://mmrjournal.biomedcentral.com/articles/10.1186/s40779-020-0233-6",
+                      https://mmrjournal.biomedcentral.com/articles/10.1186/s40779-020-0233-6
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.sciencedaily.com/releases/2020/02/200226151951.html",
+                      https://www.sciencedaily.com/releases/2020/02/200226151951.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://time.com/5804092/experimental-covid-19-vaccine-test-begins-as-u-s-volunteer-receives-first-shot"
+                      https://time.com/5804092/experimental-covid-19-vaccine-test-begins-as-u-s-volunteer-receives-first-shot
                     </Text>
                   </View>
                 }
@@ -292,43 +292,43 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice",
+                      The CDC currently recommends: 'If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Look to your state or local guidelines surrounding best practices, testing criteria, and available healthcare facilities caring for patients with suspected COVID-19",
+                      Look to your state or local guidelines surrounding best practices, testing criteria, and available healthcare facilities caring for patients with suspected COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Infected or possibly infected individuals should stay home (and avoid travel) except to get medical care",
+                      Infected or possibly infected individuals should stay home (and avoid travel) except to get medical care
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Call ahead before visiting a healthcare provider (they may have protocols such as meeting you outside to avoid many sick people coming into a waiting room)",
+                      Call ahead before visiting a healthcare provider (they may have protocols such as meeting you outside to avoid many sick people coming into a waiting room)
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you are sick, you should wear a facemask if available when around others in the home or in public",
+                      If you are sick, you should wear a facemask if available when around others in the home or in public
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Cover your face with a tissue when sneezing and coughing; then, dispose of the tissue and wash your hands for 20 seconds with soap and water",
+                      Cover your face with a tissue when sneezing and coughing; then, dispose of the tissue and wash your hands for 20 seconds with soap and water
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Use hand sanitizer with at least 60% alcohol content if you cannot wash your hands with soap and water - rub hands together until the alcohol dries without wiping it off on anything",
+                      Use hand sanitizer with at least 60% alcohol content if you cannot wash your hands with soap and water - rub hands together until the alcohol dries without wiping it off on anything
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid sharing personal household items",
+                      Avoid sharing personal household items
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Clean and disinfect commonly touched surfaces around the house daily",
+                      Clean and disinfect commonly touched surfaces around the house daily
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Maintain as much space between people as possible while in the same room; droplets carrying the virus can travel several feet. When possible, stay in a separate room and use a separate bathroom from other household members",
+                      Maintain as much space between people as possible while in the same room; droplets carrying the virus can travel several feet. When possible, stay in a separate room and use a separate bathroom from other household members
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Do not give aspirin to children with a fever as it can cause a serious condition called Reyes Syndrome",
+                      Do not give aspirin to children with a fever as it can cause a serious condition called Reyes Syndrome
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Do not leave home isolation until you are instructed to do so by healthcare providers in consultation with state and local health departments if you are confirmed to have COVID-19",
+                      Do not leave home isolation until you are instructed to do so by healthcare providers in consultation with state and local health departments if you are confirmed to have COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you develop difficulty breathing, pain or pressure in the chest, new confusion or inability to arouse, bluish lips or face, call your doctor or the local emergency room to find out the best way to get medical care immediately",
+                      If you develop difficulty breathing, pain or pressure in the chest, new confusion or inability to arouse, bluish lips or face, call your doctor or the local emergency room to find out the best way to get medical care immediately
                     </Text>
                   </View>
                 }
@@ -338,13 +338,13 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fprevention.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
+                      https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public
                     </Text>
                   </View>
                 }
@@ -363,7 +363,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact:  Coronavirus is thought to spread by respiratory droplets. There is no evidence of Coronavirus infections associated with imported goods",
+                      Fact:  Coronavirus is thought to spread by respiratory droplets. There is no evidence of Coronavirus infections associated with imported goods
                     </Text>
                   </View>
                 }
@@ -373,7 +373,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: There are no reports of people being infected by animals. However, CDC recommends people with Coronavirus limit contact with animals and with others",
+                      Fact: There are no reports of people being infected by animals. However, CDC recommends people with Coronavirus limit contact with animals and with others
                     </Text>
                   </View>
                 }
@@ -383,7 +383,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: People of Chinese descent are not more likely to spread the virus. Disease affects everybody regardless of race or ethnicity",
+                      Fact: People of Chinese descent are not more likely to spread the virus. Disease affects everybody regardless of race or ethnicity
                     </Text>
                   </View>
                 }
@@ -393,7 +393,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: Many healthy people can be without symptoms but still spread the virus and infect the rest of their community; this puts the elderly and people with weak immune systems at highest risk",
+                      Fact: Many healthy people can be without symptoms but still spread the virus and infect the rest of their community; this puts the elderly and people with weak immune systems at highest risk
                     </Text>
                   </View>
                 }
@@ -403,7 +403,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: Certain models of face masks protect healthcare workers who care for patients. Wearing a mask when you have symptoms but you must leave the home (for example, to access healthcare) can help protect others. Surgical masks available to the general public do not have a tight fit and do not protect from infection. Stocking up on masks for general prevention will deplete resources from healthcare workers and is not recommended at this time in the US. We are in this together, and ensuring that the people who need masks the most have adequate supply will be most important in preventing the spread of COVID-19",
+                      Fact: Certain models of face masks protect healthcare workers who care for patients. Wearing a mask when you have symptoms but you must leave the home (for example, to access healthcare) can help protect others. Surgical masks available to the general public do not have a tight fit and do not protect from infection. Stocking up on masks for general prevention will deplete resources from healthcare workers and is not recommended at this time in the US. We are in this together, and ensuring that the people who need masks the most have adequate supply will be most important in preventing the spread of COVID-19
                     </Text>
                   </View>
                 }
@@ -413,7 +413,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: Children of any age can be infected by Coronavirus. Children with existing health conditions are more likely to have complications",
+                      Fact: Children of any age can be infected by Coronavirus. Children with existing health conditions are more likely to have complications
                     </Text>
                   </View>
                 }
@@ -423,7 +423,7 @@ class InformationalToolkit extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: Antibiotics do not work on viruses and therefore do not work on Coronavirus",
+                      Fact: Antibiotics do not work on viruses and therefore do not work on Coronavirus
                     </Text>
                   </View>
                 }
@@ -436,19 +436,19 @@ class InformationalToolkit extends React.Component {
                       CDC: “How COVID-19 Spreads                    
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/2019-novel-coronavirus-myth-versus-fact",
+                      https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/2019-novel-coronavirus-myth-versus-fact
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center",
+                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html",
+                      https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center",
+                      https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      https://www.cdc.gov/coronavirus/2019-ncov/faq.html"
+                      https://www.cdc.gov/coronavirus/2019-ncov/faq.html
                     </Text>
                   </View>
                 }

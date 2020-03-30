@@ -38,7 +38,7 @@ class ResourceTopic extends React.Component {
 
   render(){
     return(
-      <View style={this.props.styles.container}>
+      <View style={[this.props.styles.container]}>
         <ParallaxScrollView
           contentBackgroundColor={this.props.styles.container.backgroundColor}
           parallaxHeaderHeight={this.headerHeight}
@@ -66,8 +66,7 @@ class ResourceTopic extends React.Component {
               {this.props.route.params.title}
             </Text>
           )}>
-          <View style={[this.props.styles.container, {height: '100%', paddingTop: 15}]}>
-          {/* <View style={{backgroundColor: 'white'}}> */}
+          <View style={[this.props.styles.container, {height: '100%', paddingTop: 15, paddingHorizontal: 15}]}>
             {this.props.route.params.body}
           </View>
         </ParallaxScrollView>
@@ -75,45 +74,6 @@ class ResourceTopic extends React.Component {
     );
   }
 }
-
-// export default function StyledResourceTopic(props) {
-//   const { styles } = useStyle("container");
-//   // console.log(props)
-//   return <ResourceTopic {...props} styles={styles} />;
-// }
-// class ResourceTopic extends React.Component {
-//   constructor(props){
-//     super(props);
-//   }
-
-//   componentDidMount(){
-//     console.log(this.props.route.params)
-//     console.log('asdf')
-//   }
-
-//   render(){
-//     return(
-//       <ScrollView>
-//         <ImageBackground
-//           source={this.props.route.params.source}
-//           style={[
-//             {
-//               width: 400,
-//               height: 400
-//             }
-//           ]}
-//         >
-//           <Text>
-//             {this.props.route.params.title}
-//           </Text>
-//         </ImageBackground>
-//         <View>
-//           {this.props.route.params.body}
-//         </View>
-//       </ScrollView>
-//     );
-//   }
-// }
 
 const localStyles = StyleSheet.create({
   header: {
