@@ -194,25 +194,25 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Asian descending, recent travelers and healthcare responders are at risk of stigma",
+                      Asian descending, recent travelers and healthcare responders are at risk of stigma
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Stigmatized populations are subject to social avoidance/rejection, denial of resources, and verbal and/or physical violence",
+                      Stigmatized populations are subject to social avoidance/rejection, denial of resources, and verbal and/or physical violence
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      We are ALL responsible citizens in practicing cultural competency and community support for these stigmatized populations",
+                      We are ALL responsible citizens in practicing cultural competency and community support for these stigmatized populations
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Take action: share your knowledge from this application and other national/global resources to dissolve myths and public stigma",
+                      Take action: share your knowledge from this application and other national/global resources to dissolve myths and public stigma
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      As a population, we must remember to protect our mental health and coping methods",
+                      As a population, we must remember to protect our mental health and coping methods
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those who previously may have struggled with mental health and/or substance abuse may be at risk of exacerbation",
+                      Those who previously may have struggled with mental health and/or substance abuse may be at risk of exacerbation
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you or someone you know is struggling reach out to appropriate resources",
+                      If you or someone you know is struggling reach out to appropriate resources
                     </Text>
                   </View>
                 }
@@ -253,16 +253,16 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      If you display symptoms, you are advised to self-quarantine for two weeks; develop a two week’s supply of food, medical and cleaning supplies needed in the event you must self-quarantine",
+                      If you display symptoms, you are advised to self-quarantine for two weeks; develop a two week’s supply of food, medical and cleaning supplies needed in the event you must self-quarantine
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Do not forget your prescriptions and essential medical supplies",
+                      Do not forget your prescriptions and essential medical supplies
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If you are healthy and able, consider making the trip to build a supply for the immunocompromised and/or older adults in your community",
+                      If you are healthy and able, consider making the trip to build a supply for the immunocompromised and/or older adults in your community
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      If stores are out of stock of staples, online retailers may still deliver",
+                      If stores are out of stock of staples, online retailers may still deliver
                     </Text>
                   </View>
                 }
@@ -272,13 +272,13 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Sanitize your carts and hands; most retailers have stations",
+                      Sanitize your carts and hands; most retailers have stations
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Avoid clashing with other customers",
+                      Avoid clashing with other customers
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Thank the employees! They are working around the clock to keep shelves stocked",
+                      Thank the employees! They are working around the clock to keep shelves stocked
                     </Text>
                   </View>
                 }
@@ -319,19 +319,19 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Current observation indicates mild symptoms in non-vulnerable populations",
+                      Current observation indicates mild symptoms in non-vulnerable populations
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Vulnerable populations: older adults (65+) and immunocompromised (chronic-diseased) are subject to severe symptoms of illness",
+                      Vulnerable populations: older adults (65+) and immunocompromised (chronic-diseased) are subject to severe symptoms of illness
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Vulnerable populations may need emergent health services if infected:",
+                      Vulnerable populations may need emergent health services if infected:
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      ICU (intensive care unit) or ventilators",
+                      ICU (intensive care unit) or ventilators
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      These resources are subject to becoming strained as caseload picks up in the United States (following China and Italy’s events)",
+                      These resources are subject to becoming strained as caseload picks up in the United States (following China and Italy’s events)
                     </Text>
                   </View>
                 }
@@ -341,10 +341,10 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Call ahead to emergent health services so they can anticipate arrival",
+                      Call ahead to emergent health services so they can anticipate arrival
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Call local healthcare provider and/or health department to seek testing",
+                      Call local healthcare provider and/or health department to seek testing
                     </Text>
                   </View>
                 }
@@ -385,19 +385,19 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fever, cough, difficulty breathing, sore throat, runny nose",
+                      Fever, cough, difficulty breathing, sore throat, runny nose
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      COVID-19 infected individuals may not display all symptoms",
+                      COVID-19 infected individuals may not display all symptoms
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Those with standard immunity may have such mild symptoms they do not believe they have become infected with COVID-19",
+                      Those with standard immunity may have such mild symptoms they do not believe they have become infected with COVID-19
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      Older adults are subject to blunted immune response, and may not show a fever",
+                      Older adults are subject to blunted immune response, and may not show a fever
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      These resources are subject to becoming strained as caseload picks up in the United States (following China and Italy’s events)",
+                      These resources are subject to becoming strained as caseload picks up in the United States (following China and Italy’s events)
                     </Text>
                   </View>
                 }
@@ -407,16 +407,16 @@ class PreventativePractices extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Viral shedding is the period of time bodily secretions can transmit the virus",
+                      Viral shedding is the period of time bodily secretions can transmit the virus
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      To date, the viral shedding period of COVID-19 is unknown",
+                      To date, the viral shedding period of COVID-19 is unknown
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      For this reason, continuously practice proper hygiene and cleaning",
+                      For this reason, continuously practice proper hygiene and cleaning
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                      COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals",
+                      COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals
                     </Text>
                   </View>
                 }

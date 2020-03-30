@@ -9,11 +9,12 @@ import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
+import { InfoView } from "./../../components/InfoView";
 
 
 
 export default function StyledStudentResources() {
-  const { styles } = useStyle("container");
+  const { styles } = useStyle("container", "resourceText");
   const navigation = useNavigation();
   return <StudentResources styles={styles} navigation={navigation} />;
 }
@@ -26,32 +27,74 @@ class StudentResources extends React.Component {
         {
           image: image1,
           title: "Stress Management",
-          body: [
-            "-  Discount with OurBus- LEAVINGCAMPUS - This code takes 10% off the price of the bus ticket, up to $5 through March 31, 2020",
-            "\n-  Check your college website for resources. Most of them have different grants for travel if you need to go back home",
-            "\n-  FREE WIFI: Spectrum is offering free access to Spectrum Broadband and WiFi for 60 days for new K-12and College Student Households. Enroll by calling 1-844-488-8395",
-            "\n-  U Haul is offering free storage services for 30 days. Along with them, collegeboxes is also providing other free move out resources",
-            "\n-  The Student Relief Fund is working to provide resources and funding to students. Visit their website for more information",
-            "\n-  Numerous local businesses are providing resources to deal with the coronavirus. This includes free or discounted meals. Make sure to check with businesses to see whether they are providing any options. If they are not, consider asking them to do so"
-          ],
+          body: (
+            <InfoView
+                title={<Text>Discount with OurBus</Text>}
+                body={
+                  <View>
+                    <Text style={this.props.styles.resourceText}>
+                      Discount with OurBus- LEAVINGCAMPUS - This code takes 10% off the price of the bus ticket, up to $5 through March 31, 2020
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Check your college website for resources. Most of them have different grants for travel if you need to go back home
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      FREE WIFI: Spectrum is offering free access to Spectrum Broadband and WiFi for 60 days for new K-12and College Student Households. Enroll by calling 1-844-488-8395
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      U Haul is offering free storage services for 30 days. Along with them, collegeboxes is also providing other free move out resources
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      The Student Relief Fund is working to provide resources and funding to students. Visit their website for more information
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Numerous local businesses are providing resources to deal with the coronavirus. This includes free or discounted meals. Make sure to check with businesses to see whether they are providing any options. If they are not, consider asking them to do so
+                    </Text>
+                  </View>
+                }
+              />
+          ),
           id: "1"
         },
         {
           image: image2,
           title: "Helpful Organizations",
-          body: [
-            "Resources:",
-            "-  Code Academy is offering free access to its premium training platform",
-            "\n-  Dial 211 is a great resource for if you need assistance finding food, paying housing bills, or other essential services",
-            "\n-  The American Bankers Association compiled resources for each bank regarding the virus",
-            "\n-  Zoom is offering schools video conferencing tools for free",
-            "\n",
-            "\nU.S. Centers for Disease Control and Prevention",
-            "\nNational Institutes of Health",
-            "\nWorld Health Organization (WHO)",
-            "\nU.S. Department of State",
-            "\nEuropean Centre for Disease Prevention and Control (ECDC)"
-          ],
+          body: (
+            <InfoView
+                title={<Text>Resources</Text>}
+                body={
+                  <View>
+                    <Text style={this.props.styles.resourceText}>
+                      Code Academy is offering free access to its premium training platform
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Dial 211 is a great resource for if you need assistance finding food, paying housing bills, or other essential services
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      The American Bankers Association compiled resources for each bank regarding the virus
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      Zoom is offering schools video conferencing tools for free
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      U.S. Centers for Disease Control and Prevention
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      National Institutes of Health
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      World Health Organization (WHO)
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      U.S. Department of State
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      European Centre for Disease Prevention and Control (ECDC)
+                    </Text>
+                  </View>
+                }
+              />
+          ),
           id: "2"
         }
       ]
@@ -72,10 +115,9 @@ class StudentResources extends React.Component {
             return <ImageButton 
               title={item.title} 
               source={item.image}
-              body={<Text>{item.body}</Text>}
+              body={item.body}
               navigation={this.props.navigation}
             />;
-            // return <ModalImage item={item} key={item.id} />;
           })}
         </ScrollView>
       </View>
