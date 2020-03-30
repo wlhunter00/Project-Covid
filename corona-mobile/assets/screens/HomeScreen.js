@@ -9,11 +9,11 @@ import {
   ScrollView,
   ActivityIndicator
 } from "react-native";
-import { Entypo, FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
-import { getTopNews } from "../APIService";
+import { getTopNews, getLatestStats } from "../APIService";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const logo = require("../images/logo-notext.png")
@@ -21,15 +21,32 @@ const logo = require("../images/logo-notext.png")
 export default function HomeScreen({ navigation }) {
   const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
 
-  const [topNews, setTopNews] = useState([]);
+  const [topNews, setTopNews] = useState(null);
+  const [stats, setStats] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
       const resp = await getTopNews();
-       setTopNews(resp.slice(0,4));
+      if (!resp.error) {
+        setTopNews({ news: resp.slice(0, 4) });
+      } else {
+        setTopNews({ error: "Could not reach server."})
+      }
     }
     fetchNews();
   }, []);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const resp = await getLatestStats();
+      if (!resp.error) {
+        setStats({ stats: resp["Global_Stats"] });
+      } else {
+        setStats({ error: "Could not reach server" });
+      }
+    }
+    fetchStats();
+  });
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingHorizontal: 15 }}>
@@ -46,16 +63,21 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <Section title="Live Statistics">
-        <View style={{height: 180, justifyContent: 'center', marginBottom: 20}}>
-          <Text style={{ textAlign: "center" }}>Stats coming soon</Text>
-          </View>
+        {stats ? (
+          stats.stats ?
+          <StatsView stats={stats.stats} /> : <ErrorBox />
+        ) : <ActivityIndicator style={{ height: 200 }} />}
       </Section>
       
       <Section title="Latest News" titleRight={
         <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron/>
       }>
-        {topNews.length > 0 ? topNews.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation}/>
-        ) : <ActivityIndicator style={{height: 200}}/>}
+        {topNews ? (
+          topNews.news ? 
+          topNews.news.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation} />
+          ) : <ErrorBox/>
+        ) : <ActivityIndicator style={{ height: 200 }} />
+        }
       </Section>
 
       <Section title="Global Resources" titleRight={
@@ -154,6 +176,50 @@ function NewsArticle({ article, isLast,navigation}) {
         </View>
         </TouchableOpacity>
       {!isLast && <View style={styles.divider} />}
+    </View>
+  );
+}
+
+function StatsView({ stats }) {
+  const {colors } = useStyle();
+  return (
+    <View style={{marginBottom: 15}}>
+      <StandardText fontSize={30} isBold>{stats["TotalConfirmed"]}
+        <StandardText>  Confirmed Cases</StandardText>
+      </StandardText>
+
+      <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
+        <Ionicons name="ios-trending-up" size={16}/>
+        {stats["NewConfirmed"]} New Cases 
+      </StandardText>
+
+      <StandardText fontSize={30} isBold style={{color: "#CD4543"}}>{stats["TotalDeaths"]}
+        <StandardText>  Total Deaths</StandardText>
+      </StandardText>
+
+      <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
+        <Ionicons name="ios-trending-up" size={16}/>
+        {stats["NewDeaths"]} New Deaths 
+      </StandardText>
+
+      <StandardText fontSize={30} isBold style={{color: colors.primarycolor}}>{stats["TotalDeaths"]}
+        <StandardText>  Recovered</StandardText>
+      </StandardText>
+
+      <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
+        <Ionicons name="ios-trending-up" size={16}/>
+        {stats["NewRecovered"]} New Recovered 
+      </StandardText>
+    </View>
+  );
+}
+
+function ErrorBox() {
+  const { colors } = useStyle();
+  return (
+    <View style={{ height: 180, flexDirection: "row", justifyContent: "center", alignItems: "center", marginBottom: 20 }}>
+      <MaterialIcons name="error-outline" color={colors.textcolor} size={25} />
+      <StandardText style={{marginLeft: 3}}>Could not reach server</StandardText>
     </View>
   );
 }
