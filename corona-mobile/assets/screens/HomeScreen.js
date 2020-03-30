@@ -162,7 +162,7 @@ function NewsArticle({ article, isLast,navigation}) {
   return (
     <View>
       <TouchableOpacity onPress={() => { navigation.navigate("WebView", { title, url }) }}>
-      <View style={{ flexDirection: "row", paddingVertical: 10 }}>
+      <View style={{ flexDirection: "row", paddingVertical: 15 }}>
           <Image source={urlToImage ? { uri: urlToImage } : {}} style={{
             width: 50,
             height: 50,
@@ -190,25 +190,25 @@ function StatsView({ stats }) {
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
         <Ionicons name="ios-trending-up" size={16}/>
-        {stats["NewConfirmed"]} New Cases 
+          {stats["NewConfirmed"]} New Cases 
       </StandardText>
 
-      <StandardText fontSize={30} isBold style={{color: "#CD4543"}}>{stats["TotalDeaths"]}
+      <StandardText fontSize={30} isBold style={{color: "#CD4543", marginTop: 10}}>{stats["TotalDeaths"]}
         <StandardText>  Total Deaths</StandardText>
       </StandardText>
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
         <Ionicons name="ios-trending-up" size={16}/>
-        {stats["NewDeaths"]} New Deaths 
+          {stats["NewDeaths"]} New Deaths 
       </StandardText>
 
-      <StandardText fontSize={30} isBold style={{color: colors.primarycolor}}>{stats["TotalDeaths"]}
+      <StandardText fontSize={30} isBold style={{color: colors.primarycolor, marginTop: 10}}>{stats["TotalDeaths"]}
         <StandardText>  Recovered</StandardText>
       </StandardText>
 
       <StandardText fontSize={14} style={{color: colors.secondarytextcolor}}>
         <Ionicons name="ios-trending-up" size={16}/>
-        {stats["NewRecovered"]} New Recovered 
+          {stats["NewRecovered"]} New Recovered 
       </StandardText>
     </View>
   );
@@ -217,7 +217,7 @@ function StatsView({ stats }) {
 function ErrorBox() {
   const { colors } = useStyle();
   return (
-    <View style={{ height: 180, flexDirection: "row", justifyContent: "center", alignItems: "center", marginBottom: 20 }}>
+    <View style={{ height: 240, flexDirection: "row", justifyContent: "center", alignItems: "center", marginBottom: 20 }}>
       <MaterialIcons name="error-outline" color={colors.textcolor} size={25} />
       <StandardText style={{marginLeft: 3}}>Could not reach server</StandardText>
     </View>
