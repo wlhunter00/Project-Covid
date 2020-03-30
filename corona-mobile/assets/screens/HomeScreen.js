@@ -54,7 +54,8 @@ export default function HomeScreen({ navigation }) {
     <View style={[styles.container, { paddingHorizontal: 15 }]}>
       <ParallaxScrollView 
         parallaxHeaderHeight={260}
-        stickyHeaderHeight={90}
+        stickyHeaderHeight={88}
+        backgroundColor={styles.container.backgroundColor}
         contentBackgroundColor={styles.container.backgroundColor}
         renderBackground={() => (<View style={styles.container}></View>)}
         renderForeground={() => (
