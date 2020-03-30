@@ -210,10 +210,10 @@ class TestingCenters extends React.Component {
 
           if(responseJson === undefined) {return;}
 
-          console.log(responseJson);
+          // console.log(responseJson);
 
           if (responseJson.hasOwnProperty("message")) {
-            console.log("err");
+            // console.log("err");
             this.setState({ isLoaded: true, contact: <ContactNotFound/> });
           } else {
             this.setState({ isLoaded: true, location: responseJson });
@@ -221,12 +221,12 @@ class TestingCenters extends React.Component {
             this.setState({ contact: contact });
           }
 
-          console.log(this.state.location);
+          // console.log(this.state.location);
         })
         .catch(error => {
           const contactNotFound = <ContactNotFound />;
           this.setState({ contact: contactNotFound });
-          console.error(error);
+          // console.error(error);
         });
     });
   }
