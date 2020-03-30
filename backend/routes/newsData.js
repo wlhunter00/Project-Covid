@@ -103,7 +103,7 @@ const availableCountriesCheap = [
   "it",
   "gr"
 ];
-
+// Post request instead of get request
 router.post("/", async (req, res) => {
   var locCountry = "us";
   if (Object.keys(req.body).length != 0) {
