@@ -59,11 +59,10 @@ export function PageButton({
     >
       <View style={styles.navButton}>
         {icon}
-        <View style={{ marginLeft: 15 }}>
+        <View style={{ marginLeft: 15, flex: 1 }}>
           <Text style={styles.navButtonTitle}>{title}</Text>
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>
-        <View style={{ flex: 1 }} />
         <Entypo name="chevron-thin-right" color={colors.textcolor}/>
       </View>
     </TouchableHighlight>

@@ -127,7 +127,7 @@ const allStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.accentcolor,
     borderRadius: 5,
-    height: 78,
+    minHeight: 78,
     shadowColor: "rgba(67, 160, 71, 0.2)",
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
