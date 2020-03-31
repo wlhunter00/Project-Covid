@@ -10,7 +10,6 @@ import {
 import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { StandardText } from "../components/Texts";
-import { Pages } from 'react-native-pages';
 import PageControl from "react-native-page-control";
 
 const PADDING = 15;
@@ -136,9 +135,10 @@ export function StatsView({ stats }) {
       />
       <PageControl
         currentPage={currentPage}
-        numberOfPages={3}
+        numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
-        currentPageIndicatorTintColor={colors.primarycolor} style={{marginTop: 30}}/>
+        currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }}hidesForSinglePage />
+      
       </View>
     );
   }
