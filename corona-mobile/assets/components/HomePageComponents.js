@@ -102,16 +102,17 @@ export function StatsView({ stats }) {
   const { colors, isDark } = useStyle();
 
   // Set up the different stats pages
-  let statsItems = [
-    { stats: stats.Global_Stats, title: "the World", key: 0 }
-  ];
+  let statsItems = [];
+
+  if (stats.Province_Stats) {
+    statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 0 });
+  }
 
   if (stats.Country_Stats) {
     statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country, key: 1 });
   }
-  if (stats.Province_Stats) {
-    statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 2 });
-  }
+
+  statsItems.push( { stats: stats.Global_Stats, title: "the World", key: 2 })
 
   // https://stackoverflow.com/questions/48045696/flatlist-scrollview-error-on-any-state-change-invariant-violation-changing-on
   const onViewRef = React.useRef(({ viewableItems }) => {
