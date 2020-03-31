@@ -21,7 +21,7 @@ export function Section({ title, children, titleRight }) {
     return (
         <View style={[styles.homeScreenSection, styles.shadow]}>
             {title && (
-                <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10}}>
                     <StandardText fontSize="subtitle" isBold >{title}</StandardText>
                     <View style={{ flex: 1 }} />
                     {titleRight}
@@ -122,7 +122,7 @@ export function StatsView({ stats }) {
 
 
   return (
-      <View style={{ marginBottom: 15, marginTop: 5, marginHorizontal: -15, alignItems: "stretch" }}>
+      <View style={{ marginBottom: 15,  marginHorizontal: -15, alignItems: "stretch" }}>
       <FlatList
         horizontal
         data={statsItems}
