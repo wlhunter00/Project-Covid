@@ -127,7 +127,7 @@ export function SimpleButton({ title, action, hasChevron }) {
   return (
     <TouchableOpacity onPress={action} style={{flexDirection: "row", alignItems: "center"}}>
       <Text style={styles.linkButtonTitle}>{title}</Text>
-      {hasChevron && <Entypo name="chevron-thin-right" color={colors.primarycolor} size={20}/>}
+      {hasChevron && <Entypo name="chevron-thin-right" color={colors.primarycolor} size={20} style={{paddingTop: 2}}/>}
       
     </TouchableOpacity>
   );

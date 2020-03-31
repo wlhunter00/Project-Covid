@@ -22,7 +22,7 @@ export function Section({ title, children, titleRight }) {
         <View style={[styles.homeScreenSection, styles.shadow]}>
             {title && (
                 <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
-                    <StandardText fontSize="subtitle" isBold >{title}</StandardText>
+                    <StandardText style={{width: '60%'}} fontSize="subtitle" isBold >{title}</StandardText>
                     <View style={{ flex: 1 }} />
                     {titleRight}
                 </View>
