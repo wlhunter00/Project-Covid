@@ -29,11 +29,11 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.projectcovid.projectcovid",
+      "bundleIdentifier": "com.lfr.projectcovid",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.projectcovid.projectcovid",
+      "package": "com.lfr.projectcovid",
       "versionCode": 1
     }
   }
