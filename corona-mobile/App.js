@@ -48,7 +48,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   const { styles, colors, isDark } = useStyle();
-  console.log(colors);
+
   const globalScreenOptions = {
     headerStyle: {
       backgroundColor: colors.primarycolor

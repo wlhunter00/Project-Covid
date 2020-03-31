@@ -23,7 +23,6 @@ export async function registerForPushNotifications() {
 export async function getSymptoms(updateFunc) {
   await axios.post(`${BASE_URL}/symptoms/allData`, {
   }).then(response => {
-    console.log(response.data);
     updateFunc(response.data);
     return response.data;
   }).catch(error => {

@@ -37,8 +37,6 @@ export function Section({ title, children, titleRight }) {
     const { urlToImage, url, title, publishedAt, description } = article;
 
     const { styles, colors } = useStyle("divider");
-
-    console.log(article)
   
     const d = new Date(publishedAt);
     const formatOptions = { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" };

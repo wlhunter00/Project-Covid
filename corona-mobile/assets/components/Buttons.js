@@ -140,7 +140,7 @@ export function ImageButton({ title, source, body, navigation }){
   const dimensions = Dimensions.get("window");
   const imageHeight = Math.round((dimensions.width * 3) / 4);
   const imageWidth = dimensions.width;
-  console.log(styles)
+
   return (
     <TouchableWithoutFeedback 
       style={styles.imageButtonHeader} 

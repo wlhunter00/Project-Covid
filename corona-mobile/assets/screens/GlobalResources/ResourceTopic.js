@@ -26,8 +26,6 @@ class ResourceTopic extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props.route.params)
-    console.log('asdf')
     this.props.navigation.setOptions({
       title: this.props.route.params.title,
       gestureResponseDistance: {
@@ -66,7 +64,7 @@ class ResourceTopic extends React.Component {
               {this.props.route.params.title}
             </Text>
           )}>
-          <View style={[this.props.styles.container, {height: '100%', paddingTop: 15, paddingHorizontal: 15}]}>
+          <View style={[this.props.styles.container, {height: '100%', paddingTop: 15, paddingHorizontal: 15, paddingBottom: 7}]}>
             {this.props.route.params.body}
           </View>
         </ParallaxScrollView>

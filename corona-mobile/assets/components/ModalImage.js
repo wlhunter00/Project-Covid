@@ -116,7 +116,6 @@ class ModalImage extends React.Component {
 
   handleOnScroll = event => {
     this.setState({ scrollOffset: event.nativeEvent.contentOffset.y });
-    console.log(this.state.scrollOffset);
   };
 
   handleScrollTo = p => {
