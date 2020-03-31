@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { WebView } from "react-native-webview";
-import { AntDesign } from "@expo/vector-icons"
+import { AntDesign } from "@expo/vector-icons";
 
 export default function TrackerStatus({ route, navigation }) {
   let webview;
@@ -15,24 +15,31 @@ export default function TrackerStatus({ route, navigation }) {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity onPress={reload}>
-          <AntDesign name="reload1" color="white" size={20} style={{marginRight: 20}}/>
+          <AntDesign
+            name="reload1"
+            color="white"
+            size={20}
+            style={{ marginRight: 20 }}
+          />
         </TouchableOpacity>
-      ),
+      )
     });
   }, [navigation, reload]);
 
   return (
     <View style={localStyles.container}>
       <WebView
-        originWhitelist={["*"]}
+        originWhitelist={["https://coronavirus.app"]}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          uri: "https://coronavirus.app/map?embed=true"
+          uri: "https://coronavirus.app/map?selected=US"
         }}
-        style={{flex:1}}
-        ref={r => { webview = r }}
+        style={{ flex: 1 }}
+        ref={r => {
+          webview = r;
+        }}
       />
     </View>
   );
@@ -43,5 +50,5 @@ const localStyles = StyleSheet.create({
     flex: 1,
     alignItems: "stretch",
     backgroundColor: "#F5FCFF"
-  },
+  }
 });
