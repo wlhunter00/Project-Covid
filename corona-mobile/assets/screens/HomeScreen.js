@@ -7,14 +7,14 @@ import {
   View,
   Image,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../APIService";
-import ParallaxScrollView from "react-native-parallax-scroll-view"
+import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
 
@@ -53,20 +53,20 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={[styles.container]}>
       <ParallaxScrollView
-        parallaxHeaderHeight={260}
-        stickyHeaderHeight={88}
+        parallaxHeaderHeight={270}
+        stickyHeaderHeight={89}
         backgroundColor={colors.backgroundcolor}
         contentBackgroundColor={colors.backgroundcolor}
         renderBackground={() => (<View style={styles.container}></View>)}
         renderForeground={() => (
           <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15}}>
             <Image source={logo} style={{ height: 90, width: 90 }} />
-            <StandardText fontSize="title" isBold style={{
+            <StandardText allowFontScaling={true} fontSize="title" isBold style={{
               marginBottom: 10
             }}>
               Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
             </StandardText>
-            <StandardText>
+            <StandardText allowFontScaling={false}>
               Live tracking and resources to help you get through the pandemic.
             </StandardText>
           </View>

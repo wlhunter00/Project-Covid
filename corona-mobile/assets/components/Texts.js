@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text } from "react-native";
 import { useStyle } from "../styles/styles";
 
-export function StandardText({ children, fontSize, isBold, numberOfLines, style}) {
+export function StandardText({ children, fontSize, isBold, numberOfLines, style, allowFontScaling=true}) {
     const { styles } = useStyle("normalText");
     var realFontSize;
     switch (fontSize) {
@@ -26,6 +26,7 @@ export function StandardText({ children, fontSize, isBold, numberOfLines, style}
             ]
         }
             numberOfLines={numberOfLines}
+            allowFontScaling={allowFontScaling}
         >
             {children}
         </Text>
