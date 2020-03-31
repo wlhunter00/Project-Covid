@@ -84,7 +84,7 @@ export default function HomeScreen({ navigation }) {
         contentContainerStyle={{ paddingHorizontal: 15 }}
       >
 
-        <Section >
+        <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ?
               <StatsView stats={stats.stats}/> : <ErrorBox />
