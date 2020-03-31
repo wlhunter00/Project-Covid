@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Text,
   View,
   Image,
   TouchableOpacity,
+  FlatList,
+  Dimensions
 } from "react-native";
 import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { StandardText } from "../components/Texts";
 import { Pages } from 'react-native-pages';
+import PageControl from "react-native-page-control";
+
+const PADDING = 15;
+const WINDOW_WIDTH = Dimensions.get('window').width;
+const PAGE_WIDTH = WINDOW_WIDTH - 2 * PADDING;
 
 export function Section({ title, children, titleRight }) {
     const { styles } = useStyle("homeScreenSection", "shadow");
@@ -72,10 +79,9 @@ const SmallStat = ({ name, val }) => {
 };
 
 function StatsPage({ stats, title }) {
-    const { styles, colors } = useStyle("divider");
-    
+  const { styles, colors } = useStyle("divider");
     return (
-        <View style={{ paddingHorizontal: 15 }}>
+        <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH}}>
             <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{fontWeight: '300'}}>for {title}</Text></StandardText>
             <View style={[styles.divider, {marginVertical: 15}]}/>
             <BigStat name="Confirmed Cases" val={stats["TotalConfirmed"] || stats["Confirmed"]} />
@@ -92,19 +98,47 @@ function StatsPage({ stats, title }) {
 }
   
 export function StatsView({ stats }) {
-    const { colors } = useStyle();
-    
-    return (
-        <View style={{ marginBottom: 15, marginTop: 5, marginHorizontal: -15 }}>
-            <Pages containerStyle={{ height: 290 }} indicatorColor={colors.textcolor}>
-                <StatsPage stats={stats["Global_Stats"]} key="Global" title="the World"/>
-                {stats.Country_Stats &&
-                    <StatsPage stats={stats["Country_Stats"]} key="National" title={stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country} />
-                }
-                {stats.Province_Stats && 
-                    <StatsPage stats={stats["Province_Stats"]} key="Local" title={stats.Province_Stats.Name} />
-                }
-            </Pages>
+  const [currentPage, changePage] = useState(0);
+
+  const { colors, isDark } = useStyle();
+
+  // Set up the different stats pages
+  let statsItems = [
+    { stats: stats.Global_Stats, title: "the World", key: 0 }
+  ];
+
+  if (stats.Country_Stats) {
+    statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country, key: 1 });
+  }
+  if (stats.Province_Stats) {
+    statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 2 });
+  }
+
+  // https://stackoverflow.com/questions/48045696/flatlist-scrollview-error-on-any-state-change-invariant-violation-changing-on
+  const onViewRef = React.useRef(({ viewableItems }) => {
+    const newPageNum = viewableItems[0].item.key;
+    changePage(newPageNum);
+  });
+  const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 50 });
+
+
+  return (
+      <View style={{ marginBottom: 15, marginTop: 5, marginHorizontal: -15, alignItems: "stretch" }}>
+      <FlatList
+        horizontal
+        data={statsItems}
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={item => item.title}
+        renderItem={({ item }) => <StatsPage stats={item.stats} title={item.title} />}
+        onViewableItemsChanged={onViewRef.current}
+        viewabilityConfig={viewConfigRef.current}
+      />
+      <PageControl
+        currentPage={currentPage}
+        numberOfPages={3}
+        pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
+        currentPageIndicatorTintColor={colors.primarycolor} style={{marginTop: 30}}/>
       </View>
     );
   }

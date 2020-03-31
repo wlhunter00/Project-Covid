@@ -59,7 +59,7 @@ export default function HomeScreen({ navigation }) {
         contentBackgroundColor={colors.backgroundcolor}
         renderBackground={() => (<View style={styles.container}></View>)}
         renderForeground={() => (
-          <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15 }}>
+          <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15}}>
             <Image source={logo} style={{ height: 90, width: 90 }} />
             <StandardText fontSize="title" isBold style={{
               marginBottom: 10
