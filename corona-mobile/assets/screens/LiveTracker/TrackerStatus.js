@@ -34,7 +34,7 @@ export default function TrackerStatus({ route, navigation }) {
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          uri: "https://coronavirus.app/map?selected=US"
+          uri: "https://coronavirus.app/map"
         }}
         style={{ flex: 1 }}
         ref={r => {
