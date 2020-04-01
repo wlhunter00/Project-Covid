@@ -219,6 +219,75 @@ router.post("/cheap", async (req, res) => {
   }
 });
 
+router.post("/address", async (req, res) => {
+  var locCountry = "us";
+  if (Object.keys(req.body).length != 0) {
+    var location = req.body;
+    let address = location.adminArea1.toLowerCase();
+    if (availableCountries.includes(address)) {
+      locCountry = address;
+    } else {
+      locCountry = "N/A";
+    }
+  } else {
+    locCountry = "N/A";
+  }
+  var params = {
+    q: "virus",
+    country: locCountry
+  };
+  if (locCountry === "N/A") {
+    console.log("invalid country");
+    delete params.country;
+    params.language = "en";
+  }
+  console.log(params);
+  try {
+    newsapi.v2.topHeadlines(params).then(response => {
+      return res.send(response.articles);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/address/cheap", async (req, res) => {
+  var locCountry = "us";
+  if (Object.keys(req.body).length != 0) {
+    var location = req.body;
+    let address = location.adminArea1.toLowerCase();
+    if (availableCountries.includes(address)) {
+      locCountry = address;
+    } else {
+      locCountry = "N/A";
+    }
+  } else {
+    locCountry = "N/A";
+  }
+  var params = {
+    keywords: "virus",
+    language: "en",
+    country: locCountry
+  };
+  if (locCountry === "us") {
+    params.domain = "npr.org";
+  } else if (locCountry === "N/A") {
+    console.log("invalid country");
+    delete params.country;
+    params.language = "en";
+  } else {
+    delete params.language;
+  }
+  console.log(params);
+  try {
+    currentsapi.search(params).then(response => {
+      return res.send(response.news);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 function parseCoord(loc) {
   try {
     // var loc = JSON.parse(request);
