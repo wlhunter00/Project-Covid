@@ -61,7 +61,7 @@ export default function HomeScreen({ navigation }) {
         renderForeground={() => (
           <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15}}>
             <Image source={logo} style={{ height: 90, width: 90 }} />
-            <StandardText allowFontScaling={true} fontSize="title" isBold style={{
+            <StandardText fontSize="title" isBold style={{
               marginBottom: 10
             }}>
               Project<Text style={{ fontWeight: "normal" }}>Covid</Text>

@@ -12,7 +12,6 @@ import HomeScreen from "./assets/screens/HomeScreen";
 
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
-import SymptomCheck from "./assets/screens/SymptomCheck/SymptomCheck";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
 import CenterFinder from "./assets/screens/TestingCenters/CenterFinder";
 import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
@@ -42,7 +41,7 @@ import {
   MaterialCommunityIcons
 } from "@expo/vector-icons";
 import WebViewScreen from "./assets/screens/WebViewScreen";
-import { Diagnosis } from "./assets/screens/SymptomCheck/Diagnosis";
+import { SymptomsList } from "./assets/screens/SymptomCheck/SymptomsList";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -65,11 +64,11 @@ export default function App() {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={({ navigation, route }) => ({
-        headerRight: () =>
+        headerRight: ({tintColor}) =>
           route.name !== "Home" && (
             <Entypo
               name="home"
-              color={"white"}
+              color={tintColor}
               size={25}
               style={{ marginRight: 20 }}
               onPress={() => {
@@ -149,8 +148,8 @@ export default function App() {
       />
       <Stack.Screen
         name="Symptoms"
-        component={Diagnosis}
-        options={{ title: "Symptoms" }}
+        component={SymptomsList}
+        options={{ title: "", headerTransparent: true, headerTintColor: colors.primarycolor }}
       />
       <Stack.Screen
         name="WebView"

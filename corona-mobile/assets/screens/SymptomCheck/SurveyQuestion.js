@@ -7,7 +7,7 @@ import {
   Image
 } from "react-native";
 import { ActionButton } from "../../components/Buttons";
-import { ResponseTextBox } from "../../components/TextBoxes";
+import { StandardTextBox } from "../../components/TextBoxes";
 import { useStyle } from "../../styles/styles";
 
 export function MultipleChoiceQuestion({
@@ -83,7 +83,7 @@ export function ShortAnswerQuestion({
       <View>
         <Text style={[styles.surveyQuestionText, {marginTop: 15}]}>{prompt}</Text>
         <View>
-          <ResponseTextBox
+          <StandardTextBox
             defaultText={defaultText}
             changeFunction={setAnswer}
           />

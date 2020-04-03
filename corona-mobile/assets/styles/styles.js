@@ -231,15 +231,11 @@ const allStyles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 3,
     borderRadius: 2,
-    borderColor: "#ddd",
-    borderBottomWidth: 3,
     borderColor: colors.primarycolor,
-    height: 40,
     shadowRadius: 2,
     elevation: 1,
     marginHorizontal: 10,
-    marginTop: 15,
-    marginBottom: 15,
+    marginVertical: 15,
     padding: 10
   },
   textBoxDark: {
