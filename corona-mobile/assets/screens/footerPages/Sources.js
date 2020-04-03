@@ -108,17 +108,6 @@ export default function Sources({ route, navigation }) {
         typeSource={"News Outlet"}
         sourcesList={[
           {
-            title: "Xinhua Net",
-            url: "http://www.xinhuanet.com/english/2020-01/09/c_138690570.html",
-            headline: "New-type coronavirus causes pneumonia in Wuhan: expert"
-          },
-          {
-            title: "Science Daily",
-            headline: "CT provides best diagnosis for COVID-19",
-            url:
-              "https://www.sciencedaily.com/releases/2020/02/200226151951.html"
-          },
-          {
             title: "Time Magazine",
             headline:
               "Experimental COVID-19 Vaccine Test Begins as U.S. Volunteer Receives First Shot",

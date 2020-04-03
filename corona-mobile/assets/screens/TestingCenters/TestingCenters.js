@@ -136,43 +136,36 @@ function LocalSourceObject() {
 }
 
 function ContactNotFound() {
+  const { styles } = useStyle("bioText", "positionText", "container");
 
-  const { styles } = useStyle("bioText", "positionText", "container")
-
-  return(
+  return (
     <View>
-      <Text
-        style={[
-          styles.positionText,
-          { paddingBottom: 10, paddingTop: 0 }
-        ]}
-      >
+      <Text style={[styles.positionText, { paddingBottom: 10, paddingTop: 0 }]}>
         We're currently unable to identify your location
       </Text>
-  
+
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-      • Contact your health provider or a nearby urgent care center
+        • Contact your health provider or a nearby urgent care center
       </Text>
-  
+
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-      • Use a telemedicine service - Teladoc
+        • Use a telemedicine service - Teladoc
       </Text>
-  
+
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-      • Call 9-1-1 if a medical emergency
+        • Call 9-1-1 if a medical emergency
       </Text>
-  
+
       <Text style={[styles.bioText, { paddingBottom: 10 }]}>
-      • Contact state/county health department (211 if no number is listed)
+        • Contact state/county health department (211 if no number is listed)
       </Text>
-  
+
       <Text style={[styles.positionText, { paddingBottom: 10 }]}>
         Please enable location services to find state contact information
       </Text>
     </View>
   );
 }
-
 
 export default function StyledTestingCenters() {
   const { styles, colors } = useStyle("bioText", "positionText", "container");
@@ -200,24 +193,24 @@ class TestingCenters extends React.Component {
         body: JSON.stringify(locResp)
       })
         .then(response => {
-          if(response.ok){
-            return response.json()
+          if (response.ok) {
+            return response.json();
           }
           const contactNotFound = <ContactNotFound />;
           this.setState({ contact: contactNotFound });
         })
         .then(responseJson => {
-
-          if(responseJson === undefined) {return;}
+          if (responseJson === undefined) {
+            return;
+          }
 
           if (responseJson.hasOwnProperty("message")) {
-            this.setState({ isLoaded: true, contact: <ContactNotFound/> });
+            this.setState({ isLoaded: true, contact: <ContactNotFound /> });
           } else {
             this.setState({ isLoaded: true, location: responseJson });
             const contact = <ContactInfo location={this.state.location} />;
             this.setState({ contact: contact });
           }
-
         })
         .catch(error => {
           const contactNotFound = <ContactNotFound />;
@@ -254,7 +247,7 @@ class TestingCenters extends React.Component {
           title="Step 2"
           body={
             <Text style={styles.bioText}>
-              To be tested, you must be apporved by your healthcare provider or
+              To be tested, you must be approved by your healthcare provider or
               health department according to state criteria based on symptoms or
               if you've had exposure to an infected individual.
             </Text>
