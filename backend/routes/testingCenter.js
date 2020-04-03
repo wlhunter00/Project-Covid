@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 var request = require("request-promise");
-const centerData = require("./../data/Testing-Center-Data.json");
+const centerDataUS = require("./../data/Testing-Center-Data-US.json");
 
 router.post("/", async (req, res) => {
   if (Object.keys(req.body).length === 0) {
@@ -48,6 +48,34 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/address", async (req, res) => {
+  if (Object.keys(req.body).length === 0) {
+    return res.status(400).send({
+      message: "Could not read location!"
+    });
+  }
+  var location = req.body;
+  if (location === undefined || location.length == 0) {
+    return res.status(400).send({
+      message: "Could not parse location!"
+    });
+  }
+  address = location["adminArea3"];
+  if (address === undefined || address.length == 0) {
+    return res.status(400).send({
+      message: "Could not parse location!"
+    });
+  }
+  try {
+    let stateInfo = await getStateInfo(address);
+    return res.send(stateInfo);
+  } catch (err) {
+    return res.status(400).send({
+      message: err
+    });
+  }
+});
+
 function parseCoord(loc) {
   try {
     // var loc = JSON.parse(request);
@@ -60,9 +88,9 @@ function parseCoord(loc) {
 }
 
 async function getStateInfo(address) {
-  for (const prop in centerData) {
-    if (centerData[prop].Abbreviation === address) {
-      return centerData[prop];
+  for (const prop in centerDataUS) {
+    if (centerDataUS[prop].Abbreviation === address) {
+      return centerDataUS[prop];
     }
   }
   console.log(address);

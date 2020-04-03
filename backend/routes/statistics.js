@@ -183,4 +183,129 @@ router.post("/", async (req, res) => {
   return res.send(stats);
 });
 
+router.post("/address", async (req, res) => {
+  // Get country statistics
+  var stats = {
+    Global_Stats: {
+      NewConfirmed: 0,
+      TotalConfirmed: 0,
+      NewDeaths: 0,
+      TotalDeaths: 0,
+      NewRecovered: 0,
+      TotalRecovered: 0
+    }
+  };
+  var locationData = false;
+  var globalData = false;
+  var stateData = false;
+  var stateName;
+  var stateConfirmed;
+  var stateRecovered;
+  var stateDeaths;
+  var countryData = [];
+  var countryCode;
+  var stateCode;
+
+  try {
+    if (Object.keys(req.body).length != 0) {
+      var address = req.body;
+      let county = address.adminArea4;
+      let state = address.adminArea3;
+      stateCode = getStateAbrev(state.toLowerCase());
+      let country = address.adminArea1;
+      countryCode = getCountryAbrev(country.toLowerCase());
+      locationData = true;
+    }
+  } catch (err) {
+    console.log(err);
+    locationData = false;
+  }
+  try {
+    await request("https://api.covid19api.com/summary", function(
+      error,
+      response,
+      body
+    ) {
+      countryData = JSON.parse(body);
+      countryData = countryData.Countries;
+    });
+    // Set global data
+    globalData = true;
+  } catch (err) {
+    return res.status(400).send({
+      message: err
+    });
+  }
+  if (locationData) {
+    var dateObj = new Date();
+    dateObj.setHours(dateObj.getHours() - 2);
+    const statusCodes = ["Confirmed", "Recovered", "Deaths"];
+    for (const code in statusCodes) {
+      var reqURL =
+        "https://api.covid19api.com/live/country/" +
+        countryCode +
+        "/status/" +
+        statusCodes[code].toLowerCase() +
+        "/date/" +
+        dateObj.toISOString();
+      try {
+        await request(reqURL, function(error, response, body) {
+          tempStateData = JSON.parse(body);
+          for (const prop in tempStateData) {
+            if (tempStateData[prop].Province === stateCode) {
+              stateName = tempStateData[prop]["Province"];
+              if (statusCodes[code] === "Confirmed") {
+                stateConfirmed = tempStateData[prop]["Cases"];
+                stateData = true;
+              }
+              if (statusCodes[code] === "Recovered") {
+                stateRecovered = tempStateData[prop]["Cases"];
+                stateData = true;
+              }
+              if (statusCodes[code] === "Deaths") {
+                console.log("here");
+                console.log(tempStateData[prop]["Cases"]);
+                stateDeaths = tempStateData[prop]["Cases"];
+                stateData = true;
+              }
+            }
+          }
+        });
+      } catch (err) {
+        return res.status(400).send({
+          message: err
+        });
+      }
+    }
+  }
+  if (globalData) {
+    for (const prop in countryData) {
+      stats.Global_Stats.NewConfirmed += countryData[prop].NewConfirmed;
+      stats.Global_Stats.TotalConfirmed += countryData[prop].TotalConfirmed;
+      stats.Global_Stats.NewDeaths += countryData[prop].NewDeaths;
+      stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
+      stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
+      stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
+    }
+    if (locationData) {
+      for (const prop in countryData) {
+        if (countryData[prop].Slug === countryCode) {
+          console.log("Country match!");
+          stats.Country_Stats = countryData[prop];
+        }
+      }
+    }
+  }
+  if (stateData) {
+    stats.Province_Stats = {
+      Name: stateName,
+      Confirmed: stateConfirmed,
+      Recovered: stateRecovered,
+      Deaths: stateDeaths
+    };
+  }
+
+  return res.send(stats);
+});
+
 module.exports = router;
