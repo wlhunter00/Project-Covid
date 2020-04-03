@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
         });
       }
       let address = location[0];
-      res.send(address);
+      return res.send(address);
     });
   } catch (err) {
     return res.status(400).send({
