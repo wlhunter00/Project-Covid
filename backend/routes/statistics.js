@@ -57,6 +57,8 @@ router.post("/", async (req, res) => {
   var countryData = [];
   var countryCode;
   var stateCode;
+  var globalDate;
+  var stateDate;
   try {
     if (Object.keys(req.body).length != 0) {
       var serverLocation = req.body;
@@ -101,8 +103,9 @@ router.post("/", async (req, res) => {
       response,
       body
     ) {
-      countryData = JSON.parse(body);
-      countryData = countryData.Countries;
+      bodyData = JSON.parse(body);
+      globalDate = new Date(bodyData.Date);
+      countryData = bodyData.Countries;
     });
     // Set global data
     globalData = true;
@@ -129,6 +132,7 @@ router.post("/", async (req, res) => {
           for (const prop in tempStateData) {
             if (tempStateData[prop].Province === stateCode) {
               stateName = tempStateData[prop]["Province"];
+              stateDate = tempStateData[prop]["Date"];
               if (statusCodes[code] === "Confirmed") {
                 stateConfirmed = tempStateData[prop]["Cases"];
                 stateData = true;
@@ -138,8 +142,6 @@ router.post("/", async (req, res) => {
                 stateData = true;
               }
               if (statusCodes[code] === "Deaths") {
-                console.log("here");
-                console.log(tempStateData[prop]["Cases"]);
                 stateDeaths = tempStateData[prop]["Cases"];
                 stateData = true;
               }
@@ -161,6 +163,7 @@ router.post("/", async (req, res) => {
       stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
       stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
       stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
+      stats.Global_Stats.Updated = globalDate;
     }
     if (locationData) {
       for (const prop in countryData) {
@@ -169,6 +172,7 @@ router.post("/", async (req, res) => {
           stats.Country_Stats = countryData[prop];
         }
       }
+      stats.Country_Stats.Updated = globalDate;
     }
   }
   if (stateData) {
@@ -176,7 +180,8 @@ router.post("/", async (req, res) => {
       Name: stateName,
       Confirmed: stateConfirmed,
       Recovered: stateRecovered,
-      Deaths: stateDeaths
+      Deaths: stateDeaths,
+      Updated: stateDate
     };
   }
 
@@ -205,6 +210,8 @@ router.post("/address", async (req, res) => {
   var countryData = [];
   var countryCode;
   var stateCode;
+  var globalDate;
+  var stateDate;
 
   try {
     if (Object.keys(req.body).length != 0) {
@@ -226,8 +233,9 @@ router.post("/address", async (req, res) => {
       response,
       body
     ) {
-      countryData = JSON.parse(body);
-      countryData = countryData.Countries;
+      bodyData = JSON.parse(body);
+      globalDate = new Date(bodyData.Date);
+      countryData = bodyData.Countries;
     });
     // Set global data
     globalData = true;
@@ -254,6 +262,7 @@ router.post("/address", async (req, res) => {
           for (const prop in tempStateData) {
             if (tempStateData[prop].Province === stateCode) {
               stateName = tempStateData[prop]["Province"];
+              stateDate = tempStateData[prop]["Date"];
               if (statusCodes[code] === "Confirmed") {
                 stateConfirmed = tempStateData[prop]["Cases"];
                 stateData = true;
@@ -263,8 +272,6 @@ router.post("/address", async (req, res) => {
                 stateData = true;
               }
               if (statusCodes[code] === "Deaths") {
-                console.log("here");
-                console.log(tempStateData[prop]["Cases"]);
                 stateDeaths = tempStateData[prop]["Cases"];
                 stateData = true;
               }
@@ -286,6 +293,7 @@ router.post("/address", async (req, res) => {
       stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
       stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
       stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
+      stats.Global_Stats.Updated = globalDate;
     }
     if (locationData) {
       for (const prop in countryData) {
@@ -294,6 +302,7 @@ router.post("/address", async (req, res) => {
           stats.Country_Stats = countryData[prop];
         }
       }
+      stats.Country_Stats.Updated = globalDate;
     }
   }
   if (stateData) {
@@ -301,7 +310,8 @@ router.post("/address", async (req, res) => {
       Name: stateName,
       Confirmed: stateConfirmed,
       Recovered: stateRecovered,
-      Deaths: stateDeaths
+      Deaths: stateDeaths,
+      Updated: stateDate
     };
   }
 
