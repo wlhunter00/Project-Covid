@@ -9,7 +9,6 @@ import { SourceItem } from "../../components/FooterComponents";
 import { ResponseTextBox } from "../../components/TextBoxes";
 
 
-
 export function Diagnosis({ navigation, response }) {
   const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent", "compactNameSmall");
   const [searched, changeSearched] = React.useState([]);
