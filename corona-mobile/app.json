@@ -5,7 +5,6 @@
     "backgroundColor": "#d1dbd0",
     "slug": "project-covid",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
