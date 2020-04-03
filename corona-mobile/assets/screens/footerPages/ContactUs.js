@@ -52,9 +52,15 @@ export default function ContactUs({ route, navigation }) {
           marginBottom: 40
         }}
       >
+        <View style={[styles.boxContainer, { marginBottom: 20 }]}>
+          <Text style={[styles.subtitle, { marginTop: 0 }]}>
+            For app-related inquiries reach out to us at
+            info@LFRinternational.org.
+          </Text>
+        </View>
         <View style={[styles.boxContainer, { marginBottom: 0 }]}>
           <Text style={[styles.subtitle, { marginTop: 0 }]}>
-            Also feel free to reach out to us at info@LFRinternational.org.
+            For press inquiries please reach out to satvik@runawayapp.com.
           </Text>
         </View>
       </View>

@@ -26,8 +26,6 @@ import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
 
-
-
 export default function StyledMentalHealth() {
   const { styles } = useStyle("container", "resourceText");
   const navigation = useNavigation();
@@ -49,28 +47,30 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                    • Feelings of numbness, disbelief, anxiety or fear
+                      • Feelings of numbness, disbelief, anxiety or fear
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Changes in appetite, energy, and activity levels
+                      • Changes in appetite, energy, and activity levels
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Difficulty concentrating
+                      • Difficulty concentrating
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Difficulty sleeping or nightmares and upsetting thoughts and images
+                      • Difficulty sleeping or nightmares and upsetting thoughts
+                      and images
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Physical reactions, such as headaches, body pains, stomach problems, and skin rashes
+                      • Physical reactions, such as headaches, body pains,
+                      stomach problems, and skin rashes
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Worsening of chronic health problems
+                      • Worsening of chronic health problems
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Anger or short-temper
+                      • Anger or short-temper
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Increased use of alcohol, tobacco, or other drugs
+                      • Increased use of alcohol, tobacco, or other drugs
                     </Text>
                   </View>
                 }
@@ -80,16 +80,21 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                    • If distress impacts activities of your daily life for several days or weeks, talk to a clergy member, counselor, or doctor, or contact the SAMHSA helpline at 1-800-985-5990.” - CDC
+                      • "If distress impacts activities of your daily life for
+                      several days or weeks, talk to a clergy member, counselor,
+                      or doctor, or contact the SAMHSA helpline at
+                      1-800-985-5990.” - CDC
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Sleeping well, exercising and maintaining a healthy diet will promote your mental health
+                      • Sleeping well, exercising and maintaining a healthy diet
+                      will promote your mental health
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Take mental breaks, time to unwind and reflect. Deep breathing. Do activities you usually enjoy
+                      • Take mental breaks, time to unwind and reflect. Deep
+                      breathing. Do activities you usually enjoy
                     </Text>
                     <Text style={this.props.styles.resourceText}>
-                    • Share your concerns and feelings with friends and family
+                      • Share your concerns and feelings with friends and family
                     </Text>
                   </View>
                 }
@@ -100,17 +105,14 @@ class MentalHealth extends React.Component {
                 sourcesList={[
                   {
                     title: "CDC",
-                    url:
-                      "https://emergency.cdc.gov/coping/selfcare.asp",
-                    headline:
-                    "Taking Care of Your Emotional Health"
+                    url: "https://emergency.cdc.gov/coping/selfcare.asp",
+                    headline: "Taking Care of Your Emotional Health"
                   },
                   {
                     title: "NCBI",
                     url:
                       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470658/",
-                    headline:
-                    "Exercise for Mental Health"
+                    headline: "Exercise for Mental Health"
                   },
                   {
                     title: "The clay Center for Young Healthy Minds",
@@ -136,7 +138,10 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      MHA has compiled a range of resources and information to assist you and your community. Visit if you’re looking for mental health information and resources related to COVID-19, isolation, anxiety, stress, and more
+                      MHA has compiled a range of resources and information to
+                      assist you and your community. Visit if you’re looking for
+                      mental health information and resources related to
+                      COVID-19, isolation, anxiety, stress, and more
                     </Text>
                   </View>
                 }
@@ -146,7 +151,12 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Rethink My Therapy is the most affordable virtual mental health counseling in America. Members are able to book unlimited 45-minute therapy sessions, with the counselor of their choice for $60/month. It works just like in-person counseling, except the experience is more affordable and convenient
+                      Rethink My Therapy is the most affordable virtual mental
+                      health counseling in America. Members are able to book
+                      unlimited 45-minute therapy sessions, with the counselor
+                      of their choice for $60/month. It works just like
+                      in-person counseling, except the experience is more
+                      affordable and convenient
                     </Text>
                   </View>
                 }
@@ -156,7 +166,8 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      NAMI hosts online communities where people can share encouragement
+                      NAMI hosts online communities where people can share
+                      encouragement
                     </Text>
                   </View>
                 }
@@ -166,7 +177,11 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      7 Cups is an app and online resource that lets you chat with a trained listener for emotional support and counseling. It also offers online therapy with a licensed mental health professional. Services are also offered in Spanish
+                      7 Cups is an app and online resource that lets you chat
+                      with a trained listener for emotional support and
+                      counseling. It also offers online therapy with a licensed
+                      mental health professional. Services are also offered in
+                      Spanish
                     </Text>
                   </View>
                 }
@@ -176,7 +191,10 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Support Group Central offers virtual support groups on numerous mental health conditions for free or low-cost. This website is also offered in many different languages, including Chinese and Spanish
+                      Support Group Central offers virtual support groups on
+                      numerous mental health conditions for free or low-cost.
+                      This website is also offered in many different languages,
+                      including Chinese and Spanish
                     </Text>
                   </View>
                 }
@@ -186,7 +204,9 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Betterhelp is an app that offers individual, couples, or teens counseling. Licensed therapists are available through text, video, and audio
+                      Betterhelp is an app that offers individual, couples, or
+                      teens counseling. Licensed therapists are available
+                      through text, video, and audio
                     </Text>
                   </View>
                 }
@@ -196,7 +216,10 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      The Tribe Wellness Community is a free, online peer support network that gives members facing mental health challenges and/or difficult family dynamics a safe place to connect
+                      The Tribe Wellness Community is a free, online peer
+                      support network that gives members facing mental health
+                      challenges and/or difficult family dynamics a safe place
+                      to connect
                     </Text>
                   </View>
                 }
@@ -206,7 +229,8 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Psych Central offers online mental health resources, quizzes, news, and an “Ask the Therapist” function
+                      Psych Central offers online mental health resources,
+                      quizzes, news, and an “Ask the Therapist” function
                     </Text>
                   </View>
                 }
@@ -216,7 +240,9 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Talkspace matches you to a licensed therapist, available five days a week for text, video, and audio messaging. Talkspace is also available as an app
+                      Talkspace matches you to a licensed therapist, available
+                      five days a week for text, video, and audio messaging.
+                      Talkspace is also available as an app
                     </Text>
                   </View>
                 }
@@ -226,7 +252,9 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      For Like Minds is an online mental health support network that allows individuals to connect with others who are experiencing stressful life events
+                      For Like Minds is an online mental health support network
+                      that allows individuals to connect with others who are
+                      experiencing stressful life events
                     </Text>
                   </View>
                 }
@@ -236,7 +264,9 @@ class MentalHealth extends React.Component {
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      18percent offers a free, peer-to-peer online support community for those struggling with a wide range of mental health issues."
+                      18percent offers a free, peer-to-peer online support
+                      community for those struggling with a wide range of mental
+                      health issues."
                     </Text>
                   </View>
                 }
@@ -258,14 +288,16 @@ class MentalHealth extends React.Component {
     const { styles } = this.props;
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{paddingVertical: 10}}>
+        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
           {this.state.list.map(item => {
-            return <ImageButton 
-              title={item.title} 
-              source={item.image}
-              body={item.body}
-              navigation={this.props.navigation}
-            />;
+            return (
+              <ImageButton
+                title={item.title}
+                source={item.image}
+                body={item.body}
+                navigation={this.props.navigation}
+              />
+            );
           })}
         </ScrollView>
       </View>

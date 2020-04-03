@@ -146,7 +146,7 @@ export default function Team({ route, navigation }) {
       />
       <CompactTeamMemberBox
         name="Gus Velasquez"
-        position="Research"
+        position="Volunteer, Research Curator"
         schoolAndYear="Harvard Medical School"
       />
       <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
@@ -156,6 +156,11 @@ export default function Team({ route, navigation }) {
         name="Zach Eisner"
         position="Operations Director"
         schoolAndYear="Washington University, St. Louis, Junior"
+      />
+      <CompactTeamMemberBox
+        name="Peter Delaney"
+        position="Executive Director"
+        schoolAndYear="University of Michigan School of Medicine"
       />
     </ScrollView>
   );
