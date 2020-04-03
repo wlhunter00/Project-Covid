@@ -6,28 +6,23 @@ import { Diagnosis } from "./Diagnosis.js";
 import { useStyle } from "./../../styles/styles.js";
 import { getSymptoms } from './../../APIService.js';
 
-
 export default function SymptomCheck({ navigation }) {
   const { styles } = useStyle("container");
 
-  const [backendResponse, changeBackendResponse] = React.useState("");
   const [parResp, changeParResp] = React.useState("");
   const [instanceKey, setInstanceKey] = React.useState(0);
   const [firstSet, changeFirst] = React.useState(true);
 
-
-  React.useEffect(() => {
-    getSymptoms(changeBackendResponse);
-  }, []);
-  
-  if (firstSet && backendResponse !== "") {
+  const response = require("./../../Symptom-Percentages.json");
+  console.log(response);
+  if (firstSet && response !== "") {
     changeFirst(false);
     let sympt = [];
-    for (var a in backendResponse) {
-      if (backendResponse[a]["Percentage"]) {
+    for (var a in response) {
+      if (response[a]["Percentage"]) {
         sympt.push({
-          title: backendResponse[a]["Symptom"],
-          body: backendResponse[a]["Percentage"]
+          title: response[a]["Symptom"],
+          body: response[a]["Percentage"]
         });
       }
     }
