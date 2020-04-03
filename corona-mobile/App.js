@@ -42,6 +42,7 @@ import {
   MaterialCommunityIcons
 } from "@expo/vector-icons";
 import WebViewScreen from "./assets/screens/WebViewScreen";
+import { Diagnosis } from "./assets/screens/SymptomCheck/Diagnosis";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -148,7 +149,7 @@ export default function App() {
       />
       <Stack.Screen
         name="Symptoms"
-        component={SymptomCheck}
+        component={Diagnosis}
         options={{ title: "Symptoms" }}
       />
       <Stack.Screen

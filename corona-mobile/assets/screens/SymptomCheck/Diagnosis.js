@@ -1,44 +1,46 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, ScrollView, FlatList } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useStyle } from "./../../styles/styles.js";
 import { ActionButton } from "../../components/Buttons";
 import { InfoViewDiagnosis } from "./../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
 import { ResponseTextBox } from "../../components/TextBoxes";
+import { getSymptoms } from "../../APIService.js";
+
+const symptomData = require("../");
 
 
-
-export function Diagnosis({ navigation, response }) {
+export function Diagnosis({ navigation }) {
   const { styles } = useStyle("sectionTitle", "container", "boxContainer", "surveyQuestionText", "scrollViewContent", "compactNameSmall");
-  const [searched, changeSearched] = React.useState([]);
-  const [firstSet, changeFirst] = React.useState(true);
 
+  const [allSymptoms, setAllSymptoms] = useState([]);
+  const [currentSearchQuery, setSearchQuery] = useState("");
+  const [errorLoading, setErrorLoading] = useState(null);
+
+  // Load the symptoms
+  // React.useEffect(() => {
+  //   const fetchSymptoms = async () => {
+  //     const resp = await getSymptoms();
+  //     console.log(resp);
+  //     if (!resp.errorMessage) {
+  //       setAllSymptoms(resp);
+  //     } else {
+  //       console.log(resp.errorMessage);
+  //       setErrorLoading(resp.errorMessage);
+  //     }
+  //   }
+
+  //   fetchSymptoms()
+  // }, [])
+
+  // Load the symptoms
+  React.useEffect(() => {
+    setAllSymptoms(symptomData);
+  },[])
+
+  const isSearching = currentSearchQuery && currentSearchQuery === ""
   
-
-  if (firstSet && response !== "") {
-    changeFirst(false);
-    changeSearched(response);
-  }
-
-  const setSearched = React.useCallback(event => {
-    if (typeof event.target == 'undefined' || event.nativeEvent.text.trim() == "") {
-      if (response !== "") {
-        changeSearched(response);
-      }
-    }
-    else if (typeof event.target != 'undefined') {
-      if (response !== "") {
-        changeSearched(response.filter(symptom => symptom.title.includes(event.nativeEvent.text)));
-      }
-      }
-      event.persist();
-    },
-    [response]
-  );
-
-  
+  const symptomsToDisplay = !isSearching ? allSymptoms : allSymptoms.filter(symptom => symptom.title.includes(currentSearchQuery));
 
   
   return (
@@ -50,8 +52,10 @@ export function Diagnosis({ navigation, response }) {
           <Text style={[styles.compactNameSmall, {textAlignVertical:'center', alignSelf:'center'}]}>Search:</Text>
           <View style={{flex: 1, width: 100, alignSelf: 'center', justifyContent: 'center'}}>
           <ResponseTextBox
-            defaultText={""}
-            changeFunction={setSearched}
+              defaultText={""}
+              onChangeText={(value) => {
+                setSearchQuery(value);
+              }}
             />
           </View>
         </View>
@@ -59,12 +63,12 @@ export function Diagnosis({ navigation, response }) {
       </View>
       
       <FlatList
-        data={searched}
+        data={allSymptoms}
         renderItem={({ item }) => (
           <InfoViewDiagnosis
-            title={item.title}
+            title={item.Symptom}
             body={
-              item.body +
+              item.Percentage +
               "% of people who tested positive have this symptom."
             }
           />

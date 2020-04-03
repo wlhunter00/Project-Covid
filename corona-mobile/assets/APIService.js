@@ -21,13 +21,12 @@ export async function registerForPushNotifications() {
 }
 
 export async function getSymptoms(updateFunc) {
-  await axios.post(`${BASE_URL}/symptoms/allData`, {
-  }).then(response => {
-    updateFunc(response.data);
-    return response.data;
-  }).catch(error => {
+  try {
+    const resp = await axios.post(`${BASE_URL}/symptoms/allData`);
+    return resp.data;
+  } catch (error) {
     console.log(error);
-  })
+  }
 }
 
 export async function getTopNews() {
