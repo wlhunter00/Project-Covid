@@ -19,6 +19,7 @@ export default function WebViewScreen({ route, navigation }) {
         domStorageEnabled={true}
         startInLoadingState={true}
         originWhitelist={(originWhitelist === undefined) ? ["*"] : originWhitelist}
+        mediaPlaybackRequiresUserAction={true}
       />
     </View>
   );
