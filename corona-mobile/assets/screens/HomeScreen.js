@@ -142,7 +142,11 @@ export default function HomeScreen({ navigation }) {
 
         <PageButton
           title="Live Twitter Feed"
-          navigationName="TwitterFeed"
+          navigationName="WebView"
+          navigationParams={{
+            url: "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw",
+            title: "Curated Tweets"
+          }}
           icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
           description="View a curated feed from reliable sources."
           navigation={navigation}

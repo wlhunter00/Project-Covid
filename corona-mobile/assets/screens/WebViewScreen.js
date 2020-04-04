@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { WebView } from "react-native-webview";
 import { useStyle } from "../styles/styles";
-const MAX_LENGTH = 25;
 
 export default function WebViewScreen({ route, navigation }) {
   const { styles } = useStyle("container");
-  const { url, title } = route.params;
-  navigation.setOptions({ title: "Latest News" })
+  const { url, title, originWhitelist } = route.params;
+  navigation.setOptions({ title: title })
+
+  console.log(route.params)
 
   return (
     <View style={styles.container}>
@@ -17,7 +18,7 @@ export default function WebViewScreen({ route, navigation }) {
         javaScriptEnabled={true}
         domStorageEnabled={true}
         startInLoadingState={true}
-        originWhitelist={["*"]}
+        originWhitelist={(originWhitelist === undefined) ? ["*"] : originWhitelist}
       />
     </View>
   );
