@@ -21,7 +21,7 @@ function getStateAbrev(abbreviation) {
       return stateNames[prop].name;
     }
   }
-  console.log("No Country Name Found!");
+  console.log("No State Name Found!");
   return null;
 }
 
@@ -31,7 +31,7 @@ function getCountryAbrev(abbreviation) {
       return countryNames[prop].name.toLowerCase();
     }
   }
-  console.log("No State Name Found!");
+  console.log("No Country Name Found!");
   return null;
 }
 
@@ -47,6 +47,16 @@ router.post("/", async (req, res) => {
       TotalRecovered: 0
     }
   };
+  var prettyStats = {
+    Global_Stats: {
+      NewConfirmed: "",
+      TotalConfirmed: "",
+      NewDeaths: "",
+      TotalDeaths: "",
+      NewRecovered: "",
+      TotalRecovered: ""
+    }
+  }
   var locationData = false;
   var globalData = false;
   var stateData = false;
@@ -158,34 +168,48 @@ router.post("/", async (req, res) => {
   if (globalData) {
     for (const prop in countryData) {
       stats.Global_Stats.NewConfirmed += countryData[prop].NewConfirmed;
+      prettyStats.Global_Stats.NewConfirmed = stats.Global_Stats.NewConfirmed.toLocaleString('en-US')
       stats.Global_Stats.TotalConfirmed += countryData[prop].TotalConfirmed;
+      prettyStats.Global_Stats.TotalConfirmed = stats.Global_Stats.TotalConfirmed.toLocaleString('en-US')
       stats.Global_Stats.NewDeaths += countryData[prop].NewDeaths;
+      prettyStats.Global_Stats.NewDeaths = stats.Global_Stats.NewDeaths.toLocaleString('en-US')
       stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
+      prettyStats.Global_Stats.TotalDeaths = stats.Global_Stats.TotalDeaths.toLocaleString('en-US')
       stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
+      prettyStats.Global_Stats.NewRecovered = stats.Global_Stats.NewRecovered.toLocaleString('en-US')
       stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
-      stats.Global_Stats.Updated = globalDate;
+      prettyStats.Global_Stats.TotalRecovered = stats.Global_Stats.TotalRecovered.toLocaleString('en-US')
+      prettyStats.Global_Stats.Updated = globalDate;
     }
     if (locationData) {
       for (const prop in countryData) {
         if (countryData[prop].Slug === countryCode) {
           console.log("Country match!");
           stats.Country_Stats = countryData[prop];
+          prettyStats.Country_Stats = {}
         }
       }
-      stats.Country_Stats.Updated = globalDate;
+      for(const prop in stats.Country_Stats) {
+        if(typeof stats.Country_Stats[prop]=="number"){
+            prettyStats.Country_Stats[prop] = stats.Country_Stats[prop].toLocaleString('en-US');
+        }else{
+          prettyStats.Country_Stats[prop] = stats.Country_Stats[prop]
+        }
+        prettyStats.Country_Stats.Updated = globalDate;
+      }
     }
   }
-  if (stateData) {
-    stats.Province_Stats = {
-      Name: stateName,
-      Confirmed: stateConfirmed,
-      Recovered: stateRecovered,
-      Deaths: stateDeaths,
-      Updated: stateDate
-    };
-  }
+    if (stateData) {
+      prettyStats.Province_Stats = {
+        Name: stateName,
+        Confirmed: stateConfirmed.toLocaleString('en-US'),
+        Recovered: stateRecovered.toLocaleString('en-US'),
+        Deaths: stateDeaths.toLocaleString('en-US'),
+        Updated: stateDate
+      };
+    }
 
-  return res.send(stats);
+  return res.send(prettyStats);
 });
 
 router.post("/address", async (req, res) => {
