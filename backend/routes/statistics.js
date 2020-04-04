@@ -56,16 +56,19 @@ router.post("/", async (req, res) => {
       NewRecovered: "",
       TotalRecovered: ""
     }
-  }
+  };
   var locationData = false;
   var globalData = false;
   var stateData = false;
+  var stateCountry;
   var stateName;
   var stateConfirmed;
   var stateRecovered;
   var stateDeaths;
+  var stateActives;
   var countryData = [];
   var countryCode;
+  var country;
   var stateCode;
   var globalDate;
   var stateDate;
@@ -90,22 +93,20 @@ router.post("/", async (req, res) => {
               let county = address.adminArea4;
               let state = address.adminArea3;
               stateCode = getStateAbrev(state.toLowerCase());
-              let country = address.adminArea1;
+              country = address.adminArea1;
               countryCode = getCountryAbrev(country.toLowerCase());
               locationData = true;
             }
           });
         } catch (err) {
-          return res.status(400).send({
-            message: err
-          });
+          console.log(err);
+          locationData = false;
         }
       }
     }
   } catch (err) {
-    return res.status(400).send({
-      message: err
-    });
+    console.log(err);
+    locationData = false;
   }
   try {
     await request("https://api.covid19api.com/summary", function(
@@ -113,9 +114,9 @@ router.post("/", async (req, res) => {
       response,
       body
     ) {
-      bodyData = JSON.parse(body);
-      globalDate = new Date(bodyData.Date);
+      let bodyData = JSON.parse(body);
       countryData = bodyData.Countries;
+      globalDate = new Date(bodyData.Date);
     });
     // Set global data
     globalData = true;
@@ -125,89 +126,94 @@ router.post("/", async (req, res) => {
     });
   }
   if (locationData) {
-    var dateObj = new Date();
-    dateObj.setHours(dateObj.getHours() - 2);
-    const statusCodes = ["Confirmed", "Recovered", "Deaths"];
-    for (const code in statusCodes) {
-      var reqURL =
-        "https://api.covid19api.com/live/country/" +
-        countryCode +
-        "/status/" +
-        statusCodes[code].toLowerCase() +
-        "/date/" +
-        dateObj.toISOString();
-      try {
-        await request(reqURL, function(error, response, body) {
-          tempStateData = JSON.parse(body);
-          for (const prop in tempStateData) {
-            if (tempStateData[prop].Province === stateCode) {
-              stateName = tempStateData[prop]["Province"];
-              stateDate = tempStateData[prop]["Date"];
-              if (statusCodes[code] === "Confirmed") {
-                stateConfirmed = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-              if (statusCodes[code] === "Recovered") {
-                stateRecovered = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-              if (statusCodes[code] === "Deaths") {
-                stateDeaths = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-            }
+    var reqURL =
+      "https://api.covid19api.com/live/country/" +
+      countryCode +
+      "/status/confirmed";
+    try {
+      await request(reqURL, function(error, response, body) {
+        tempStateData = JSON.parse(body);
+        for (const prop in tempStateData) {
+          if (tempStateData[prop].Province === stateCode) {
+            console.log("state match");
+            stateCountry = tempStateData[prop]["Country"];
+            stateName = tempStateData[prop]["Province"];
+            stateDate = tempStateData[prop]["Date"];
+            stateConfirmed = tempStateData[prop]["Confirmed"];
+            stateDeaths = tempStateData[prop]["Deaths"];
+            stateRecovered = tempStateData[prop]["Recovered"];
+            stateActives = tempStateData[prop]["Active"];
+            stateData = true;
           }
-        });
-      } catch (err) {
-        return res.status(400).send({
-          message: err
-        });
-      }
+        }
+      });
+    } catch (err) {
+      return res.status(400).send({
+        message: err
+      });
     }
   }
   if (globalData) {
     for (const prop in countryData) {
       stats.Global_Stats.NewConfirmed += countryData[prop].NewConfirmed;
-      prettyStats.Global_Stats.NewConfirmed = stats.Global_Stats.NewConfirmed.toLocaleString('en-US')
+      prettyStats.Global_Stats.NewConfirmed = stats.Global_Stats.NewConfirmed.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalConfirmed += countryData[prop].TotalConfirmed;
-      prettyStats.Global_Stats.TotalConfirmed = stats.Global_Stats.TotalConfirmed.toLocaleString('en-US')
+      prettyStats.Global_Stats.TotalConfirmed = stats.Global_Stats.TotalConfirmed.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.NewDeaths += countryData[prop].NewDeaths;
-      prettyStats.Global_Stats.NewDeaths = stats.Global_Stats.NewDeaths.toLocaleString('en-US')
+      prettyStats.Global_Stats.NewDeaths = stats.Global_Stats.NewDeaths.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
-      prettyStats.Global_Stats.TotalDeaths = stats.Global_Stats.TotalDeaths.toLocaleString('en-US')
+      prettyStats.Global_Stats.TotalDeaths = stats.Global_Stats.TotalDeaths.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
-      prettyStats.Global_Stats.NewRecovered = stats.Global_Stats.NewRecovered.toLocaleString('en-US')
+      prettyStats.Global_Stats.NewRecovered = stats.Global_Stats.NewRecovered.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
-      prettyStats.Global_Stats.TotalRecovered = stats.Global_Stats.TotalRecovered.toLocaleString('en-US')
+      prettyStats.Global_Stats.TotalRecovered = stats.Global_Stats.TotalRecovered.toLocaleString(
+        "en-US"
+      );
       prettyStats.Global_Stats.Updated = globalDate;
     }
     if (locationData) {
       for (const prop in countryData) {
-        if (countryData[prop].Slug === countryCode) {
+        if (countryData[prop].CountryCode === country) {
           console.log("Country match!");
           stats.Country_Stats = countryData[prop];
-          prettyStats.Country_Stats = {}
+          prettyStats.Country_Stats = {};
         }
       }
-      for(const prop in stats.Country_Stats) {
-        if(typeof stats.Country_Stats[prop]=="number"){
-            prettyStats.Country_Stats[prop] = stats.Country_Stats[prop].toLocaleString('en-US');
-        }else{
-          prettyStats.Country_Stats[prop] = stats.Country_Stats[prop]
+      for (const prop in stats.Country_Stats) {
+        if (typeof stats.Country_Stats[prop] == "number") {
+          prettyStats.Country_Stats[prop] = stats.Country_Stats[
+            prop
+          ].toLocaleString("en-US");
+        } else {
+          prettyStats.Country_Stats[prop] = stats.Country_Stats[prop];
         }
-        prettyStats.Country_Stats.Updated = globalDate;
+        prettyStats.Country_Stats.Updated = stats.Country_Stats.Date;
+        delete prettyStats.Country_Stats.Date;
+        delete prettyStats.Country_Stats.Differences;
       }
     }
   }
-    if (stateData) {
-      prettyStats.Province_Stats = {
-        Name: stateName,
-        Confirmed: stateConfirmed.toLocaleString('en-US'),
-        Recovered: stateRecovered.toLocaleString('en-US'),
-        Deaths: stateDeaths.toLocaleString('en-US'),
-        Updated: stateDate
-      };
-    }
+  if (stateData) {
+    prettyStats.Province_Stats = {
+      Country: stateCountry,
+      Name: stateName,
+      Confirmed: stateConfirmed.toLocaleString("en-US"),
+      Recovered: stateRecovered.toLocaleString("en-US"),
+      Deaths: stateDeaths.toLocaleString("en-US"),
+      Actives: stateActives.toLocaleString("en-US"),
+      Updated: stateDate
+    };
+  }
 
   return res.send(prettyStats);
 });
@@ -224,15 +230,28 @@ router.post("/address", async (req, res) => {
       TotalRecovered: 0
     }
   };
+  var prettyStats = {
+    Global_Stats: {
+      NewConfirmed: "",
+      TotalConfirmed: "",
+      NewDeaths: "",
+      TotalDeaths: "",
+      NewRecovered: "",
+      TotalRecovered: ""
+    }
+  };
   var locationData = false;
   var globalData = false;
   var stateData = false;
+  var stateCountry;
   var stateName;
   var stateConfirmed;
   var stateRecovered;
   var stateDeaths;
+  var stateActives;
   var countryData = [];
   var countryCode;
+  var country;
   var stateCode;
   var globalDate;
   var stateDate;
@@ -243,7 +262,7 @@ router.post("/address", async (req, res) => {
       let county = address.adminArea4;
       let state = address.adminArea3;
       stateCode = getStateAbrev(state.toLowerCase());
-      let country = address.adminArea1;
+      country = address.adminArea1;
       countryCode = getCountryAbrev(country.toLowerCase());
       locationData = true;
     }
@@ -257,9 +276,9 @@ router.post("/address", async (req, res) => {
       response,
       body
     ) {
-      bodyData = JSON.parse(body);
-      globalDate = new Date(bodyData.Date);
+      let bodyData = JSON.parse(body);
       countryData = bodyData.Countries;
+      globalDate = new Date(bodyData.Date);
     });
     // Set global data
     globalData = true;
@@ -269,77 +288,96 @@ router.post("/address", async (req, res) => {
     });
   }
   if (locationData) {
-    var dateObj = new Date();
-    dateObj.setHours(dateObj.getHours() - 2);
-    const statusCodes = ["Confirmed", "Recovered", "Deaths"];
-    for (const code in statusCodes) {
-      var reqURL =
-        "https://api.covid19api.com/live/country/" +
-        countryCode +
-        "/status/" +
-        statusCodes[code].toLowerCase() +
-        "/date/" +
-        dateObj.toISOString();
-      try {
-        await request(reqURL, function(error, response, body) {
-          tempStateData = JSON.parse(body);
-          for (const prop in tempStateData) {
-            if (tempStateData[prop].Province === stateCode) {
-              stateName = tempStateData[prop]["Province"];
-              stateDate = tempStateData[prop]["Date"];
-              if (statusCodes[code] === "Confirmed") {
-                stateConfirmed = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-              if (statusCodes[code] === "Recovered") {
-                stateRecovered = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-              if (statusCodes[code] === "Deaths") {
-                stateDeaths = tempStateData[prop]["Cases"];
-                stateData = true;
-              }
-            }
+    var reqURL =
+      "https://api.covid19api.com/live/country/" +
+      countryCode +
+      "/status/confirmed";
+    try {
+      await request(reqURL, function(error, response, body) {
+        tempStateData = JSON.parse(body);
+        for (const prop in tempStateData) {
+          if (tempStateData[prop].Province === stateCode) {
+            console.log("state match");
+            stateCountry = tempStateData[prop]["Country"];
+            stateName = tempStateData[prop]["Province"];
+            stateDate = tempStateData[prop]["Date"];
+            stateConfirmed = tempStateData[prop]["Confirmed"];
+            stateDeaths = tempStateData[prop]["Deaths"];
+            stateRecovered = tempStateData[prop]["Recovered"];
+            stateActives = tempStateData[prop]["Active"];
+            stateData = true;
           }
-        });
-      } catch (err) {
-        return res.status(400).send({
-          message: err
-        });
-      }
+        }
+      });
+    } catch (err) {
+      return res.status(400).send({
+        message: err
+      });
     }
   }
   if (globalData) {
     for (const prop in countryData) {
       stats.Global_Stats.NewConfirmed += countryData[prop].NewConfirmed;
+      prettyStats.Global_Stats.NewConfirmed = stats.Global_Stats.NewConfirmed.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalConfirmed += countryData[prop].TotalConfirmed;
+      prettyStats.Global_Stats.TotalConfirmed = stats.Global_Stats.TotalConfirmed.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.NewDeaths += countryData[prop].NewDeaths;
+      prettyStats.Global_Stats.NewDeaths = stats.Global_Stats.NewDeaths.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalDeaths += countryData[prop].TotalDeaths;
+      prettyStats.Global_Stats.TotalDeaths = stats.Global_Stats.TotalDeaths.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.NewRecovered += countryData[prop].NewRecovered;
+      prettyStats.Global_Stats.NewRecovered = stats.Global_Stats.NewRecovered.toLocaleString(
+        "en-US"
+      );
       stats.Global_Stats.TotalRecovered += countryData[prop].TotalRecovered;
-      stats.Global_Stats.Updated = globalDate;
+      prettyStats.Global_Stats.TotalRecovered = stats.Global_Stats.TotalRecovered.toLocaleString(
+        "en-US"
+      );
+      prettyStats.Global_Stats.Updated = globalDate;
     }
     if (locationData) {
       for (const prop in countryData) {
-        if (countryData[prop].Slug === countryCode) {
+        if (countryData[prop].CountryCode === country) {
           console.log("Country match!");
           stats.Country_Stats = countryData[prop];
+          prettyStats.Country_Stats = {};
         }
       }
-      stats.Country_Stats.Updated = globalDate;
+      for (const prop in stats.Country_Stats) {
+        if (typeof stats.Country_Stats[prop] == "number") {
+          prettyStats.Country_Stats[prop] = stats.Country_Stats[
+            prop
+          ].toLocaleString("en-US");
+        } else {
+          prettyStats.Country_Stats[prop] = stats.Country_Stats[prop];
+        }
+        prettyStats.Country_Stats.Updated = stats.Country_Stats.Date;
+        delete prettyStats.Country_Stats.Date;
+        delete prettyStats.Country_Stats.Differences;
+      }
     }
   }
   if (stateData) {
-    stats.Province_Stats = {
+    prettyStats.Province_Stats = {
+      Country: stateCountry,
       Name: stateName,
-      Confirmed: stateConfirmed,
-      Recovered: stateRecovered,
-      Deaths: stateDeaths,
+      Confirmed: stateConfirmed.toLocaleString("en-US"),
+      Recovered: stateRecovered.toLocaleString("en-US"),
+      Deaths: stateDeaths.toLocaleString("en-US"),
+      Actives: stateActives.toLocaleString("en-US"),
       Updated: stateDate
     };
   }
 
-  return res.send(stats);
+  return res.send(prettyStats);
 });
 
 module.exports = router;
