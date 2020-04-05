@@ -101,6 +101,17 @@ export function StatsView({ stats }) {
 
   const { colors, isDark } = useStyle();
 
+  const dateToTime = date => date.toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric'
+  });
+
+  let localDate = "";
+  if (stats.Country_Stats) {
+    const lastUpdatedString = stats.Country_Stats.Updated;
+    localDate = new Date(lastUpdatedString);
+  }
+  
   // Set up the different stats pages
   let statsItems = [];
 
@@ -139,7 +150,7 @@ export function StatsView({ stats }) {
         numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
         currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }}hidesForSinglePage />
-      
+      <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', textSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDate)}</Text>
       </View>
     );
   }
