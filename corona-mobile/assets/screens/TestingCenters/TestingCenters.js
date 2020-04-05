@@ -10,7 +10,7 @@ import {
   Linking
 } from "react-native";
 
-import { getLocationAsync } from "../../Utils";
+import { getLocationAsync } from "../../utils/LocationAPI";
 import { ScrollView } from "react-native-gesture-handler";
 
 import { InfoView } from "./../../components/InfoView";

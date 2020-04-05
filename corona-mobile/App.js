@@ -42,6 +42,7 @@ import {
 } from "@expo/vector-icons";
 import WebViewScreen from "./assets/screens/WebViewScreen";
 import { SymptomsList } from "./assets/screens/SymptomCheck/SymptomsList";
+import LocationRequest from "./assets/components/LocationRequest";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -241,7 +242,8 @@ export default function App() {
 
   return (
     <AppearanceProvider>
-      <StatusBar barStyle={isDark ? "light-content" : "dark-content"}/>
+      <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
+      <LocationRequest/>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({

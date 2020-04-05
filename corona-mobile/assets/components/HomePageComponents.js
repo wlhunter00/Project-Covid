@@ -120,7 +120,7 @@ export function StatsView({ stats }) {
   }
 
   if (stats.Country_Stats) {
-    statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country, key: 1 });
+    statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "United States of America" ? "the US" : stats.Country_Stats.Country, key: 1 });
   }
 
   statsItems.push( { stats: stats.Global_Stats, title: "the World", key: 2 })
@@ -150,7 +150,7 @@ export function StatsView({ stats }) {
         numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
         currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }}hidesForSinglePage />
-      <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', textSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDate)}</Text>
+      <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginHorizontal: 15, marginTop: 15, textAlign: "right" }}>Last updated: {dateToTime(localDate)}</Text>
       </View>
     );
   }

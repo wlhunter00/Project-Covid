@@ -13,42 +13,19 @@ import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } 
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
-import { getTopNews, getLatestStats } from "../APIService";
+import { getTopNews, getLatestStats } from "../utils/APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
+import { useLatestStats, useTopNews } from "../utils/Hooks";
 
 const logo = require("../images/logo-notext.png")
 
 export default function HomeScreen({ navigation }) {
   const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
 
-  const [topNews, setTopNews] = useState(null);
-  const [stats, setStats] = useState(null);
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      const resp = await getTopNews();
-      if (!resp.error) {
-        setTopNews({ news: resp.slice(0, 4) });
-      } else {
-        setTopNews({ error: "Could not reach server."})
-      }
-    }
-    fetchNews();
-  }, []);
-
-  useEffect(() => {
-    const fetchStats = async () => {
-      const resp = await getLatestStats();
-      if (!resp.error) {
-        setStats({ stats: resp });
-      } else {
-        setStats({ error: "Could not reach server" });
-      }
-    }
-    fetchStats();
-  }, []);
+  const topNews = useTopNews();
+  const stats = useLatestStats();
 
   return (
     <View style={[styles.container]}>
@@ -88,7 +65,7 @@ export default function HomeScreen({ navigation }) {
           {stats ? (
             stats.stats ?
               <StatsView stats={stats.stats}/> : <ErrorBox />
-          ) : <ActivityIndicator style={{ height: 200 }} />}
+          ) : <ActivityIndicator style={{ height: 280 }} />}
         </Section>
         
         <Section title="Latest News" titleRight={
