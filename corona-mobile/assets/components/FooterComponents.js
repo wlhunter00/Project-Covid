@@ -156,7 +156,7 @@ export function SourceLink({ url, title, navigation, headline }) {
     >
       <View style={styles.sourcesBox}>
           <Text style={styles.headerTextBold}>{title}</Text>
-          <Text style={styles.underlineText}> {headline} </Text>
+          <Text style={styles.underlineText}>{headline}</Text>
       </View>
     </TouchableOpacity>
   );
