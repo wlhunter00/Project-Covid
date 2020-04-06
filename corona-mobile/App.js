@@ -11,9 +11,7 @@ import { useStyle } from "./assets/styles/styles";
 import HomeScreen from "./assets/screens/HomeScreen";
 
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
-import NewsScreen from "./assets/screens/LatestNews/NewsScreen";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
-import CenterFinder from "./assets/screens/TestingCenters/CenterFinder";
 import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
 import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
@@ -22,7 +20,6 @@ import PreventativePractices from "./assets/screens/GlobalResources/PreventivePr
 import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
-import TwitterFeed from "./assets/screens/TwitterFeed.js";
 import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
 
 import AboutScreen from "./assets/screens/AboutScreen";
@@ -30,10 +27,8 @@ import Team from "./assets/screens/footerPages/Team.js";
 import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 import ContactUs from "./assets/screens/footerPages/ContactUs.js";
-import ViewSource from "./assets/screens/ViewSource.js";
 import PrivacyPolicy from "./assets/screens/footerPages/PrivacyPolicy.js";
 import AboutLFR from "./assets/screens/footerPages/AboutLFR/AboutLFR.js";
-import LFRSite from "./assets/screens/footerPages/AboutLFR/LFRSite.js";
 
 import {
   Entypo,
@@ -96,7 +91,6 @@ export default function App() {
           title: "Latest News"
         }}
       />
-      <Stack.Screen name="NewsScreen" component={NewsScreen} />
       <Stack.Screen
         name="GlobalResources"
         options={{ title: "Global Resources" }}
@@ -138,9 +132,8 @@ export default function App() {
         options={{title: ""}}
       />
       <Stack.Screen
-        name="TwitterFeed"
-        component={TwitterFeed}
-        options={{ title: "Curated Tweets" }}
+        name="WebView"
+        component={WebViewScreen}
       />
       <Stack.Screen
         name="Sources"
@@ -151,15 +144,6 @@ export default function App() {
         name="Symptoms"
         component={SymptomsList}
         options={{ title: "", headerTransparent: true, headerTintColor: colors.primarycolor }}
-      />
-      <Stack.Screen
-        name="WebView"
-        component={WebViewScreen}
-      />
-      <Stack.Screen
-        name="ViewSource"
-        component={ViewSource}
-        options={{ title: "View the Source" }}
       />
     </Stack.Navigator>
   );
@@ -188,9 +172,8 @@ export default function App() {
         options={{ title: "About the App" }}
       />
       <Stack.Screen
-        name="ViewSource"
-        component={ViewSource}
-        options={{ title: "View the Source" }}
+        name="WebView"
+        component={WebViewScreen}
       />
       <Stack.Screen
         name="ContactUs"
@@ -212,7 +195,6 @@ export default function App() {
         component={AboutLFR}
         options={{ title: "About LFR" }}
       />
-      <Stack.Screen name="LFRSite" component={LFRSite} />
       <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
     </Stack.Navigator>
   );
@@ -228,14 +210,8 @@ export default function App() {
         component={TestingCenters}
       />
       <Stack.Screen
-        name="CenterFinder"
-        options={{ title: "Center Information" }}
-        component={CenterFinder}
-      />
-      <Stack.Screen
-        name="ViewSource"
-        options={{ title: "View Source" }}
-        component={ViewSource}
+        name="WebView"
+        component={WebViewScreen}
       />
     </Stack.Navigator>
   );

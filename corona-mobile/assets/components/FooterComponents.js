@@ -148,8 +148,9 @@ export function SourceLink({ url, title, navigation, headline }) {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("ViewSource", {
-          url: url
+        navigation.navigate("WebView", {
+          url: url,
+          title: "View Source"
         });
       }}
       style={{ marginTop: 10 }}

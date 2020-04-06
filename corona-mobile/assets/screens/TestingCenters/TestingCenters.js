@@ -67,8 +67,9 @@ function ContactInfo(location) {
             <ActionButton
               title="Crisis Contact"
               action={() => {
-                navigation.navigate("CenterFinder", {
-                  url: location.location["Local Info"]
+                navigation.navigate("WebView", {
+                  url: location.location["Local Info"],
+                  title: "Center Info"
                 });
               }}
               style={{ marginBottom: 10 }}
@@ -78,8 +79,9 @@ function ContactInfo(location) {
           <ActionButton
             title="Visit Website"
             action={() => {
-              navigation.navigate("CenterFinder", {
-                url: location.location["URL"]
+              navigation.navigate("WebView", {
+                url: location.location["URL"],
+                title: "Center Website"
               });
             }}
           />
