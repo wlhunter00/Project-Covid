@@ -29,7 +29,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lfr.projectcovid",
-      "buildNumber": "1.0.0"
+      "buildNumber": "2"
     },
     "android": {
       "package": "com.lfr.projectcovid",
