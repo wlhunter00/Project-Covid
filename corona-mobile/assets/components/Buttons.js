@@ -44,6 +44,7 @@ export function PageButton({
   navigation,
   title,
   navigationName,
+  navigationParams,
   icon,
   description,
 }) {
@@ -52,7 +53,11 @@ export function PageButton({
   return (
     <TouchableHighlight
       onPress={() => {
-        navigation.navigate(navigationName);
+        navigation.navigate(navigationName, (navigationParams !== undefined) && {
+          url: navigationParams.url,
+          title: navigationParams.title, 
+          originWhiteList: navigationParams.originWhiteList
+        });
       }}
       style={{ marginBottom: 15, borderRadius: 5 }}
     >
@@ -73,8 +78,10 @@ export function SiteButton({ site, navigation }) {
   return (
     <TouchableHighlight
       onPress={() => {
-        navigation.navigate("NewsScreen", {
-          site: site
+        navigation.navigate("WebView", {
+          url: site.source,
+          title: site.title,
+          originWhiteList: site.originWhiteList
         });
       }}
       style={{ marginBottom: 15, borderRadius: 5 }}
@@ -98,8 +105,9 @@ export function VisitButton({ site, navigation, style }) {
   return (
     <TouchableOpacity 
       onPress={() => {
-        navigation.navigate("LFRSite", {
-          site: site
+        navigation.navigate("WebView", {
+          url: site.source,
+          title: site.title
         });
       }}
       style={[styles.actionButton, style]}>

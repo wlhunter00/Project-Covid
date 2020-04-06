@@ -67,8 +67,9 @@ function ContactInfo(location) {
             <ActionButton
               title="Crisis Contact"
               action={() => {
-                navigation.navigate("CenterFinder", {
-                  url: location.location["Local Info"]
+                navigation.navigate("WebView", {
+                  url: location.location["Local Info"],
+                  title: "Center Info"
                 });
               }}
               style={{ marginBottom: 10 }}
@@ -78,8 +79,9 @@ function ContactInfo(location) {
           <ActionButton
             title="Visit Website"
             action={() => {
-              navigation.navigate("CenterFinder", {
-                url: location.location["URL"]
+              navigation.navigate("WebView", {
+                url: location.location["URL"],
+                title: "Center Website"
               });
             }}
           />
@@ -235,26 +237,17 @@ class TestingCenters extends React.Component {
           title="Step 1"
           body={
             <Text style={styles.bioText}>
-              If you're feeling sick and exhibit symptoms of COVID-19, you
-              should contact your primary healthcare provider if possible, else
-              use a telemedicine app (Teladoc), or contact the health deparment
-              based on your state.
+              To be tested, you must be approved by your primary care provider
+              (PCP) or other medical professional/facility (urgent care,
+              telehealth application (Teladoc), hospital, health department) to
+              meet state criteria based on symptoms or exposure to a confirmed
+              case.
             </Text>
           }
         />
         <InfoView title="Contact Information" body={this.state.contact} />
         <InfoView
           title="Step 2"
-          body={
-            <Text style={styles.bioText}>
-              To be tested, you must be approved by your healthcare provider or
-              health department according to state criteria based on symptoms or
-              if you've had exposure to an infected individual.
-            </Text>
-          }
-        />
-        <InfoView
-          title="Step 3"
           body={
             <Text style={styles.bioText}>
               The test procedure involves taking a swab of the patient's nose.
@@ -265,7 +258,7 @@ class TestingCenters extends React.Component {
           }
         />
         <InfoView
-          title="Step 4"
+          title="Step 3"
           body={
             <Text style={styles.bioText}>
               Samples are sent to labs for analysis. Timing to get results back
