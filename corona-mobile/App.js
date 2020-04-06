@@ -53,14 +53,14 @@ export default function App() {
     headerTitleStyle: {
       fontWeight: "bold"
     },
-    headerBackTitle: " ",
+    headerBackTitle: " "
   };
 
   const HomeStack = () => (
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={({ navigation, route }) => ({
-        headerRight: ({tintColor}) =>
+        headerRight: ({ tintColor }) =>
           route.name !== "Home" && (
             <Entypo
               name="home"
@@ -108,7 +108,7 @@ export default function App() {
       />
       <Stack.Screen
         name="InformationalToolkit"
-        options={{ title: "Info to Use" }}
+        options={{ title: "Informational Toolkit" }}
         component={InformationalToolkit}
       />
       <Stack.Screen
@@ -129,12 +129,9 @@ export default function App() {
       <Stack.Screen
         name="ResourceTopic"
         component={ResourceTopic}
-        options={{title: ""}}
+        options={{ title: "" }}
       />
-      <Stack.Screen
-        name="WebView"
-        component={WebViewScreen}
-      />
+      <Stack.Screen name="WebView" component={WebViewScreen} />
       <Stack.Screen
         name="Sources"
         component={Sources}
@@ -143,7 +140,11 @@ export default function App() {
       <Stack.Screen
         name="Symptoms"
         component={SymptomsList}
-        options={{ title: "", headerTransparent: true, headerTintColor: colors.primarycolor }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+        }}
       />
     </Stack.Navigator>
   );
@@ -171,10 +172,7 @@ export default function App() {
         component={AboutScreen}
         options={{ title: "About the App" }}
       />
-      <Stack.Screen
-        name="WebView"
-        component={WebViewScreen}
-      />
+      <Stack.Screen name="WebView" component={WebViewScreen} />
       <Stack.Screen
         name="ContactUs"
         component={ContactUs}
@@ -209,17 +207,14 @@ export default function App() {
         options={{ title: "Testing Centers" }}
         component={TestingCenters}
       />
-      <Stack.Screen
-        name="WebView"
-        component={WebViewScreen}
-      />
+      <Stack.Screen name="WebView" component={WebViewScreen} />
     </Stack.Navigator>
   );
 
   return (
     <AppearanceProvider>
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
-      <LocationRequest/>
+      <LocationRequest />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
