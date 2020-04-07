@@ -228,7 +228,6 @@ export default function App() {
   return (
     <AppearanceProvider>
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
-      <LocationRequest />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
