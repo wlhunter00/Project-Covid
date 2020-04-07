@@ -29,12 +29,12 @@ export default function TrackerStatus({ route, navigation }) {
   return (
     <View style={localStyles.container}>
       <WebView
-        originWhitelist={["https://coronavirus.app"]}
+        originWhitelist={["https://coronavirus.app", "https://crnvr.us"]}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          uri: "https://coronavirus.app/map"
+          uri: "https://crnvr.us/map"
         }}
         style={{ flex: 1 }}
         ref={r => {
