@@ -1,10 +1,11 @@
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
-import axios from "axios";
-import { getLocationAsync } from "./Utils";
+import { getAddressAsync } from "./LocationAPI";
 
+const axios = require("axios").default;
 // const axios = require("axios").default
 const BASE_URL = "https://projectcovid-backend.herokuapp.com";
+
 
 export async function registerForPushNotifications() {
   const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -29,10 +30,12 @@ export async function getSymptoms(updateFunc) {
   }
 }
 
-export async function getTopNews() {
-  const loc = await getLocationAsync();
+export async function getTopNews(address) {
+  if (!address) {
+    address = await getAddressAsync();
+  }
   try {
-    const resp = (await axios.post(`${BASE_URL}/news/`, loc.errorMessage ? {} : loc)).data
+    const resp = (await axios.post(`${BASE_URL}/news/address/`, address || {})).data
     return resp;
   } catch (error) {
     console.log(error)
@@ -40,10 +43,12 @@ export async function getTopNews() {
   }
 }
 
-export async function getLatestStats() {
-  const loc = await getLocationAsync();
+export async function getLatestStats(address) {
+  if (!address) {
+    address = await getAddressAsync();
+  }
   try {
-    const resp = (await axios.post(`${BASE_URL}/stats/`, loc.errorMessage ? {} : loc)).data
+    const resp = (await axios.post(`${BASE_URL}/stats/address/`, address || {} )).data
     return resp;
   } catch (error) {
     console.log(error)

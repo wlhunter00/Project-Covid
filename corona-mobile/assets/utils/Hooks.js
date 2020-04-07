@@ -1,14 +1,26 @@
-import * as Location from "expo-location";
+import { useState, useEffect } from "react";
+import { getLatestStats, getTopNews } from "./APIService";
+import { getAddressAsync } from "./LocationAPI";
 
-export async function getLocationAsync() {
-  let { status } = await Location.requestPermissionsAsync();
-  if (status !== "granted") {
-    return { errorMessage: "Permission to access location was denied" };
-  }
 
-  let location = await Location.getCurrentPositionAsync({});
-  return { location };
+
+export function useLocationAddress() {
+  const [address, setAddress] = useState(null);
+
+  useEffect(() => {
+    fetchLocation = async () => {
+      const newAddress = await getAddressAsync();
+      setAddress(newAddress);
+    }
+    if (!address) {
+      fetchLocation();
+    }
+    
+  }, []);
+
+  return address;
 }
+
 
 // Shamelessly stolen from https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 // Will eventually use to update live stats as needed

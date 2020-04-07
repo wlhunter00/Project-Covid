@@ -165,7 +165,7 @@ export function SymptomsList({ navigation }) {
         </View>
         <SourceItem
           navigation={navigation}
-          typeSource={"Information Sources"}
+          typeSource={"Sources"}
           sourcesList={[
             {
               title: "World Health Organization",

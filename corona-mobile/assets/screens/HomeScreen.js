@@ -13,42 +13,40 @@ import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } 
 import { useStyle } from "../styles/styles";
 import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
-import { getTopNews, getLatestStats } from "../APIService";
+import { getTopNews, getLatestStats } from "../utils/APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
+import {useLocationAddress } from "../utils/Hooks";
 
 const logo = require("../images/logo-notext.png")
 
 export default function HomeScreen({ navigation }) {
   const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
 
-  const [topNews, setTopNews] = useState(null);
+  const [topNews, setNews] = useState(null);
   const [stats, setStats] = useState(null);
+  const address = useLocationAddress();
 
   useEffect(() => {
-    const fetchNews = async () => {
-      const resp = await getTopNews();
-      if (!resp.error) {
-        setTopNews({ news: resp.slice(0, 4) });
-      } else {
-        setTopNews({ error: "Could not reach server."})
-      }
-    }
-    fetchNews();
-  }, []);
-
-  useEffect(() => {
-    const fetchStats = async () => {
-      const resp = await getLatestStats();
-      if (!resp.error) {
-        setStats({ stats: resp });
+    async function load() {
+      const statsResp = await getLatestStats(address);
+      if (!statsResp.error) {
+        setStats({ stats: statsResp });
       } else {
         setStats({ error: "Could not reach server" });
       }
+
+      const newsResp = await getTopNews(address);
+      if (!newsResp.error) {
+        setNews({ news: newsResp.slice(0, 4) });
+      } else {
+        setNews({ error: "Could not reach server." })
+      }
     }
-    fetchStats();
-  }, []);
+
+    load();
+  }, [address])
 
   return (
     <View style={[styles.container]}>
@@ -87,8 +85,8 @@ export default function HomeScreen({ navigation }) {
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ?
-              <StatsView stats={stats.stats} /> : <ErrorBox />
-          ) : <ActivityIndicator style={{ height: 200 }} />}
+              <StatsView stats={stats.stats}/> : <ErrorBox />
+          ) : <ActivityIndicator style={{ height: 280 }} />}
         </Section>
         
         <Section title="Latest News" titleRight={
@@ -142,7 +140,11 @@ export default function HomeScreen({ navigation }) {
 
         <PageButton
           title="Live Twitter Feed"
-          navigationName="TwitterFeed"
+          navigationName="WebView"
+          navigationParams={{
+            url: "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw",
+            title: "Curated Tweets"
+          }}
           icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
           description="View a curated feed from reliable sources."
           navigation={navigation}

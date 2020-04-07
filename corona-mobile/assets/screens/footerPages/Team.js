@@ -112,7 +112,7 @@ export default function Team({ route, navigation }) {
       <CompactTeamMemberBox
         name="Saydi Akgul"
         position="Information Curator"
-        schoolAndYear="Binghamton University, 2nd Year Masters"
+        schoolAndYear="Binghamton University, Masters in Public Health"
       />
       <CompactTeamMemberBox
         name="Zahraa Tounsi"

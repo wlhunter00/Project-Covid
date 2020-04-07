@@ -122,7 +122,7 @@ export function StatsView({ stats }) {
 
   let localDateCountry = "";
   if (stats.Country_Stats) {
-    statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "US" ? "the US" : stats.Country_Stats.Country, key: 1 });
+    statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "United States of America" ? "the US" : stats.Country_Stats.Country, key: 1 });
     localDateCountry = new Date(stats.Country_Stats.Updated);
   }
 
