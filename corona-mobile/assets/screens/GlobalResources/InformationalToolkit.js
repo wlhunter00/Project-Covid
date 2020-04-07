@@ -21,7 +21,7 @@ import {
 } from "react-native-gesture-handler";
 import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
-import {MaterialCommunityIcons} from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
@@ -33,7 +33,14 @@ import { SourceItem } from "../../components/FooterComponents";
 export default function StyledInformationalToolkit() {
   const { styles, colors, isDark } = useStyle("container", "resourceText");
   const navigation = useNavigation();
-  return <InformationalToolkit styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
+  return (
+    <InformationalToolkit
+      styles={styles}
+      colors={colors}
+      isDark={isDark}
+      navigation={navigation}
+    />
+  );
 }
 
 class InformationalToolkit extends React.Component {
@@ -649,13 +656,17 @@ class InformationalToolkit extends React.Component {
 
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView title="Information Toolkit" description="Commonly requested info about COVID-19 and how to prepare yourself." image={
-          <MaterialCommunityIcons
-            name="toolbox"
-            size={100}
-            color={!isDark ? colors.textcolor : "#444"}
-          />
-        } >
+        <BigHeaderScrollView
+          title="Informational Toolkit"
+          description="Commonly requested info about COVID-19 and how to prepare yourself."
+          image={
+            <MaterialCommunityIcons
+              name="toolbox"
+              size={100}
+              color={!isDark ? colors.textcolor : "#444"}
+            />
+          }
+        >
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -666,7 +677,7 @@ class InformationalToolkit extends React.Component {
               />
             );
           })}
-          </BigHeaderScrollView>
+        </BigHeaderScrollView>
       </View>
     );
   }
