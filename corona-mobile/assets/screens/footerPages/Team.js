@@ -102,7 +102,7 @@ export default function Team({ route, navigation }) {
         schoolAndYear="Washington University, St. Louis, Junior"
       />
 
-      <Text style={styles.sectionTitle}>Research Volunteers</Text>
+      <Text style={styles.sectionTitle}>Researchers</Text>
 
       <CompactTeamMemberBox
         name="Veeraj Shah"
