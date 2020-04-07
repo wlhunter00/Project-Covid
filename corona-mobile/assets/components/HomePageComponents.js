@@ -11,6 +11,8 @@ import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } 
 import { useStyle } from "../styles/styles";
 import { StandardText } from "../components/Texts";
 import PageControl from "react-native-page-control";
+import { SimpleButton } from "../components/Buttons";
+
 
 const PADDING = 15;
 const WINDOW_WIDTH = Dimensions.get('window').width;
@@ -80,8 +82,8 @@ const SmallStat = ({ name, val }) => {
 function StatsPage({ stats, title }) {
   const { styles, colors } = useStyle("divider");
     return (
-        <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH}}>
-            <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{fontWeight: '300'}}>for {title}</Text></StandardText>
+      <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH }}>
+          <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{ fontWeight: '300' }}>for {title}</Text></StandardText>
             <View style={[styles.divider, {marginVertical: 15}]}/>
             <BigStat name="Confirmed Cases" val={stats["TotalConfirmed"] || stats["Confirmed"]} />
             {stats["NewConfirmed"] && <SmallStat name="New Cases" val={stats["NewConfirmed"]} />}
@@ -106,21 +108,22 @@ export function StatsView({ stats }) {
     minute: 'numeric'
   });
 
-  let localDate = "";
-  if (stats.Country_Stats) {
-    const lastUpdatedString = stats.Country_Stats.Updated;
-    localDate = new Date(lastUpdatedString);
-  }
+  const lastUpdatedGlobal = stats.Global_Stats.Updated;
+  let localDateGlobal = new Date(lastUpdatedGlobal);
   
   // Set up the different stats pages
   let statsItems = [];
 
+  let localDateProvince = "";
   if (stats.Province_Stats) {
     statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 0 });
+    localDateProvince = new Date(stats.Province_Stats.Updated);
   }
 
+  let localDateCountry = "";
   if (stats.Country_Stats) {
     statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "United States of America" ? "the US" : stats.Country_Stats.Country, key: 1 });
+    localDateCountry = new Date(stats.Country_Stats.Updated);
   }
 
   statsItems.push( { stats: stats.Global_Stats, title: "the World", key: 2 })
@@ -131,7 +134,6 @@ export function StatsView({ stats }) {
     changePage(newPageNum);
   });
   const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 50 });
-
 
   return (
       <View style={{ marginBottom: 15,  marginHorizontal: -15, alignItems: "stretch" }}>
@@ -149,8 +151,10 @@ export function StatsView({ stats }) {
         currentPage={currentPage}
         numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
-        currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }}hidesForSinglePage />
-      <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginHorizontal: 15, marginTop: 15, textAlign: "right" }}>Last updated: {dateToTime(localDate)}</Text>
+        currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }} hidesForSinglePage />
+      {currentPage == 0 && localDateProvince !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateProvince)}</Text>}
+      {currentPage == 1 && localDateCountry !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateCountry)}</Text>}
+      {(localDateCountry === "" || currentPage == 2)  && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateGlobal)}</Text>}
       </View>
     );
   }

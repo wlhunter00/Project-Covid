@@ -17,15 +17,36 @@ import { getTopNews, getLatestStats } from "../utils/APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
-import { useLatestStats, useTopNews } from "../utils/Hooks";
+import {useLocationAddress } from "../utils/Hooks";
 
 const logo = require("../images/logo-notext.png")
 
 export default function HomeScreen({ navigation }) {
   const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
 
-  const topNews = useTopNews();
-  const stats = useLatestStats();
+  const [topNews, setNews] = useState(null);
+  const [stats, setStats] = useState(null);
+  const address = useLocationAddress();
+
+  useEffect(() => {
+    async function load() {
+      const statsResp = await getLatestStats(address);
+      if (!statsResp.error) {
+        setStats({ stats: statsResp });
+      } else {
+        setStats({ error: "Could not reach server" });
+      }
+
+      const newsResp = await getTopNews(address);
+      if (!newsResp.error) {
+        setNews({ news: newsResp.slice(0, 4) });
+      } else {
+        setNews({ error: "Could not reach server." })
+      }
+    }
+
+    load();
+  }, [address])
 
   return (
     <View style={[styles.container]}>

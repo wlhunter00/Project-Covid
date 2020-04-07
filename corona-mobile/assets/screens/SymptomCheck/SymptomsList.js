@@ -16,6 +16,7 @@ import { InfoViewDiagnosis } from "../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
 import { StandardTextBox } from "../../components/TextBoxes";
 import { StandardText } from "../../components/Texts.js";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 const symptomData = require("../../Symptom-Percentages.json");
 
@@ -52,68 +53,13 @@ export function SymptomsList({ navigation }) {
 
   return (
     <View style={[styles.container]}>
-      <ParallaxScrollView
-        parallaxHeaderHeight={240}
-        stickyHeaderHeight={89}
-        backgroundColor={colors.backgroundcolor}
-        contentBackgroundColor={colors.backgroundcolor}
-        renderBackground={() => <View style={styles.container} />}
-        renderForeground={() => (
-          <View
-            style={{
-              marginBottom: 20,
-              marginTop: 100,
-              paddingHorizontal: 15,
-              flexDirection: "row"
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <StandardText
-                fontSize="title"
-                isBold
-                style={{
-                  marginBottom: 10
-                }}
-              >
-                Symptoms
-              </StandardText>
-              <StandardText allowFontScaling={false}>
-                The most common symptoms of COVID-19, and how prevalent they
-                are.
-              </StandardText>
-            </View>
-            <FontAwesome
-              name="stethoscope"
-              size={100}
-              color={!isDark ? colors.textcolor : "#444"}
-            />
-          </View>
-        )}
-        renderStickyHeader={() => (
-          <View
-            style={{
-              borderBottomColor: colors.accentcolor,
-              borderBottomWidth: 1,
-              paddingHorizontal: 15,
-              paddingBottom: 12,
-              justifyContent: "flex-end",
-              height: "100%"
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <StandardText isBold>Symptoms</StandardText>
-            </View>
-          </View>
-        )}
-        contentContainerStyle={{ paddingHorizontal: 15 }}
-        keyboardDismissMode="on-drag"
-      >
+      <BigHeaderScrollView title="Symptoms" description="The most common symptoms of COVID-19, and how prevalent they are." image={
+        <FontAwesome
+          name="stethoscope"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"}
+        />
+      } >
         <View style={styles.boxContainer}>
           <View
             style={{
@@ -178,7 +124,7 @@ export function SymptomsList({ navigation }) {
           key={"sourceList"}
         />
         <View style={{ height: 7 }} />
-      </ParallaxScrollView>
+      </BigHeaderScrollView>
     </View>
   );
 }
