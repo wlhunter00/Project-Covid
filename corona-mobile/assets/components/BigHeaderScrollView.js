@@ -15,7 +15,7 @@ export default function BigHeaderScrollView({ title, description, image, childre
     let header = useHeaderHeight(); 
 
     return (<ParallaxScrollView
-        parallaxHeaderHeight={240}
+        parallaxHeaderHeight={header*3}
         stickyHeaderHeight={header}
         backgroundColor={colors.backgroundcolor}
         contentBackgroundColor={colors.backgroundcolor}
@@ -26,6 +26,8 @@ export default function BigHeaderScrollView({ title, description, image, childre
                     marginBottom: 20,
                     marginTop: 100,
                     paddingHorizontal: 15,
+                    marginLeft: 10,
+                    marginRight: 10,
                     flexDirection: "row"
                 }}
             >
@@ -33,6 +35,7 @@ export default function BigHeaderScrollView({ title, description, image, childre
                     <StandardText
                         fontSize="title"
                         isBold
+                        allowFontScaling={false}
                         style={{
                             marginBottom: 10
                         }}

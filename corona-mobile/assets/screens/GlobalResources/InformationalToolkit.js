@@ -649,7 +649,7 @@ class InformationalToolkit extends React.Component {
 
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView title="Informational Toolkit" description="Commonly requested info about COVID-19 and how to prepare yourself." image={
+        <BigHeaderScrollView title="Information Toolkit" description="Commonly requested info about COVID-19 and how to prepare yourself." image={
           <MaterialCommunityIcons
             name="toolbox"
             size={100}
