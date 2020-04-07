@@ -87,7 +87,7 @@ export default function HomeScreen({ navigation }) {
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ?
-              <StatsView stats={stats.stats}/> : <ErrorBox />
+              <StatsView stats={stats.stats} /> : <ErrorBox />
           ) : <ActivityIndicator style={{ height: 200 }} />}
         </Section>
         
