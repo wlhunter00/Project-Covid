@@ -108,23 +108,37 @@ export default function App() {
       />
       <Stack.Screen
         name="InformationalToolkit"
-        options={{ title: "Informational Toolkit" }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+        }}
         component={InformationalToolkit}
       />
       <Stack.Screen
         name="PreventativePractices"
-        options={{ title: "Preventative Practices" }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+        }}
         component={PreventativePractices}
       />
       <Stack.Screen
         name="MentalHealth"
         component={MentalHealth}
-        options={{ title: "Mental Health" }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor }}
       />
       <Stack.Screen
         name="StudentResources"
         component={StudentResources}
-        options={{ title: "Student Resources" }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor }}
       />
       <Stack.Screen
         name="ResourceTopic"

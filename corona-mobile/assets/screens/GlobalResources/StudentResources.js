@@ -6,6 +6,8 @@ import image1 from "./../../images/studentResources/image1.jpg";
 import image2 from "./../../images/studentResources/image2.jpg";
 
 import ModalImage from "./../../components/ModalImage";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
@@ -14,9 +16,9 @@ import { InfoView } from "./../../components/InfoView";
 
 
 export default function StyledStudentResources() {
-  const { styles } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText");
   const navigation = useNavigation();
-  return <StudentResources styles={styles} navigation={navigation} />;
+  return <StudentResources styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
 }
 
 class StudentResources extends React.Component {
@@ -107,10 +109,16 @@ class StudentResources extends React.Component {
   }
 
   render() {
-    const { styles } = this.props;
+    const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
+        <BigHeaderScrollView title="Student Resources" description="Helpful information pertinent to students." image={
+          <MaterialIcons
+            name="school"
+            size={100}
+            color={!isDark ? colors.textcolor : "#444"}
+          />
+        }>
           {this.state.list.map(item => {
             return <ImageButton 
               title={item.title} 
@@ -119,7 +127,7 @@ class StudentResources extends React.Component {
               navigation={this.props.navigation}
             />;
           })}
-        </ScrollView>
+        </BigHeaderScrollView>
       </View>
     );
   }

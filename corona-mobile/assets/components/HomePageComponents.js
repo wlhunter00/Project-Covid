@@ -152,7 +152,7 @@ export function StatsView({ stats }) {
         numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
         currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }} hidesForSinglePage />
-      {currentPage == 0 && localDateProvince !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateProvince)}</Text>}
+      {currentPage == 0 && localDateProvince !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15, textAlign: 'left' }}>Last updated: {dateToTime(localDateProvince)}</Text>}
       {currentPage == 1 && localDateCountry !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateCountry)}</Text>}
       {(localDateCountry === "" || currentPage == 2)  && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateGlobal)}</Text>}
       </View>

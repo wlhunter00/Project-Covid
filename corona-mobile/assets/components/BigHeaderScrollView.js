@@ -6,13 +6,17 @@ import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { useStyle } from "../styles/styles";
 import { StandardText } from "./Texts.js";
+import { Header } from 'react-navigation-stack';
+import { useHeaderHeight } from "@react-navigation/stack";
+
 
 export default function BigHeaderScrollView({ title, description, image, children }) {
     const { styles, colors } = useStyle("container" );
+    let header = useHeaderHeight(); 
 
     return (<ParallaxScrollView
         parallaxHeaderHeight={240}
-        stickyHeaderHeight={89}
+        stickyHeaderHeight={header}
         backgroundColor={colors.backgroundcolor}
         contentBackgroundColor={colors.backgroundcolor}
         renderBackground={() => <View style={styles.container} />}

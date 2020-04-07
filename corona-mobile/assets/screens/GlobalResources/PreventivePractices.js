@@ -24,6 +24,8 @@ import {
 } from "react-native-gesture-handler";
 
 import ModalImage from "./../../components/ModalImage";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
@@ -31,9 +33,9 @@ import { InfoView } from "../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
 
 export default function StyledPreventativePractices() {
-  const { styles } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText");
   const navigation = useNavigation();
-  return <PreventativePractices styles={styles} navigation={navigation} />;
+  return <PreventativePractices styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
 }
 class PreventativePractices extends React.Component {
   constructor(props) {
@@ -589,10 +591,16 @@ class PreventativePractices extends React.Component {
   }
 
   render() {
-    const { styles } = this.props;
+    const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
+        <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time." image={
+          <MaterialIcons
+            name="healing"
+            size={100}
+            color={!isDark ? colors.textcolor : "#444"}
+          />
+        }>
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -603,7 +611,7 @@ class PreventativePractices extends React.Component {
               />
             );
           })}
-        </ScrollView>
+        </BigHeaderScrollView>
       </View>
     );
   }

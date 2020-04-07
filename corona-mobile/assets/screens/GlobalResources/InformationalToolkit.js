@@ -19,6 +19,9 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native-gesture-handler";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+
+import {MaterialCommunityIcons} from "@expo/vector-icons";
 
 import ModalImage from "./../../components/ModalImage";
 import { useStyle } from "../../styles/styles";
@@ -28,9 +31,9 @@ import { InfoView } from "./../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
 
 export default function StyledInformationalToolkit() {
-  const { styles } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText");
   const navigation = useNavigation();
-  return <InformationalToolkit styles={styles} navigation={navigation} />;
+  return <InformationalToolkit styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
 }
 
 class InformationalToolkit extends React.Component {
@@ -642,11 +645,17 @@ class InformationalToolkit extends React.Component {
   }
 
   render() {
-    const { styles } = this.props;
+    const { styles, colors, isDark } = this.props;
 
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
+        <BigHeaderScrollView title="Informational Toolkit" description="Commonly requested info about COVID-19 and how to prepare yourself." image={
+          <MaterialCommunityIcons
+            name="toolbox"
+            size={100}
+            color={!isDark ? colors.textcolor : "#444"}
+          />
+        } >
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -657,7 +666,7 @@ class InformationalToolkit extends React.Component {
               />
             );
           })}
-        </ScrollView>
+          </BigHeaderScrollView>
       </View>
     );
   }
