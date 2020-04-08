@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -12,6 +12,7 @@ import { useStyle } from "../styles/styles";
 import { StandardText } from "../components/Texts";
 import PageControl from "react-native-page-control";
 import { SimpleButton } from "../components/Buttons";
+import { useInterval } from "../utils/Hooks";
 
 
 const PADDING = 15;
@@ -128,12 +129,21 @@ export function StatsView({ stats }) {
 
   statsItems.push( { stats: stats.Global_Stats, title: "the World", key: 2 })
 
+  // Keep the page indicator synced to the current page
   // https://stackoverflow.com/questions/48045696/flatlist-scrollview-error-on-any-state-change-invariant-violation-changing-on
   const onViewRef = React.useRef(({ viewableItems }) => {
     const newPageNum = viewableItems[0].item.key;
     changePage(newPageNum);
   });
   const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 50 });
+
+  // get ref to flatlist
+  const flatListRef = React.useRef();
+
+  // automatically switch pages every 6 seconds
+  useInterval(() => {
+    flatListRef.current.scrollToIndex({ index: currentPage != statsItems.length - 1 ? currentPage + 1 : 0 });
+  }, 5000)
 
   return (
       <View style={{ marginBottom: 15,  marginHorizontal: -15, alignItems: "stretch" }}>
@@ -146,6 +156,7 @@ export function StatsView({ stats }) {
         renderItem={({ item }) => <StatsPage stats={item.stats} title={item.title} />}
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={viewConfigRef.current}
+        ref={flatListRef}
       />
       <PageControl
         currentPage={currentPage}

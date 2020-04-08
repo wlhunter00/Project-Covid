@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getLatestStats, getTopNews } from "./APIService";
 import { getAddressAsync } from "./LocationAPI";
 
