@@ -5,7 +5,7 @@ import { useStyle } from "../styles/styles";
 import {
   Entypo
 } from "@expo/vector-icons";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { TouchableHighlight, TouchableNativeFeedback, TouchableOpacity } from "react-native-gesture-handler";
 var URL = require('url');
 
 
@@ -16,16 +16,26 @@ function ConstructOriginWhitelist(urlString){
 }
 
 export default function StyledWebViewScreen({route, navigation}){
-  const { styles } = useStyle("container");
-  return <WebViewScreen route={route} navigation={navigation} styles={styles} />;
+  const { styles, colors } = useStyle("container");
+  return <WebViewScreen route={route} navigation={navigation} styles={styles} colors={colors} />;
 }
 
 class WebViewScreen extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props);
+    console.log(this.props.colors);
 
-    this.props.navigation.setOptions({ title: this.props.route.params.title });
+    this.props.navigation.setOptions({ 
+      title: "Latest News",
+      headerRight: () => (
+        <TouchableOpacity 
+          style={{marginRight: 20}}
+          onPress={() => {this.webViewRef.current.reload()}}  
+        >
+          <Entypo name={'ccw'} size={25} color={'white'}/>
+        </TouchableOpacity>
+      )
+    });
     this.webViewRef = React.createRef();
     this.activeWhitelist = (this.props.route.params.originWhitelist === undefined) ? ["*"] : originWhitelist;
     
@@ -75,27 +85,27 @@ class WebViewScreen extends React.Component {
             })
           }}
         />
-        <View style={{flex: 1, flexDirection: 'row', justifyContent:'space-between', maxHeight: 40, backgroundColor: 'green'}}>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <TouchableHighlight 
+        <View style={{flex: 1, flexDirection: 'row', alignItems:'center', justifyContent:'space-between', maxHeight: 40, backgroundColor: this.props.colors.primarycolor}}>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: 2}}>
+            <TouchableOpacity 
+              style={{marginHorizontal: 5}}
               disabled={!this.state.canGoBack} 
               onPress={() => {this.webViewRef.current.goBack()}}
             >
-              <Entypo name='chevron-left' size={40} color={this.state.canGoBack ? 'white' : 'grey'}/>
-            </TouchableHighlight>
-            <TouchableHighlight 
+              <Entypo name='chevron-left' size={35} color={this.state.canGoBack ? 'white' : this.props.colors.secondarytextcolor}/>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={{marginHorizontal: 5}}
               disabled={!this.state.canGoForward}
               onPress={() => {this.webViewRef.current.goForward()}}
             >
-              <Entypo name='chevron-right' size={40} color={this.state.canGoForward ? 'white' : 'grey'}/>
-            </TouchableHighlight>
+              <Entypo name='chevron-right' size={35} color={this.state.canGoForward ? 'white' : this.props.colors.secondarytextcolor}/>
+            </TouchableOpacity>
           </View>
 
-          <TouchableHighlight style={{flex: 1}} onPress={() => {this.sharePage(this.state.currentUrl)}}>
-            <Text style={{flex: 1, color: 'white', fontSize: 30}}>
-              SHARE
-            </Text>
-          </TouchableHighlight>
+          <TouchableOpacity style={{flex: 1, flexDirection: 'row', alignItems: 'center'}} onPress={() => {this.sharePage(this.state.currentUrl)}}>
+              <Entypo style={{marginRight: 8}}name='share-alternative' size={25} color={'white'}/>
+          </TouchableOpacity>
             
         </View>
 
