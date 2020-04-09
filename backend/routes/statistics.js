@@ -135,7 +135,7 @@ router.post("/", async (req, res) => {
         tempStateData = JSON.parse(body);
         for (const prop in tempStateData) {
           if (tempStateData[prop].Province === stateCode) {
-            console.log("state match");
+            // console.log("state match");
             stateCountry = tempStateData[prop]["Country"];
             stateName = tempStateData[prop]["Province"];
             stateDate = tempStateData[prop]["Date"];
@@ -184,7 +184,7 @@ router.post("/", async (req, res) => {
     if (locationData) {
       for (const prop in countryData) {
         if (countryData[prop].CountryCode === country) {
-          console.log("Country match!");
+          // console.log("Country match!");
           stats.Country_Stats = countryData[prop];
           prettyStats.Country_Stats = {};
         }
@@ -297,7 +297,7 @@ router.post("/address", async (req, res) => {
         tempStateData = JSON.parse(body);
         for (const prop in tempStateData) {
           if (tempStateData[prop].Province === stateCode) {
-            console.log("state match");
+            // console.log("state match");
             stateCountry = tempStateData[prop]["Country"];
             stateName = tempStateData[prop]["Province"];
             stateDate = tempStateData[prop]["Date"];
@@ -346,7 +346,7 @@ router.post("/address", async (req, res) => {
     if (locationData) {
       for (const prop in countryData) {
         if (countryData[prop].CountryCode === country) {
-          console.log("Country match!");
+          // console.log("Country match!");
           stats.Country_Stats = countryData[prop];
           prettyStats.Country_Stats = {};
         }
