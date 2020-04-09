@@ -28,7 +28,7 @@ import Faq from "./assets/screens/footerPages/Faq.js";
 import Sources from "./assets/screens/footerPages/Sources.js";
 import ContactUs from "./assets/screens/footerPages/ContactUs.js";
 import PrivacyPolicy from "./assets/screens/footerPages/PrivacyPolicy.js";
-import AboutLFR from "./assets/screens/footerPages/AboutLFR/AboutLFR.js";
+import AboutLFR from "./assets/screens/footerPages/AboutLFR.js";
 
 import {
   Entypo,
@@ -149,8 +149,8 @@ export default function App() {
           title: "",
           headerTintColor: colors.primarycolor,
           headerStyle: {
-            backgroundColor: colors.backgroundcolor,
-          },
+            backgroundColor: colors.backgroundcolor
+          }
         }}
       />
       <Stack.Screen name="WebView" component={WebViewScreen} />
