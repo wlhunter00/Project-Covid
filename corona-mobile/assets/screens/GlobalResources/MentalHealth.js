@@ -37,11 +37,12 @@ export default function StyledMentalHealth() {
 class MentalHealth extends React.Component {
   constructor(props) {
     super(props);
+    const { isDark } = this.props;
     this.state = {
       list: [
         {
           image: image1,
-          title: "Social Distancing",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Social Distancing</Text>),
           body: (
             <View>
               <InfoView
@@ -133,7 +134,7 @@ class MentalHealth extends React.Component {
         },
         {
           image: image2,
-          title: "Resources to Use",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Resources to Use</Text>),
           body: (
             <View>
               <InfoView

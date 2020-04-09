@@ -24,11 +24,12 @@ export default function StyledStudentResources() {
 class StudentResources extends React.Component {
   constructor(props) {
     super(props);
+    const { isDark } = this.props;
     this.state = {
       list: [
         {
           image: image1,
-          title: "Stress Management",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Stress Management</Text>),
           body: (
             <InfoView
                 title={<Text>Discount with OurBus</Text>}
@@ -60,7 +61,7 @@ class StudentResources extends React.Component {
         },
         {
           image: image2,
-          title: "Helpful Organizations",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Helpful Organizations</Text>),
           body: (
             <InfoView
                 title={<Text>Resources</Text>}

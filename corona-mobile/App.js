@@ -143,7 +143,13 @@ export default function App() {
       <Stack.Screen
         name="ResourceTopic"
         component={ResourceTopic}
-        options={{ title: "" }}
+        options={{
+          title: "",
+          headerTintColor: colors.primarycolor,
+          headerStyle: {
+            backgroundColor: colors.backgroundcolor,
+          },
+        }}
       />
       <Stack.Screen name="WebView" component={WebViewScreen} />
       <Stack.Screen
