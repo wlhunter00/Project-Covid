@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {
   View,
+  Image,
+  Text
 } from "react-native";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
@@ -10,8 +12,9 @@ import { Header } from 'react-navigation-stack';
 import { useHeaderHeight } from "@react-navigation/stack";
 
 
-export default function BigHeaderScrollView({ title, description, image, children }) {
+export default function BigHeaderScrollView({ title, description, image, children, isHome=false }) {
     const { styles, colors } = useStyle("container" );
+    const logo = require("../images/logo-notext.png")
     let header = useHeaderHeight(); 
 
     return (<ParallaxScrollView
@@ -50,7 +53,20 @@ export default function BigHeaderScrollView({ title, description, image, childre
             </View>
         )}
         renderStickyHeader={() => (
-            <View
+            
+            isHome ?
+            (
+                <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 5, justifyContent: 'flex-end', height: '100%' }}>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Image source={logo} style={{ height: 43, width: 43, marginRight: 5, marginBottom: 3 }} />
+                    <StandardText fontSize="title" isBold>
+                        Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+                    </StandardText>
+                    </View>
+                </View>
+            )
+            
+            : (<View
                 style={{
                     borderBottomColor: colors.accentcolor,
                     borderBottomWidth: 1,
@@ -69,7 +85,7 @@ export default function BigHeaderScrollView({ title, description, image, childre
                 >
                     <StandardText isBold>{title}</StandardText>
                 </View>
-            </View>
+            </View>)
         )}
         contentContainerStyle={{ paddingHorizontal: 15 }}
         keyboardDismissMode="on-drag"

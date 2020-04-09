@@ -15,6 +15,7 @@ import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Butt
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../utils/APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
+import BigHeaderScrollView from "./../components/BigHeaderScrollView"
 
 import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
 import {useLocationAddress } from "../utils/Hooks";
@@ -50,38 +51,13 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={[styles.container]}>
-      <ParallaxScrollView
-        parallaxHeaderHeight={270}
-        stickyHeaderHeight={89}
-        backgroundColor={colors.backgroundcolor}
-        contentBackgroundColor={colors.backgroundcolor}
-        renderBackground={() => (<View style={styles.container}></View>)}
-        renderForeground={() => (
-          <View style={{ marginBottom: 20, marginTop: 60, paddingHorizontal: 15}}>
-            <Image source={logo} style={{ height: 90, width: 90 }} />
-            <StandardText fontSize="title" isBold style={{
-              marginBottom: 10
-            }}>
-              Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-            </StandardText>
-            <StandardText allowFontScaling={false}>
-              Live tracking and resources to help you get through the pandemic.
-            </StandardText>
-          </View>
-        )}
-        renderStickyHeader={() => (
-          <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 5, justifyContent: 'flex-end', height: '100%' }}>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image source={logo} style={{ height: 43, width: 43, marginRight: 5, marginBottom: 3 }} />
-              <StandardText fontSize="title" isBold>
-                Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-              </StandardText>
-            </View>
-          </View>
-        )}
-        contentContainerStyle={{ paddingHorizontal: 15 }}
+      
+      <BigHeaderScrollView title="ProjectCovid" description="Live tracking and resources to help you get through the pandemic." image={
+        <Image source={logo} style={{ height: 100, width: 100 }} />
+        } 
+        isHome={true}
       >
-
+        
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ?
@@ -157,7 +133,7 @@ export default function HomeScreen({ navigation }) {
           description="Learn where this information comes from."
           navigation={navigation}
         />
-      </ParallaxScrollView>
+      </BigHeaderScrollView>
     </View>);
 }
 
