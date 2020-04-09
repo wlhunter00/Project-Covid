@@ -44,13 +44,16 @@ export default function StyledInformationalToolkit() {
 }
 
 class InformationalToolkit extends React.Component {
+  
   constructor(props) {
     super(props);
+    const { isDark } = this.props;
+
     this.state = {
       list: [
         {
           image: image1,
-          title: "COVID-19",
+          title: (<Text style={{ color: !isDark? 'black' : 'white'  }}>COVID-19</Text>),
           body: (
             <View>
               <InfoView
@@ -223,7 +226,7 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image2,
-          title: "Preparedness",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Preparedness</Text>),
           body: (
             <View>
               <InfoView
@@ -400,7 +403,7 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image3,
-          title: "Post-Infection Steps",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Post-Infection Steps</Text>),
           body: (
             <View>
               <InfoView
@@ -506,7 +509,7 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image4,
-          title: "Myth-Busting",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Myth-Busting</Text>),
           body: (
             <View>
               <InfoView

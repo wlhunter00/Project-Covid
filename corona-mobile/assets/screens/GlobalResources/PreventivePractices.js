@@ -40,11 +40,12 @@ export default function StyledPreventativePractices() {
 class PreventativePractices extends React.Component {
   constructor(props) {
     super(props);
+    const { isDark } = this.props;
     this.state = {
       list: [
         {
           image: image1,
-          title: "Hygiene Habits",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Hygiene Habits</Text>),
           body: (
             <View>
               <InfoView
@@ -149,7 +150,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image2,
-          title: "Physical Distancing",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Physical Distancing</Text>),
           body: (
             <View>
               <InfoView
@@ -228,7 +229,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image3,
-          title: "Stress and Stigma",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Stress and Stigma</Text>),
           body: (
             <View>
               <InfoView
@@ -307,7 +308,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image4,
-          title: "Preparation",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Preparation</Text>),
           body: (
             <View>
               <InfoView
@@ -396,7 +397,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image5,
-          title: "Protecting Others",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Protecting Others</Text>),
           body: (
             <View>
               <InfoView
@@ -486,7 +487,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image6,
-          title: "Caring for the Infected",
+          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Caring for the Infected</Text>),
           body: (
             <View>
               <InfoView
