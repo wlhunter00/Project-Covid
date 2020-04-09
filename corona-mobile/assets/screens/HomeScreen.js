@@ -7,23 +7,43 @@ import {
   View,
   Image,
   TouchableOpacity,
-  ActivityIndicator,
+  ActivityIndicator
 } from "react-native";
-import { MaterialIcons, Ionicons, MaterialCommunityIcons, FontAwesome, Entypo } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  Ionicons,
+  MaterialCommunityIcons,
+  FontAwesome,
+  Entypo
+} from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
-import { PageButton, SimpleButton, EmbeddedPageButton } from "../components/Buttons";
+import {
+  PageButton,
+  SimpleButton,
+  EmbeddedPageButton
+} from "../components/Buttons";
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../utils/APIService";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
-import BigHeaderScrollView from "./../components/BigHeaderScrollView"
+import BigHeaderScrollView from "./../components/BigHeaderScrollView";
 
-import { Section, ErrorBox, StatsView, NewsArticle } from "../components/HomePageComponents"
-import {useLocationAddress } from "../utils/Hooks";
+import {
+  Section,
+  ErrorBox,
+  StatsView,
+  NewsArticle
+} from "../components/HomePageComponents";
+import { useLocationAddress } from "../utils/Hooks";
 
-const logo = require("../images/logo-notext.png")
+const logo = require("../images/logo-notext.png");
 
 export default function HomeScreen({ navigation }) {
-  const { styles, colors } = useStyle("container", "appTitle", "subtitle", "divider");
+  const { styles, colors } = useStyle(
+    "container",
+    "appTitle",
+    "subtitle",
+    "divider"
+  );
 
   const [topNews, setNews] = useState(null);
   const [stats, setStats] = useState(null);
@@ -40,45 +60,96 @@ export default function HomeScreen({ navigation }) {
 
       const newsResp = await getTopNews(address);
       if (!newsResp.error) {
-        setNews({ news: newsResp.slice(0, 4) });
+        setNews({ news: newsResp.slice(0, 3) });
       } else {
-        setNews({ error: "Could not reach server." })
+        setNews({ error: "Could not reach server." });
       }
     }
 
     load();
-  }, [address])
+  }, [address]);
 
   return (
     <View style={[styles.container]}>
-      
-      <BigHeaderScrollView title="ProjectCovid" description="Live tracking and resources to help you get through the pandemic." image={
-        <Image source={logo} style={{ height: 100, width: 100 }} />
-        } 
+      <BigHeaderScrollView
+        title="ProjectCovid"
+        description="Live tracking and resources to help you get through the pandemic."
+        image={<Image source={logo} style={{ height: 100, width: 100 }} />}
         isHome={true}
       >
-        
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
-            stats.stats ?
-              <StatsView stats={stats.stats}/> : <ErrorBox />
-          ) : <ActivityIndicator style={{ height: 280 }} />}
+            stats.stats ? (
+              <StatsView stats={stats.stats} />
+            ) : (
+              <ErrorBox />
+            )
+          ) : (
+            <ActivityIndicator style={{ height: 280 }} />
+          )}
+          <View style={styles.divider} />
+          <EmbeddedPageButton
+            title="Global Tracker"
+            navigationName="LiveTracker"
+            icon={<Entypo name="globe" size={25} color={colors.textcolor} />}
+            description="Get stats for anywhere in the world."
+            navigation={navigation}
+          />
         </Section>
-        
-        <Section title="Latest News" titleRight={
-          <SimpleButton title="More news" action={() => { navigation.navigate("LatestNews") }} hasChevron />
-        }>
-          {topNews ? (
-            topNews.news ?
-              topNews.news.map((article, index) => <NewsArticle article={article} key={article.url} isLast={index === 3} navigation={navigation} />
-              ) : <ErrorBox />
-          ) : <ActivityIndicator style={{ height: 200 }} />
+        <Section
+          title="Latest News"
+          titleRight={
+            <SimpleButton
+              title="More news"
+              action={() => {
+                navigation.navigate("LatestNews");
+              }}
+              hasChevron
+            />
           }
+        >
+          {topNews ? (
+            topNews.news ? (
+              topNews.news.map((article, index) => (
+                <NewsArticle
+                  article={article}
+                  key={article.url}
+                  isLast={index === 3}
+                  navigation={navigation}
+                />
+              ))
+            ) : (
+              <ErrorBox />
+            )
+          ) : (
+            <ActivityIndicator style={{ height: 200 }} />
+          )}
+          <EmbeddedPageButton
+            title="Live Twitter Feed"
+            navigationName="WebView"
+            navigationParams={{
+              url:
+                "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw",
+              title: "Curated Tweets"
+            }}
+            icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
+            description="Curated feed from reliable sources."
+            navigation={navigation}
+          />
         </Section>
 
-        <Section title="Global Resources" titleRight={
-          <SimpleButton title="View more" action={() => { navigation.navigate("GlobalResources") }} hasChevron />
-        } >
+        <Section
+          title="Global Resources"
+          titleRight={
+            <SimpleButton
+              title="View more"
+              action={() => {
+                navigation.navigate("GlobalResources");
+              }}
+              hasChevron
+            />
+          }
+        >
           <EmbeddedPageButton
             title="Informational Toolkit"
             navigationName="InformationalToolkit"
@@ -89,7 +160,7 @@ export default function HomeScreen({ navigation }) {
                 color={colors.textcolor}
               />
             }
-            description="All you need to know about COVID-19"
+            description="All you need to know about COVID-19."
             navigation={navigation}
           />
           <View style={styles.divider} />
@@ -97,7 +168,11 @@ export default function HomeScreen({ navigation }) {
             title="Symptoms"
             navigationName="Symptoms"
             icon={
-              <FontAwesome name="stethoscope" size={25} color={colors.textcolor} />
+              <FontAwesome
+                name="stethoscope"
+                size={25}
+                color={colors.textcolor}
+              />
             }
             description="Learn about the symptoms of the virus."
             navigation={navigation}
@@ -107,25 +182,16 @@ export default function HomeScreen({ navigation }) {
             title="Preventative Practices"
             navigationName="PreventativePractices"
             icon={
-              <MaterialIcons name="healing" size={25} color={colors.textcolor} />
+              <MaterialIcons
+                name="healing"
+                size={25}
+                color={colors.textcolor}
+              />
             }
-            description="Tips for to stay healthy"
+            description="Tips for to stay healthy."
             navigation={navigation}
           />
         </Section>
-
-        <PageButton
-          title="Live Twitter Feed"
-          navigationName="WebView"
-          navigationParams={{
-            url: "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw",
-            title: "Curated Tweets"
-          }}
-          icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
-          description="View a curated feed from reliable sources."
-          navigation={navigation}
-        />
-
         <PageButton
           title="Sources"
           navigationName="Sources"
@@ -134,6 +200,6 @@ export default function HomeScreen({ navigation }) {
           navigation={navigation}
         />
       </BigHeaderScrollView>
-    </View>);
+    </View>
+  );
 }
-

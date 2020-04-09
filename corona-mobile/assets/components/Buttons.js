@@ -17,15 +17,27 @@ export function EmbeddedPageButton({
   navigation,
   title,
   navigationName,
+  navigationParams,
   icon,
-  description,
+  description
 }) {
-  const { styles, colors } = useStyle( "navButtonTitle", "navButtonDescription", "embeddedNavButton");
+  const { styles, colors } = useStyle(
+    "navButtonTitle",
+    "navButtonDescription",
+    "embeddedNavButton"
+  );
 
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate(navigationName);
+        navigation.navigate(
+          navigationName,
+          navigationParams !== undefined && {
+            url: navigationParams.url,
+            title: navigationParams.title,
+            originWhiteList: navigationParams.originWhiteList
+          }
+        );
       }}
     >
       <View style={styles.embeddedNavButton}>
@@ -34,7 +46,7 @@ export function EmbeddedPageButton({
           <Text style={styles.navButtonTitle}>{title}</Text>
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>
-        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
+        <Entypo name="chevron-thin-right" color={colors.textcolor} />
       </View>
     </TouchableOpacity>
   );
@@ -46,18 +58,26 @@ export function PageButton({
   navigationName,
   navigationParams,
   icon,
-  description,
+  description
 }) {
-  const { styles, colors } = useStyle("navButton", "navButtonTitle", "navButtonDescription", "embeddedNavButton");
+  const { styles, colors } = useStyle(
+    "navButton",
+    "navButtonTitle",
+    "navButtonDescription",
+    "embeddedNavButton"
+  );
 
   return (
     <TouchableHighlight
       onPress={() => {
-        navigation.navigate(navigationName, (navigationParams !== undefined) && {
-          url: navigationParams.url,
-          title: navigationParams.title, 
-          originWhiteList: navigationParams.originWhiteList
-        });
+        navigation.navigate(
+          navigationName,
+          navigationParams !== undefined && {
+            url: navigationParams.url,
+            title: navigationParams.title,
+            originWhiteList: navigationParams.originWhiteList
+          }
+        );
       }}
       style={{ marginBottom: 15, borderRadius: 5 }}
     >
@@ -67,7 +87,7 @@ export function PageButton({
           <Text style={styles.navButtonTitle}>{title}</Text>
           <Text style={styles.navButtonDescription}>{description}</Text>
         </View>
-        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
+        <Entypo name="chevron-thin-right" color={colors.textcolor} />
       </View>
     </TouchableHighlight>
   );
@@ -94,7 +114,7 @@ export function SiteButton({ site, navigation }) {
         />
         <Text style={styles.navButtonTitle}>{site.title}</Text>
         <View style={{ flex: 1 }} />
-        <Entypo name="chevron-thin-right" color={colors.textcolor}/>
+        <Entypo name="chevron-thin-right" color={colors.textcolor} />
       </View>
     </TouchableHighlight>
   );
@@ -103,14 +123,15 @@ export function SiteButton({ site, navigation }) {
 export function VisitButton({ site, navigation, style }) {
   const { styles } = useStyle("actionButton", "actionButtonTitle");
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
       onPress={() => {
         navigation.navigate("WebView", {
           url: site.source,
           title: site.title
         });
       }}
-      style={[styles.actionButton, style]}>
+      style={[styles.actionButton, style]}
+    >
       <View>
         <Text style={styles.actionButtonTitle}>{site.title}</Text>
       </View>
@@ -124,7 +145,7 @@ export function ActionButton({ title, action, style }) {
     <TouchableOpacity onPress={action} style={[styles.actionButton, style]}>
       <View>
         <Text style={styles.actionButtonTitle}>{title}</Text>
-        </View>
+      </View>
     </TouchableOpacity>
   );
 }
@@ -133,31 +154,44 @@ export function SimpleButton({ title, action, hasChevron }) {
   const { styles, colors } = useStyle("linkButtonTitle");
 
   return (
-    <TouchableOpacity onPress={action} style={{flexDirection: "row", alignItems: "center"}}>
+    <TouchableOpacity
+      onPress={action}
+      style={{ flexDirection: "row", alignItems: "center" }}
+    >
       <Text style={styles.linkButtonTitle}>{title}</Text>
-      {hasChevron && <Entypo name="chevron-thin-right" color={colors.primarycolor} size={20} style={{paddingTop: 2}}/>}
-      
+      {hasChevron && (
+        <Entypo
+          name="chevron-thin-right"
+          color={colors.primarycolor}
+          size={20}
+          style={{ paddingTop: 2 }}
+        />
+      )}
     </TouchableOpacity>
   );
 }
 
-export function ImageButton({ title, source, body, navigation }){
-  
-  const { styles } = useStyle("imageButtonHeader", "imageButtonText", "imageButtonImage")
+export function ImageButton({ title, source, body, navigation }) {
+  const { styles } = useStyle(
+    "imageButtonHeader",
+    "imageButtonText",
+    "imageButtonImage"
+  );
 
   const dimensions = Dimensions.get("window");
   const imageHeight = Math.round((dimensions.width * 3) / 4);
   const imageWidth = dimensions.width;
 
   return (
-    <TouchableWithoutFeedback 
-      style={styles.imageButtonHeader} 
-      onPress={() => {navigation.navigate("ResourceTopic", {
+    <TouchableWithoutFeedback
+      style={styles.imageButtonHeader}
+      onPress={() => {
+        navigation.navigate("ResourceTopic", {
           title: title,
           source: source,
           body: body
-        })}
-      }
+        });
+      }}
     >
       <ImageBackground
         source={source}
@@ -172,10 +206,7 @@ export function ImageButton({ title, source, body, navigation }){
         <Text
           numberOfLines={1}
           adjustsFontSizeToFit={true}
-          style={[
-            { top: imageHeight - 45 },
-            styles.imageButtonText
-          ]}
+          style={[{ top: imageHeight - 45 }, styles.imageButtonText]}
         >
           {title}
         </Text>
@@ -183,7 +214,6 @@ export function ImageButton({ title, source, body, navigation }){
     </TouchableWithoutFeedback>
   );
 }
-
 
 const localStyles = StyleSheet.create({
   header: {
