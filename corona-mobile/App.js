@@ -130,7 +130,8 @@ export default function App() {
         options={{
           title: "",
           headerTransparent: true,
-          headerTintColor: colors.primarycolor }}
+          headerTintColor: colors.primarycolor
+        }}
       />
       <Stack.Screen
         name="StudentResources"
@@ -138,7 +139,8 @@ export default function App() {
         options={{
           title: "",
           headerTransparent: true,
-          headerTintColor: colors.primarycolor }}
+          headerTintColor: colors.primarycolor
+        }}
       />
       <Stack.Screen
         name="ResourceTopic"
