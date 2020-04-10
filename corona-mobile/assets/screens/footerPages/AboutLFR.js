@@ -2,11 +2,11 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
-import { useStyle } from "../../../styles/styles.js";
-import { SourceItem } from "../../../components/FooterComponents";
-import { VisitButton } from "../../../components/Buttons";
+import { useStyle } from "../../styles/styles.js";
+import { SourceItem } from "../../components/FooterComponents";
+import { VisitButton } from "../../components/Buttons";
 import { FontAwesome } from "@expo/vector-icons";
-import BigHeaderScrollView from "../../../components/BigHeaderScrollView.js";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 export default function AboutLFR({ route, navigation }) {
   const { styles, colors, isDark } = useStyle(
@@ -35,7 +35,7 @@ export default function AboutLFR({ route, navigation }) {
         ]}
       >
         <Image
-          source={require("./../../../images/LFR/Favicon.png")}
+          source={require("./../../images/LFR/Favicon.png")}
           resizeMode="contain"
           style={{ width: 80, height: 80, alignSelf: "center" }}
         />
@@ -83,7 +83,8 @@ export default function AboutLFR({ route, navigation }) {
         navigation={navigation}
         style={{
           marginLeft: 40,
-          marginRight: 40
+          marginRight: 40,
+          marginBottom: 20
         }}
         />
       </BigHeaderScrollView>

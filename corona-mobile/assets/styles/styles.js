@@ -84,7 +84,7 @@ const allStyles = StyleSheet.create({
     paddingBottom: 0,
     marginBottom: 15,
     borderColor: colors.accentcolor,
-    borderWidth: 1,
+    borderWidth: 1
   },
   shadow: {
     shadowColor: "rgba(67, 160, 71, 0.2)",
@@ -114,7 +114,7 @@ const allStyles = StyleSheet.create({
   },
   normalText: {
     fontSize: 16,
-    color: colors.textcolor,
+    color: colors.textcolor
   },
   normalTextDark: {
     color: colorsDark.textcolor
@@ -131,18 +131,17 @@ const allStyles = StyleSheet.create({
     shadowColor: "rgba(67, 160, 71, 0.2)",
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 1,
+    shadowOpacity: 1
   },
   embeddedNavButton: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 15,
-    minHeight: 78,
-    
+    minHeight: 78
   },
   navButtonDark: {
     backgroundColor: colorsDark.secondarybackgroundcolor,
-    borderColor: colorsDark.accentcolor,
+    borderColor: colorsDark.accentcolor
   },
   navButtonTitle: {
     fontSize: 18,

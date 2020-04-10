@@ -25,6 +25,15 @@ function getStateAbrev(abbreviation) {
   return null;
 }
 
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
 function getCountryAbrev(abbreviation) {
   for (const prop in countryNames) {
     if (countryNames[prop].code.toLowerCase() === abbreviation) {
@@ -114,9 +123,13 @@ router.post("/", async (req, res) => {
       response,
       body
     ) {
-      let bodyData = JSON.parse(body);
-      countryData = bodyData.Countries;
-      globalDate = new Date(bodyData.Date);
+      if (IsJsonString(body)) {
+        let bodyData = JSON.parse(body);
+        countryData = bodyData.Countries;
+        globalDate = new Date(bodyData.Date);
+      } else {
+        return res.status(400).send("API failed to return");
+      }
     });
     // Set global data
     globalData = true;
@@ -132,19 +145,24 @@ router.post("/", async (req, res) => {
       "/status/confirmed";
     try {
       await request(reqURL, function(error, response, body) {
-        tempStateData = JSON.parse(body);
-        for (const prop in tempStateData) {
-          if (tempStateData[prop].Province === stateCode) {
-            console.log("state match");
-            stateCountry = tempStateData[prop]["Country"];
-            stateName = tempStateData[prop]["Province"];
-            stateDate = tempStateData[prop]["Date"];
-            stateConfirmed = tempStateData[prop]["Confirmed"];
-            stateDeaths = tempStateData[prop]["Deaths"];
-            stateRecovered = tempStateData[prop]["Recovered"];
-            stateActives = tempStateData[prop]["Active"];
-            stateData = true;
+        if (IsJsonString(body)) {
+          tempStateData = JSON.parse(body);
+          for (const prop in tempStateData) {
+            if (tempStateData[prop].Province === stateCode) {
+              // console.log("state match");
+              stateCountry = tempStateData[prop]["Country"];
+              stateName = tempStateData[prop]["Province"];
+              stateDate = tempStateData[prop]["Date"];
+              stateConfirmed = tempStateData[prop]["Confirmed"];
+              stateDeaths = tempStateData[prop]["Deaths"];
+              stateRecovered = tempStateData[prop]["Recovered"];
+              stateActives = tempStateData[prop]["Active"];
+              stateData = true;
+            }
           }
+        } else {
+          console.log("API did not send back anything");
+          return res.status(400).send("API Key has run out");
         }
       });
     } catch (err) {
@@ -184,7 +202,7 @@ router.post("/", async (req, res) => {
     if (locationData) {
       for (const prop in countryData) {
         if (countryData[prop].CountryCode === country) {
-          console.log("Country match!");
+          // console.log("Country match!");
           stats.Country_Stats = countryData[prop];
           prettyStats.Country_Stats = {};
         }
@@ -276,9 +294,13 @@ router.post("/address", async (req, res) => {
       response,
       body
     ) {
-      let bodyData = JSON.parse(body);
-      countryData = bodyData.Countries;
-      globalDate = new Date(bodyData.Date);
+      if (IsJsonString(body)) {
+        let bodyData = JSON.parse(body);
+        countryData = bodyData.Countries;
+        globalDate = new Date(bodyData.Date);
+      } else {
+        return res.status(400).send("API request failed");
+      }
     });
     // Set global data
     globalData = true;
@@ -294,19 +316,23 @@ router.post("/address", async (req, res) => {
       "/status/confirmed";
     try {
       await request(reqURL, function(error, response, body) {
-        tempStateData = JSON.parse(body);
-        for (const prop in tempStateData) {
-          if (tempStateData[prop].Province === stateCode) {
-            console.log("state match");
-            stateCountry = tempStateData[prop]["Country"];
-            stateName = tempStateData[prop]["Province"];
-            stateDate = tempStateData[prop]["Date"];
-            stateConfirmed = tempStateData[prop]["Confirmed"];
-            stateDeaths = tempStateData[prop]["Deaths"];
-            stateRecovered = tempStateData[prop]["Recovered"];
-            stateActives = tempStateData[prop]["Active"];
-            stateData = true;
+        if (IsJsonString(body)) {
+          tempStateData = JSON.parse(body);
+          for (const prop in tempStateData) {
+            if (tempStateData[prop].Province === stateCode) {
+              // console.log("state match");
+              stateCountry = tempStateData[prop]["Country"];
+              stateName = tempStateData[prop]["Province"];
+              stateDate = tempStateData[prop]["Date"];
+              stateConfirmed = tempStateData[prop]["Confirmed"];
+              stateDeaths = tempStateData[prop]["Deaths"];
+              stateRecovered = tempStateData[prop]["Recovered"];
+              stateActives = tempStateData[prop]["Active"];
+              stateData = true;
+            }
           }
+        } else {
+          locationData = false;
         }
       });
     } catch (err) {
@@ -346,7 +372,7 @@ router.post("/address", async (req, res) => {
     if (locationData) {
       for (const prop in countryData) {
         if (countryData[prop].CountryCode === country) {
-          console.log("Country match!");
+          // console.log("Country match!");
           stats.Country_Stats = countryData[prop];
           prettyStats.Country_Stats = {};
         }

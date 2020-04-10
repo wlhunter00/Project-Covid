@@ -6,14 +6,18 @@ import {
   Entypo,
   FontAwesome,
   MaterialCommunityIcons,
-  MaterialIcons
+  MaterialIcons,
+  FontAwesome5
 } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function GlobalResourcesMain({ navigation }) {
   const { styles, colors } = useStyle("container");
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{ padding: 15 }}
+    >
       <PageButton
         title="Informational Toolkit"
         navigationName="InformationalToolkit"
@@ -45,21 +49,25 @@ export default function GlobalResourcesMain({ navigation }) {
         description="Tips for to stay healthy"
         navigation={navigation}
       />
-      <PageButton
-        title="Student Resources"
-        navigationName="StudentResources"
-        icon={
-          <MaterialIcons name="school" size={25} color={colors.textcolor} />
-        }
-        description="Helpful information for students"
-        navigation={navigation}
-      />
 
       <PageButton
         title="Mental Health"
         navigationName="MentalHealth"
         icon={<FontAwesome name="heart" size={25} color={colors.textcolor} />}
         description="Information for a healthy mindset"
+        navigation={navigation}
+      />
+      <PageButton
+        title="General Resources"
+        navigationName="StudentResources"
+        icon={
+          <FontAwesome5
+            name="hands-helping"
+            size={25}
+            color={colors.textcolor}
+          />
+        }
+        description="Other useful resources to consider"
         navigation={navigation}
       />
     </ScrollView>

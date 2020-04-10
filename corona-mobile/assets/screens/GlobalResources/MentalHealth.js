@@ -31,7 +31,14 @@ import { SourceItem } from "../../components/FooterComponents";
 export default function StyledMentalHealth() {
   const { styles, colors, isDark } = useStyle("container", "resourceText");
   const navigation = useNavigation();
-  return <MentalHealth styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
+  return (
+    <MentalHealth
+      styles={styles}
+      colors={colors}
+      isDark={isDark}
+      navigation={navigation}
+    />
+  );
 }
 
 class MentalHealth extends React.Component {
@@ -42,7 +49,11 @@ class MentalHealth extends React.Component {
       list: [
         {
           image: image1,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Social Distancing</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>
+              Social Distancing
+            </Text>
+          ),
           body: (
             <View>
               <InfoView
@@ -134,11 +145,16 @@ class MentalHealth extends React.Component {
         },
         {
           image: image2,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Resources to Use</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>
+              Resources to Use
+            </Text>
+          ),
           body: (
             <View>
               <InfoView
                 title={<Text>Mental Health America</Text>}
+                url={"http://mhanational.org/covid19"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -152,6 +168,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>Rethink My Therapy</Text>}
+                url={"https://rethinkmytherapy.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -167,6 +184,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>The National Alliance on Mental Illness</Text>}
+                url={"http://www.nami.org/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -178,6 +196,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>7 Cups</Text>}
+                url={"http://www.7cups.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -192,6 +211,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>Support Group Central</Text>}
+                url={"http://www.supportgroupscentral.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -205,6 +225,9 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>Betterhelp</Text>}
+                url={
+                  "https://www.betterhelp.com/start/?go=true&transaction_id=10295e48477e19f6e9b100987860cb&utm_source=affiliate&utm_campaign=1510&utm_medium=Desktop&utm_content=&utm_term=%C2%AC_found=1&gor=start"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -217,6 +240,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>The Tribe Wellness Community</Text>}
+                url={"http://www.support.therapytribe.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -230,6 +254,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>Psych Central</Text>}
+                url={"http://www.psychcentral.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -241,6 +266,9 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>Talkspace</Text>}
+                url={
+                  "https://lp.talkspace.com/try/ct?siteID=Q.Sg3glZ_fs-GARENcQs7bz1gXKzyyX5NQ&ranMID=41986&ranEAID=Q*Sg3glZ%2Ffs&ranSiteID=Q.Sg3glZ_fs-GARENcQs7bz1gXKzyyX5NQ&LSNSUBSITE=LSNSUBSITE&utm_source=linkshare&utm_campaign=Affiliate_Linkshare&utm_keyword=3&utm_medium=dotdash&utr_adgroup=3672320&utr_adid=37"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -253,6 +281,7 @@ class MentalHealth extends React.Component {
               />
               <InfoView
                 title={<Text>For Like Minds</Text>}
+                url={"http://www.forlikeminds.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -264,7 +293,22 @@ class MentalHealth extends React.Component {
                 }
               />
               <InfoView
+                title={<Text>Runaway</Text>}
+                url={"http://www.runawayapp.com"}
+                body={
+                  <View>
+                    <Text style={this.props.styles.resourceText}>
+                      Runaway is a student-owned and operated social venture
+                      that aims to promote mental health awareness and help
+                      those in need of emotional support. They’ve facilitated
+                      thousands of mental health conversations.
+                    </Text>
+                  </View>
+                }
+              />
+              <InfoView
                 title={<Text>18percent</Text>}
+                url={"http://www.18percent.org/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -292,13 +336,17 @@ class MentalHealth extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-          <BigHeaderScrollView title="Mental Health" description="Tips for keeping up a healthy mindset." image={
+        <BigHeaderScrollView
+          title="Mental Health"
+          description="Tips for keeping up a healthy mindset."
+          image={
             <FontAwesome
               name="heart"
               size={100}
               color={!isDark ? colors.textcolor : "#444"}
             />
-          }>
+          }
+        >
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -309,7 +357,7 @@ class MentalHealth extends React.Component {
               />
             );
           })}
-          </BigHeaderScrollView>
+        </BigHeaderScrollView>
       </View>
     );
   }
