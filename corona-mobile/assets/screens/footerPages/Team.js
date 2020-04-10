@@ -5,18 +5,25 @@ import {
   CompactTeamMemberBox
 } from "../../components/FooterComponents";
 import { useStyle } from "../../styles/styles";
+import { MaterialIcons } from "@expo/vector-icons";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg");
 
 export default function Team({ route, navigation }) {
-  const { styles } = useStyle("container", "answerText", "sectionTitle");
-
+  const { styles, colors, isDark } = useStyle("container", "answerText", "sectionTitle");
   return (
-    <ScrollView
+    <View
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
+      <BigHeaderScrollView title="Meet the Team" description="See who created this app." image={
+        <MaterialIcons
+          name="people"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }>
       <Text style={[styles.sectionTitle, { marginTop: 20 }]}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}
@@ -166,7 +173,8 @@ export default function Team({ route, navigation }) {
         name="Peter Delaney"
         position="Executive Director"
         schoolAndYear="University of Michigan School of Medicine"
-      />
-    </ScrollView>
+        />
+      </BigHeaderScrollView>
+    </View>
   );
 }

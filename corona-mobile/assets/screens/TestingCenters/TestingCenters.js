@@ -9,9 +9,11 @@ import {
   ActivityIndicator,
   Linking
 } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { getLocationAsync } from "../../utils/LocationAPI";
 import { ScrollView } from "react-native-gesture-handler";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 import { InfoView } from "./../../components/InfoView";
 import { ActionButton } from "./../../components/Buttons";
@@ -170,7 +172,7 @@ function ContactNotFound() {
 }
 
 export default function StyledTestingCenters() {
-  const { styles, colors } = useStyle("bioText", "positionText", "container");
+  const { styles, colors, isDark } = useStyle("bioText", "positionText", "container");
   return <TestingCenters styles={styles} colors={colors} />;
 }
 
@@ -222,17 +224,22 @@ class TestingCenters extends React.Component {
   }
 
   render() {
-    const { styles, colors } = this.props;
+    const { styles, colors, isDark } = this.props;
     return (
-      <ScrollView
-        contentContainerStyle={{
-          paddingHorizontal: 15,
-          paddingTop: 15,
-          paddingBottom: 7,
-          backgroundColor: colors.backgroundcolor
-        }}
-        style={styles.container}
-      >
+      <View contentContainerStyle={{
+        paddingHorizontal: 15,
+        paddingTop: 15,
+        paddingBottom: 7,
+        backgroundColor: colors.backgroundcolor
+      }}
+        style={styles.container}>
+      <BigHeaderScrollView title="Testing Centers" description="Everything you need to know about testing and centers near you." image={
+        <FontAwesome
+          name="building"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"}
+        />
+      }>
         <InfoView
           title="Step 1"
           body={
@@ -266,8 +273,9 @@ class TestingCenters extends React.Component {
             </Text>
           }
         />
-        <LocalSourceObject />
-      </ScrollView>
+          <LocalSourceObject />
+        </BigHeaderScrollView>
+      </View>
     );
   }
 }

@@ -1,13 +1,15 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { SiteButton } from "../../components/Buttons";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function LatestNews({ navigation }) {
-  const { styles } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container");
   const sites = [
     {
       title: "CDC",
@@ -73,12 +75,20 @@ export default function LatestNews({ navigation }) {
     // },
   ];
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
+    <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]} contentContainerStyle={{padding: 15}}>
+      <BigHeaderScrollView title="Latest News" image={
+        <Entypo
+          name="news"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+        }
+        description="All the latest from reliable sources." >
       {sites.map(site => {
         return (
           <SiteButton site={site} key={site.title} navigation={navigation} />
         );
       })}
-    </ScrollView>
+      </BigHeaderScrollView>
+    </View>
   );
 }

@@ -5,12 +5,20 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useStyle } from "./../../styles/styles.js";
 import { SourceItem } from "../../components/FooterComponents";
 import { WebView } from "react-native-webview";
+import { Entypo } from "@expo/vector-icons";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 export default function ContactUs({ route, navigation }) {
-  const { styles } = useStyle("container", "boxContainer", "subtitle");
+  const { styles, colors, isDark } = useStyle("container", "boxContainer", "subtitle");
 
   return (
     <View style={styles.container}>
+      <BigHeaderScrollView title="Contact Us" description="Get in touch with us." image={
+        <Entypo
+          name="mail"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }>
       <WebView
         javaScriptEnabled={true}
         domStorageEnabled={true}
@@ -41,7 +49,8 @@ export default function ContactUs({ route, navigation }) {
             For press inquiries please reach out to satvik@runawayapp.com.
           </Text>
         </View>
-      </View>
+        </View>
+      </BigHeaderScrollView>
     </View>
   );
 }

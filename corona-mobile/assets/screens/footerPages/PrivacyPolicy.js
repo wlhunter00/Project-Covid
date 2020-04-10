@@ -6,12 +6,14 @@ import {
 } from "../../components/FooterComponents";
 import { useStyle } from "../../styles/styles";
 import { InfoView } from "./../../components/InfoView";
+import { Entypo } from "@expo/vector-icons";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 export default function Team({ route, navigation }) {
   const { styles } = useStyle("container", "tosText", "tosBold");
-  const { colors } = useStyle("backgroundcolor");
+  const { colors, isDark } = useStyle("backgroundcolor");
   return (
-    <ScrollView
+    <View
       contentContainerStyle={{
         paddingHorizontal: 15,
         paddingTop: 15,
@@ -19,6 +21,12 @@ export default function Team({ route, navigation }) {
       }}
       style={styles.container}
     >
+      <BigHeaderScrollView title="Privacy Policy" description="Read our privacy policy and terms" image={
+        <Entypo
+          name="lock"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }>
       <InfoView
         title="Privacy Policy"
         body={
@@ -265,7 +273,8 @@ export default function Team({ route, navigation }) {
             </Text>
           </View>
         }
-      />
-    </ScrollView>
+        />
+      </BigHeaderScrollView>
+    </View>
   );
 }

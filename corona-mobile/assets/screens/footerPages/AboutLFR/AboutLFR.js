@@ -5,9 +5,11 @@ import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { useStyle } from "../../../styles/styles.js";
 import { SourceItem } from "../../../components/FooterComponents";
 import { VisitButton } from "../../../components/Buttons";
+import { FontAwesome } from "@expo/vector-icons";
+import BigHeaderScrollView from "../../../components/BigHeaderScrollView.js";
 
 export default function AboutLFR({ route, navigation }) {
-  const { styles, colors } = useStyle(
+  const { styles, colors, isDark } = useStyle(
     "container",
     "sectionTitle",
     "compactNameSmall",
@@ -17,10 +19,15 @@ export default function AboutLFR({ route, navigation }) {
     title: "Visit LFR's Site",
     source: "https://lfrinternational.org/"
   };
+
   return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
-    >
+    <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
+      <BigHeaderScrollView title="About LFR" description="Read about LFR and visit their site." image={
+        <FontAwesome
+          name="heartbeat"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }>
       <View
         style={[
           styles.boxContainer,
@@ -78,7 +85,8 @@ export default function AboutLFR({ route, navigation }) {
           marginLeft: 40,
           marginRight: 40
         }}
-      />
-    </ScrollView>
+        />
+      </BigHeaderScrollView>
+    </View>
   );
 }

@@ -88,7 +88,9 @@ export default function App() {
         name="LatestNews"
         component={LatestNews}
         options={{
-          title: "Latest News"
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
         }}
       />
       <Stack.Screen
@@ -157,7 +159,11 @@ export default function App() {
       <Stack.Screen
         name="Sources"
         component={Sources}
-        options={{ title: "Sources" }}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+        }}
       />
       <Stack.Screen
         name="Symptoms"
@@ -198,24 +204,46 @@ export default function App() {
       <Stack.Screen
         name="ContactUs"
         component={ContactUs}
-        options={{ title: "Contact Us" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
       />
       <Stack.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicy}
-        options={{ title: "Privacy Policy" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
       />
       <Stack.Screen
         name="Team"
         component={Team}
-        options={{ title: "Created By" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
       />
       <Stack.Screen
         name="AboutLFR"
         component={AboutLFR}
-        options={{ title: "About LFR" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
       />
-      <Stack.Screen name="Faq" component={Faq} options={{ title: "FAQ" }} />
+      <Stack.Screen name="Faq"
+        component={Faq}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }} />
     </Stack.Navigator>
   );
 
@@ -226,7 +254,11 @@ export default function App() {
     >
       <Stack.Screen
         name="TestingCenters"
-        options={{ title: "Testing Centers" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
         component={TestingCenters}
       />
       <Stack.Screen name="WebView" component={WebViewScreen} />

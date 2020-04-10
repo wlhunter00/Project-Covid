@@ -4,13 +4,23 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useStyle } from "./../../styles/styles.js";
 import { SourceItem } from "../../components/FooterComponents";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { FontAwesome } from "@expo/vector-icons";
+
+
 
 export default function Sources({ route, navigation }) {
-  const { styles, colors } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container");
+
   return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
-    >
+    <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
+    <BigHeaderScrollView title="Sources" description="Learn where our information comes from." image={
+      <FontAwesome
+        name="book"
+        size={100}
+        color={!isDark ? colors.textcolor : "#444"}
+      />
+    }>
       <SourceItem
         navigation={navigation}
         typeSource={"Research Journals"}
@@ -196,7 +206,8 @@ export default function Sources({ route, navigation }) {
         ]}
         key={"govAgen"}
       />
-    </ScrollView>
+      </BigHeaderScrollView>
+    </View>
   );
 }
 

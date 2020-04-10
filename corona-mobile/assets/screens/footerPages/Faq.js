@@ -2,11 +2,19 @@ import * as React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { FAQItem } from "../../components/FooterComponents";
 import { useStyle } from "./../../styles/styles.js";
+import { FontAwesome } from "@expo/vector-icons";
+import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
 export default function Faq({ route, navigation }) {
-  const { styles } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container");
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
+      <BigHeaderScrollView title="Frequently Asked Questions" description="Read answers to questions about the app." image={
+        <FontAwesome
+          name="question"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }>
       <FAQItem
         question="What is Project Covid?"
         answer={
@@ -76,8 +84,9 @@ export default function Faq({ route, navigation }) {
           "Many new features are in development:\n\n• A page featuring the latest information on global travel bans. Once we find a trustworthy and reliable data source, we will implement it right away.\n\n• A smart news feed, pulling the most noteworthy headlines sources in the app itself. We want these to include local headlines to best tailor the app to the user.\n\n• A sentiment-based news feature that will allow our users to filter news based on the type (positive or negative) of news content that you would like to see.\n\n• When information about testing centers is more widely available, we would like a feature where you can find the nearest testing location to you on a map.\n\n• We also have other broader plans such as displaying more statistics as well as video content. If you have any other ideas on how to improve the app, please let us know!"
         }
         key="10"
-      />
-    </ScrollView>
+        />
+      </BigHeaderScrollView>
+    </View>
   );
 }
 
