@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 var request = require("request-promise");
 
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
 router.post("/", async (req, res) => {
   if (Object.keys(req.body).length === 0) {
     return res.status(400).send({
@@ -22,15 +31,19 @@ router.post("/", async (req, res) => {
     coords[1];
   try {
     await request(MPurl, async function(err, response, body) {
-      var data = JSON.parse(body);
-      let location = await data["results"][0]["locations"];
-      if (location === undefined || location.length == 0) {
-        return res.status(400).send({
-          message: "Could not parse coordinates!"
-        });
+      if (IsJsonString(body)) {
+        var data = JSON.parse(body);
+        let location = await data["results"][0]["locations"];
+        if (location === undefined || location.length == 0) {
+          return res.status(400).send({
+            message: "Could not parse coordinates!"
+          });
+        }
+        let address = location[0];
+        return res.send(address);
+      } else {
+        return res.status(400).send("API failed to return");
       }
-      let address = location[0];
-      return res.send(address);
     });
   } catch (err) {
     return res.status(400).send({
