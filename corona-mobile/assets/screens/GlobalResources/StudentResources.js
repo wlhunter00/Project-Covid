@@ -43,6 +43,9 @@ class StudentResources extends React.Component {
             <View>
               <InfoView
                 title={<Text>World Health Organization (WHO)</Text>}
+                url={
+                  "https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -60,6 +63,7 @@ class StudentResources extends React.Component {
                     U.S. Centers for Disease Control and Prevention (CDC)
                   </Text>
                 }
+                url={"https://www.cdc.gov/coronavirus/2019-ncov/index.html"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -73,6 +77,7 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>National Institutes of Health</Text>}
+                url={"https://www.nih.gov/health-information/coronavirus"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -86,6 +91,9 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>U.S. Department of State</Text>}
+                url={
+                  "https://travel.state.gov/content/travel/en/traveladvisories/ea/covid-19-information.html"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -103,6 +111,7 @@ class StudentResources extends React.Component {
                     European Centre for Disease Prevention and Control (ECDC)
                   </Text>
                 }
+                url={"https://www.ecdc.europa.eu/en/novel-coronavirus-china"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -120,6 +129,7 @@ class StudentResources extends React.Component {
                     African Centers for Disease Control and Prevention
                   </Text>
                 }
+                url={"https://africacdc.org"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -133,6 +143,9 @@ class StudentResources extends React.Component {
                 }
               />
               <InfoView
+                url={
+                  "https://www1.health.gov.au/internet/main/publishing.nsf/content/cda-cdna-cdna.htm"
+                }
                 title={
                   <Text>
                     The Communicable Diseases Network Australia (CDNA)
@@ -151,6 +164,7 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Indian National Center for Disease Control</Text>}
+                url={"https://ncdc.gov.in/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -205,6 +219,7 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Moving Out Resources</Text>}
+                url={"https://www.collegeboxes.com/"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -217,6 +232,7 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Resources and Funding</Text>}
+                url={"https://www.studentrelieffund.org/for-students"}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -230,6 +246,9 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Learn to Code</Text>}
+                url={
+                  "https://pro.codecademy.com/learn-from-home/?utm_source=contentful_banner&utm_medium=referral&utm_campaign=learn_from_home"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -245,6 +264,9 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Multilingual Student Resources</Text>}
+                url={
+                  "https://switchboardta.org/blog/a-round-up-of-multilingual-resources-on-covid-19/"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
@@ -258,6 +280,9 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Find Assistance</Text>}
+                url={
+                  "https://www.fcc.gov/consumers/guides/dial-211-essential-community-services"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
