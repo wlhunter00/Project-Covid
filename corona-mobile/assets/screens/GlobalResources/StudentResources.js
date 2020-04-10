@@ -191,6 +191,9 @@ class StudentResources extends React.Component {
               />
               <InfoView
                 title={<Text>Storage Services</Text>}
+                url={
+                  "https://www.uhaul.com/Articles/About/20625/College-Students-U-Haul-Offers-30-Days-Free-Self-Storage-Amid-Coronavirus-Outbreak/"
+                }
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
