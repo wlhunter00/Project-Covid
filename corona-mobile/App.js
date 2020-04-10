@@ -168,6 +168,11 @@ export default function App() {
           headerTintColor: colors.primarycolor
         }}
       />
+      <Stack.Screen
+        name="LiveTracker"
+        component={TrackerStatus}
+        options={{ title: "Live Tracker" }}
+      />
     </Stack.Navigator>
   );
 
