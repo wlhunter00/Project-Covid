@@ -44,7 +44,6 @@ export default function StyledInformationalToolkit() {
 }
 
 class InformationalToolkit extends React.Component {
-  
   constructor(props) {
     super(props);
     const { isDark } = this.props;
@@ -53,7 +52,9 @@ class InformationalToolkit extends React.Component {
       list: [
         {
           image: image1,
-          title: (<Text style={{ color: !isDark? 'black' : 'white'  }}>COVID-19</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>COVID-19</Text>
+          ),
           body: (
             <View>
               <InfoView
@@ -226,7 +227,11 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image2,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Preparedness</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>
+              Preparedness
+            </Text>
+          ),
           body: (
             <View>
               <InfoView
@@ -403,33 +408,17 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image3,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Post-Infection Steps</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>
+              Post-Infection Steps
+            </Text>
+          ),
           body: (
             <View>
               <InfoView
-                title={<Text>What should I be doing if I am sick?</Text>}
+                title={<Text>If you Feel Sick</Text>}
                 body={
                   <View>
-                    <Text style={this.props.styles.resourceText}>
-                      • The CDC currently recommends: 'If you think you have
-                      been exposed to COVID-19 and develop a fever and symptoms,
-                      such as cough or difficulty breathing, call your
-                      healthcare provider for medical advice.
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      • Look to your state or local guidelines surrounding best
-                      practices, testing criteria, and available healthcare
-                      facilities caring for patients with suspected COVID-19.
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      • Infected or possibly infected individuals should stay
-                      home (and avoid travel) except to get medical care.
-                    </Text>
-                    <Text style={this.props.styles.resourceText}>
-                      • Call ahead before visiting a healthcare provider (they
-                      may have protocols such as meeting you outside to avoid
-                      many sick people coming into a waiting room).
-                    </Text>
                     <Text style={this.props.styles.resourceText}>
                       • If you are sick, you should wear a facemask if available
                       when around others in the home or in public.
@@ -462,17 +451,44 @@ class InformationalToolkit extends React.Component {
                       • Do not give aspirin to children with a fever as it can
                       cause a serious condition called Reyes Syndrome.
                     </Text>
+                  </View>
+                }
+              />
+              <InfoView
+                title={<Text>Seeking Medical Attention</Text>}
+                body={
+                  <View>
                     <Text style={this.props.styles.resourceText}>
-                      • Do not leave home isolation until you are instructed to
-                      do so by healthcare providers in consultation with state
-                      and local health departments if you are confirmed to have
-                      COVID-19.
+                      • The CDC currently recommends: 'If you think you have
+                      been exposed to COVID-19 and develop a fever and symptoms,
+                      such as cough or difficulty breathing, call your
+                      healthcare provider for medical advice.
                     </Text>
                     <Text style={this.props.styles.resourceText}>
                       • If you develop difficulty breathing, pain or pressure in
                       the chest, new confusion or inability to arouse, bluish
                       lips or face, call your doctor or the local emergency room
                       to find out the best way to get medical care immediately.
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      • Look to your state or local guidelines surrounding best
+                      practices, testing criteria, and available healthcare
+                      facilities caring for patients with suspected COVID-19.
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      • Infected or possibly infected individuals should stay
+                      home (and avoid travel) except to get medical care.
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      • Call ahead before visiting a healthcare provider (they
+                      may have protocols such as meeting you outside to avoid
+                      many sick people coming into a waiting room).
+                    </Text>
+                    <Text style={this.props.styles.resourceText}>
+                      • Do not leave home isolation until you are instructed to
+                      do so by healthcare providers in consultation with state
+                      and local health departments if you are confirmed to have
+                      COVID-19.
                     </Text>
                   </View>
                 }
@@ -509,17 +525,21 @@ class InformationalToolkit extends React.Component {
         },
         {
           image: image4,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Myth-Busting</Text>),
+          title: (
+            <Text style={{ color: !isDark ? "black" : "white" }}>
+              Myth-Busting
+            </Text>
+          ),
           body: (
             <View>
               <InfoView
-                title={<Text>Myth: Packages from China will infect me</Text>}
+                title={<Text>Myth: Packages will infect me</Text>}
                 body={
                   <View>
                     <Text style={this.props.styles.resourceText}>
-                      Fact: Coronavirus is thought to spread by respiratory
-                      droplets. There is no evidence of coronavirus infections
-                      associated with imported goods.
+                      Fact: Coronavirus is spread through respiratory droplets,
+                      but those may live on packages for up to several days.
+                      Take precautionary measures to disinfect packages.
                     </Text>
                   </View>
                 }
@@ -658,7 +678,9 @@ class InformationalToolkit extends React.Component {
     const { styles, colors, isDark } = this.props;
 
     return (
-      <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
+      <View
+        style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
+      >
         <BigHeaderScrollView
           title="Informational Toolkit"
           description="All you need to know about COVID-19."
