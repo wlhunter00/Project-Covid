@@ -7,23 +7,54 @@ import { SourceItem } from "../../components/FooterComponents";
 import { WebView } from "react-native-webview";
 import { Entypo } from "@expo/vector-icons";
 import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { StandardText } from "./../../components/Texts.js";
+
 
 export default function ContactUs({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container", "boxContainer", "subtitle");
 
   return (
     <View style={styles.container}>
-      <BigHeaderScrollView title="Contact Us" description="Get in touch with us." image={
+      {/* <BigHeaderScrollView title="Contact Us" description="Get in touch with us." image={
         <Entypo
           name="mail"
           size={100}
           color={!isDark ? colors.textcolor : "#444"} />
-      }>
+      }
+      numLines={1}> */}
+      <View
+        style={{
+          marginTop: 100,
+          paddingHorizontal: 15,
+          marginLeft: 10,
+          marginRight: 10,
+          flexDirection: "row"
+        }}
+      >
+        <View style={{ flex: 1 }}>
+          <StandardText
+            fontSize="title"
+            isBold
+            allowFontScaling={false}
+            style={{
+              marginBottom: 10
+            }}
+          >
+            Contact Us
+          </StandardText>
+          <StandardText allowFontScaling={false}>
+            Get in touch with us.
+          </StandardText>
+        </View>
+        <Entypo
+          name="mail"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      </View>
       <WebView
         javaScriptEnabled={true}
         domStorageEnabled={true}
         startInLoadingState={true}
-        scrollEnabled={false}
         source={{
           uri:
             "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
@@ -50,7 +81,7 @@ export default function ContactUs({ route, navigation }) {
           </Text>
         </View>
         </View>
-      </BigHeaderScrollView>
-    </View>
+      {/* </BigHeaderScrollView> */}
+      </View>
   );
 }

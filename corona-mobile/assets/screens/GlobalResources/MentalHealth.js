@@ -346,7 +346,7 @@ class MentalHealth extends React.Component {
               color={!isDark ? colors.textcolor : "#444"}
             />
           }
-        >
+          numLines={1}>
           {this.state.list.map(item => {
             return (
               <ImageButton

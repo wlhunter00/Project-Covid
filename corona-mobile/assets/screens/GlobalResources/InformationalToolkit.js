@@ -658,10 +658,10 @@ class InformationalToolkit extends React.Component {
     const { styles, colors, isDark } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
         <BigHeaderScrollView
           title="Informational Toolkit"
-          description="Commonly requested info about COVID-19 and how to prepare yourself."
+          description="All you need to know about COVID-19."
           image={
             <MaterialCommunityIcons
               name="toolbox"

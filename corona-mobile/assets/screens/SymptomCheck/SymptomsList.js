@@ -59,7 +59,8 @@ export function SymptomsList({ navigation }) {
           size={100}
           color={!isDark ? colors.textcolor : "#444"}
         />
-      } >
+        }
+        numLines={1}>
         <View style={styles.boxContainer}>
           <View
             style={{

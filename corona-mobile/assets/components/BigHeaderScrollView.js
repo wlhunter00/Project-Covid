@@ -12,13 +12,19 @@ import { Header } from 'react-navigation-stack';
 import { useHeaderHeight } from "@react-navigation/stack";
 
 
-export default function BigHeaderScrollView({ title, description, image, children, isHome=false }) {
+export default function BigHeaderScrollView({ title, description, image, children, numLines, isHome=false }) {
     const { styles, colors } = useStyle("container" );
     const logo = require("../images/logo-notext.png")
     let header = useHeaderHeight(); 
-
+    let parallaxHeader = header*3 - 20;
+    if (numLines == 1) {
+        parallaxHeader = header*2.5;
+    }
+    if (isHome) {
+        parallaxHeader = header * 3;
+    }
     return (<ParallaxScrollView
-        parallaxHeaderHeight={header*3}
+        parallaxHeaderHeight={parallaxHeader}
         stickyHeaderHeight={header}
         backgroundColor={colors.backgroundcolor}
         contentBackgroundColor={colors.backgroundcolor}
@@ -44,13 +50,13 @@ export default function BigHeaderScrollView({ title, description, image, childre
                         }}
                     >
                         {title}
-      </StandardText>
+                    </StandardText>
                     <StandardText allowFontScaling={false}>
                         {description}
-      </StandardText>
+                    </StandardText>
                 </View>
-                {image}
-            </View>
+                    {image}
+        </View>
         )}
         renderStickyHeader={() => (
             

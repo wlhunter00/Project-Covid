@@ -26,8 +26,11 @@ export function InfoView({ title, body, url }) {
 
   return (
     <View style={styles.boxContainer}>
-      <Text style={[styles.normalText, { fontSize: 24 }]}>{title}</Text>
-      <View style={{ flex: 1 }} />
+      <View style={{ flexDirection: "row" }}>
+      <View style={{ flex: 2 }}>
+          <Text style={[styles.normalText, { fontSize: 24 }]}>{title}</Text>
+      </View>
+      <View style={{ flex: 1 }}>
       {url && (
         <SimpleButton
           title="View Resource"
@@ -36,7 +39,9 @@ export function InfoView({ title, body, url }) {
           }}
           hasChevron
         />
-      )}
+          )}
+        </View>
+        </View>
       <View style={[styles.divider, { marginVertical: 10 }]} />
       <View style={styles.bio}>{body}</View>
     </View>

@@ -20,7 +20,8 @@ export default function Sources({ route, navigation }) {
         size={100}
         color={!isDark ? colors.textcolor : "#444"}
       />
-    }>
+      }
+      numLines={1}>
       <SourceItem
         navigation={navigation}
         typeSource={"Research Journals"}

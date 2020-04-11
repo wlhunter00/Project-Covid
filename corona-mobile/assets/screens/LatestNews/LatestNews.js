@@ -82,7 +82,8 @@ export default function LatestNews({ navigation }) {
           size={100}
           color={!isDark ? colors.textcolor : "#444"} />
         }
-        description="All the latest from reliable sources." >
+        description="All the latest from reliable sources."
+        numLines={1}>
       {sites.map(site => {
         return (
           <SiteButton site={site} key={site.title} navigation={navigation} />

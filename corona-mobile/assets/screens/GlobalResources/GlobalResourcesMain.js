@@ -15,7 +15,7 @@ export default function GlobalResourcesMain({ navigation }) {
   const { styles, colors } = useStyle("container");
   return (
     <ScrollView
-      style={styles.container}
+      style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
       contentContainerStyle={{ padding: 15 }}
     >
       <PageButton

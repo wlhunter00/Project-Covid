@@ -173,7 +173,7 @@ function ContactNotFound() {
 
 export default function StyledTestingCenters() {
   const { styles, colors, isDark } = useStyle("bioText", "positionText", "container");
-  return <TestingCenters styles={styles} colors={colors} />;
+  return <TestingCenters styles={styles} colors={colors} isDark={isDark} />;
 }
 
 class TestingCenters extends React.Component {
@@ -239,7 +239,8 @@ class TestingCenters extends React.Component {
           size={100}
           color={!isDark ? colors.textcolor : "#444"}
         />
-      }>
+        }
+        numLines={1}>
         <InfoView
           title="Step 1"
           body={
