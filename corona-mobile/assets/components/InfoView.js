@@ -27,21 +27,21 @@ export function InfoView({ title, body, url }) {
   return (
     <View style={styles.boxContainer}>
       <View style={{ flexDirection: "row" }}>
-      <View style={{ flex: 2 }}>
+        <View style={{ flex: 2 }}>
           <Text style={[styles.normalText, { fontSize: 24 }]}>{title}</Text>
-      </View>
-      <View style={{ flex: 1 }}>
-      {url && (
-        <SimpleButton
-          title="View Resource"
-          action={() => {
-            navigation.navigate("WebView", { title, url });
-          }}
-          hasChevron
-        />
+        </View>
+        <View style={{ flex: 1 }}>
+          {url && (
+            <SimpleButton
+              title="Resource"
+              action={() => {
+                navigation.navigate("WebView", { title, url });
+              }}
+              hasChevron
+            />
           )}
         </View>
-        </View>
+      </View>
       <View style={[styles.divider, { marginVertical: 10 }]} />
       <View style={styles.bio}>{body}</View>
     </View>
