@@ -11,12 +11,20 @@ import {
 import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { PageButton } from "../components/Buttons";
+import BigHeaderScrollView from "../components/BigHeaderScrollView.js";
+
 
 export default function AboutScreen({ navigation }) {
-  const { styles, colors } = useStyle("container");
-
+  const { styles, colors, isDark } = useStyle("container");
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{padding: 15}}>
+    <View style={styles.container} contentContainerStyle={{ padding: 15 }}>
+      <BigHeaderScrollView title="About the App" description="Learn more about this app." image={
+        <Entypo
+          name="info-with-circle"
+          size={100}
+          color={!isDark ? colors.textcolor : "#444"} />
+      }
+        numLines={1}>
       <PageButton
         title="About LFR"
         navigationName="AboutLFR"
@@ -62,7 +70,8 @@ export default function AboutScreen({ navigation }) {
         icon={<Entypo name="lock" size={25} color={colors.textcolor} />}
         description="Read our privacy policy and terms."
         navigation={navigation}
-      />
-    </ScrollView>
+        />
+      </BigHeaderScrollView>
+    </View>
   );
 }

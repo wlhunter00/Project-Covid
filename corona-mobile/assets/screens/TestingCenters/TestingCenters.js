@@ -279,7 +279,7 @@ class TestingCenters extends React.Component {
               range from 5 to 48 hours, with an average of 24 hours.
             </Text>
           }
-        >
+        />
           <InfoView
             title="Step 1"
             body={
@@ -316,6 +316,7 @@ class TestingCenters extends React.Component {
           <LocalSourceObject />
         </BigHeaderScrollView>
       </View>
+        
     );
   }
 }

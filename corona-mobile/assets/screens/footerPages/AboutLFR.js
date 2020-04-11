@@ -35,12 +35,6 @@ export default function AboutLFR({ route, navigation }) {
           { marginLeft: 15, marginRight: 15, marginTop: 15 }
         ]}
       >
-        <View
-          style={[
-            styles.boxContainer,
-            { marginLeft: 15, marginRight: 15, marginTop: 15 }
-          ]}
-        >
           <Image
             source={require("./../../images/LFR/Favicon.png")}
             resizeMode="contain"
@@ -64,17 +58,6 @@ export default function AboutLFR({ route, navigation }) {
             establish affordable, sustainable, and locally-informed lay first
             responder programs by deploying emergency medical providers to
             educate, launch, and scale up programs.{" "}
-          </Text>
-          <Text
-            style={[
-              styles.compactNameSmall,
-              { marginLeft: 5, marginRight: 5, marginBottom: 20 }
-            ]}
-          >
-            LFR has established programs in four low- and middle-income
-            countries. Working with local governments and community
-            stakeholders, LFR develops sustainable and scalable long-term
-            solutions.
           </Text>
           <Text
             style={[styles.compactNameSmall, { marginLeft: 5, marginRight: 5 }]}

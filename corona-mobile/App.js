@@ -203,7 +203,11 @@ export default function App() {
       <Stack.Screen
         name="About"
         component={AboutScreen}
-        options={{ title: "About the App" }}
+        options={{ 
+          title: "",
+          headerTransparent: true,
+          headerTintColor: colors.primarycolor
+         }}
       />
       <Stack.Screen name="WebView" component={WebViewScreen} />
       <Stack.Screen
