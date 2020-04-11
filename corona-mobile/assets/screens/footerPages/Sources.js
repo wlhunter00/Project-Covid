@@ -7,14 +7,12 @@ import { SourceItem } from "../../components/FooterComponents";
 import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 import { FontAwesome } from "@expo/vector-icons";
 
-
-
 export default function Sources({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container");
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
-    <BigHeaderScrollView title="Sources" description="Learn where our information comes from." image={
+      <BigHeaderScrollView title="Sources" description="Learn where our information came from and read the orginal documents." image={
       <FontAwesome
         name="book"
         size={100}

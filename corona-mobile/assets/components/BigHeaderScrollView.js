@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import {
-  View,
-  Image,
-  Text
-} from "react-native";
+import { View, Image, Text } from "react-native";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
 import { useStyle } from "../styles/styles";
 import { StandardText } from "./Texts.js";
-import { Header } from 'react-navigation-stack';
+import { Header } from "react-navigation-stack";
 import { useHeaderHeight } from "@react-navigation/stack";
 
+export default function BigHeaderScrollView({
+  title,
+  description,
+  image,
+  children,
+  isHome = false
+}) {
+  const { styles, colors } = useStyle("container");
+  const logo = require("../images/logo-notext.png");
+  let header = useHeaderHeight();
 
 export default function BigHeaderScrollView({ title, description, image, children, numLines, isHome=false }) {
     const { styles, colors } = useStyle("container" );
@@ -74,29 +80,44 @@ export default function BigHeaderScrollView({ title, description, image, childre
             
             : (<View
                 style={{
-                    borderBottomColor: colors.accentcolor,
-                    borderBottomWidth: 1,
-                    paddingHorizontal: 15,
-                    paddingBottom: 12,
-                    justifyContent: "flex-end",
-                    height: "100%"
+                  height: 43,
+                  width: 43,
+                  marginRight: 5,
+                  marginBottom: 3
                 }}
+              />
+              <StandardText fontSize="title" isBold>
+                Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+              </StandardText>
+            </View>
+          </View>
+        ) : (
+          <View
+            style={{
+              borderBottomColor: colors.accentcolor,
+              borderBottomWidth: 1,
+              paddingHorizontal: 15,
+              paddingBottom: 12,
+              justifyContent: "flex-end",
+              height: "100%"
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
             >
-                <View
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}
-                >
-                    <StandardText isBold>{title}</StandardText>
-                </View>
-            </View>)
-        )}
-        contentContainerStyle={{ paddingHorizontal: 15 }}
-        keyboardDismissMode="on-drag"
+              <StandardText isBold>{title}</StandardText>
+            </View>
+          </View>
+        )
+      }
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      keyboardDismissMode="on-drag"
     >
-        {children}
+      {children}
     </ParallaxScrollView>
-    );
+  );
 }

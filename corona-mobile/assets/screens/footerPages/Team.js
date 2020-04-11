@@ -12,13 +12,17 @@ const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg");
 
 export default function Team({ route, navigation }) {
-  const { styles, colors, isDark } = useStyle("container", "answerText", "sectionTitle");
+  const { styles, colors, isDark } = useStyle(
+    "container",
+    "answerText",
+    "sectionTitle"
+  );
   return (
     <View
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
-      <BigHeaderScrollView title="Meet the Team" description="See who created this app." image={
+      <BigHeaderScrollView title="Meet the Team" description="See the team that put together this project." image={
         <MaterialIcons
           name="people"
           size={100}
@@ -110,70 +114,70 @@ export default function Team({ route, navigation }) {
         schoolAndYear="Washington University, St. Louis, Junior"
       />
 
-      <Text style={styles.sectionTitle}>Researchers</Text>
+        <Text style={styles.sectionTitle}>Researchers</Text>
 
-      <CompactTeamMemberBox
-        name="Veeraj Shah"
-        position="Health Literacy Curator"
-        schoolAndYear="University of Maryland, Junior"
-      />
-      <CompactTeamMemberBox
-        name="Saydi Akgul"
-        position="Information Curator"
-        schoolAndYear="Binghamton University, Masters in Public Health"
-      />
-      <CompactTeamMemberBox
-        name="Zahraa Tounsi"
-        position="Information Curator"
-        schoolAndYear="Binghamton University, Senior"
-      />
-      <CompactTeamMemberBox
-        name="Victor Lopez-Carmen"
-        position="Information Curator"
-        schoolAndYear="Harvard Medical School, First Year"
-      />
-      <CompactTeamMemberBox
-        name="Brendan Eappen"
-        position="Information Curator"
-        schoolAndYear="Harvard Medical School, First Year"
-      />
-      <CompactTeamMemberBox
-        name="Ashwath Narayanan"
-        position="Resource Curator"
-        schoolAndYear="George Washington University"
-      />
-      <CompactTeamMemberBox
-        name="Dan Sudit"
-        position="Resource Curator"
-        schoolAndYear="New York University"
-      />
-      <CompactTeamMemberBox
-        name="Parth Devalia"
-        position="Twitter Content Curator"
-        schoolAndYear="University of Warwick"
-      />
-      <CompactTeamMemberBox
-        name="Javier Suarez"
-        position="Graphic Designer"
-        schoolAndYear="Binghamton University, Working Professional"
-      />
-      <CompactTeamMemberBox
-        name="Gus Velasquez"
-        position="Volunteer, Research Curator"
-        schoolAndYear="Harvard Medical School"
-      />
-      <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
-        LFR International
-      </Text>
-      <CompactTeamMemberBox
-        name="Zach Eisner"
-        position="Operations Director"
-        schoolAndYear="Washington University, St. Louis, Junior"
-      />
-      <CompactTeamMemberBox
-        name="Peter Delaney"
-        position="Executive Director"
-        schoolAndYear="University of Michigan School of Medicine"
+        <CompactTeamMemberBox
+          name="Veeraj Shah"
+          position="Health Literacy Curator"
+          schoolAndYear="University of Maryland, Junior"
+        />
+        <CompactTeamMemberBox
+          name="Saydi Akgul"
+          position="Information Curator"
+          schoolAndYear="Binghamton University, Masters in Public Health"
+        />
+        <CompactTeamMemberBox
+          name="Zahraa Tounsi"
+          position="Information Curator"
+          schoolAndYear="Binghamton University, Senior"
+        />
+        <CompactTeamMemberBox
+          name="Victor Lopez-Carmen"
+          position="Information Curator"
+          schoolAndYear="Harvard Medical School, First Year"
+        />
+        <CompactTeamMemberBox
+          name="Brendan Eappen"
+          position="Information Curator"
+          schoolAndYear="Harvard Medical School, First Year"
+        />
+        <CompactTeamMemberBox
+          name="Ashwath Narayanan"
+          position="Resource Curator"
+          schoolAndYear="George Washington University"
+        />
+        <CompactTeamMemberBox
+          name="Dan Sudit"
+          position="Resource Curator"
+          schoolAndYear="New York University"
+        />
+        <CompactTeamMemberBox
+          name="Parth Devalia"
+          position="Twitter Content Curator"
+          schoolAndYear="University of Warwick"
+        />
+        <CompactTeamMemberBox
+          name="Javier Suarez"
+          position="Graphic Designer"
+          schoolAndYear="Binghamton University, Working Professional"
+        />
+        <CompactTeamMemberBox
+          name="Gus Velasquez"
+          position="Volunteer, Research Curator"
+          schoolAndYear="Harvard Medical School"
+        />
+        <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
+          LFR International
+        </Text>
+        <CompactTeamMemberBox
+          name="Zach Eisner"
+          position="Operations Director"
+          schoolAndYear="Washington University, St. Louis, Junior"
+        />
+        <CompactTeamMemberBox
+          name="Peter Delaney"
+          position="Executive Director"
+          schoolAndYear="University of Michigan School of Medicine"
         />
       </BigHeaderScrollView>
     </View>
