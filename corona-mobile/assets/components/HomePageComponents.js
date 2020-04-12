@@ -139,10 +139,10 @@ export function StatsView({ stats }) {
   // get ref to flatlist
   const flatListRef = React.useRef();
 
-  // automatically switch pages every 5 seconds
-  useInterval(() => {
-    flatListRef.current.scrollToIndex({ index: currentPage != statsItems.length - 1 ? currentPage + 1 : 0 });
-  }, 5000)
+  // // automatically switch pages every 5 seconds
+  // useInterval(() => {
+  //   flatListRef.current.scrollToIndex({ index: currentPage != statsItems.length - 1 ? currentPage + 1 : 0 });
+  // }, 5000)
 
   return (
       <View style={{ marginBottom: 15,  marginHorizontal: -15, alignItems: "stretch" }}>
