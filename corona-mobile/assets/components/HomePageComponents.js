@@ -80,51 +80,49 @@ const SmallStat = ({ name, val }) => {
     );
 };
 
+const dateToTime = date => date.toLocaleString('en-US', {
+  hour: 'numeric',
+  minute: 'numeric'
+});
+
 function StatsPage({ stats, title }) {
   const { styles, colors } = useStyle("divider");
-    return (
-      <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH }}>
-          <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{ fontWeight: '300' }}>for {title}</Text></StandardText>
-            <View style={[styles.divider, {marginVertical: 15}]}/>
-            <BigStat name="Confirmed Cases" val={stats["TotalConfirmed"] || stats["Confirmed"]} />
-            {stats["NewConfirmed"] && <SmallStat name="New Cases" val={stats["NewConfirmed"]} />}
 
-            <View style={{height: 10}}/>
-            <BigStat name="Total Deaths" val={stats["TotalDeaths"] || stats["Deaths"]} color="#CD4543"/>
-            {stats["NewDeaths"] && <SmallStat name="New Deaths" val={stats["NewDeaths"]} />}
-            <View style={{height: 10}}/>
-            <BigStat name="Recovered" val={stats["TotalRecovered"] || stats["Recovered"]} color={colors.primarycolor} />
-            {stats["NewRecovered"] && <SmallStat name="New Recovered" val={stats["NewRecovered"]} />}
-        </View>
-    );
+  const lastUpdated = dateToTime(new Date(stats.Updated));
+
+  return (
+    <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH }}>
+      <StandardText fontSize="subtitle" isBold>Live Statistics <Text style={{ fontWeight: '300' }}>for {title}</Text></StandardText>
+      <View style={[styles.divider, { marginVertical: 15 }]} />
+      <BigStat name="Confirmed Cases" val={stats["TotalConfirmed"] || stats["Confirmed"]} />
+      {stats["NewConfirmed"] && <SmallStat name="New Cases" val={stats["NewConfirmed"]} />}
+
+      <View style={{ height: 10 }} />
+      <BigStat name="Total Deaths" val={stats["TotalDeaths"] || stats["Deaths"]} color="#CD4543" />
+      {stats["NewDeaths"] && <SmallStat name="New Deaths" val={stats["NewDeaths"]} />}
+      <View style={{ height: 10 }} />
+      <BigStat name="Recovered" val={stats["TotalRecovered"] || stats["Recovered"]} color={colors.primarycolor} />
+      {stats["NewRecovered"] && <SmallStat name="New Recovered" val={stats["NewRecovered"]} />}
+      <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginHorizontal: 15, marginTop: 15, textAlign: "right" }}>Last updated: {lastUpdated}</Text>
+    </View>
+  );
 }
   
 export function StatsView({ stats }) {
   const [currentPage, changePage] = useState(0);
 
   const { colors, isDark } = useStyle();
-
-  const dateToTime = date => date.toLocaleString('en-US', {
-    hour: 'numeric',
-    minute: 'numeric'
-  });
-
-  const lastUpdatedGlobal = stats.Global_Stats.Updated;
-  let localDateGlobal = new Date(lastUpdatedGlobal);
   
   // Set up the different stats pages
   let statsItems = [];
 
-  let localDateProvince = "";
   if (stats.Province_Stats) {
     statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 0 });
-    localDateProvince = new Date(stats.Province_Stats.Updated);
   }
 
   let localDateCountry = "";
   if (stats.Country_Stats) {
     statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "United States of America" ? "the US" : stats.Country_Stats.Country, key: 1 });
-    localDateCountry = new Date(stats.Country_Stats.Updated);
   }
 
   statsItems.push( { stats: stats.Global_Stats, title: "the World", key: 2 })
@@ -140,7 +138,7 @@ export function StatsView({ stats }) {
   // get ref to flatlist
   const flatListRef = React.useRef();
 
-  // automatically switch pages every 6 seconds
+  // automatically switch pages every 5 seconds
   useInterval(() => {
     flatListRef.current.scrollToIndex({ index: currentPage != statsItems.length - 1 ? currentPage + 1 : 0 });
   }, 5000)
@@ -163,9 +161,6 @@ export function StatsView({ stats }) {
         numberOfPages={statsItems.length}
         pageIndicatorTintColor={!isDark ? colors.accentcolor : colors.secondarytextcolor}
         currentPageIndicatorTintColor={colors.primarycolor} style={{ marginTop: 30 }} hidesForSinglePage />
-      {currentPage == 0 && localDateProvince !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15, textAlign: 'left' }}>Last updated: {dateToTime(localDateProvince)}</Text>}
-      {currentPage == 1 && localDateCountry !== "" && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateCountry)}</Text>}
-      {(localDateCountry === "" || currentPage == 2)  && <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginLeft: 15, marginTop: 15 }}>Last updated: {dateToTime(localDateGlobal)}</Text>}
       </View>
     );
   }
