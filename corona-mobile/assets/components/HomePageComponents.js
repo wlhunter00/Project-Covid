@@ -85,7 +85,7 @@ const dateToTime = date => date.toLocaleString('en-US', {
   minute: 'numeric'
 });
 
-function StatsPage({ stats, title }) {
+function StatsPage({ stats, title, isProvince }) {
   const { styles, colors } = useStyle("divider");
 
   const lastUpdated = dateToTime(new Date(stats.Updated));
@@ -103,6 +103,8 @@ function StatsPage({ stats, title }) {
       <View style={{ height: 10 }} />
       <BigStat name="Recovered" val={stats["TotalRecovered"] || stats["Recovered"]} color={colors.primarycolor} />
       {stats["NewRecovered"] && <SmallStat name="New Recovered" val={stats["NewRecovered"]} />}
+      {isProvince && <StandardText fontSize={14} style={{ color: colors.secondarytextcolor }}>Recovery stats may not be reported by the state.</StandardText>}
+      <View style={{ flex: 1 }}/>
       <Text style={{ color: colors.secondarytextcolor, fontStyle: 'italic', fontSize: 14, marginHorizontal: 15, marginTop: 15, textAlign: "right" }}>Last updated: {lastUpdated}</Text>
     </View>
   );
@@ -120,7 +122,6 @@ export function StatsView({ stats }) {
     statsItems.push({ stats: stats.Province_Stats, title: stats.Province_Stats.Name, key: 0 });
   }
 
-  let localDateCountry = "";
   if (stats.Country_Stats) {
     statsItems.push({ stats: stats.Country_Stats, title: stats.Country_Stats.Country === "United States of America" ? "the US" : stats.Country_Stats.Country, key: 1 });
   }
@@ -151,7 +152,7 @@ export function StatsView({ stats }) {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         keyExtractor={item => item.title}
-        renderItem={({ item }) => <StatsPage stats={item.stats} title={item.title} />}
+        renderItem={({ item }) => <StatsPage stats={item.stats} title={item.title} isProvince={item.key == 0}/>}
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={viewConfigRef.current}
         ref={flatListRef}
