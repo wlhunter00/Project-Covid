@@ -177,7 +177,7 @@ export default function StyledTestingCenters() {
     "positionText",
     "container"
   );
-  return <TestingCenters styles={styles} colors={colors} isDark={isDark}/>;
+  return <TestingCenters styles={styles} colors={colors} isDark={isDark} />;
 }
 
 class TestingCenters extends React.Component {
@@ -230,56 +230,26 @@ class TestingCenters extends React.Component {
   render() {
     const { styles, colors, isDark } = this.props;
     return (
-      <View contentContainerStyle={{
-        paddingHorizontal: 15,
-        paddingTop: 15,
-        paddingBottom: 7,
-        backgroundColor: colors.backgroundcolor
-      }}
-        style={styles.container}>
-        <BigHeaderScrollView title="Testing Centers"
+      <View
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingTop: 15,
+          paddingBottom: 7,
+          backgroundColor: colors.backgroundcolor
+        }}
+        style={styles.container}
+      >
+        <BigHeaderScrollView
+          title="Testing Centers"
           description="Everything you need to know about testing and centers near you."
           image={
-          <FontAwesome
-          name="building"
-          size={90}
-          color={!isDark ? colors.textcolor : "#444"}
-          />
+            <FontAwesome
+              name="building"
+              size={90}
+              color={!isDark ? colors.textcolor : "#444"}
+            />
           }
         >
-        <InfoView
-          title="Step 1"
-          body={
-            <Text style={styles.bioText}>
-              To be tested, you must be approved by your primary care provider
-              (PCP) or other medical professional/facility (urgent care,
-              telehealth application (Teladoc), hospital, health department) to
-              meet state criteria based on symptoms or exposure to a confirmed
-              case.
-            </Text>
-          }
-        />
-        <InfoView title="Contact Information" body={this.state.contact} />
-        <InfoView
-          title="Step 2"
-          body={
-            <Text style={styles.bioText}>
-              The test procedure involves taking a swab of the patient's nose.
-              Free testing is available in public facilities and price ranges
-              from $50 - $100 for commercial lab testing if you don't meet state
-              criteria or want an expedited process.
-            </Text>
-          }
-        />
-        <InfoView
-          title="Step 3"
-          body={
-            <Text style={styles.bioText}>
-              Samples are sent to labs for analysis. Timing to get results back
-              range from 5 to 48 hours, with an average of 24 hours.
-            </Text>
-          }
-        />
           <InfoView
             title="Step 1"
             body={
@@ -316,7 +286,6 @@ class TestingCenters extends React.Component {
           <LocalSourceObject />
         </BigHeaderScrollView>
       </View>
-        
     );
   }
 }
