@@ -75,7 +75,7 @@ export default function HomeScreen({ navigation }) {
         title="ProjectCovid"
         description="Live tracking and resources to help you get through the pandemic."
         image={<Image source={logo} style={{ height: 100, width: 100 }} />}
-        isHome={true}
+        isHome
       >
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (

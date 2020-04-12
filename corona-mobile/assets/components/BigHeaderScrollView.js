@@ -12,96 +12,90 @@ export default function BigHeaderScrollView({
     description,
     image,
     children,
-    numLines,
-    isHome = false
+    isLonger,
+    isHome
 }) {
     const { styles, colors } = useStyle("container");
     const logo = require("../images/logo-notext.png");
     let header = useHeaderHeight();
+    parallaxHeader = isLonger ? header * 3 - 20 : header * 2.5;
 
-        let parallaxHeader = header * 3 - 20;
-        if (numLines == 1) {
-            parallaxHeader = header * 2.5;
-        }
-        if (isHome) {
-            parallaxHeader = header * 3;
-        }
-        return (<ParallaxScrollView
-            parallaxHeaderHeight={parallaxHeader}
-            stickyHeaderHeight={header}
-            backgroundColor={colors.backgroundcolor}
-            contentBackgroundColor={colors.backgroundcolor}
-            renderBackground={() => <View style={styles.container} />}
-            renderForeground={() => (
-                <View
-                    style={{
-                        marginBottom: 20,
-                        marginTop: 100,
-                        paddingHorizontal: 15,
-                        marginLeft: 10,
-                        marginRight: 10,
-                        flexDirection: "row"
-                    }}
-                >
-                    <View style={{ flex: 1 }}>
-                        <StandardText
-                            fontSize="title"
-                            isBold
-                            allowFontScaling={false}
-                            style={{
-                                marginBottom: 10
-                            }}
-                        >
-                            {title}
-                        </StandardText>
-                        <StandardText allowFontScaling={false}>
-                            {description}
-                        </StandardText>
-                    </View>
-                    {image}
+    return (<ParallaxScrollView
+        parallaxHeaderHeight={parallaxHeader}
+        stickyHeaderHeight={header}
+        backgroundColor={colors.backgroundcolor}
+        contentBackgroundColor={colors.backgroundcolor}
+        renderBackground={() => <View style={styles.container} />}
+        renderForeground={() => (
+            <View
+                style={{
+                    marginBottom: 20,
+                    marginTop: 100,
+                    paddingHorizontal: 15,
+                    marginLeft: 10,
+                    marginRight: 10,
+                    flexDirection: "row"
+                }}
+            >
+                <View style={{ flex: 1 }}>
+                    <StandardText
+                        fontSize="title"
+                        isBold
+                        allowFontScaling={false}
+                        style={{
+                            marginBottom: 10
+                        }}
+                    >
+                        {title}
+                    </StandardText>
+                    <StandardText allowFontScaling={false}>
+                        {description}
+                    </StandardText>
                 </View>
-            )}
-            renderStickyHeader={() => (
+                {image}
+            </View>
+        )}
+        renderStickyHeader={() => (
             
-                isHome ?
-                    (
-                        <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 5, justifyContent: 'flex-end', height: '100%' }}>
-                            <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                <Image source={logo} style={{ height: 43, width: 43, marginRight: 5, marginBottom: 3 }} />
-                                <StandardText fontSize="title" isBold>
-                                    Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
-                                </StandardText>
-                            </View>
+            isHome ?
+                (
+                    <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 5, justifyContent: 'flex-end', height: '100%' }}>
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                            <Image source={logo} style={{ height: 43, width: 43, marginRight: 5, marginBottom: 3 }} />
+                            <StandardText fontSize="title" isBold>
+                                Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+                            </StandardText>
                         </View>
-                    )
+                    </View>
+                )
             
-                    : (
+                : (
+                    <View
+                        style={{
+                            borderBottomColor: colors.accentcolor,
+                            borderBottomWidth: 1,
+                            paddingHorizontal: 15,
+                            paddingBottom: 12,
+                            justifyContent: "flex-end",
+                            height: "100%"
+                        }}
+                    >
                         <View
                             style={{
-                                borderBottomColor: colors.accentcolor,
-                                borderBottomWidth: 1,
-                                paddingHorizontal: 15,
-                                paddingBottom: 12,
-                                justifyContent: "flex-end",
-                                height: "100%"
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
                             }}
                         >
-                            <View
-                                style={{
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    justifyContent: "center"
-                                }}
-                            >
-                                <StandardText isBold>{title}</StandardText>
-                            </View>
+                            <StandardText isBold>{title}</StandardText>
                         </View>
-                    )
-            )}
-            contentContainerStyle={{ paddingHorizontal: 15 }}
-            keyboardDismissMode="on-drag"
-        >
-            {children}
-        </ParallaxScrollView>
-        );
+                    </View>
+                )
+        )}
+        contentContainerStyle={{ paddingHorizontal: 15 }}
+        keyboardDismissMode="on-drag"
+    >
+        {children}
+    </ParallaxScrollView>
+    );
 }

@@ -246,7 +246,7 @@ class TestingCenters extends React.Component {
           color={!isDark ? colors.textcolor : "#444"}
           />
           }
-        numLines={1}>
+        >
         <InfoView
           title="Step 1"
           body={

@@ -601,7 +601,7 @@ class PreventativePractices extends React.Component {
             size={100}
             color={!isDark ? colors.textcolor : "#444"}
           />
-        }>
+        } isLonger>
           {this.state.list.map(item => {
             return (
               <ImageButton

@@ -27,8 +27,7 @@ export default function AboutLFR({ route, navigation }) {
           name="heartbeat"
           size={100}
           color={!isDark ? colors.textcolor : "#444"} />
-      }
-        numLines={1}>
+      }>
       <View
         style={[
           styles.boxContainer,

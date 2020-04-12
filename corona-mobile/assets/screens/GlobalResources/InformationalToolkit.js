@@ -691,6 +691,7 @@ class InformationalToolkit extends React.Component {
               color={!isDark ? colors.textcolor : "#444"}
             />
           }
+          isLonger
         >
           {this.state.list.map(item => {
             return (

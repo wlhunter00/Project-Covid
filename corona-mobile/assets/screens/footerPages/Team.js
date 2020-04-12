@@ -27,8 +27,7 @@ export default function Team({ route, navigation }) {
           name="people"
           size={100}
           color={!isDark ? colors.textcolor : "#444"} />
-      }
-      numLines={1}>
+      }>
       <Text style={[styles.sectionTitle]}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}

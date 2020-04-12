@@ -23,8 +23,7 @@ export default function AboutScreen({ navigation }) {
           name="info-with-circle"
           size={100}
           color={!isDark ? colors.textcolor : "#444"} />
-      }
-        numLines={1}>
+      }>
       <PageButton
         title="About LFR"
         navigationName="AboutLFR"

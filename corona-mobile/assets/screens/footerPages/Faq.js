@@ -19,6 +19,7 @@ export default function Faq({ route, navigation }) {
             color={!isDark ? colors.textcolor : "#444"}
           />
         }
+        isLonger
       >
         <FAQItem
           question="What is Project Covid?"
