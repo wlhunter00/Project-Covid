@@ -18,7 +18,7 @@ export default function BigHeaderScrollView({
     const { styles, colors } = useStyle("container");
     const logo = require("../images/logo-notext.png");
     let header = useHeaderHeight();
-    parallaxHeader = isLonger ? header * 3 - 20 : header * 2.5;
+    parallaxHeader = isLonger ? 300 : 200;
 
     return (<ParallaxScrollView
         parallaxHeaderHeight={parallaxHeader}
@@ -30,7 +30,7 @@ export default function BigHeaderScrollView({
             <View
                 style={{
                     marginBottom: 20,
-                    marginTop: 100,
+                    marginTop: header ,
                     paddingHorizontal: 15,
                     marginLeft: 10,
                     marginRight: 10,
@@ -46,7 +46,9 @@ export default function BigHeaderScrollView({
                             marginBottom: 10
                         }}
                     >
-                        {title}
+                        {!isHome ? title : (<StandardText fontSize="title" isBold>
+                                Project<Text style={{ fontWeight: "normal" }}>Covid</Text>
+                            </StandardText>)}
                     </StandardText>
                     <StandardText allowFontScaling={false}>
                         {description}
@@ -59,7 +61,7 @@ export default function BigHeaderScrollView({
             
             isHome ?
                 (
-                    <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 5, justifyContent: 'flex-end', height: '100%' }}>
+                    <View style={{ borderBottomColor: colors.accentcolor, borderBottomWidth: 1, paddingHorizontal: 15, paddingBottom: 2, justifyContent: 'flex-end', height: '100%' }}>
                         <View style={{ flexDirection: "row", alignItems: "center" }}>
                             <Image source={logo} style={{ height: 43, width: 43, marginRight: 5, marginBottom: 3 }} />
                             <StandardText fontSize="title" isBold>
@@ -75,7 +77,7 @@ export default function BigHeaderScrollView({
                             borderBottomColor: colors.accentcolor,
                             borderBottomWidth: 1,
                             paddingHorizontal: 15,
-                            paddingBottom: 12,
+                            paddingBottom: 10,
                             justifyContent: "flex-end",
                             height: "100%"
                         }}
