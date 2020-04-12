@@ -50,7 +50,7 @@ class MentalHealth extends React.Component {
         {
           image: image1,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>
+            <Text style={{ color: "white" }}>
               Social Distancing
             </Text>
           ),
@@ -146,7 +146,7 @@ class MentalHealth extends React.Component {
         {
           image: image2,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>
+            <Text style={{ color: "white" }}>
               Resources to Use
             </Text>
           ),

@@ -53,7 +53,7 @@ class InformationalToolkit extends React.Component {
         {
           image: image1,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>COVID-19</Text>
+            <Text style={{ color: "white" }}>COVID-19</Text>
           ),
           body: (
             <View>
@@ -228,7 +228,7 @@ class InformationalToolkit extends React.Component {
         {
           image: image2,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>
+            <Text style={{ color: "white" }}>
               Preparedness
             </Text>
           ),
@@ -409,7 +409,7 @@ class InformationalToolkit extends React.Component {
         {
           image: image3,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>
+            <Text style={{ color: "white" }}>
               Post-Infection Steps
             </Text>
           ),
@@ -526,7 +526,7 @@ class InformationalToolkit extends React.Component {
         {
           image: image4,
           title: (
-            <Text style={{ color: !isDark ? "black" : "white" }}>
+            <Text style={{ color: "white" }}>
               Myth-Busting
             </Text>
           ),

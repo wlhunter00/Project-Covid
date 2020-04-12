@@ -242,7 +242,7 @@ class TestingCenters extends React.Component {
           image={
           <FontAwesome
           name="building"
-          size={100}
+          size={90}
           color={!isDark ? colors.textcolor : "#444"}
           />
           }

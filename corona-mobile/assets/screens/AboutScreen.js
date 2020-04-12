@@ -21,7 +21,7 @@ export default function AboutScreen({ navigation }) {
       <BigHeaderScrollView title="About the App" description="Learn more about this app." image={
         <Entypo
           name="info-with-circle"
-          size={100}
+          size={90}
           color={!isDark ? colors.textcolor : "#444"} />
       }>
       <PageButton

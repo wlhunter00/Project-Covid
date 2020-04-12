@@ -45,7 +45,7 @@ class PreventativePractices extends React.Component {
       list: [
         {
           image: image1,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Hygiene Habits</Text>),
+          title: (<Text style={{ color: 'white' }}>Hygiene Habits</Text>),
           body: (
             <View>
               <InfoView
@@ -150,7 +150,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image2,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Physical Distancing</Text>),
+          title: (<Text style={{ color: 'white' }}>Physical Distancing</Text>),
           body: (
             <View>
               <InfoView
@@ -229,7 +229,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image3,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Stress and Stigma</Text>),
+          title: (<Text style={{ color: 'white' }}>Stress and Stigma</Text>),
           body: (
             <View>
               <InfoView
@@ -308,7 +308,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image4,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Preparation</Text>),
+          title: (<Text style={{ color: 'white' }}>Preparation</Text>),
           body: (
             <View>
               <InfoView
@@ -397,7 +397,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image5,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Protecting Others</Text>),
+          title: (<Text style={{ color: 'white' }}>Protecting Others</Text>),
           body: (
             <View>
               <InfoView
@@ -487,7 +487,7 @@ class PreventativePractices extends React.Component {
         },
         {
           image: image6,
-          title: (<Text style={{ color: !isDark ? 'black' : 'white' }}>Caring for the Infected</Text>),
+          title: (<Text style={{ color: 'white' }}>Caring for the Infected</Text>),
           body: (
             <View>
               <InfoView
