@@ -21,12 +21,14 @@ export default function Team({ route, navigation }) {
       }}
       style={styles.container}
     >
-      <BigHeaderScrollView title="Privacy Policy" description="Review our privacy policy and terms regarding the app, feel free to contact us with any questions." image={
-        <Entypo
-          name="lock"
-          size={100}
-          color={!isDark ? colors.textcolor : "#444"} />
-      }>
+      <BigHeaderScrollView title="Privacy Policy" description="Review our privacy policy and terms regarding the app, feel free to contact us with any questions."
+        // image={
+        // <Entypo
+        //   name="lock"
+        //   size={100}
+        //   color={!isDark ? colors.textcolor : "#444"} />
+        // }
+      >
       
         <InfoView
           title="Privacy Policy"

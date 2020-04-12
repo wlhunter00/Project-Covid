@@ -22,12 +22,14 @@ export default function Team({ route, navigation }) {
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
-      <BigHeaderScrollView title="Meet the Team" description="See the team that put together this project." image={
-        <MaterialIcons
-          name="people"
-          size={100}
-          color={!isDark ? colors.textcolor : "#444"} />
-      }>
+      <BigHeaderScrollView title="Meet the Team" description="See the team that put together this project."
+        // image={
+        // <MaterialIcons
+        //   name="people"
+        //   size={100}
+        //   color={!isDark ? colors.textcolor : "#444"} />
+        // }
+      >
       <Text style={[styles.sectionTitle]}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}

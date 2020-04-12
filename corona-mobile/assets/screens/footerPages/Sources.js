@@ -12,13 +12,15 @@ export default function Sources({ route, navigation }) {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
-      <BigHeaderScrollView title="Sources" description="Learn where our information came from and read the orginal documents." image={
-      <FontAwesome
-        name="book"
-        size={100}
-        color={!isDark ? colors.textcolor : "#444"}
-      />
-      }>
+      <BigHeaderScrollView title="Sources" description="Learn where our information came from and read the orginal documents."
+      //   image={
+      // <FontAwesome
+      //   name="book"
+      //   size={100}
+      //   color={!isDark ? colors.textcolor : "#444"}
+      // />
+      //   }
+      >
       <SourceItem
         navigation={navigation}
         typeSource={"Research Journals"}

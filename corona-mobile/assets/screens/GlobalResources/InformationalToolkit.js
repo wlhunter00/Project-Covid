@@ -684,14 +684,13 @@ class InformationalToolkit extends React.Component {
         <BigHeaderScrollView
           title="Informational Toolkit"
           description="All you need to know about COVID-19."
-          image={
-            <MaterialCommunityIcons
-              name="toolbox"
-              size={100}
-              color={!isDark ? colors.textcolor : "#444"}
-            />
-          }
-          isLonger
+          // image={
+          //   <MaterialCommunityIcons
+          //     name="toolbox"
+          //     size={100}
+          //     color={!isDark ? colors.textcolor : "#444"}
+          //   />
+          // }
         >
           {this.state.list.map(item => {
             return (

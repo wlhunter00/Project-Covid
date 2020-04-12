@@ -18,7 +18,7 @@ export default function BigHeaderScrollView({
   const { styles, colors } = useStyle("container");
   const logo = require("../images/logo-notext.png");
   let header = useHeaderHeight();
-  parallaxHeader = isLonger ? 300 : 200;
+  parallaxHeader = isLonger ? 220 : 200;
 
   return (
     <ParallaxScrollView

@@ -76,12 +76,13 @@ export default function LatestNews({ navigation }) {
   ];
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]} contentContainerStyle={{padding: 15}}>
-      <BigHeaderScrollView title="Latest News" image={
-        <Entypo
-          name="news"
-          size={100}
-          color={!isDark ? colors.textcolor : "#444"} />
-        }
+      <BigHeaderScrollView title="Latest News"
+        // image={
+        // <Entypo
+        //   name="news"
+        //   size={100}
+        //   color={!isDark ? colors.textcolor : "#444"} />
+        // }
         description="All the latest from reliable sources."
       >
       {sites.map(site => {

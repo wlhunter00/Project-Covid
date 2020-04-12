@@ -242,13 +242,13 @@ class TestingCenters extends React.Component {
         <BigHeaderScrollView
           title="Testing Centers"
           description="Everything you need to know about testing and centers near you."
-          image={
-            <FontAwesome
-              name="building"
-              size={90}
-              color={!isDark ? colors.textcolor : "#444"}
-            />
-          }
+          // image={
+          //   <FontAwesome
+          //     name="building"
+          //     size={90}
+          //     color={!isDark ? colors.textcolor : "#444"}
+          //   />
+          // }
         >
           <InfoView
             title="Step 1"

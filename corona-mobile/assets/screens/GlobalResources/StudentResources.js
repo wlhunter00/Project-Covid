@@ -312,14 +312,13 @@ class StudentResources extends React.Component {
         <BigHeaderScrollView
           title="General Resources"
           description="Helpful information and organizations."
-          image={
-            <FontAwesome5
-              name="hands-helping"
-              size={100}
-              color={!isDark ? colors.textcolor : "#444"}
-            />
-          }
-          isLonger
+          // image={
+          //   <FontAwesome5
+          //     name="hands-helping"
+          //     size={100}
+          //     color={!isDark ? colors.textcolor : "#444"}
+          //   />
+          // }
         >
           {this.state.list.map(item => {
             return (

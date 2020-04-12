@@ -12,13 +12,13 @@ export default function Faq({ route, navigation }) {
       <BigHeaderScrollView
         title="Frequently Asked Questions"
         description="Find common questions regarding Project Covid."
-        image={
-          <FontAwesome
-            name="question"
-            size={100}
-            color={!isDark ? colors.textcolor : "#444"}
-          />
-        }
+        // image={
+        //   <FontAwesome
+        //     name="question"
+        //     size={100}
+        //     color={!isDark ? colors.textcolor : "#444"}
+        //   />
+        // }
         isLonger
       >
         <FAQItem

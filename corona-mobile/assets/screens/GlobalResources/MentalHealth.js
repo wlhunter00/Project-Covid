@@ -339,13 +339,14 @@ class MentalHealth extends React.Component {
         <BigHeaderScrollView
           title="Mental Health"
           description="Tips for keeping up a healthy mindset."
-          image={
-            <FontAwesome
-              name="heart"
-              size={100}
-              color={!isDark ? colors.textcolor : "#444"}
-            />
-          }>
+          // image={
+          //   <FontAwesome
+          //     name="heart"
+          //     size={100}
+          //     color={!isDark ? colors.textcolor : "#444"}
+          //   />
+          // }
+        >
           {this.state.list.map(item => {
             return (
               <ImageButton

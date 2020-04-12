@@ -26,6 +26,7 @@ export default function ContactUs({ route, navigation }) {
           paddingHorizontal: 15,
           marginLeft: 10,
           marginRight: 10,
+          marginBottom: 10,
           flexDirection: "row"
         }}
       >
@@ -44,10 +45,10 @@ export default function ContactUs({ route, navigation }) {
             Find our email or fill out the form to get in touch with the team.
           </StandardText>
         </View>
-        <Entypo
+        {/* <Entypo
           name="mail"
           size={100}
-          color={!isDark ? colors.textcolor : "#444"} />
+          color={!isDark ? colors.textcolor : "#444"} /> */}
       </View>
       <View style={{ height: 440, marginBottom: 10}}>
       <WebView

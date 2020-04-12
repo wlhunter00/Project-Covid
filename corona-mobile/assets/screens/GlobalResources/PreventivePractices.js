@@ -595,13 +595,15 @@ class PreventativePractices extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time." image={
-          <MaterialIcons
-            name="healing"
-            size={100}
-            color={!isDark ? colors.textcolor : "#444"}
-          />
-        } isLonger>
+        <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time."
+        //   image={
+        //   <MaterialIcons
+        //     name="healing"
+        //     size={100}
+        //     color={!isDark ? colors.textcolor : "#444"}
+        //   />
+          // } 
+          >
           {this.state.list.map(item => {
             return (
               <ImageButton

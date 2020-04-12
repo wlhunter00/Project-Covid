@@ -22,12 +22,14 @@ export default function AboutLFR({ route, navigation }) {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
-      <BigHeaderScrollView title="About LFR" description="Learn about LFR International, the non profit organization sponsoring this project." image={
-        <FontAwesome
-          name="heartbeat"
-          size={100}
-          color={!isDark ? colors.textcolor : "#444"} />
-      }>
+      <BigHeaderScrollView title="About LFR" description="Learn about LFR International, the non profit organization sponsoring this project."
+        // image={
+        // <FontAwesome
+        //   name="heartbeat"
+        //   size={100}
+        //   color={!isDark ? colors.textcolor : "#444"} />
+        // }
+      >
       <View
         style={[
           styles.boxContainer,
