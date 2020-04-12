@@ -90,7 +90,7 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.divider} />
           <EmbeddedPageButton
             title="Global Tracker"
-            navigationName="LiveTracker"
+            navigationName="Live Tracker"
             icon={<Entypo name="globe" size={25} color={colors.textcolor} />}
             description="Get stats for anywhere in the world."
             navigation={navigation}
