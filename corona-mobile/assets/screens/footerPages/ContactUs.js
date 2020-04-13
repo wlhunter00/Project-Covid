@@ -9,7 +9,6 @@ import { Entypo } from "@expo/vector-icons";
 import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 import { StandardText } from "./../../components/Texts.js";
 
-
 export default function ContactUs({ route, navigation }) {
   const { styles, colors, isDark } = useStyle(
     "container",
@@ -19,7 +18,6 @@ export default function ContactUs({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-
       <View
         style={{
           marginTop: 100,
@@ -50,29 +48,30 @@ export default function ContactUs({ route, navigation }) {
           size={100}
           color={!isDark ? colors.textcolor : "#444"} /> */}
       </View>
-      <View style={{ height: 440, marginBottom: 10}}>
-      <WebView
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        startInLoadingState={true}
-        source={{
-          uri:
-            "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
-        }}
-        style={{ flex: 1}}
+      <View style={{ height: 440, marginBottom: 10 }}>
+        <WebView
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          startInLoadingState={true}
+          scrollEnabled={false}
+          source={{
+            uri:
+              "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
+          }}
+          style={{ flex: 1 }}
         />
       </View>
-          <View style={[styles.boxContainer, { marginBottom: 20 }]}>
-            <Text style={[styles.subtitle, { marginTop: 0 }]}>
-              For app-related inquiries reach out to us at
-              info@LFRinternational.org.
-            </Text>
-          </View>
-          <View style={[styles.boxContainer, { marginBottom: 0 }]}>
-            <Text style={[styles.subtitle, { marginTop: 0 }]}>
-              For press inquiries please reach out to satvik@runawayapp.com.
-            </Text>
-          </View>
+      <View style={[styles.boxContainer, { marginBottom: 20 }]}>
+        <Text style={[styles.subtitle, { marginTop: 0 }]}>
+          For app-related inquiries reach out to us at
+          info@LFRinternational.org.
+        </Text>
+      </View>
+      <View style={[styles.boxContainer, { marginBottom: 0 }]}>
+        <Text style={[styles.subtitle, { marginTop: 0 }]}>
+          For press inquiries please reach out to satvik@runawayapp.com.
+        </Text>
+      </View>
     </View>
   );
 }
