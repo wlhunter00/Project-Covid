@@ -50,7 +50,7 @@ export function Section({ title, children, titleRight }) {
 
 export function NewsArticle({ article, isLast, navigation }) {
   const { urlToImage, url, title, publishedAt, description } = article;
-
+  
   const { styles, colors } = useStyle("divider");
 
   const d = new Date(publishedAt);
@@ -65,7 +65,7 @@ export function NewsArticle({ article, isLast, navigation }) {
     <View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("WebView", { title, url });
+          navigation.navigate("WebView", { title: "Latest News", url });
         }}
       >
         <View style={{ flexDirection: "row", paddingVertical: 15 }}>

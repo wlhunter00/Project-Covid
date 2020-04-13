@@ -8,7 +8,8 @@ import { AntDesign } from "@expo/vector-icons";
 export default function TrackerStatus({ route, navigation }) {
   let webview;
   const reload = () => {
-    webview && webview.reload();
+    // webview && webview.reload();
+    navigation.na
   };
 
   React.useLayoutEffect(() => {

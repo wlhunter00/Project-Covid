@@ -34,7 +34,7 @@ class WebViewScreen extends React.Component {
     console.log(this.props.colors);
 
     this.props.navigation.setOptions({
-      title: "Latest News",
+      title: this.props.route.params.title,
       headerRight: () => (
         <TouchableOpacity
           style={{ marginRight: 20 }}
