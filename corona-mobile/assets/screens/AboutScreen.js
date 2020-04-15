@@ -14,10 +14,11 @@ import { PageButton } from "../components/Buttons";
 import BigHeaderScrollView from "../components/BigHeaderScrollView.js";
 
 export default function AboutScreen({ navigation }) {
-  const { styles, colors, isDark } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
   return (
     <View style={styles.container} contentContainerStyle={{ padding: 15 }}>
-      <BigHeaderScrollView
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      {/* <BigHeaderScrollView
         title="About the App"
         description="Learn more about this app."
         // image={
@@ -27,7 +28,7 @@ export default function AboutScreen({ navigation }) {
         //     color={!isDark ? colors.textcolor : "#444"}
         //   />
         // }
-      >
+      > */}
         <PageButton
           title="About LFR"
           navigationName="AboutLFR"
@@ -74,7 +75,7 @@ export default function AboutScreen({ navigation }) {
           description="Read our privacy policy and terms."
           navigation={navigation}
         />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }

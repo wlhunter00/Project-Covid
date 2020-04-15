@@ -72,14 +72,61 @@ export default function App() {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: "ProjectCovid"}}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="LatestNews"
+        component={LatestNews}
+        options={{title: "Latest News"}}
+      />
+      <Stack.Screen
+        name="GlobalResources"
+        options={{ title: "Global Resources" }}
+        component={GlobalResourcesMain}
+      />
+      <Stack.Screen
+        name="TravelInformation"
+        options={{ title: "Travel Information" }}
+        component={TravelInformation}
+      />
+      <Stack.Screen
+        name="TravelStatus"
+        options={{ title: "Travel Status" }}
+        component={TravelStatus}
+      />
+      <Stack.Screen
+        name="InformationalToolkit"
+        component={InformationalToolkit}
+      />
+      <Stack.Screen
+        name="PreventativePractices"
+        component={PreventativePractices}
+      />
+      <Stack.Screen
+        name="MentalHealth"
+        component={MentalHealth}
+      />
+      <Stack.Screen
+        name="StudentResources"
+        component={StudentResources}
+      />
+      <Stack.Screen
+        name="ResourceTopic"
+        component={ResourceTopic}
+      />
+      <Stack.Screen name="WebView" component={WebViewScreen} options={{
+        headerLargeTitle: false,
+        headerStyle: { backgroundColor: colors.primarycolor },
+        headerTintColor: "white",
+        headerTitleStyle: {color: "white"}
+      }} />
+      <Stack.Screen
+        name="Sources"
+        component={Sources}
       />
       <Stack.Screen
         name="Symptoms"
         component={SymptomsList}
-        options={{
-
-        }}
       />
     </NativeStack.Navigator>
   );
