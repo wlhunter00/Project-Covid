@@ -34,6 +34,7 @@ import {
   NewsArticle
 } from "../components/HomePageComponents";
 import { useLocationAddress } from "../utils/Hooks";
+import { ScrollView } from "react-native-gesture-handler";
 
 const logo = require("../images/logo-notext.png");
 
@@ -42,7 +43,8 @@ export default function HomeScreen({ navigation }) {
     "container",
     "appTitle",
     "subtitle",
-    "divider"
+    "divider",
+    "scrollViewContent"
   );
 
   const [topNews, setNews] = useState(null);
@@ -71,13 +73,14 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={[styles.container]}>
-      <BigHeaderScrollView
+      {/* <BigHeaderScrollView
         title="ProjectCovid"
         description="Live tracking and resources to help you get through the pandemic."
         image={<Image source={logo} style={{ height: 100, width: 100 }} />}
         isHome
         isLonger
-      >
+      > */}
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ? (
@@ -200,7 +203,8 @@ export default function HomeScreen({ navigation }) {
           description="Learn where this information comes from."
           navigation={navigation}
         />
-      </BigHeaderScrollView>
+        </ScrollView>
+      {/* </BigHeaderScrollView> */}
     </View>
   );
 }

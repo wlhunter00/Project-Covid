@@ -53,13 +53,17 @@ export function SymptomsList({ navigation }) {
 
   return (
     <View style={[styles.container]}>
-      <BigHeaderScrollView title="Symptoms" description="The most common symptoms of COVID-19, and how prevalent they are." image={
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      {/* <BigHeaderScrollView title="Symptoms" description="The most common symptoms of COVID-19, and how prevalent they are." image={
         <FontAwesome
           name="stethoscope"
           size={100}
           color={!isDark ? colors.textcolor : "#444"}
         />
-        }>
+        }> */}
+        <StandardText style={{marginBottom: 20}}>
+          The most common symptoms of COVID-19, and how prevalent they are.
+          </StandardText>
         <View style={styles.boxContainer}>
           <View
             style={{
@@ -124,7 +128,8 @@ export function SymptomsList({ navigation }) {
           key={"sourceList"}
         />
         <View style={{ height: 7 }} />
-      </BigHeaderScrollView>
+        {/* </BigHeaderScrollView> */}
+        </ScrollView>
     </View>
   );
 }

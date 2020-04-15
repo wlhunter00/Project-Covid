@@ -3,13 +3,14 @@ import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 import { AppearanceProvider } from "react-native-appearance";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackActions } from "@react-navigation/native";
+import { enableScreens } from 'react-native-screens';
 
 import { useStyle } from "./assets/styles/styles";
 
 import HomeScreen from "./assets/screens/HomeScreen";
-
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
 import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
@@ -39,6 +40,9 @@ import WebViewScreen from "./assets/screens/WebViewScreen";
 import { SymptomsList } from "./assets/screens/SymptomCheck/SymptomsList";
 import LocationRequest from "./assets/components/LocationRequest";
 
+enableScreens();
+
+const NativeStack = createNativeStackNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -55,6 +59,30 @@ export default function App() {
     },
     headerBackTitle: " "
   };
+
+  const HomeNativeStack = () => (
+    <NativeStack.Navigator initialRouteName="Home" screenOptions={({ navigation, route }) => ({
+      headerLargeTitle: true,
+      // headerTranslucent: true,
+      headerStyle: { backgroundColor: colors.backgroundcolor },
+      headerHideShadow: true,
+      headerTintColor: colors.primarycolor,
+      headerTitleStyle: {color: colors.textcolor}
+    })}>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{title: "ProjectCovid"}}
+      />
+      <Stack.Screen
+        name="Symptoms"
+        component={SymptomsList}
+        options={{
+
+        }}
+      />
+    </NativeStack.Navigator>
+  );
 
   const HomeStack = () => (
     <Stack.Navigator
@@ -304,7 +332,7 @@ export default function App() {
             ]
           }}
         >
-          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Home" component={HomeNativeStack} />
           <Tab.Screen name="Live Tracker" component={TrackerStack} />
           <Tab.Screen name="Testing" component={TestingCentersStack} />
           <Tab.Screen name="About" component={AboutStack} />
