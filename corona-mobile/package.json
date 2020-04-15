@@ -37,7 +37,9 @@
     "react-native-webview": "8.1.1",
     "react-navigation": "^4.3.7",
     "react-navigation-stack": "^2.3.11",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "expo-blur": "~8.1.0",
+    "expo-constants": "~9.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.1.0",
