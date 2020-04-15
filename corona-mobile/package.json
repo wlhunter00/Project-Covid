@@ -10,7 +10,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/bottom-tabs": "^5.2.1",
-    "@react-navigation/native": "^5.0.9",
+    "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.1.1",
     "accordion-collapse-react-native": "^0.2.8",
     "axios": "^0.19.2",
