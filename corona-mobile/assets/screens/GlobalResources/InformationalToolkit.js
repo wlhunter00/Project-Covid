@@ -694,7 +694,7 @@ class InformationalToolkit extends React.Component {
           // }
         > */}
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <StandardText style={{marginBottom: 20}}>All you need to know about COVID-19</StandardText>
+          <StandardText style={{ marginBottom: 20 }}>All you need to know about COVID-19</StandardText>
           {this.state.list.map(item => {
             return (
               <ImageButton

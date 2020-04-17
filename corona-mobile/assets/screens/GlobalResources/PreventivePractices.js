@@ -1,13 +1,9 @@
 import React from "react";
-import { AccordionList } from "accordion-collapse-react-native";
 import {
   View,
   Text,
-  StyleSheet,
-  Dimensions,
-  ImageBackground,
-  Button
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 import image1 from "../../images/preventativePractice/handwash.png";
 import image2 from "../../images/preventativePractice/image3.gif";
@@ -16,15 +12,6 @@ import image4 from "../../images/preventativePractice/image4.jpg";
 import image5 from "../../images/preventativePractice/image5C.jpg";
 import image6 from "../../images/preventativePractice/image6.jpg";
 
-import Modal from "react-native-modal";
-import {
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  ScrollView
-} from "react-native-gesture-handler";
-
-import ModalImage from "./../../components/ModalImage";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
@@ -33,7 +20,7 @@ import { InfoView } from "../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
 
 export default function StyledPreventativePractices() {
-  const { styles, colors, isDark } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
   const navigation = useNavigation();
   return <PreventativePractices styles={styles} colors={colors} isDark={isDark} navigation={navigation} />;
 }
@@ -595,7 +582,7 @@ class PreventativePractices extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time."
+        {/* <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time."
         //   image={
         //   <MaterialIcons
         //     name="healing"
@@ -603,7 +590,8 @@ class PreventativePractices extends React.Component {
         //     color={!isDark ? colors.textcolor : "#444"}
         //   />
           // } 
-          >
+        > */}
+          <ScrollView contentContainerStyle={styles.scrollViewContent}>
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -614,7 +602,7 @@ class PreventativePractices extends React.Component {
               />
             );
           })}
-        </BigHeaderScrollView>
+        </ScrollView>
       </View>
     );
   }
