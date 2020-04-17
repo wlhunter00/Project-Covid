@@ -1,12 +1,9 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { View, ScrollView} from "react-native";
-import { Entypo } from "@expo/vector-icons";
+
 import { useStyle } from "../../styles/styles";
 import { SiteButton } from "../../components/Buttons";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
-import { FontAwesome } from "@expo/vector-icons";
+import { StandardText } from "../../components/Texts"
 
 export default function LatestNews({ navigation }) {
   const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
@@ -77,15 +74,7 @@ export default function LatestNews({ navigation }) {
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      {/* <BigHeaderScrollView title="Latest News"
-        // image={
-        // <Entypo
-        //   name="news"
-        //   size={100}
-        //   color={!isDark ? colors.textcolor : "#444"} />
-        // }
-        description="All the latest from reliable sources."
-      > */}
+        <StandardText style={{marginBottom: 20}}>All the latest from reliable sources.</StandardText>
       {sites.map(site => {
         return (
           <SiteButton site={site} key={site.title} navigation={navigation} />

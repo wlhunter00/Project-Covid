@@ -18,6 +18,7 @@ import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
+import { StandardText } from "../../components/Texts";
 
 export default function StyledPreventativePractices() {
   const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
@@ -582,16 +583,8 @@ class PreventativePractices extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        {/* <BigHeaderScrollView title="Preventative Practices" description="Important tips for staying healthy at this time."
-        //   image={
-        //   <MaterialIcons
-        //     name="healing"
-        //     size={100}
-        //     color={!isDark ? colors.textcolor : "#444"}
-        //   />
-          // } 
-        > */}
-          <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <StandardText style={{marginBottom: 20}}>Important tips for staying healthy at this time.</StandardText>
           {this.state.list.map(item => {
             return (
               <ImageButton
