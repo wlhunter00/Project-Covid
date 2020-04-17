@@ -38,7 +38,6 @@ class WebViewScreen extends React.Component {
       title: this.props.route.params.title,
       headerRight: () => (
         <TouchableOpacity
-          style={{ marginRight: 20 }}
           onPress={() => {
             this.webViewRef.current.reload();
           }}
