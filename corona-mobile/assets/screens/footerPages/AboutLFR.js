@@ -1,12 +1,14 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { useStyle } from "../../styles/styles.js";
 import { SourceItem } from "../../components/FooterComponents";
 import { VisitButton } from "../../components/Buttons";
 import { FontAwesome } from "@expo/vector-icons";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
+
 
 export default function AboutLFR({ route, navigation }) {
   const { styles, colors, isDark } = useStyle(
@@ -22,20 +24,14 @@ export default function AboutLFR({ route, navigation }) {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
-      <BigHeaderScrollView title="About LFR" description="Learn about LFR International, the non profit organization sponsoring this project."
-        // image={
-        // <FontAwesome
-        //   name="heartbeat"
-        //   size={100}
-        //   color={!isDark ? colors.textcolor : "#444"} />
-        // }
-      >
-      <View
-        style={[
-          styles.boxContainer,
-          { marginLeft: 15, marginRight: 15, marginTop: 15 }
-        ]}
-      >
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <StandardText style={{ marginBottom: 20 }}>Learn about LFR International, the non profit organization sponsoring this project</StandardText>
+        <View
+          style={[
+            styles.boxContainer,
+            { marginLeft: 15, marginRight: 15, marginTop: 15 }
+          ]}
+        >
           <Image
             source={require("./../../images/LFR/Favicon.png")}
             resizeMode="contain"
@@ -79,7 +75,7 @@ export default function AboutLFR({ route, navigation }) {
             marginBottom: 20
           }}
         />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }
