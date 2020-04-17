@@ -19,17 +19,15 @@ import {
   ScrollView
 } from "react-native-gesture-handler";
 
-import ModalImage from "./../../components/ModalImage";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
-import { FontAwesome } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
+import { StandardText } from "../../components/Texts";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
 
 export default function StyledMentalHealth() {
-  const { styles, colors, isDark } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
   const navigation = useNavigation();
   return (
     <MentalHealth
@@ -336,17 +334,8 @@ class MentalHealth extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView
-          title="Mental Health"
-          description="Tips for keeping up a healthy mindset."
-          // image={
-          //   <FontAwesome
-          //     name="heart"
-          //     size={100}
-          //     color={!isDark ? colors.textcolor : "#444"}
-          //   />
-          // }
-        >
+          <ScrollView contentContainerStyle={styles.scrollViewContent}>
+            <StandardText style={{marginBottom: 20}}>Tips for keeping up a healthy mindset.</StandardText>
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -357,7 +346,7 @@ class MentalHealth extends React.Component {
               />
             );
           })}
-        </BigHeaderScrollView>
+        </ScrollView>
       </View>
     );
   }

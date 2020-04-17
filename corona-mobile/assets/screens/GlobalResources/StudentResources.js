@@ -5,16 +5,14 @@ import { View, ScrollView, Text } from "react-native";
 import image1 from "./../../images/studentResources/image1.jpg";
 import image2 from "./../../images/studentResources/image2.jpg";
 
-import ModalImage from "./../../components/ModalImage";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { useStyle } from "../../styles/styles";
 import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
+import { StandardText } from "../../components/Texts";
 
 export default function StyledStudentResources() {
-  const { styles, colors, isDark } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
   const navigation = useNavigation();
   return (
     <StudentResources
@@ -309,17 +307,9 @@ class StudentResources extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View style={styles.container}>
-        <BigHeaderScrollView
-          title="General Resources"
-          description="Helpful information and organizations."
-          // image={
-          //   <FontAwesome5
-          //     name="hands-helping"
-          //     size={100}
-          //     color={!isDark ? colors.textcolor : "#444"}
-          //   />
-          // }
-        >
+        
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <StandardText style={{ marginBottom: 20 }}>Helpful information and organizations.</StandardText>
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -330,7 +320,7 @@ class StudentResources extends React.Component {
               />
             );
           })}
-        </BigHeaderScrollView>
+        </ScrollView>
       </View>
     );
   }
