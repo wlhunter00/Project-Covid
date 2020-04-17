@@ -29,9 +29,10 @@ import { ImageButton } from "../../components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import { InfoView } from "./../../components/InfoView";
 import { SourceItem } from "../../components/FooterComponents";
+import { StandardText } from "../../components/Texts";
 
 export default function StyledInformationalToolkit() {
-  const { styles, colors, isDark } = useStyle("container", "resourceText");
+  const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
   const navigation = useNavigation();
   return (
     <InformationalToolkit
@@ -681,7 +682,7 @@ class InformationalToolkit extends React.Component {
       <View
         style={[styles.container, { backgroundColor: colors.backgroundcolor }]}
       >
-        <BigHeaderScrollView
+        {/* <BigHeaderScrollView
           title="Informational Toolkit"
           description="All you need to know about COVID-19."
           // image={
@@ -691,7 +692,9 @@ class InformationalToolkit extends React.Component {
           //     color={!isDark ? colors.textcolor : "#444"}
           //   />
           // }
-        >
+        > */}
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <StandardText style={{marginBottom: 20}}>All you need to know about COVID-19</StandardText>
           {this.state.list.map(item => {
             return (
               <ImageButton
@@ -702,7 +705,7 @@ class InformationalToolkit extends React.Component {
               />
             );
           })}
-        </BigHeaderScrollView>
+        </ScrollView>
       </View>
     );
   }

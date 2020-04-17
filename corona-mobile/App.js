@@ -60,15 +60,20 @@ export default function App() {
     headerBackTitle: " "
   };
 
+  const globalNativeStackScreenOptions = {
+    headerLargeTitle: true,
+    // headerTranslucent: true,
+    headerStyle: { backgroundColor: colors.backgroundcolor },
+    headerHideShadow: true,
+    headerTintColor: colors.primarycolor,
+    headerTitleStyle: { color: colors.textcolor }
+  };
+
   const HomeNativeStack = () => (
-    <NativeStack.Navigator initialRouteName="Home" screenOptions={({ navigation, route }) => ({
-      headerLargeTitle: true,
-      // headerTranslucent: true,
-      headerStyle: { backgroundColor: colors.backgroundcolor },
-      headerHideShadow: true,
-      headerTintColor: colors.primarycolor,
-      headerTitleStyle: {color: colors.textcolor}
-    })}>
+    <NativeStack.Navigator
+      initialRouteName="Home"
+      screenOptions={({ navigation, route }) => globalNativeStackScreenOptions}
+    >
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -96,18 +101,22 @@ export default function App() {
       />
       <Stack.Screen
         name="InformationalToolkit"
+        options={{ title: "Informational Toolkit" }}
         component={InformationalToolkit}
       />
       <Stack.Screen
         name="PreventativePractices"
+        options={{ title: "Preventative Practices" }}
         component={PreventativePractices}
       />
       <Stack.Screen
         name="MentalHealth"
+        options={{ title: "Mental Health" }}
         component={MentalHealth}
       />
       <Stack.Screen
         name="StudentResources"
+        options={{ title: "Student Resources" }}
         component={StudentResources}
       />
       <Stack.Screen
@@ -131,127 +140,6 @@ export default function App() {
     </NativeStack.Navigator>
   );
 
-  const HomeStack = () => (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={({ navigation, route }) => ({
-        headerRight: ({ tintColor }) =>
-          route.name !== "Home" && (
-            <Entypo
-              name="home"
-              color={tintColor}
-              size={25}
-              style={{ marginRight: 20 }}
-              onPress={() => {
-                if (navigation.canGoBack()) {
-                  navigation.dispatch(StackActions.popToTop());
-                }
-              }}
-            />
-          ),
-        ...globalScreenOptions
-      })}
-    >
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false
-        }}
-      />
-      <Stack.Screen
-        name="LatestNews"
-        component={LatestNews}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="GlobalResources"
-        options={{ title: "Global Resources" }}
-        component={GlobalResourcesMain}
-      />
-      <Stack.Screen
-        name="TravelInformation"
-        options={{ title: "Travel Information" }}
-        component={TravelInformation}
-      />
-      <Stack.Screen
-        name="TravelStatus"
-        options={{ title: "Travel Status" }}
-        component={TravelStatus}
-      />
-      <Stack.Screen
-        name="InformationalToolkit"
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-        component={InformationalToolkit}
-      />
-      <Stack.Screen
-        name="PreventativePractices"
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-        component={PreventativePractices}
-      />
-      <Stack.Screen
-        name="MentalHealth"
-        component={MentalHealth}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="StudentResources"
-        component={StudentResources}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="ResourceTopic"
-        component={ResourceTopic}
-        options={{
-          title: "",
-          headerTintColor: colors.primarycolor,
-          headerStyle: {
-            backgroundColor: colors.backgroundcolor
-          }
-        }}
-      />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-      <Stack.Screen
-        name="Sources"
-        component={Sources}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="Symptoms"
-        component={SymptomsList}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-    </Stack.Navigator>
-  );
-
   const TrackerStack = () => (
     <Stack.Navigator
       initialRouteName="Home"
@@ -266,64 +154,51 @@ export default function App() {
   );
 
   const AboutStack = () => (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={globalScreenOptions}
+    <NativeStack.Navigator
+      initialRouteName="About"
+      screenOptions={globalNativeStackScreenOptions}
     >
       <Stack.Screen
         name="About"
         component={AboutScreen}
-        options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-         }}
       />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
+      <Stack.Screen name="WebView" component={WebViewScreen} options={{
+        headerLargeTitle: false,
+        headerStyle: { backgroundColor: colors.primarycolor },
+        headerTintColor: "white",
+        headerTitleStyle: {color: "white"}
+      }} />
       <Stack.Screen
         name="ContactUs"
         component={ContactUs}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Contact Us",
          }}
       />
       <Stack.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicy}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Privacy Policy",
          }}
       />
       <Stack.Screen
         name="Team"
         component={Team}
-        options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-         }}
       />
       <Stack.Screen
         name="AboutLFR"
         component={AboutLFR}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "About LFR",
          }}
       />
       <Stack.Screen name="Faq"
         component={Faq}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "FAQ",
          }} />
-    </Stack.Navigator>
+    </NativeStack.Navigator>
   );
 
   const TestingCentersStack = () => (
