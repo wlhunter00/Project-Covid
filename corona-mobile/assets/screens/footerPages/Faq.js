@@ -7,7 +7,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { StandardText } from "./../../components/Texts.js";
 
 export default function Faq({ route, navigation }) {
-  const { styles, colors, isDark } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>

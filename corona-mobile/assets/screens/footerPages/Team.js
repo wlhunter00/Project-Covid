@@ -16,7 +16,8 @@ export default function Team({ route, navigation }) {
   const { styles, colors, isDark } = useStyle(
     "container",
     "answerText",
-    "sectionTitle"
+    "sectionTitle",
+    "scrollViewContent"
   );
   return (
     <View

@@ -15,7 +15,8 @@ export default function AboutLFR({ route, navigation }) {
     "container",
     "sectionTitle",
     "compactNameSmall",
-    "boxContainer"
+    "boxContainer",
+    "scrollViewContent"
   );
   const site = {
     title: "Visit LFR's Site",
