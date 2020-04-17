@@ -1,7 +1,7 @@
 """
 
 Natural Language processing to give confidence levels to get professional care for the Novel Corona Virus 2019
-Author: Simar Kapoor
+Author: Simar Kapoor, co: Zach Glabman
 
 """
 

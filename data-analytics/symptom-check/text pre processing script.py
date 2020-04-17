@@ -88,7 +88,7 @@ def clean_sent(text):
     text = BAD_SYMBOLS_RE.sub('', text) # delete symbols which are in BAD_SYMBOLS_RE from text
     #print(text)
     #print(text)
-    text = ' '.join([word for word in text.split() if word not in STOPWORDS]) # delete stopwors from text
+    text = ' '.join([word for word in text.split() if word not in STOPWORDS]) # delete stopwords from text
     #print(text)
     # text = ' '.join([word for word in text.split() if len(word)> 3]) # delete short words
     # text = ' '.join([word.replace("#",'') for word in text.split() if len(word)> 3])

@@ -1,13 +1,19 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "corona-mobile",
+    "name": "Project Covid",
+    "description": "The information that exists online about COVID-19 today is far too scattered and complicated for the average person to understand; there is also a growing concern over misinformation and fake news that is being spread on the topic. Project Covid is the solution to these problems. 22 college students from around the country who are passionate about helping the world came together to identify, analyze, and curate verified information and resources from several online and offline sources in one place to help anyone looking to gain knowledge, information, and resources about COVID-19 . Our diverse team comprises students with credible experiences in healthcare, health literacy, and technology. Our iOS and Android apps come loaded with live outbreak trackers, testing center information, breaking news stories from verified sources, live travel information, along with verified information on best practices, knowledge about the virus, educational toolkits, student resources, and crisis contact information.",
+    "backgroundColor": "#d1dbd0",
+    "slug": "project-covid",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo-notext.png",
+    "icon": "./assets/images/icon.png",
+    "githubUrl": "https://github.com/wlhunter00/CoronaInfo/",
     "splash": {
       "image": "./assets/images/logo-text-nobackground.png",
       "resizeMode": "contain",
@@ -16,9 +22,18 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lfr.projectcovid",
+      "buildNumber": "3"
+    },
+    "android": {
+      "package": "com.lfr.projectcovid",
+      "versionCode": 1
     }
   }
 }

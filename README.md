@@ -1,4 +1,4 @@
-# CoronaInfo
+# Project Covid
 
 ## Introduction
 
