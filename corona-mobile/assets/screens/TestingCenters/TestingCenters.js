@@ -20,6 +20,7 @@ import { ActionButton } from "./../../components/Buttons";
 import { useStyle } from "../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { SourceItem } from "../../components/FooterComponents";
+import { StandardText } from "../../components/Texts";
 
 const contactLoading = (
   <View style={{ height: 100, justifyContent: "center" }}>
@@ -175,7 +176,8 @@ export default function StyledTestingCenters() {
   const { styles, colors, isDark } = useStyle(
     "bioText",
     "positionText",
-    "container"
+    "container",
+    "scrollViewContent",
   );
   return <TestingCenters styles={styles} colors={colors} isDark={isDark} />;
 }
@@ -231,25 +233,10 @@ class TestingCenters extends React.Component {
     const { styles, colors, isDark } = this.props;
     return (
       <View
-        contentContainerStyle={{
-          paddingHorizontal: 15,
-          paddingTop: 15,
-          paddingBottom: 7,
-          backgroundColor: colors.backgroundcolor
-        }}
         style={styles.container}
       >
-        <BigHeaderScrollView
-          title="Testing Centers"
-          description="Everything you need to know about testing and centers near you."
-          // image={
-          //   <FontAwesome
-          //     name="building"
-          //     size={90}
-          //     color={!isDark ? colors.textcolor : "#444"}
-          //   />
-          // }
-        >
+        <ScrollView style={styles.scrollViewContent}>
+        <StandardText style={{marginBottom: 20}}>Everything you need to know about testing and centers near you.</StandardText>
           <InfoView
             title="Step 1"
             body={
@@ -284,7 +271,8 @@ class TestingCenters extends React.Component {
             }
           />
           <LocalSourceObject />
-        </BigHeaderScrollView>
+          <View style={{ height:20}}/>
+          </ScrollView>
       </View>
     );
   }
