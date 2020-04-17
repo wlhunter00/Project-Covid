@@ -6,7 +6,8 @@ import {
 } from "../../components/FooterComponents";
 import { useStyle } from "../../styles/styles";
 import { MaterialIcons } from "@expo/vector-icons";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg");
@@ -22,14 +23,8 @@ export default function Team({ route, navigation }) {
       contentContainerStyle={{ paddingHorizontal: 15 }}
       style={styles.container}
     >
-      <BigHeaderScrollView title="Meet the Team" description="See the team that put together this project."
-        // image={
-        // <MaterialIcons
-        //   name="people"
-        //   size={100}
-        //   color={!isDark ? colors.textcolor : "#444"} />
-        // }
-      >
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      <StandardText style={{ marginBottom: 20 }}>See the team that put together this project.</StandardText>
       <Text style={[styles.sectionTitle]}>Founders</Text>
       <TeamMemberBox
         image={satvikImage}
@@ -180,7 +175,7 @@ export default function Team({ route, navigation }) {
           position="Executive Director"
           schoolAndYear="University of Michigan School of Medicine"
         />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }

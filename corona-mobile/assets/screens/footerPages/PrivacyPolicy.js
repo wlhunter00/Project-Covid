@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import {
   TeamMemberBox,
   CompactTeamMemberBox
@@ -7,7 +7,8 @@ import {
 import { useStyle } from "../../styles/styles";
 import { InfoView } from "./../../components/InfoView";
 import { Entypo } from "@expo/vector-icons";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
 
 export default function Team({ route, navigation }) {
   const { styles } = useStyle("container", "tosText", "tosBold");
@@ -21,15 +22,8 @@ export default function Team({ route, navigation }) {
       }}
       style={styles.container}
     >
-      <BigHeaderScrollView title="Privacy Policy" description="Review our privacy policy and terms regarding the app, feel free to contact us with any questions."
-        // image={
-        // <Entypo
-        //   name="lock"
-        //   size={100}
-        //   color={!isDark ? colors.textcolor : "#444"} />
-        // }
-      >
-      
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <StandardText style={{ marginBottom: 20 }}>Review our privacy policy and terms regarding the app, feel free to contact us with any questions.</StandardText>
         <InfoView
           title="Privacy Policy"
           body={
@@ -281,7 +275,7 @@ export default function Team({ route, navigation }) {
             </View>
           }
         />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }

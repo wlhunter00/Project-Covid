@@ -1,26 +1,17 @@
 import * as React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { FAQItem } from "../../components/FooterComponents";
 import { useStyle } from "./../../styles/styles.js";
 import { FontAwesome } from "@expo/vector-icons";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
+import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
 
 export default function Faq({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container");
   return (
     <View style={styles.container}>
-      <BigHeaderScrollView
-        title="Frequently Asked Questions"
-        description="Find common questions regarding Project Covid."
-        // image={
-        //   <FontAwesome
-        //     name="question"
-        //     size={100}
-        //     color={!isDark ? colors.textcolor : "#444"}
-        //   />
-        // }
-        isLonger
-      >
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <StandardText style={{ marginBottom: 20 }}>Find common questions regarding Project Covid.</StandardText>
         <FAQItem
           question="What is Project Covid?"
           answer={
@@ -91,7 +82,7 @@ export default function Faq({ route, navigation }) {
           }
           key="10"
         />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }
