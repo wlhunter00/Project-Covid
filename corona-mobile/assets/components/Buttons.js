@@ -187,9 +187,12 @@ export function ImageButton({ title, image, body, navigation }) {
       style={styles.imageButtonHeader}
       onPress={() => {
         navigation.navigate("ResourceTopic", {
-          title: title,
-          image: image,
-          body: body
+          screen: "ResourceTopic",
+          params: {
+            title: title,
+            image: image,
+            body: body
+          }
         });
       }}
     >

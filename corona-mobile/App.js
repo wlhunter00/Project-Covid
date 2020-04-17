@@ -43,6 +43,7 @@ import LocationRequest from "./assets/components/LocationRequest";
 enableScreens();
 
 const HomeNativeStack = createNativeStackNavigator();
+const ResourceTopicStack = createNativeStackNavigator();
 const HomeRootStack = createNativeStackNavigator();
 const AboutNativeStack = createNativeStackNavigator();
 const TestingCentersStack = createNativeStackNavigator();
@@ -134,10 +135,17 @@ export default function App() {
     </HomeNativeStack.Navigator>
   );
 
+  const ResourceTopicStackScreen = () => (
+    <ResourceTopicStack.Navigator screenOptions={globalScreenOptions}>
+      <ResourceTopicStack.Screen name="ResourceTopic" component={ResourceTopic} options={{headerShown: false}}/>
+      <ResourceTopicStack.Screen name="WebView" component={WebViewScreen} />
+    </ResourceTopicStack.Navigator>
+  )
+
   const HomeRootStackScreen = () => (
     <HomeRootStack.Navigator screenOptions={() => ({headerShown: false, stackPresentation: "modal"})}>
-      <HomeRootStack.Screen name="Main" component={HomeNativeStackScreen} />
-      <HomeRootStack.Screen name="ResourceTopic" component={ResourceTopic} />
+      <HomeRootStack.Screen name="Main" component={HomeNativeStackScreen}/>
+      <HomeRootStack.Screen name="ResourceTopic" component={ResourceTopicStackScreen}/>
     </HomeRootStack.Navigator>
   );
 
