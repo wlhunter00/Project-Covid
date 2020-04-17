@@ -7,8 +7,6 @@ import {
   ScrollView,
   FlatList
 } from "react-native";
-import ParallaxScrollView from "react-native-parallax-scroll-view";
-import { FontAwesome } from "@expo/vector-icons";
 
 import { useStyle } from "../../styles/styles.js";
 import { ActionButton } from "../../components/Buttons";
@@ -16,9 +14,9 @@ import { InfoViewDiagnosis } from "../../components/InfoViewDiagnosis";
 import { SourceItem } from "../../components/FooterComponents";
 import { StandardTextBox } from "../../components/TextBoxes";
 import { StandardText } from "../../components/Texts.js";
-import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 
-const symptomData = require("../../Symptom-Percentages.json");
+
+const symptomData = require("../../json/Symptom-Percentages.json");
 
 export function SymptomsList({ navigation }) {
   const { styles, colors, isDark } = useStyle(
@@ -54,13 +52,6 @@ export function SymptomsList({ navigation }) {
   return (
     <View style={[styles.container]}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      {/* <BigHeaderScrollView title="Symptoms" description="The most common symptoms of COVID-19, and how prevalent they are." image={
-        <FontAwesome
-          name="stethoscope"
-          size={100}
-          color={!isDark ? colors.textcolor : "#444"}
-        />
-        }> */}
         <StandardText style={{marginBottom: 20}}>
           The most common symptoms of COVID-19, and how prevalent they are.
           </StandardText>
