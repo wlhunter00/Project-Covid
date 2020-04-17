@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import {
   TeamMemberBox,
   CompactTeamMemberBox
