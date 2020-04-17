@@ -45,9 +45,10 @@ enableScreens();
 const HomeNativeStack = createNativeStackNavigator();
 const HomeRootStack = createNativeStackNavigator();
 const AboutNativeStack = createNativeStackNavigator();
-const TestingStack = createStackNavigator();
+const TestingCentersStack = createNativeStackNavigator();
 const TrackerStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const AppRootStack = createNativeStackNavigator();
 
 export default function App() {
   const { styles, colors, isDark } = useStyle();
@@ -122,12 +123,6 @@ export default function App() {
         options={{ title: "Student Resources" }}
         component={StudentResources}
       />
-      <HomeNativeStack.Screen name="WebView" component={WebViewScreen} options={{
-        headerLargeTitle: false,
-        headerStyle: { backgroundColor: colors.primarycolor },
-        headerTintColor: "white",
-        headerTitleStyle: {color: "white"}
-      }} />
       <HomeNativeStack.Screen
         name="Sources"
         component={Sources}
@@ -168,12 +163,6 @@ export default function App() {
         name="About"
         component={AboutScreen}
       />
-      <AboutNativeStack.Screen name="WebView" component={WebViewScreen} options={{
-        headerLargeTitle: false,
-        headerStyle: { backgroundColor: colors.primarycolor },
-        headerTintColor: "white",
-        headerTitleStyle: {color: "white"}
-      }} />
       <AboutNativeStack.Screen
         name="ContactUs"
         component={ContactUs}
@@ -210,61 +199,71 @@ export default function App() {
   const TestingCentersStackScreen = () => (
     <TestingCentersStack.Navigator
       initialRouteName="Home"
-      screenOptions={globalScreenOptions}
+      screenOptions={globalNativeStackScreenOptions}
     >
       <TestingCentersStack.Screen
         name="TestingCenters"
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Testing Centers",
          }}
         component={TestingCenters}
       />
-      <TestingCentersStack.Screen name="WebView" component={WebViewScreen} />
     </TestingCentersStack.Navigator>
+  );
+
+  const AppTabsScreen = () => (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) =>
+          ({
+            Home: <Entypo name="home" size={size} color={color} />,
+            "Live Tracker": (
+              <MaterialCommunityIcons
+                name="radar"
+                size={size}
+                color={color}
+              />
+            ),
+            Testing: (
+              <FontAwesome name="building" size={size} color={color} />
+            ),
+            About: (
+              <Entypo name="info-with-circle" size={size} color={color} />
+            )
+          }[route.name])
+      })}
+      tabBarOptions={{
+        activeTintColor: colors.primarycolor,
+        style: [
+          {
+            paddingVertical: 5,
+            backgroundColor: colors.secondarybackgroundcolor
+          },
+          isDark ? { borderTopWidth: 0 } : {}
+        ]
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeRootStackScreen} />
+      <Tab.Screen name="Live Tracker" component={TrackerStackScreen} />
+      <Tab.Screen name="Testing" component={TestingCentersStackScreen} />
+      <Tab.Screen name="About" component={AboutStackScreen} />
+    </Tab.Navigator>
   );
 
   return (
     <AppearanceProvider>
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) =>
-              ({
-                Home: <Entypo name="home" size={size} color={color} />,
-                "Live Tracker": (
-                  <MaterialCommunityIcons
-                    name="radar"
-                    size={size}
-                    color={color}
-                  />
-                ),
-                Testing: (
-                  <FontAwesome name="building" size={size} color={color} />
-                ),
-                About: (
-                  <Entypo name="info-with-circle" size={size} color={color} />
-                )
-              }[route.name])
-          })}
-          tabBarOptions={{
-            activeTintColor: colors.primarycolor,
-            style: [
-              {
-                paddingVertical: 5,
-                backgroundColor: colors.secondarybackgroundcolor
-              },
-              isDark ? { borderTopWidth: 0 } : {}
-            ]
-          }}
-        >
-          <Tab.Screen name="Home" component={HomeRootStackScreen} />
-          <Tab.Screen name="Live Tracker" component={TrackerStackScreen} />
-          <Tab.Screen name="Testing" component={TestingCentersStackScreen} />
-          <Tab.Screen name="About" component={AboutStackScreen} />
-        </Tab.Navigator>
+        <AppRootStack.Navigator screenOptions={{ headerShown: false }}>
+          <AppRootStack.Screen name="Tabs" component={AppTabsScreen} />
+          <AppRootStack.Screen name="WebView" component={WebViewScreen} options={{
+            headerShown: true,
+            headerLargeTitle: false,
+            headerStyle: { backgroundColor: colors.primarycolor },
+            headerTintColor: "white",
+            headerTitleStyle: { color: "white" }
+          }} />
+        </AppRootStack.Navigator>
       </NavigationContainer>
     </AppearanceProvider>
   );
