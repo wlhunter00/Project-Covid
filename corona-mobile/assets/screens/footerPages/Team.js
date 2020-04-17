@@ -7,6 +7,7 @@ import {
 import { useStyle } from "../../styles/styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
 
 const satvikImage = require("../../images/founders/satvik.jpg");
 const willImage = require("../../images/founders/will.jpg");

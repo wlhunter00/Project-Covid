@@ -4,6 +4,7 @@ import { FAQItem } from "../../components/FooterComponents";
 import { useStyle } from "./../../styles/styles.js";
 import { FontAwesome } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+import { StandardText } from "./../../components/Texts.js";
 
 export default function Faq({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container");
