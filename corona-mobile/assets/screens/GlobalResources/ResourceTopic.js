@@ -22,7 +22,8 @@ export default function ResourceTopic({route, navigation}){
   return (
     <View style={[styles.container]}>
       <ParallaxScrollView
-        contentBackgroundColor={colors.backgroundColor}
+        contentBackgroundColor="transparent"
+        backgroundColor={colors.backgroundcolor}
         parallaxHeaderHeight={headerHeight}
         renderBackground={() => (
           <ImageBackground
