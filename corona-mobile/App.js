@@ -42,8 +42,11 @@ import LocationRequest from "./assets/components/LocationRequest";
 
 enableScreens();
 
-const NativeStack = createNativeStackNavigator();
-const Stack = createStackNavigator();
+const HomeNativeStack = createNativeStackNavigator();
+const HomeRootStack = createNativeStackNavigator();
+const AboutNativeStack = createNativeStackNavigator();
+const TestingStack = createStackNavigator();
+const TrackerStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -69,144 +72,147 @@ export default function App() {
     headerTitleStyle: { color: colors.textcolor }
   };
 
-  const HomeNativeStack = () => (
-    <NativeStack.Navigator
+  const HomeNativeStackScreen = () => (
+    <HomeNativeStack.Navigator
       initialRouteName="Home"
       screenOptions={({ navigation, route }) => globalNativeStackScreenOptions}
     >
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Home"
         component={HomeScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="LatestNews"
         component={LatestNews}
         options={{title: "Latest News"}}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="GlobalResources"
         options={{ title: "Global Resources" }}
         component={GlobalResourcesMain}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="TravelInformation"
         options={{ title: "Travel Information" }}
         component={TravelInformation}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="TravelStatus"
         options={{ title: "Travel Status" }}
         component={TravelStatus}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="InformationalToolkit"
         options={{ title: "Informational Toolkit" }}
         component={InformationalToolkit}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="PreventativePractices"
         options={{ title: "Preventative Practices" }}
         component={PreventativePractices}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="MentalHealth"
         options={{ title: "Mental Health" }}
         component={MentalHealth}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="StudentResources"
         options={{ title: "Student Resources" }}
         component={StudentResources}
       />
-      <Stack.Screen
-        name="ResourceTopic"
-        component={ResourceTopic}
-      />
-      <Stack.Screen name="WebView" component={WebViewScreen} options={{
+      <HomeNativeStack.Screen name="WebView" component={WebViewScreen} options={{
         headerLargeTitle: false,
         headerStyle: { backgroundColor: colors.primarycolor },
         headerTintColor: "white",
         headerTitleStyle: {color: "white"}
       }} />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Sources"
         component={Sources}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Symptoms"
         component={SymptomsList}
       />
-    </NativeStack.Navigator>
+    </HomeNativeStack.Navigator>
   );
 
-  const TrackerStack = () => (
-    <Stack.Navigator
+  const HomeRootStackScreen = () => (
+    <HomeRootStack.Navigator screenOptions={() => ({headerShown: false, stackPresentation: "modal"})}>
+      <HomeRootStack.Screen name="Main" component={HomeNativeStackScreen} />
+      <HomeRootStack.Screen name="ResourceTopic" component={ResourceTopic} />
+    </HomeRootStack.Navigator>
+  );
+
+  const TrackerStackScreen = () => (
+    <TrackerStack.Navigator
       initialRouteName="Home"
       screenOptions={globalScreenOptions}
     >
-      <Stack.Screen
+      <TrackerStack.Screen
         name="LiveTracker"
         component={TrackerStatus}
         options={{ title: "Live Tracker" }}
       />
-    </Stack.Navigator>
+    </TrackerStack.Navigator>
   );
 
-  const AboutStack = () => (
-    <NativeStack.Navigator
+  const AboutStackScreen = () => (
+    <AboutNativeStack.Navigator
       initialRouteName="About"
       screenOptions={globalNativeStackScreenOptions}
     >
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="About"
         component={AboutScreen}
       />
-      <Stack.Screen name="WebView" component={WebViewScreen} options={{
+      <AboutNativeStack.Screen name="WebView" component={WebViewScreen} options={{
         headerLargeTitle: false,
         headerStyle: { backgroundColor: colors.primarycolor },
         headerTintColor: "white",
         headerTitleStyle: {color: "white"}
       }} />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="ContactUs"
         component={ContactUs}
         options={{ 
           title: "Contact Us",
          }}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicy}
         options={{ 
           title: "Privacy Policy",
          }}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="Team"
         component={Team}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="AboutLFR"
         component={AboutLFR}
         options={{ 
           title: "About LFR",
          }}
       />
-      <Stack.Screen name="Faq"
+      <AboutNativeStack.Screen name="Faq"
         component={Faq}
         options={{ 
           title: "FAQ",
          }} />
-    </NativeStack.Navigator>
+    </AboutNativeStack.Navigator>
   );
 
-  const TestingCentersStack = () => (
-    <Stack.Navigator
+  const TestingCentersStackScreen = () => (
+    <TestingCentersStack.Navigator
       initialRouteName="Home"
       screenOptions={globalScreenOptions}
     >
-      <Stack.Screen
+      <TestingCentersStack.Screen
         name="TestingCenters"
         options={{ 
           title: "",
@@ -215,8 +221,8 @@ export default function App() {
          }}
         component={TestingCenters}
       />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-    </Stack.Navigator>
+      <TestingCentersStack.Screen name="WebView" component={WebViewScreen} />
+    </TestingCentersStack.Navigator>
   );
 
   return (
@@ -254,10 +260,10 @@ export default function App() {
             ]
           }}
         >
-          <Tab.Screen name="Home" component={HomeNativeStack} />
-          <Tab.Screen name="Live Tracker" component={TrackerStack} />
-          <Tab.Screen name="Testing" component={TestingCentersStack} />
-          <Tab.Screen name="About" component={AboutStack} />
+          <Tab.Screen name="Home" component={HomeRootStackScreen} />
+          <Tab.Screen name="Live Tracker" component={TrackerStackScreen} />
+          <Tab.Screen name="Testing" component={TestingCentersStackScreen} />
+          <Tab.Screen name="About" component={AboutStackScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </AppearanceProvider>
