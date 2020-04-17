@@ -11,13 +11,16 @@ import {Ionicons} from "@expo/vector-icons"
 import { useStyle } from "../../styles/styles";
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { InfoView } from "../../components/InfoView";
+import { SourceItem } from "../../components/FooterComponents";
 
 const headerHeight = 300;
 
 export default function ResourceTopic({route, navigation}){
   const { styles, colors, isDark } = useStyle("container", "imageButtonHeader", "imageButtonText", "imageButtonImage", "bioText", "positionText", "container");
 
-  const { title, source, body } = route.params;
+  const { title, image, body } = route.params;
+  const { content, sources } = body;
 
   return (
     <View style={[styles.container]}>
@@ -27,7 +30,7 @@ export default function ResourceTopic({route, navigation}){
         parallaxHeaderHeight={headerHeight}
         renderBackground={() => (
           <ImageBackground
-            source={source}
+            source={image}
             style={[
               {
                 width: '100%',
@@ -48,8 +51,18 @@ export default function ResourceTopic({route, navigation}){
             {title}
           </Text>
         )}>
-        <View style={[styles.container, { height: '100%', paddingTop: 15, paddingHorizontal: 15, paddingBottom: 7 }]}>
-          {body}
+        <View style={[styles.container, { height: '100%', paddingTop: 15, paddingHorizontal: 15, paddingBottom: 10 }]}>
+          {
+            content.map(item => (
+              <InfoView
+                title={item.title}
+                url={item.url || null}
+                details={item.details}
+                navigation={navigation}
+              />
+              ))
+          }
+          {sources.length > 0 && <SourceItem sourcesList={sources} typeSource="Sources" navigation={navigation}/>}
         </View>
       </ParallaxScrollView>
       

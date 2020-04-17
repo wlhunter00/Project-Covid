@@ -331,7 +331,6 @@ const allStyles = StyleSheet.create({
     color: "grey"
   },
   resourceText: {
-    color: "#000",
     fontSize: 16,
     color: "grey",
     marginBottom: 10

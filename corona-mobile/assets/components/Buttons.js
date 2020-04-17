@@ -171,7 +171,7 @@ export function SimpleButton({ title, action, hasChevron }) {
   );
 }
 
-export function ImageButton({ title, source, body, navigation }) {
+export function ImageButton({ title, image, body, navigation }) {
   const { styles } = useStyle(
     "imageButtonHeader",
     "imageButtonText",
@@ -188,13 +188,13 @@ export function ImageButton({ title, source, body, navigation }) {
       onPress={() => {
         navigation.navigate("ResourceTopic", {
           title: title,
-          source: source,
+          image: image,
           body: body
         });
       }}
     >
       <ImageBackground
-        source={source}
+        source={image}
         style={[
           {
             width: imageWidth * 0.9,
