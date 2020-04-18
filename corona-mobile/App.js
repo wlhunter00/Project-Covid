@@ -1,11 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { AppearanceProvider } from "react-native-appearance";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StackActions } from "@react-navigation/native";
 import { enableScreens } from 'react-native-screens';
 
 import { useStyle } from "./assets/styles/styles";
@@ -13,13 +12,7 @@ import { useStyle } from "./assets/styles/styles";
 import HomeScreen from "./assets/screens/HomeScreen";
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
-import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
-import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
-import InformationalToolkit from "./assets/screens/GlobalResources/InformationalToolkit";
-import PreventativePractices from "./assets/screens/GlobalResources/PreventativePractices";
-import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
-import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
 import ResourcePage from "./assets/screens/GlobalResources/ResourcePage";
