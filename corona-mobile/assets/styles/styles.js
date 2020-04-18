@@ -344,7 +344,7 @@ const allStyles = StyleSheet.create({
   tosBold: {
     color: "#000",
     fontSize: 16,
-    color: "white",
+    color: "grey",
     marginBottom: 20,
     fontWeight: "bold"
   },
