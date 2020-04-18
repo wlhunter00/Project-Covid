@@ -8,7 +8,7 @@ import { useStyle } from "../styles/styles";
 import { StandardText } from "./Texts.js";
 
 
-export function InfoView({ title, details, url, navigation }) {
+export function InfoView({ title, details, url, navigation, body }) {
   const { styles, colors } = useStyle(
     "boxContainer",
     "normalText",
@@ -38,9 +38,11 @@ export function InfoView({ title, details, url, navigation }) {
       </View>
       <View style={[styles.divider, { marginVertical: 10 }]} />
       {
+        body ? body : (
         details.map((text, index) => (
           <StandardText style={styles.resourceText}>{text}</StandardText>
         ))  
+        )
       }
     </View>
   );
