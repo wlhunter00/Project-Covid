@@ -10,6 +10,7 @@ import {
   FontAwesome5
 } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+import { ResourceNames } from "./ResourcePage";
 
 export default function GlobalResourcesMain({ navigation }) {
   const { styles, colors } = useStyle("container");
@@ -20,7 +21,8 @@ export default function GlobalResourcesMain({ navigation }) {
     >
       <PageButton
         title="Informational Toolkit"
-        navigationName="InformationalToolkit"
+        navigationName="ResourcePage"
+        navigationParams={{resourceName: ResourceNames.informationalToolkit, title: "Informational Toolkit"}}
         icon={
           <MaterialCommunityIcons
             name="toolbox"
@@ -42,7 +44,8 @@ export default function GlobalResourcesMain({ navigation }) {
       />
       <PageButton
         title="Preventative Practices"
-        navigationName="PreventativePractices"
+        navigationName="ResourcePage"
+        navigationParams={{resourceName: ResourceNames.preventativePractices, title: "Preventative Practices"}}
         icon={
           <MaterialIcons name="healing" size={25} color={colors.textcolor} />
         }
@@ -52,14 +55,16 @@ export default function GlobalResourcesMain({ navigation }) {
 
       <PageButton
         title="Mental Health"
-        navigationName="MentalHealth"
+        navigationName="ResourcePage"
+        navigationParams={{resourceName: ResourceNames.mentalHealth, title: "Mental Health"}}
         icon={<FontAwesome name="heart" size={25} color={colors.textcolor} />}
         description="Information for a healthy mindset"
         navigation={navigation}
       />
       <PageButton
         title="General Resources"
-        navigationName="StudentResources"
+        navigationName="ResourcePage"
+        navigationParams={{resourceName: ResourceNames.studentResources, title: "General Resources"}}
         icon={
           <FontAwesome5
             name="hands-helping"

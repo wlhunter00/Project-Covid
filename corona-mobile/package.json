@@ -10,7 +10,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/bottom-tabs": "^5.2.1",
-    "@react-navigation/native": "^5.0.9",
+    "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.1.1",
     "accordion-collapse-react-native": "^0.2.8",
     "axios": "^0.19.2",
@@ -37,7 +37,9 @@
     "react-native-webview": "8.1.1",
     "react-navigation": "^4.3.7",
     "react-navigation-stack": "^2.3.11",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "expo-blur": "~8.1.0",
+    "expo-constants": "~9.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.1.0",

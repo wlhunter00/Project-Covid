@@ -2,26 +2,18 @@ import * as React from "react";
 import {
   Text,
   View,
-  TouchableHighlight,
-  TouchableOpacity,
-  Image,
-  StyleSheet
 } from "react-native";
 import { SimpleButton } from "./Buttons.js";
 import { useStyle } from "../styles/styles";
+import { StandardText } from "./Texts.js";
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
 
-export function InfoView({ title, body, url }) {
-  const navigation = useNavigation();
-
-  const { styles } = useStyle(
+export function InfoView({ title, details, url, navigation }) {
+  const { styles, colors } = useStyle(
     "boxContainer",
     "normalText",
     "divider",
-    "bioText"
+    "resourceText"
   );
 
   return (
@@ -32,7 +24,8 @@ export function InfoView({ title, body, url }) {
         </View>
         {url && (
           <View style={{
-            flex: 1, alignItems: "flex-end", justifyContent: 'center'}}>
+            flex: 1, alignItems: "flex-end", justifyContent: 'center'
+          }}>
             <SimpleButton
               title="Resource"
               action={() => {
@@ -40,11 +33,15 @@ export function InfoView({ title, body, url }) {
               }}
               hasChevron
             />
-        </View>
+          </View>
         )}
       </View>
       <View style={[styles.divider, { marginVertical: 10 }]} />
-      <View style={styles.bio}>{body}</View>
+      {
+        details.map((text, index) => (
+          <StandardText style={styles.resourceText}>{text}</StandardText>
+        ))  
+      }
     </View>
   );
 }

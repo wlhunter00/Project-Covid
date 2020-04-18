@@ -32,11 +32,7 @@ export function EmbeddedPageButton({
       onPress={() => {
         navigation.navigate(
           navigationName,
-          navigationParams !== undefined && {
-            url: navigationParams.url,
-            title: navigationParams.title,
-            originWhiteList: navigationParams.originWhiteList
-          }
+          navigationParams
         );
       }}
     >
@@ -72,11 +68,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(
           navigationName,
-          navigationParams !== undefined && {
-            url: navigationParams.url,
-            title: navigationParams.title,
-            originWhiteList: navigationParams.originWhiteList
-          }
+          navigationParams
         );
       }}
       style={{ marginBottom: 15, borderRadius: 5 }}
@@ -171,7 +163,7 @@ export function SimpleButton({ title, action, hasChevron }) {
   );
 }
 
-export function ImageButton({ title, source, body, navigation }) {
+export function ImageButton({ title, image, body, navigation }) {
   const { styles } = useStyle(
     "imageButtonHeader",
     "imageButtonText",
@@ -187,14 +179,17 @@ export function ImageButton({ title, source, body, navigation }) {
       style={styles.imageButtonHeader}
       onPress={() => {
         navigation.navigate("ResourceTopic", {
-          title: title,
-          source: source,
-          body: body
+          screen: "ResourceTopic",
+          params: {
+            title: title,
+            image: image,
+            body: body
+          }
         });
       }}
     >
       <ImageBackground
-        source={source}
+        source={image}
         style={[
           {
             width: imageWidth * 0.9,

@@ -1,0 +1,142 @@
+{
+    "title": "Mental Health",
+    "description": "Tips for keeping up a healthy mindset.",
+    "data": [
+        {
+            "image": "mentalHealth/image1.jpg",
+            "title": "Social Distancing",
+            "content": [
+                {
+                    "title": "Look out for Potential Signs of Distress",
+                    "details": [
+                        "• Feelings of numbness, disbelief, anxiety or fear.",
+                        "• Changes in appetite, energy, and activity levels.",
+                        "• Difficulty concentrating.",
+                        "• Difficulty sleeping or nightmares and upsetting thoughts. and images",
+                        "• Physical reactions, such as headaches, body pains, stomach problems, and skin rashes.",
+                        "• Worsening of chronic health problems.",
+                        "• Anger or short-temper.",
+                        "• Increased use of alcohol, tobacco, or other drugs."
+                    ]
+                },
+                {
+                    "title": "Stress Coping Activities",
+                    "details": [
+                        "\"If distress impacts activities of your daily life for several days or weeks, talk to a clergy member, counselor, or doctor, or contact the SAMHSA helpline at 1-800-985-5990.” - CDC",
+                        "• Sleeping well, exercising and maintaining a healthy diet will promote your mental health.",
+                        "• Take mental breaks, time to unwind and reflect. Deep breathing. Do activities you usually enjoy.",
+                        "• Share your concerns and feelings with friends and family."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://emergency.cdc.gov/coping/selfcare.asp",
+                    "headline": "Taking Care of Your Emotional Health"
+                },
+                {
+                    "title": "NCBI",
+                    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470658/",
+                    "headline": "Exercise for Mental Health"
+                },
+                {
+                    "title": "The clay Center for Young Healthy Minds",
+                    "url": "https://www.mghclaycenter.org/hot-topics/7-ways-to-support-kids-and-teens-through-the-coronavirus-pandemic/",
+                    "headline": "7 Ways to Support Kids and Teens Through the Coronavirus Pandemic"
+                }
+            ]
+        },
+        {
+            "image": "mentalHealth/image2.jpg",
+            "title": "Resources to Use",
+            "content": [
+                {
+                    "title": "Mental Health America",
+                    "url": "http://mhanational.org/covid19",
+                    "details": [
+                        "MHA has compiled a range of resources and information to assist you  and your community. Visit if you’re looking for mental health information and resources related to COVID-19, isolation, anxiety, stress, and more."
+                    ]
+                },
+                {
+                    "title": "Rethink My Therapy",
+                    "url": "https://rethinkmytherapy.com/",
+                    "details": [
+                        "Rethink My Therapy is the most affordable virtual mental health counseling in America. Members are able to book unlimited 45-minute therapy sessions, with the counselor of their choice for $60/month. It works just like in-person counseling, except the experience is more affordable and convenient."
+                    ]
+                },
+                {
+                    "title": "The National Alliance on Mental Illness",
+                    "url": "http://www.nami.org/",
+                    "details": [
+                        "NAMI hosts online communities where people can share encouragement."
+                    ]
+                },
+                {
+                    "title": "7 Cups",
+                    "url": "http://www.7cups.com/",
+                    "details": [
+                        "7 Cups is an app and online resource that lets you chat with a trained listener for emotional support and counseling. It also offers online therapy with a licensed mental health professional. Services are also offered in Spanish."
+                    ]
+                },
+                {
+                    "title": "Support Group Central",
+                    "url": "http://www.supportgroupscentral.com/",
+                    "details": [
+                        "Support Group Central offers virtual support groups on numerous mental health conditions for free or low-cost. This website is also offered in many different languages, including Chinese and Spanish."
+                    ]
+                },
+                {
+                    "title": "Betterhelp",
+                    "url": "https://www.betterhelp.com/start/?go=true&transaction_id=10295e48477e19f6e9b100987860cb&utm_source=affiliate&utm_campaign=1510&utm_medium=Desktop&utm_content=&utm_term=%C2%AC_found=1&gor=start",
+                    "details": [
+                        "Betterhelp is an app that offers individual, couples, or teens counseling. Licensed therapists are available through text, video, and audio."
+                    ]
+                },
+                {
+                    "title": "The Tribe Wellness Community",
+                    "url": "http://www.support.therapytribe.com/",
+                    "details": [
+                        "The Tribe Wellness Community is a free, online peer support network that gives members facing mental health challenges and/or difficult family dynamics a safe place to connect."
+                    ]
+                },
+                {
+                    "title": "Psych Central",
+                    "url": "http://www.psychcentral.com/",
+                    "details": [
+                        "Psych Central offers online mental health resources, quizzes, news, and an “Ask the Therapist” function."
+                    ]
+                },
+                {
+                    "title": "Talkspace",
+                    "url": "https://lp.talkspace.com/try/ct?siteID=Q.Sg3glZ_fs-GARENcQs7bz1gXKzyyX5NQ&ranMID=41986&ranEAID=Q*Sg3glZ%2Ffs&ranSiteID=Q.Sg3glZ_fs-GARENcQs7bz1gXKzyyX5NQ&LSNSUBSITE=LSNSUBSITE&utm_source=linkshare&utm_campaign=Affiliate_Linkshare&utm_keyword=3&utm_medium=dotdash&utr_adgroup=3672320&utr_adid=37",
+                    "details": [
+                        "Talkspace matches you to a licensed therapist, available five days a week for text, video, and audio messaging. Talkspace is also available as an app."
+                    ]
+                },
+                {
+                    "title": "For Like Minds",
+                    "url": "http://www.forlikeminds.com/",
+                    "details": [
+                        "For Like Minds is an online mental health support network that allows individuals to connect with others who are experiencing stressful life events."
+                    ]
+                },
+                {
+                    "title": "Runaway",
+                    "url": "http://www.runawayapp.com",
+                    "details": [
+                        "Runaway is a student-owned and operated social venture that aims to promote mental health awareness and help those in need of emotional support. They’ve facilitated thousands of mental health conversations."
+                    ]
+                },
+                {
+                    "title": "18percent",
+                    "url": "http://www.18percent.org/",
+                    "details": [
+                        "18percent offers a free, peer-to-peer online support community for those struggling with a wide range of mental health issues."
+                    ]
+                }
+            ],
+            "sources": []
+        }
+    ]
+}

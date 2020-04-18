@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator, Header } from "@react-navigation/stack";
+import React, { useEffect, useState, useRef } from "react";
 import {
-  StyleSheet,
-  Text,
   View,
   Image,
-  TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
+  Animated
 } from "react-native";
 import {
   MaterialIcons,
@@ -16,6 +12,9 @@ import {
   FontAwesome,
   Entypo
 } from "@expo/vector-icons";
+import { BlurView } from 'expo-blur';
+import Constants from "expo-constants";
+
 import { useStyle } from "../styles/styles";
 import {
   PageButton,
@@ -24,9 +23,6 @@ import {
 } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../utils/APIService";
-import ParallaxScrollView from "react-native-parallax-scroll-view";
-import BigHeaderScrollView from "./../components/BigHeaderScrollView";
-
 import {
   Section,
   ErrorBox,
@@ -34,21 +30,24 @@ import {
   NewsArticle
 } from "../components/HomePageComponents";
 import { useLocationAddress } from "../utils/Hooks";
+import { ResourceNames } from "./GlobalResources/ResourcePage"
 
 const logo = require("../images/logo-notext.png");
 
 export default function HomeScreen({ navigation }) {
-  const { styles, colors } = useStyle(
+  const { styles, colors, isDark } = useStyle(
     "container",
     "appTitle",
     "subtitle",
-    "divider"
+    "divider",
+    "scrollViewContent"
   );
 
   const [topNews, setNews] = useState(null);
   const [stats, setStats] = useState(null);
   const address = useLocationAddress();
 
+  // Load from server
   useEffect(() => {
     async function load() {
       const statsResp = await getLatestStats(address);
@@ -69,25 +68,41 @@ export default function HomeScreen({ navigation }) {
     load();
   }, [address]);
 
+  // animate status bar blur
+  const animatedScrollYValue = useRef(new Animated.Value(0)).current;
+
+  const statusBarOpacity = animatedScrollYValue.interpolate({
+    inputRange: [0, 30],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
+
   return (
     <View style={[styles.container]}>
-      <BigHeaderScrollView
-        title="ProjectCovid"
-        description="Live tracking and resources to help you get through the pandemic."
-        image={<Image source={logo} style={{ height: 100, width: 100 }} />}
-        isHome
-        isLonger
+      <Animated.ScrollView
+        contentContainerStyle={styles.scrollViewContent}
+        scrollEventThrottle={16}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: animatedScrollYValue } } }])}
       >
+        <View style={{ flexDirection: "row", marginTop: 80, marginBottom: 20 }}>
+          <View style={{ flex: 1 }}>
+            <StandardText fontSize="title" isBold style={{ marginBottom: 10 }}>Project<StandardText style={{ fontWeight: "400" }} fontSize="title">Covid</StandardText></StandardText>
+
+            <StandardText style={{ marginBottom: 10 }}>Live tracking and resources to help you get through the pandemic.</StandardText>
+          </View>
+          <Image source={logo} style={{ height: 100, width: 100 }} />
+        </View>
+          
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ? (
               <StatsView stats={stats.stats} />
             ) : (
-              <ErrorBox />
-            )
+                <ErrorBox />
+              )
           ) : (
-            <ActivityIndicator style={{ height: 280 }} />
-          )}
+              <ActivityIndicator style={{ height: 280 }} />
+            )}
           <View style={styles.divider} />
           <EmbeddedPageButton
             title="Global Tracker"
@@ -120,11 +135,11 @@ export default function HomeScreen({ navigation }) {
                 />
               ))
             ) : (
-              <ErrorBox />
-            )
+                <ErrorBox />
+              )
           ) : (
-            <ActivityIndicator style={{ height: 200 }} />
-          )}
+              <ActivityIndicator style={{ height: 200 }} />
+            )}
           <EmbeddedPageButton
             title="Live Twitter Feed"
             navigationName="WebView"
@@ -153,7 +168,8 @@ export default function HomeScreen({ navigation }) {
         >
           <EmbeddedPageButton
             title="Informational Toolkit"
-            navigationName="InformationalToolkit"
+            navigationName="ResourcePage"
+            navigationParams={{resourceName: ResourceNames.informationalToolkit, title: "Informational Toolkit"}}
             icon={
               <MaterialCommunityIcons
                 name="toolbox"
@@ -181,7 +197,8 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.divider} />
           <EmbeddedPageButton
             title="Preventative Practices"
-            navigationName="PreventativePractices"
+            navigationName="ResourcePage"
+            navigationParams={{resourceName: ResourceNames.preventativePractices, title: "Preventative Practices"}}
             icon={
               <MaterialIcons
                 name="healing"
@@ -200,7 +217,15 @@ export default function HomeScreen({ navigation }) {
           description="Learn where this information comes from."
           navigation={navigation}
         />
-      </BigHeaderScrollView>
+      </Animated.ScrollView>
+      <Animated.View opacity={statusBarOpacity} style={{ zIndex: 1, position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: Constants.statusBarHeight,
+        zIndex: 1, }}>
+        <BlurView intensity={100} style={{ flex: 1 }} tint={isDark ? "dark" : "default"}/>
+      </Animated.View>
     </View>
   );
 }

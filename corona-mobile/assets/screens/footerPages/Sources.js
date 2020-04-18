@@ -6,21 +6,15 @@ import { useStyle } from "./../../styles/styles.js";
 import { SourceItem } from "../../components/FooterComponents";
 import BigHeaderScrollView from "../../components/BigHeaderScrollView.js";
 import { FontAwesome } from "@expo/vector-icons";
+import { StandardText } from "../../components/Texts.js";
 
 export default function Sources({ route, navigation }) {
-  const { styles, colors, isDark } = useStyle("container");
+  const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundcolor }]}>
-      <BigHeaderScrollView title="Sources" description="Learn where our information came from and read the orginal documents."
-      //   image={
-      // <FontAwesome
-      //   name="book"
-      //   size={100}
-      //   color={!isDark ? colors.textcolor : "#444"}
-      // />
-      //   }
-      >
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <StandardText style={{marginBottom: 20}}>Learn where our information comes from</StandardText>
       <SourceItem
         navigation={navigation}
         typeSource={"Research Journals"}
@@ -206,7 +200,7 @@ export default function Sources({ route, navigation }) {
         ]}
         key={"govAgen"}
       />
-      </BigHeaderScrollView>
+      </ScrollView>
     </View>
   );
 }

@@ -1,26 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { AppearanceProvider } from "react-native-appearance";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StackActions } from "@react-navigation/native";
+import { enableScreens } from 'react-native-screens';
 
 import { useStyle } from "./assets/styles/styles";
 
 import HomeScreen from "./assets/screens/HomeScreen";
-
 import LatestNews from "./assets/screens/LatestNews/LatestNews";
 import TestingCenters from "./assets/screens/TestingCenters/TestingCenters";
-import TravelInformation from "./assets/screens/TravelInformation/TravelInformation";
-import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
-import InformationalToolkit from "./assets/screens/GlobalResources/InformationalToolkit";
-import PreventativePractices from "./assets/screens/GlobalResources/PreventivePractices";
-import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
-import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
+import ResourcePage from "./assets/screens/GlobalResources/ResourcePage";
 
 import AboutScreen from "./assets/screens/AboutScreen";
 import Team from "./assets/screens/footerPages/Team.js";
@@ -39,8 +34,17 @@ import WebViewScreen from "./assets/screens/WebViewScreen";
 import { SymptomsList } from "./assets/screens/SymptomCheck/SymptomsList";
 import LocationRequest from "./assets/components/LocationRequest";
 
-const Stack = createStackNavigator();
+
+enableScreens();
+
+const HomeNativeStack = createNativeStackNavigator();
+const ResourceTopicStack = createNativeStackNavigator();
+const HomeRootStack = createNativeStackNavigator();
+const AboutNativeStack = createNativeStackNavigator();
+const TestingCentersStack = createNativeStackNavigator();
+const TrackerStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const AppRootStack = createNativeStackNavigator();
 
 export default function App() {
   const { styles, colors, isDark } = useStyle();
@@ -56,259 +60,188 @@ export default function App() {
     headerBackTitle: " "
   };
 
-  const HomeStack = () => (
-    <Stack.Navigator
+  const globalNativeStackScreenOptions = {
+    headerLargeTitle: true,
+    // headerTranslucent: true,
+    headerStyle: { backgroundColor: colors.backgroundcolor },
+    headerHideShadow: true,
+    headerTintColor: colors.primarycolor,
+    headerTitleStyle: { color: colors.textcolor }
+  };
+
+  const HomeNativeStackScreen = () => (
+    <HomeNativeStack.Navigator
       initialRouteName="Home"
-      screenOptions={({ navigation, route }) => ({
-        headerRight: ({ tintColor }) =>
-          route.name !== "Home" && (
-            <Entypo
-              name="home"
-              color={tintColor}
-              size={25}
-              style={{ marginRight: 20 }}
-              onPress={() => {
-                if (navigation.canGoBack()) {
-                  navigation.dispatch(StackActions.popToTop());
-                }
-              }}
-            />
-          ),
-        ...globalScreenOptions
-      })}
+      screenOptions={({ navigation, route }) => globalNativeStackScreenOptions}
     >
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-          headerShown: false
-        }}
+        options={{headerShown: false}}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="LatestNews"
         component={LatestNews}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
+        options={{title: "Latest News"}}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="GlobalResources"
         options={{ title: "Global Resources" }}
         component={GlobalResourcesMain}
       />
-      <Stack.Screen
-        name="TravelInformation"
-        options={{ title: "Travel Information" }}
-        component={TravelInformation}
+      <HomeNativeStack.Screen
+        name="ResourcePage"
+        options={({route})=>({title: route.params.title})}
+        component={ResourcePage}
       />
-      <Stack.Screen
-        name="TravelStatus"
-        options={{ title: "Travel Status" }}
-        component={TravelStatus}
-      />
-      <Stack.Screen
-        name="InformationalToolkit"
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-        component={InformationalToolkit}
-      />
-      <Stack.Screen
-        name="PreventativePractices"
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-        component={PreventativePractices}
-      />
-      <Stack.Screen
-        name="MentalHealth"
-        component={MentalHealth}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="StudentResources"
-        component={StudentResources}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
-      />
-      <Stack.Screen
-        name="ResourceTopic"
-        component={ResourceTopic}
-        options={{
-          title: "",
-          headerTintColor: colors.primarycolor,
-          headerStyle: {
-            backgroundColor: colors.backgroundcolor
-          }
-        }}
-      />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Sources"
         component={Sources}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
       />
-      <Stack.Screen
+      <HomeNativeStack.Screen
         name="Symptoms"
         component={SymptomsList}
-        options={{
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-        }}
       />
-    </Stack.Navigator>
+    </HomeNativeStack.Navigator>
   );
 
-  const TrackerStack = () => (
-    <Stack.Navigator
+  const ResourceTopicStackScreen = () => (
+    <ResourceTopicStack.Navigator screenOptions={globalScreenOptions}>
+      <ResourceTopicStack.Screen name="ResourceTopic" component={ResourceTopic} options={{headerShown: false}}/>
+      <ResourceTopicStack.Screen name="WebView" component={WebViewScreen} />
+    </ResourceTopicStack.Navigator>
+  )
+
+  const HomeRootStackScreen = () => (
+    <HomeRootStack.Navigator screenOptions={() => ({headerShown: false, stackPresentation: "modal"})}>
+      <HomeRootStack.Screen name="Main" component={HomeNativeStackScreen}/>
+      <HomeRootStack.Screen name="ResourceTopic" component={ResourceTopicStackScreen}/>
+    </HomeRootStack.Navigator>
+  );
+
+  const TrackerStackScreen = () => (
+    <TrackerStack.Navigator
       initialRouteName="Home"
       screenOptions={globalScreenOptions}
     >
-      <Stack.Screen
+      <TrackerStack.Screen
         name="LiveTracker"
         component={TrackerStatus}
         options={{ title: "Live Tracker" }}
       />
-    </Stack.Navigator>
+    </TrackerStack.Navigator>
   );
 
-  const AboutStack = () => (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={globalScreenOptions}
+  const AboutStackScreen = () => (
+    <AboutNativeStack.Navigator
+      initialRouteName="About"
+      screenOptions={globalNativeStackScreenOptions}
     >
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="About"
         component={AboutScreen}
-        options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-         }}
       />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="ContactUs"
         component={ContactUs}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Contact Us",
          }}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicy}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Privacy Policy",
          }}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="Team"
         component={Team}
-        options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
-         }}
       />
-      <Stack.Screen
+      <AboutNativeStack.Screen
         name="AboutLFR"
         component={AboutLFR}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "About LFR",
          }}
       />
-      <Stack.Screen name="Faq"
+      <AboutNativeStack.Screen name="Faq"
         component={Faq}
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "FAQ",
          }} />
-    </Stack.Navigator>
+    </AboutNativeStack.Navigator>
   );
 
-  const TestingCentersStack = () => (
-    <Stack.Navigator
+  const TestingCentersStackScreen = () => (
+    <TestingCentersStack.Navigator
       initialRouteName="Home"
-      screenOptions={globalScreenOptions}
+      screenOptions={globalNativeStackScreenOptions}
     >
-      <Stack.Screen
+      <TestingCentersStack.Screen
         name="TestingCenters"
         options={{ 
-          title: "",
-          headerTransparent: true,
-          headerTintColor: colors.primarycolor
+          title: "Testing Centers",
          }}
         component={TestingCenters}
       />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-    </Stack.Navigator>
+    </TestingCentersStack.Navigator>
+  );
+
+  const AppTabsScreen = () => (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) =>
+          ({
+            Home: <Entypo name="home" size={size} color={color} />,
+            "Live Tracker": (
+              <MaterialCommunityIcons
+                name="radar"
+                size={size}
+                color={color}
+              />
+            ),
+            Testing: (
+              <FontAwesome name="building" size={size} color={color} />
+            ),
+            About: (
+              <Entypo name="info-with-circle" size={size} color={color} />
+            )
+          }[route.name])
+      })}
+      tabBarOptions={{
+        activeTintColor: colors.primarycolor,
+        style: [
+          {
+            paddingVertical: 5,
+            backgroundColor: colors.secondarybackgroundcolor
+          },
+          isDark ? { borderTopWidth: 0 } : {}
+        ]
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeRootStackScreen} />
+      <Tab.Screen name="Live Tracker" component={TrackerStackScreen} />
+      <Tab.Screen name="Testing" component={TestingCentersStackScreen} />
+      <Tab.Screen name="About" component={AboutStackScreen} />
+    </Tab.Navigator>
   );
 
   return (
     <AppearanceProvider>
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) =>
-              ({
-                Home: <Entypo name="home" size={size} color={color} />,
-                "Live Tracker": (
-                  <MaterialCommunityIcons
-                    name="radar"
-                    size={size}
-                    color={color}
-                  />
-                ),
-                Testing: (
-                  <FontAwesome name="building" size={size} color={color} />
-                ),
-                About: (
-                  <Entypo name="info-with-circle" size={size} color={color} />
-                )
-              }[route.name])
-          })}
-          tabBarOptions={{
-            activeTintColor: colors.primarycolor,
-            style: [
-              {
-                paddingVertical: 5,
-                backgroundColor: colors.secondarybackgroundcolor
-              },
-              isDark ? { borderTopWidth: 0 } : {}
-            ]
-          }}
-        >
-          <Tab.Screen name="Home" component={HomeStack} />
-          <Tab.Screen name="Live Tracker" component={TrackerStack} />
-          <Tab.Screen name="Testing" component={TestingCentersStack} />
-          <Tab.Screen name="About" component={AboutStack} />
-        </Tab.Navigator>
+        <AppRootStack.Navigator screenOptions={{ headerShown: false }}>
+          <AppRootStack.Screen name="Tabs" component={AppTabsScreen} />
+          <AppRootStack.Screen name="WebView" component={WebViewScreen} options={{
+            headerShown: true,
+            headerLargeTitle: false,
+            headerStyle: { backgroundColor: colors.primarycolor },
+            headerTintColor: "white",
+            headerTitleStyle: { color: "white" }
+          }} />
+        </AppRootStack.Navigator>
       </NavigationContainer>
     </AppearanceProvider>
   );

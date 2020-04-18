@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { WebView } from "react-native-webview";
-import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 export default function TrackerStatus({ route, navigation }) {
   let webview;
@@ -15,13 +15,8 @@ export default function TrackerStatus({ route, navigation }) {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={reload}>
-          <AntDesign
-            name="reload1"
-            color="white"
-            size={20}
-            style={{ marginRight: 20 }}
-          />
+        <TouchableOpacity onPress={reload} style={{marginRight: 20}}>
+          <Entypo name={"ccw"} size={25} color={"white"} />
         </TouchableOpacity>
       )
     });

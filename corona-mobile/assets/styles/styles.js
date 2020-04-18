@@ -60,7 +60,8 @@ const allStyles = StyleSheet.create({
     backgroundColor: colorsDark.backgroundcolor
   },
   scrollViewContent: {
-    paddingHorizontal: 15
+    paddingHorizontal: 18,
+    paddingTop: 10
   },
   containerRowCenter: {
     flex: 1,
@@ -284,6 +285,7 @@ const allStyles = StyleSheet.create({
     shadowOpacity: 1,
     borderRadius: 5,
     padding: 10,
+
     marginBottom: 15
   },
   boxContainerDark: {
@@ -329,7 +331,6 @@ const allStyles = StyleSheet.create({
     color: "grey"
   },
   resourceText: {
-    color: "#000",
     fontSize: 16,
     color: "grey",
     marginBottom: 10

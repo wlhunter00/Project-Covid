@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Share } from "react-native";
+import { StyleSheet, Text, View, Share , SafeAreaView} from "react-native";
 import { WebView } from "react-native-webview";
 import { useStyle } from "../styles/styles";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
@@ -8,6 +8,7 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity
 } from "react-native-gesture-handler";
+
 var URL = require("url");
 
 function ConstructOriginWhitelist(urlString) {
@@ -37,7 +38,6 @@ class WebViewScreen extends React.Component {
       title: this.props.route.params.title,
       headerRight: () => (
         <TouchableOpacity
-          style={{ marginRight: 20 }}
           onPress={() => {
             this.webViewRef.current.reload();
           }}
@@ -95,13 +95,11 @@ class WebViewScreen extends React.Component {
             });
           }}
         />
-        <View
+        <SafeAreaView
           style={{
-            flex: 1,
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            maxHeight: 40,
             backgroundColor: this.props.colors.primarycolor
           }}
         >
@@ -162,7 +160,7 @@ class WebViewScreen extends React.Component {
               color={"white"}
             />
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
       </View>
     );
   }

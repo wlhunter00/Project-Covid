@@ -1,0 +1,301 @@
+{
+    "title": "Preventative Practices",
+    "description": "Important tips for staying healthy at this time.",
+    "data": [
+        {
+            "image": "preventativePractice/handwash.png",
+            "title": "Hygiene Habits",
+            "content": [
+                {
+                    "title": "Hand Washing",
+                    "details": [
+                        "• 20 seconds (typically the chorus of a song), rubbing between fingers, over tops and palms, and under nail beds.",
+                        "• Antibacterial soap or alcohol-based sanitizer.",
+                        " • Avoid scalding hot water that may dry out skin, this may create microtears in the skin’s protective barrier."
+                    ]
+                },
+                {
+                    "title": "General Tips",
+                    "details": [
+                        "• Avoid touching your face, become conscious of how often you do.",
+                        "• Because COVID-19 can transmit to the eyes, avoid wearing contact lenses that may trap contaminants if possible. Wear traditional glasses instead.",
+                        "• Routinely sanitize personal belongings (phones, wallets, keys, glasses) and high contact surfaces (handles, counters, car steering wheels).",
+                        "• Cover your coughs and sneezes with your elbow, facing away from others.",
+                        "• Avoid handshaking and hugs when greeting others professionally and socially.",
+                        "• Everybody should create and wear a mask when they must leave their home.",
+                        "• N95 masks should ONLY be used in those showing symptoms, or those around the potentially infected.",
+                        "• Surfaces: COVID-19 can live on fabrics and hard surface for a predicted period of several days, clean surfaces routinely with disinfectants."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        },
+        {
+            "image": "preventativePractice/image2.jpg",
+            "title": "Physical Distancing",
+            "content": [
+                {
+                    "title": "General Tips",
+                    "details": [
+                        "Social distancing is advised to prevent an exponential infection of the American people. As observed in Italy and China, ICUs and ventilators are not infinite.",
+                        "• Avoid large gatherings and close-contact environments (including gyms).",
+                        "• Worry, concern, frustration, and loneliness are expected: remind yourself of the greater good you are promoting and advocating for by social distancing.",
+                        "• Those previously experiencing substance abuse and mental health concern may be more likely to struggle in social isolation, consult appropriate providers/resources.",
+                        "• Employees/students are advised to work from home/participate in online courses.",
+                        "• If you absolutely must leave the house, support small businesses."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        },
+        {
+            "image": "preventativePractice/image3.gif",
+            "title": "Stigmatization",
+            "content": [
+                {
+                    "title": "Stigmatization",
+                    "details": [
+                        "Fear of infection has led to patterns of harmful stereotyping and stigmatization of certain Americans.",
+                        "Recent travelers, healthcare workers, and those of Asian descent are at risk of stigmatization.",
+                        "Stigmatized populations are subject to social rejection, denial of resources, and verbal and/or physical violence.",
+                        "Want to fight stigma? Support members of your community who may suffer from fear-induced discrimination",
+                        "Take action: share your knowledge to dissolve myths and combat stereotypes",
+                        "Stress and stigma affects us all differently; those with a history of mental health or substance abuse issues may be at higher risk.",
+                        "If you or someone you know may be struggling, reach out. Local and national resources are usually available if you need advice."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        },
+        {
+            "image": "preventativePractice/image4.jpg",
+            "title": "Preparation",
+            "content": [
+                {
+                    "title": "Two Week's Supply",
+                    "details": [
+                        "• If you display symptoms, you are advised to self-quarantine for two weeks; develop a two week’s supply of food, medical and cleaning supplies needed in the event you must self-quarantine.",
+                        "• Plan ahead for prescriptions and essential medical supply needs.",
+                        "• If you are healthy and able, consider making the trip to build a supply for the immunocompromised and/or older adults in your community.",
+                        "• If stores are out of stock of staples, online retailers may still deliver."
+                    ]
+                },
+                {
+                    "title": "When in Stores",
+                    "details": [
+                        "• Sanitize your carts and hands; many retailers have stations with disinfectant and cleaning supplies but you can also bring your own to be sure.",
+                        "• Avoid proximity and interaction with other customers.",
+                        "• Thank the employees! They are working around the clock to keep shelves stocked."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        },
+        {
+            "image": "preventativePractice/image5C.jpg",
+            "title": "Protecting Others",
+            "content": [
+                {
+                    "title": "Vulnerable Populations",
+                    "details": [
+                        "• Experts currently believe that members of non-vulnerable populations typically suffer only mild symptoms.",
+                        "• Vulnerable populations (adults older than 65 and those with pre-existing conditions) are at greater risk of severe symptoms and complications.",
+                        "• Vulnerable populations may need emergency health services if infected.",
+                        "• Hospitalization, ICU (intensive care unit) treatment, specific experimental drugs and ventilator intubation have all been used with the most severe COVID-19 cases.",
+                        "• Treatment resources and personal protective equipment are high in demand due to global spread of the coronavirus which causes COVID-19."
+                    ]
+                },
+                {
+                    "title": "If a Vulnerable Population Member Shows Symptoms",
+                    "details": [
+                        "• Call ahead to emergency health services so they can anticipate arrival.",
+                        "• Call local healthcare provider and/or health department to seek testing and professional guidance."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        },
+        {
+            "image": "preventativePractice/image6.jpg",
+            "title": "Caring for the Infected",
+            "content": [
+                {
+                    "title": "Signs and Symptoms",
+                    "details": [
+                        "• Fever, cough, difficulty breathing, sore throat, runny nose.",
+                        "• In some cases, those actively carrying COVID-19 may not display any or all symptoms.",
+                        "• Those with standard immunity may have such mild symptoms that they never knew they had COVID-19.",
+                        "• Older adults sometimes show a blunted immune response. Though they may be developing a severe case, they might not display signs such as fever.",
+                        "• TODO: Invalid text from previous section. Update or delete this view."
+                    ]
+                },
+                {
+                    "title": "Viral Shedding",
+                    "details": [
+                        "• Viral shedding refers to the process in which the human body expels a virus through bodily fluids.",
+                        "• At this time, the specific viral shedding period of COVID-19 is unknown.",
+                        "• An individual may be contagious with COVID-19 before or after the illness is present",
+                        "• COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals."
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "title": "CDC",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                    "headline": "Coronavirus (COVID-19)"
+                },
+                {
+                    "title": "WHO",
+                    "url": "https://www.who.int/health-topics/coronavirus",
+                    "headline": "Coronavirus"
+                },
+                {
+                    "title": "Michigan Health",
+                    "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                    "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+                },
+                {
+                    "title": "SAMHSA",
+                    "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                    "headline": "Publications and Digital Products"
+                },
+                {
+                    "title": "WKBW Buffalo",
+                    "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                    "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+                }
+            ]
+        }
+    ]
+}

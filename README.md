@@ -2,7 +2,7 @@
 
 ## Introduction
 
-App designed to supply information regarding the Corona Virus. Created by Will Hunter, Jakob Braunschweiger, Michael Ginn, Giorgio Guttilla, and Evan Molyneaux. Envisioned and Designed by Satvik Sethi.
+App designed to supply information regarding the Corona Virus. Created by Will Hunter, Jakob Braunschweiger, Michael Ginn, Giorgio Guttilla, Evan Molyneaux, and David Easton. Envisioned and Designed by Satvik Sethi.
 
 #### Process
 
