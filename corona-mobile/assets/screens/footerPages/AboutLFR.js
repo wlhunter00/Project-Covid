@@ -30,7 +30,7 @@ export default function AboutLFR({ route, navigation }) {
         <View
           style={[
             styles.boxContainer,
-            { marginLeft: 15, marginRight: 15, marginTop: 15 }
+            { marginTop: 15 }
           ]}
         >
           <Image
