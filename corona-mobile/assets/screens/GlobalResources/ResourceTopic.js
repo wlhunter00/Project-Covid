@@ -62,7 +62,7 @@ export default function ResourceTopic({route, navigation}){
               />
               ))
           }
-          {sources.length > 0 && <SourceItem sourcesList={sources} typeSource="Sources" navigation={navigation}/>}
+          {sources && sources.length > 0 && <SourceItem sourcesList={sources} typeSource="Sources" navigation={navigation}/>}
         </View>
       </ParallaxScrollView>
       
