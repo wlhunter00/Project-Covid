@@ -98,7 +98,53 @@
                 "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
             }
         ]
+    },
+    {
+        "image": "preventivePractice/image3.jpg", 
+        "title": "Stress and Stigmatization",
+        "content": [
+            {
+                "title": "Stigmatization",
+                "details": [
+                    "Fear of infection has led to patterns of harmful stereotyping and stigmatization of certain Americans.",
+                    "Recent travelers, healthcare workers, and those of Asian descent are at risk of stigmatization.",
+                    "Stigmatized populations are subject to social rejection, denial of resources, and verbal and/or physical violence.",
+                    "Want to fight stigma? Support members of your community who may suffer from fear-induced discrimination",
+                    "Take action: share your knowledge to dissolve myths and combat stereotypes",
+                    "Stress and stigma affects us all differently; those with a history of mental health or substance abuse issues may be at higher risk.",
+                    "If you or someone you know may be struggling, reach out. Local and national resources are usually available if you need advice."
+                ]
+            }
+        ],
+        "sources": [
+            {
+                "title": "CDC",
+                "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                "headline": "Coronavirus (COVID-19)"
+            },
+            {
+                "title": "WHO",
+                "url": "https://www.who.int/health-topics/coronavirus",
+                "headline": "Coronavirus"
+            },
+            {
+                "title": "Michigan Health",
+                "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+            },
+            {
+                "title": "SAMHSA",
+                "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                "headline": "Publications and Digital Products"
+            },
+            {
+                "title": "WKBW Buffalo",
+                "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+            }
+        ]
     }
+                
 
 
 ]
