@@ -43,7 +43,7 @@ export default function ContactUs({ route, navigation }) {
           info@LFRinternational.org.
         </Text>
       </View>
-      <View style={[styles.boxContainer, { marginBottom: 0 }]}>
+      <View style={[styles.boxContainer, { marginBottom: 20 }]}>
         <Text style={[styles.subtitle, { marginTop: 0 }]}>
           For press inquiries please reach out to satvik@runawayapp.com.
         </Text>
