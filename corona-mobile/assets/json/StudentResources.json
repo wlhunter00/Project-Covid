@@ -3,103 +3,117 @@
         "image": "studentResources/image2.jpg",
         "title": "Health Organiations",
         "content": [
-
             {
                 "title": "World Health Organization (WHO)",
                 "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019",
-                "body": "The World Health Organization is a specialized agency of the United Nations responsible for international public health. It is part of the U.N. Sustainable Development Group."
+                "details": [
+                    "The World Health Organization is a specialized agency of the United Nations responsible for international public health. It is part of the U.N. Sustainable Development Group."
+                ]
             },
-
             {
                 "title": "Center for Disease Control and Prevention (CDC)",
                 "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
-                "body": "The Centers for Disease Control and Prevention is the leading national public health institute of the United States. It is a United States federal agency, under the Department of Health and Human Services."
+                "details": [
+                    "The Centers for Disease Control and Prevention is the leading national public health institute of the United States. It is a United States federal agency, under the Department of Health and Human Services."
+                ]
             },
-
             {
                 "title": "National Institutes of Health",
-                "url": "https://www.nih.gov/health-information/coronavirus",
-                "body": "The National Institutes of Health(NIH), a part of the U.S. Department of Health and Human Services, is the nation’s medical research agency — making important discoveries that improve health and save lives."
+                "url": "https://www.nih.gov/health-urlrmation/coronavirus",
+                "details": [
+                    "The National Institutes of Health(NIH), a part of the U.S. Department of Health and Human Services, is the nation’s medical research agency — making important discoveries that improve health and save lives."
+                ]
             },
-
             {
                 "title": "U.S. Department of State",
-                "url": "https://travel.state.gov/content/travel/en/traveladvisories/ea/covid-19-information.html",
-                "body": "The United States Department of State, commonly referred to as the State Department, is the federal executive department responsible for carrying out U.S. foreign policy and international relations."
+                "url": "https://travel.state.gov/content/travel/en/traveladvisories/ea/covid-19-urlrmation.html",
+                "details": [
+                    "The United States Department of State, commonly referred to as the State Department, is the federal executive department responsible for carrying out U.S. foreign policy and international relations."
+                ]
             },
-
             {
                 "title": "European Centre for Disease Prevention and Control (ECDC)",
                 "url": "https://www.ecdc.europa.eu/en/novel-coronavirus-china",
-                "body": "The European Centre for Disease Prevention and Control is an independent agency of the European Union whose mission is to strengthen Europe's defenses against infectious diseases."
+                "details": [
+                    "The European Centre for Disease Prevention and Control is an independent agency of the European Union whose mission is to strengthen Europe's defenses against infectious diseases."
+                ]
             },
-
             {
                 "title": "African Centers for Disease Control and Prevention",
                 "url": "https://africacdc.org",
-                "body": "Africa CDC strengthens the capacity and capability of Africa’s public health institutions as well as partnerships to detect and respond quickly and effectively to disease threats and outbreaks, based on data-driven interventions and programs."
+                "details": [
+                    "Africa CDC strengthens the capacity and capability of Africa’s public health institutions as well as partnerships to detect and respond quickly and effectively to disease threats and outbreaks, based on data-driven interventions and programs."
+                ]
             },
             {
                 "title": "The Communicable Diseases Network Australia (CDNA)",
                 "url": "https://www1.health.gov.au/internet/main/publishing.nsf/content/cda-cdna-cdna.htm",
-                "body": "The Communicable Diseases Network Australia will provide national public health coordination and leadership, and support best practices for the prevention and control of communicable diseases."
+                "details": [
+                    "The Communicable Diseases Network Australia will provide national public health coordination and leadership, and support best practices for the prevention and control of communicable diseases."
+                ]
             },
-
             {
                 "title": "Indian National Center for Disease Control",
                 "url": "https://ncdc.gov.in/",
-                "body": "The Institute takes a leading role in undertaking investigations of disease outbreaks all over the country employing epidemiological and diagnostic tools. It also provides referral diagnostic services to individuals, communities, medical colleges,research institutions, and state health directorates."
+                "details": [
+                    "The Institute takes a leading role in undertaking investigations of disease outbreaks all over the country employing epidemiological and diagnostic tools. It also provides referral diagnostic services to individuals, communities, medical colleges,research institutions, and state health directorates."
+                ]
             }
-
         ]
     },
-
     {
         "image": "studentResources/image1.jpg",
         "title": "Student Resources",
         "content": [
             {
                 "title": "Free WiFi through Spectrum",
-                "body": "Spectrum is offering free access to Spectrum Broadband and WiFi for 60 days for new K-12 and college student households.",
-                "info": "Enroll by calling 1-844-488-8395."
+                "details": [
+                    "Spectrum is offering free access to Spectrum Broadband and WiFi for 60 days for new K-12 and college student households.",
+                    "Enroll by calling 1-844-488-8395."
+                ]
             },
-
             {
                 "title": "Storage Services",
-                "body": "U-Haul is offering college students 30-days free of self-storage due to the coronavirus outbreak.",
-                "info": "https://www.uhaul.com/Articles/About/20625/College-Students-U-Haul-Offers-30-Days-Free-Self-Storage-Amid-Coronavirus-Outbreak/"
+                "details": [
+                    "U-Haul is offering college students 30-days free of self-storage due to the coronavirus outbreak."
+                ],
+                "url": "https://www.uhaul.com/Articles/About/20625/College-Students-U-Haul-Offers-30-Days-Free-Self-Storage-Amid-Coronavirus-Outbreak/"
             },
-
             {
                 "title": "Resources for Moving Out",
-                "body": "Similarly to U-Haul, collegeboxes.com is offering free resources to aid students that are moving out of their dorms.",
-                "info": "https://www.collegeboxes.com/"
+                "details": [
+                    "Similarly to U-Haul, collegeboxes.com is offering free resources to aid students that are moving out of their dorms."
+                ],
+                "url": "https://www.collegeboxes.com/"
             },
-
             {
                 "title": "Student Relief Fund",
-                "body": "The Student Relief Fund is working to provide resources and funding to students in need of support affected by COVID-19 campus shutdowns. Visit their website for more information.",
-                "info": "https://www.studentrelieffund.org/for-students"
+                "details": [
+                    "The Student Relief Fund is working to provide resources and funding to students in need of support affected by COVID-19 campus shutdowns. Visit their website for more urlrmation."
+                ],
+                "url": "https://www.studentrelieffund.org/for-students"
             },
-
             {
                 "title": "Learn to Code",
-                "body": "Code Academy teaches millions of learners web development, mobile development, and data science skills. In the wake of school closures due to COVID-19, they’re offering 10, 000 scholarships to Codecademy Pro for free to high school and college students across the world for the rest of the school year.",
-                "info": "https://pro.codecademy.com/learn-from-home/?utm_source=contentful_banner&utm_medium=referral&utm_campaign=learn_from_home"
+                "details": [
+                    "Code Academy teaches millions of learners web development, mobile development, and data science skills. In the wake of school closures due to COVID-19, they’re offering 10, 000 scholarships to Codecademy Pro for free to high school and college students across the world for the rest of the school year."
+                ],
+                "url": "https://pro.codecademy.com/learn-from-home/?utm_source=contentful_banner&utm_medium=referral&utm_campaign=learn_from_home"
             },
-
             {
                 "title": "Multilingual Student Resources",
-                "body": "Switchboard TA put together fact sheets, posters, multimedia sources, and links to live updates in multiple languages about COVID-19. Students can go here for news, multimedia and more.",
-                "info": "https://switchboardta.org/blog/a-round-up-of-multilingual-resources-on-covid-19/"
+                "details": [
+                    "Switchboard TA put together fact sheets, posters, multimedia sources, and links to live updates in multiple languages about COVID-19. Students can go here for news, multimedia and more."
+                ],
+                "url": "https://switchboardta.org/blog/a-round-up-of-multilingual-resources-on-covid-19/"
             },
-
             {
                 "title": "Find Assistance",
-                "body": "Dial 211 to find assistance with finding food, paying housing bills, or other essential services.",
-                "info": "https://www.fcc.gov/consumers/guides/dial-211-essential-community-services"
+                "details": [
+                    "Dial 211 to find assistance with finding food, paying housing bills, or other essential services."
+                ],
+                "url": "https://www.fcc.gov/consumers/guides/dial-211-essential-community-services"
             }
-
         ]
     }
 ]
