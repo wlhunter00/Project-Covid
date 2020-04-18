@@ -1,0 +1,59 @@
+[
+    {
+        "image": "preventivePractice/image2.jpg", 
+        "title": "Hygiene Habits",
+        "content": [
+            {
+                "title": "Hand Washing",
+                "details": [
+                    "• 20 seconds (typically the chorus of a song), rubbing between fingers, over tops and palms, and under nail beds.",
+                    "• Antibacterial soap or alcohol-based sanitizer.",
+                    " • Avoid scalding hot water that may dry out skin, this may create microtears in the skin’s protective barrier."
+                ]
+            },
+            {
+                "title": "General Tips",
+                "details": [
+                    "• Avoid touching your face, become conscious of how often you do.",
+                    "• Because COVID-19 can transmit to the eyes, avoid wearing contact lenses that may trap contaminants if possible. Wear traditional glasses instead.",
+                    "• Routinely sanitize personal belongings (phones, wallets, keys, glasses) and high contact surfaces (handles, counters, car steering wheels).",
+                    "• Cover your coughs and sneezes with your elbow, facing away from others.",
+                    "• Avoid handshaking and hugs when greeting others professionally and socially.",
+                    "• Everybody should create and wear a mask when they must leave their home.",
+                    "• N95 masks should ONLY be used in those showing symptoms, or those around the potentially infected.",
+                    "• Surfaces: COVID-19 can live on fabrics and hard surface for a predicted period of several days, clean surfaces routinely with disinfectants."
+                ]
+            }
+
+        ],
+        "sources": [
+            {
+                "title": "CDC",
+                "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                "headline": "Coronavirus (COVID-19)"
+            },
+            {
+                "title": "WHO",
+                "url": "https://www.who.int/health-topics/coronavirus",
+                "headline": "Coronavirus"
+            },
+            {
+                "title": "Michigan Health",
+                "url":
+                "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+            },
+            {
+                "title": "SAMHSA",
+                "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                "headline": "Publications and Digital Products"
+            },
+            {
+                "title": "WKBW Buffalo",
+                "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+            }
+        ]   
+    }
+]
+    
