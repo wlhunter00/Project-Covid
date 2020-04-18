@@ -24,6 +24,7 @@ export default function ContactUs({ route, navigation }) {
             Find our email or fill out the form to get in touch with the team.
           </StandardText>
 
+      <View  style={{ height: 480, marginVertical: 20, borderRadius: 5, overflow: "hidden" }}>
         <WebView
           javaScriptEnabled={true}
           domStorageEnabled={true}
@@ -33,8 +34,9 @@ export default function ContactUs({ route, navigation }) {
             uri:
               "https://us19.list-manage.com/survey?u=31c07122a61d1793401ba033b&id=869072057c"
           }}
-          style={{ height: 480, marginVertical: 20, borderRadius: 5 }}
+         style={{flex: 1}}
         />
+        </View>
       <View style={[styles.boxContainer, { marginBottom: 20 }]}>
         <Text style={[styles.subtitle, { marginTop: 0 }]}>
           For app-related inquiries reach out to us at
