@@ -92,7 +92,7 @@ export default function HomeScreen({ navigation }) {
           </View>
           <Image source={logo} style={{ height: 100, width: 100 }} />
         </View>
-          
+
         <Section title={stats ? null : "Live Statistics"}>
           {stats ? (
             stats.stats ? (
@@ -158,7 +158,7 @@ export default function HomeScreen({ navigation }) {
           title="Global Resources"
           titleRight={
             <SimpleButton
-              title="View more"
+              title="View"
               action={() => {
                 navigation.navigate("GlobalResources");
               }}
