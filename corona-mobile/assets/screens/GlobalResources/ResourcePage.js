@@ -12,7 +12,7 @@ export const ResourceNames = {
     informationalToolkit: "informationalToolkit",
     mentalHealth: "mentalHealth",
     preventativePractices: "preventativePractices",
-    studentResources: "preventativePractices"
+    studentResources: "studentResources"
 }
 
 const resources = {
