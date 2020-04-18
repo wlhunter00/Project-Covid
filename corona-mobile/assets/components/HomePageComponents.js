@@ -20,9 +20,10 @@ import PageControl from "react-native-page-control";
 import { SimpleButton } from "../components/Buttons";
 import { useInterval } from "../utils/Hooks";
 
+const OUTER_PADDING = 19;
 const PADDING = 15;
 const WINDOW_WIDTH = Dimensions.get("window").width;
-const PAGE_WIDTH = WINDOW_WIDTH - 2 * PADDING;
+const PAGE_WIDTH = WINDOW_WIDTH - (2 * OUTER_PADDING);
 
 export function Section({ title, children, titleRight }) {
   const { styles } = useStyle("homeScreenSection", "shadow");
@@ -121,11 +122,11 @@ function StatsPage({ stats, title, isProvince }) {
   const lastUpdated = dateToTime(new Date(stats.Updated));
 
   return (
-    <View style={{ paddingHorizontal: 15, width: PAGE_WIDTH }}>
+    <View style={{ paddingHorizontal: PADDING, width: PAGE_WIDTH }}>
       <StandardText fontSize="subtitle" isBold>
         Live Statistics <Text style={{ fontWeight: "300" }}>for {title}</Text>
       </StandardText>
-      <View style={[styles.divider, { marginVertical: 15 }]} />
+      <View style={[styles.divider, { marginVertical: PADDING }]} />
       <BigStat
         name="Confirmed Cases"
         val={stats["TotalConfirmed"] || stats["Confirmed"]}
@@ -224,7 +225,7 @@ export function StatsView({ stats }) {
 
   return (
     <View
-      style={{ marginBottom: 15, marginHorizontal: -15, alignItems: "stretch" }}
+      style={{ marginBottom: 15, marginHorizontal: -PADDING, alignItems: "stretch" }}
     >
       <FlatList
         horizontal
