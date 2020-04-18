@@ -1,6 +1,6 @@
 [
     {
-        "image": "preventivePractice/image2.jpg", 
+        "image": "preventivePractice/handwash.png", 
         "title": "Hygiene Habits",
         "content": [
             {
@@ -54,6 +54,52 @@
                 "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
             }
         ]   
+    }, 
+    {
+        "image": "preventivePractice/image2.jpg", 
+        "title": "Physical Distancing",
+        "content": [
+            {
+                "title": "General Tips",
+                "details": [
+                    "Social distancing is advised to prevent an exponential infection of the American people. As observed in Italy and China, ICUs and ventilators are not infinite.",
+                    "• Avoid large gatherings and close-contact environments (including gyms).",
+                    "• Worry, concern, frustration, and loneliness are expected: remind yourself of the greater good you are promoting and advocating for by social distancing.",
+                    "• Those previously experiencing substance abuse and mental health concern may be more likely to struggle in social isolation, consult appropriate providers/resources.",
+                    "• Employees/students are advised to work from home/participate in online courses.",
+                    "• If you absolutely must leave the house, support small businesses.",
+                ]
+            }
+        ],
+        "sources": [
+            {
+                "title": "CDC",
+                "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                "headline": "Coronavirus (COVID-19)"
+            },
+            {
+                "title": "WHO",
+                "url": "https://www.who.int/health-topics/coronavirus",
+                "headline": "Coronavirus"
+            },
+            {
+                "title": "Michigan Health",
+                "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+            },
+            {
+                "title": "SAMHSA",
+                "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                "headline": "Publications and Digital Products"
+            },
+            {
+                "title": "WKBW Buffalo",
+                "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+            }
+        ]
     }
+
+
 ]
     
