@@ -17,11 +17,12 @@ import TravelInformation from "./assets/screens/TravelInformation/TravelInformat
 import TravelStatus from "./assets/screens/TravelInformation/TravelStatus";
 import GlobalResourcesMain from "./assets/screens/GlobalResources/GlobalResourcesMain";
 import InformationalToolkit from "./assets/screens/GlobalResources/InformationalToolkit";
-import PreventativePractices from "./assets/screens/GlobalResources/PreventivePractices";
+import PreventativePractices from "./assets/screens/GlobalResources/PreventativePractices";
 import MentalHealth from "./assets/screens/GlobalResources/MentalHealth";
 import StudentResources from "./assets/screens/GlobalResources/StudentResources";
 import TrackerStatus from "./assets/screens/LiveTracker/TrackerStatus";
 import ResourceTopic from "./assets/screens/GlobalResources/ResourceTopic";
+import ResourcePage from "./assets/screens/GlobalResources/ResourcePage";
 
 import AboutScreen from "./assets/screens/AboutScreen";
 import Team from "./assets/screens/footerPages/Team.js";
@@ -39,6 +40,7 @@ import {
 import WebViewScreen from "./assets/screens/WebViewScreen";
 import { SymptomsList } from "./assets/screens/SymptomCheck/SymptomsList";
 import LocationRequest from "./assets/components/LocationRequest";
+
 
 enableScreens();
 
@@ -95,34 +97,9 @@ export default function App() {
         component={GlobalResourcesMain}
       />
       <HomeNativeStack.Screen
-        name="TravelInformation"
-        options={{ title: "Travel Information" }}
-        component={TravelInformation}
-      />
-      <HomeNativeStack.Screen
-        name="TravelStatus"
-        options={{ title: "Travel Status" }}
-        component={TravelStatus}
-      />
-      <HomeNativeStack.Screen
-        name="InformationalToolkit"
-        options={{ title: "Informational Toolkit" }}
-        component={InformationalToolkit}
-      />
-      <HomeNativeStack.Screen
-        name="PreventativePractices"
-        options={{ title: "Preventative Practices" }}
-        component={PreventativePractices}
-      />
-      <HomeNativeStack.Screen
-        name="MentalHealth"
-        options={{ title: "Mental Health" }}
-        component={MentalHealth}
-      />
-      <HomeNativeStack.Screen
-        name="StudentResources"
-        options={{ title: "Student Resources" }}
-        component={StudentResources}
+        name="ResourcePage"
+        options={({route})=>({title: route.params.title})}
+        component={ResourcePage}
       />
       <HomeNativeStack.Screen
         name="Sources"

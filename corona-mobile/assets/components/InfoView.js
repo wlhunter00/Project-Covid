@@ -24,7 +24,8 @@ export function InfoView({ title, details, url, navigation }) {
         </View>
         {url && (
           <View style={{
-            flex: 1, alignItems: "flex-end", justifyContent: 'center'}}>
+            flex: 1, alignItems: "flex-end", justifyContent: 'center'
+          }}>
             <SimpleButton
               title="Resource"
               action={() => {
@@ -32,18 +33,14 @@ export function InfoView({ title, details, url, navigation }) {
               }}
               hasChevron
             />
-        </View>
+          </View>
         )}
       </View>
-      <View style={[styles.divider, { marginVertical: 10 }]} />{
-        details.length > 1 ?
-          (
-            details.map((text, index) => (
-              <StandardText style={styles.resourceText}>{`• ${text}`}</StandardText>
-            ))
-          )
-          :
-          <StandardText style={styles.resourceText}>{details[0]}</StandardText>
+      <View style={[styles.divider, { marginVertical: 10 }]} />
+      {
+        details.map((text, index) => (
+          <StandardText style={styles.resourceText}>{text}</StandardText>
+        ))  
       }
     </View>
   );

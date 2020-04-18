@@ -30,6 +30,7 @@ import {
   NewsArticle
 } from "../components/HomePageComponents";
 import { useLocationAddress } from "../utils/Hooks";
+import { ResourceNames } from "./GlobalResources/ResourcePage"
 
 const logo = require("../images/logo-notext.png");
 
@@ -167,7 +168,8 @@ export default function HomeScreen({ navigation }) {
         >
           <EmbeddedPageButton
             title="Informational Toolkit"
-            navigationName="InformationalToolkit"
+            navigationName="ResourcePage"
+            navigationParams={{resourceName: ResourceNames.informationalToolkit, title: "Informational Toolkit"}}
             icon={
               <MaterialCommunityIcons
                 name="toolbox"
@@ -195,7 +197,8 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.divider} />
           <EmbeddedPageButton
             title="Preventative Practices"
-            navigationName="PreventativePractices"
+            navigationName="ResourcePage"
+            navigationParams={{resourceName: ResourceNames.preventativePractices, title: "Preventative Practices"}}
             icon={
               <MaterialIcons
                 name="healing"

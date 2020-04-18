@@ -32,11 +32,7 @@ export function EmbeddedPageButton({
       onPress={() => {
         navigation.navigate(
           navigationName,
-          navigationParams !== undefined && {
-            url: navigationParams.url,
-            title: navigationParams.title,
-            originWhiteList: navigationParams.originWhiteList
-          }
+          navigationParams
         );
       }}
     >
@@ -72,11 +68,7 @@ export function PageButton({
       onPress={() => {
         navigation.navigate(
           navigationName,
-          navigationParams !== undefined && {
-            url: navigationParams.url,
-            title: navigationParams.title,
-            originWhiteList: navigationParams.originWhiteList
-          }
+          navigationParams
         );
       }}
       style={{ marginBottom: 15, borderRadius: 5 }}
