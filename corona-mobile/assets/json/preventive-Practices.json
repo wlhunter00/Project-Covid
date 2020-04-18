@@ -243,6 +243,59 @@
                 "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
             }
         ]
+    },
+    {
+        "image": "preventivePractice/image6.png", 
+        "title": "Caring for the Infected",
+        "content": [
+            {
+                "title": "Signs and Symptoms",
+                "details": [
+                    "• Fever, cough, difficulty breathing, sore throat, runny nose.",
+                    "• In some cases, those actively carrying COVID-19 may not display any or all symptoms.",
+                    "• Those with standard immunity may have such mild symptoms that they never knew they had COVID-19.",
+                    "• Older adults sometimes show a blunted immune response. Though they may be developing a severe case, they might not display signs such as fever.",
+                    "• TODO: Invalid text from previous section. Update or delete this view."
+                ]
+            },
+            {
+                "title": "Viral Shedding",
+                "details": [
+                    "• Viral shedding refers to the process in which the human body expels a virus through bodily fluids.",
+                    "• At this time, the specific viral shedding period of COVID-19 is unknown.",
+                    "• An individual may be contagious with COVID-19 before or after the illness is present",
+                    "• COVID-19 may be a contagious virus before and after symptoms appear/clear from infected individuals."
+                ]
+            }
+        ],
+        "sources": [
+            {
+                "title": "CDC",
+                "url": "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+                "headline": "Coronavirus (COVID-19)"
+            },
+            {
+                "title": "WHO",
+                "url": "https://www.who.int/health-topics/coronavirus",
+                "headline": "Coronavirus"
+            },
+            {
+                "title": "Michigan Health",
+                "url": "https://healthblog.uofmhealth.org/wellness-prevention/flattening-curve-for-covid-19-what-does-it-mean-and-how-can-you-help",
+                "headline": "Flattening the Curve for COVID-19: What Does It Mean and How Can You Help?"
+            },
+            {
+                "title": "SAMHSA",
+                "url": "https://store.samhsa.gov/system/files/sma14-4894.pdf",
+                "headline": "Publications and Digital Products"
+            },
+            {
+                "title": "WKBW Buffalo",
+                "headline": "Spectrum to offer free broadband and WiFi to students without it",
+                "url": "https://www.wkbw.com/news/national/coronavirus/spectrum-to-offer-free-broadband-and-wifi-to-students-without-it"
+            }
+        ]
     }
+
 ]
     
