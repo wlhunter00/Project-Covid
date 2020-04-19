@@ -188,7 +188,7 @@ export function ImageButton({ title, image, body, navigation }) {
           }
         });
       }}
-      activeScale={0.95}
+      activeScale={0.96}
       tension={50}
       friction={100}
     >

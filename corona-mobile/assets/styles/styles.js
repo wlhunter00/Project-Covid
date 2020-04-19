@@ -186,7 +186,8 @@ const allStyles = StyleSheet.create({
     color: "white",
     position: "relative",
     left: 9,
-    textShadowRadius: 2
+    textShadowRadius: 4,
+    textShadowColor: "black"
   },
   imageButtonImage: {
     shadowColor: "#000",
