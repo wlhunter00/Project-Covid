@@ -12,6 +12,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useStyle } from "../styles/styles";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import TouchableScale from 'react-native-touchable-scale';
 
 export function EmbeddedPageButton({
   navigation,
@@ -164,7 +165,7 @@ export function SimpleButton({ title, action, hasChevron }) {
 }
 
 export function ImageButton({ title, image, body, navigation }) {
-  const { styles } = useStyle(
+  const { styles, colors } = useStyle(
     "imageButtonHeader",
     "imageButtonText",
     "imageButtonImage"
@@ -175,7 +176,7 @@ export function ImageButton({ title, image, body, navigation }) {
   const imageWidth = dimensions.width;
 
   return (
-    <TouchableWithoutFeedback
+    <TouchableScale
       style={styles.imageButtonHeader}
       onPress={() => {
         navigation.navigate("ResourceTopic", {
@@ -187,13 +188,17 @@ export function ImageButton({ title, image, body, navigation }) {
           }
         });
       }}
+      activeScale={0.95}
+      tension={50}
+      friction={100}
     >
       <ImageBackground
         source={image}
         style={[
           {
             width: imageWidth * 0.9,
-            height: imageHeight
+            height: imageHeight,
+            backgroundColor: colors.secondarybackgroundcolor
           },
           styles.imageButtonImage
         ]}
@@ -206,7 +211,7 @@ export function ImageButton({ title, image, body, navigation }) {
           {title}
         </Text>
       </ImageBackground>
-    </TouchableWithoutFeedback>
+    </TouchableScale>
   );
 }
 
