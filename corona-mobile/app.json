@@ -29,7 +29,10 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lfr.projectcovid",
-      "buildNumber": "7"
+      "buildNumber": "8",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Location is used to find nearby testing news and to display local stats and news."
+      }
     },
     "android": {
       "package": "com.lfr.projectcovid",
