@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  View,
-} from "react-native";
+import { View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
 import { useStyle } from "../../styles/styles";
@@ -9,17 +7,17 @@ import { ImageButton } from "../../components/Buttons";
 import { StandardText } from "../../components/Texts";
 
 export const ResourceNames = {
-    informationalToolkit: "informationalToolkit",
-    mentalHealth: "mentalHealth",
-    preventativePractices: "preventativePractices",
-    studentResources: "studentResources"
-}
+  informationToolkit: "informationToolkit",
+  mentalHealth: "mentalHealth",
+  preventativePractices: "preventativePractices",
+  studentResources: "studentResources",
+};
 
 const resources = {
-    informationalToolkit: require("../../json/Informational-Toolkit.json"),
-    mentalHealth: require("../../json/Mental-Health.json"),
-    preventativePractices: require("../../json/Preventative-Practices.json"),
-    studentResources: require("../../json/Student-Resources.json"),
+  informationalToolkit: require("../../json/Informational-Toolkit.json"),
+  mentalHealth: require("../../json/Mental-Health.json"),
+  preventativePractices: require("../../json/Preventative-Practices.json"),
+  studentResources: require("../../json/Student-Resources.json"),
 };
 
 const images = {
@@ -40,27 +38,30 @@ const images = {
 };
 
 export default function ResourcePage({ navigation, route }) {
-    const { styles, colors, isDark } = useStyle("container", "resourceText", "scrollViewContent");
+  const { styles, colors, isDark } = useStyle(
+    "container",
+    "resourceText",
+    "scrollViewContent"
+  );
 
-    const { resourceName } = route.params;
-    const resource = resources[resourceName];
+  const { resourceName } = route.params;
+  const resource = resources[resourceName];
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-              <StandardText style={{ marginBottom: 20 }}>{resource.description}</StandardText>
-        {
-          resource.data.map(item => (
-            <ImageButton
-              title={item.title}
-              image={images[item.image]}
-              body={{ content: item.content, sources: item.sources }}
-              navigation={navigation}
-            />
-          ))
-        }
+        <StandardText style={{ marginBottom: 20 }}>
+          {resource.description}
+        </StandardText>
+        {resource.data.map((item) => (
+          <ImageButton
+            title={item.title}
+            image={images[item.image]}
+            body={{ content: item.content, sources: item.sources }}
+            navigation={navigation}
+          />
+        ))}
       </ScrollView>
     </View>
   );
 }
-

@@ -1,25 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
-import {
-  View,
-  Image,
-  ActivityIndicator,
-  Animated
-} from "react-native";
+import { View, Image, ActivityIndicator, Animated } from "react-native";
 import {
   MaterialIcons,
   Ionicons,
   MaterialCommunityIcons,
   FontAwesome,
-  Entypo
+  Entypo,
 } from "@expo/vector-icons";
-import { BlurView } from 'expo-blur';
+import { BlurView } from "expo-blur";
 import Constants from "expo-constants";
 
 import { useStyle } from "../styles/styles";
 import {
   PageButton,
   SimpleButton,
-  EmbeddedPageButton
+  EmbeddedPageButton,
 } from "../components/Buttons";
 import { StandardText } from "../components/Texts";
 import { getTopNews, getLatestStats } from "../utils/APIService";
@@ -27,10 +22,10 @@ import {
   Section,
   ErrorBox,
   StatsView,
-  NewsArticle
+  NewsArticle,
 } from "../components/HomePageComponents";
 import { useLocationAddress } from "../utils/Hooks";
-import { ResourceNames } from "./GlobalResources/ResourcePage"
+import { ResourceNames } from "./GlobalResources/ResourcePage";
 
 const logo = require("../images/logo-notext.png");
 
@@ -74,7 +69,7 @@ export default function HomeScreen({ navigation }) {
   const statusBarOpacity = animatedScrollYValue.interpolate({
     inputRange: [0, 30],
     outputRange: [0, 1],
-    extrapolate: 'clamp',
+    extrapolate: "clamp",
   });
 
   return (
@@ -82,13 +77,22 @@ export default function HomeScreen({ navigation }) {
       <Animated.ScrollView
         contentContainerStyle={styles.scrollViewContent}
         scrollEventThrottle={16}
-        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: animatedScrollYValue } } }])}
+        onScroll={Animated.event([
+          { nativeEvent: { contentOffset: { y: animatedScrollYValue } } },
+        ])}
       >
         <View style={{ flexDirection: "row", marginTop: 80, marginBottom: 20 }}>
           <View style={{ flex: 1 }}>
-            <StandardText fontSize="title" isBold style={{ marginBottom: 10 }}>Project<StandardText style={{ fontWeight: "400" }} fontSize="title">Covid</StandardText></StandardText>
+            <StandardText fontSize="title" isBold style={{ marginBottom: 10 }}>
+              Project
+              <StandardText style={{ fontWeight: "400" }} fontSize="title">
+                Covid
+              </StandardText>
+            </StandardText>
 
-            <StandardText style={{ marginBottom: 10 }}>Live tracking and resources to help you get through the pandemic.</StandardText>
+            <StandardText style={{ marginBottom: 10 }}>
+              Live tracking and resources to help you get through the pandemic.
+            </StandardText>
           </View>
           <Image source={logo} style={{ height: 100, width: 100 }} />
         </View>
@@ -98,11 +102,11 @@ export default function HomeScreen({ navigation }) {
             stats.stats ? (
               <StatsView stats={stats.stats} />
             ) : (
-                <ErrorBox />
-              )
+              <ErrorBox />
+            )
           ) : (
-              <ActivityIndicator style={{ height: 280 }} />
-            )}
+            <ActivityIndicator style={{ height: 280 }} />
+          )}
           <View style={styles.divider} />
           <EmbeddedPageButton
             title="Global Tracker"
@@ -135,18 +139,18 @@ export default function HomeScreen({ navigation }) {
                 />
               ))
             ) : (
-                <ErrorBox />
-              )
+              <ErrorBox />
+            )
           ) : (
-              <ActivityIndicator style={{ height: 200 }} />
-            )}
+            <ActivityIndicator style={{ height: 200 }} />
+          )}
           <EmbeddedPageButton
             title="Live Twitter Feed"
             navigationName="WebView"
             navigationParams={{
               url:
                 "https://twitter.com/projectcovid/lists/trustworthy-sources?ref_src=twsrc%5Etfw",
-              title: "Curated Tweets"
+              title: "Curated Tweets",
             }}
             icon={<Entypo name="twitter" size={25} color={colors.textcolor} />}
             description="Curated feed from reliable sources."
@@ -167,9 +171,12 @@ export default function HomeScreen({ navigation }) {
           }
         >
           <EmbeddedPageButton
-            title="Informational Toolkit"
+            title="Information Toolkit"
             navigationName="ResourcePage"
-            navigationParams={{resourceName: ResourceNames.informationalToolkit, title: "Informational Toolkit"}}
+            navigationParams={{
+              resourceName: ResourceNames.informationToolkit,
+              title: "Information Toolkit",
+            }}
             icon={
               <MaterialCommunityIcons
                 name="toolbox"
@@ -198,7 +205,10 @@ export default function HomeScreen({ navigation }) {
           <EmbeddedPageButton
             title="Preventative Practices"
             navigationName="ResourcePage"
-            navigationParams={{resourceName: ResourceNames.preventativePractices, title: "Preventative Practices"}}
+            navigationParams={{
+              resourceName: ResourceNames.preventativePractices,
+              title: "Preventative Practices",
+            }}
             icon={
               <MaterialIcons
                 name="healing"
@@ -218,13 +228,23 @@ export default function HomeScreen({ navigation }) {
           navigation={navigation}
         />
       </Animated.ScrollView>
-      <Animated.View opacity={statusBarOpacity} style={{ zIndex: 1, position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: Constants.statusBarHeight,
-        zIndex: 1, }}>
-        <BlurView intensity={100} style={{ flex: 1 }} tint={isDark ? "dark" : "default"}/>
+      <Animated.View
+        opacity={statusBarOpacity}
+        style={{
+          zIndex: 1,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: Constants.statusBarHeight,
+          zIndex: 1,
+        }}
+      >
+        <BlurView
+          intensity={100}
+          style={{ flex: 1 }}
+          tint={isDark ? "dark" : "default"}
+        />
       </Animated.View>
     </View>
   );
