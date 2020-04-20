@@ -14,7 +14,7 @@ export const ResourceNames = {
 };
 
 const resources = {
-  informationalToolkit: require("../../json/Informational-Toolkit.json"),
+  informationToolkit: require("../../json/Informational-Toolkit.json"),
   mentalHealth: require("../../json/Mental-Health.json"),
   preventativePractices: require("../../json/Preventative-Practices.json"),
   studentResources: require("../../json/Student-Resources.json"),
