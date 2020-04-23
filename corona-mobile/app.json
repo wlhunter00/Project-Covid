@@ -37,6 +37,10 @@
     "android": {
       "package": "com.lfr.projectcovid",
       "versionCode": 1
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "translucent": true
     }
   }
 }

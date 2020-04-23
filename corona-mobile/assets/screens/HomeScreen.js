@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { View, Image, ActivityIndicator, Animated } from "react-native";
+import { View, Image, ActivityIndicator, Animated, StatusBar, Platform } from "react-native";
 import {
   MaterialIcons,
   Ionicons,
@@ -37,6 +37,12 @@ export default function HomeScreen({ navigation }) {
     "divider",
     "scrollViewContent"
   );
+
+  // Set status bar on android
+  if (Platform.OS === "android") {
+    StatusBar.setBarStyle(!isDark ? 'dark-content' : 'light-content');
+    StatusBar.setBackgroundColor(colors.backgroundcolor);
+  }
 
   const [topNews, setNews] = useState(null);
   const [stats, setStats] = useState(null);
@@ -228,24 +234,29 @@ export default function HomeScreen({ navigation }) {
           navigation={navigation}
         />
       </Animated.ScrollView>
-      <Animated.View
-        opacity={statusBarOpacity}
-        style={{
-          zIndex: 1,
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: Constants.statusBarHeight,
-          zIndex: 1,
-        }}
-      >
-        <BlurView
-          intensity={100}
-          style={{ flex: 1 }}
-          tint={isDark ? "dark" : "default"}
-        />
-      </Animated.View>
+      {
+        Platform.OS === "ios" && (
+          <Animated.View
+            opacity={statusBarOpacity}
+            style={{
+              zIndex: 1,
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: Constants.statusBarHeight,
+              zIndex: 1,
+            }}
+          >
+            <BlurView
+              intensity={100}
+              style={{ flex: 1 }}
+              tint={isDark ? "dark" : "default"}
+            />
+          </Animated.View>
+        )
+      }
+      
     </View>
   );
 }
