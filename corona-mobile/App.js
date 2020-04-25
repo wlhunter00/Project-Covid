@@ -57,6 +57,7 @@ export default function App() {
     headerTitleStyle: {
       fontWeight: "bold"
     },
+    
     headerBackTitle: " "
   };
 
@@ -66,7 +67,11 @@ export default function App() {
     headerStyle: { backgroundColor: colors.backgroundcolor },
     headerHideShadow: true,
     headerTintColor: colors.primarycolor,
-    headerTitleStyle: { color: colors.textcolor }
+    headerTitleStyle: { color: colors.textcolor },
+    headerLargeTitleStyle: {
+      backgroundColor: colors.backgroundcolor
+    },
+    headerLargeTitleHideShadow: true,
   };
 
   const HomeNativeStackScreen = () => (
