@@ -1,4 +1,5 @@
 import * as Location from "expo-location";
+import { Platform } from "react-native";
 
 const axios = require("axios").default;
 
@@ -8,7 +9,10 @@ export async function getLocationAsync() {
       return { errorMessage: "Permission to access location was denied" };
     }
   
-    let location = await Location.getCurrentPositionAsync({});
+    let location = await Location.getCurrentPositionAsync({
+        maximumAge: 60000, // only for Android
+        accuracy: Platform.OS === "android" ? Location.Accuracy.High : Location.Accuracy.Lowest,
+    });
     return { location };
 }
   
