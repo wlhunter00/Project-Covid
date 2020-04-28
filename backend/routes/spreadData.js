@@ -39,7 +39,7 @@ function parseOut(data, val, target) {
 
 router.get("/allData", async (req, res) => {
   try {
-    await request("https://covid.cape.io/states/daily", function(
+    await request("https://covidtracking.com/api/v1/states/daily.json", function(
       error,
       response,
       body
