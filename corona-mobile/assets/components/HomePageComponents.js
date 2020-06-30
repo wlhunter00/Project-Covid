@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-  Dimensions
+  Dimensions,
+  Button
 } from "react-native";
 import {
   MaterialIcons,
@@ -162,18 +163,27 @@ function StatsPage({ stats, title, isProvince }) {
         </StandardText>
       )}
       <View style={{ flex: 1 }} />
+      <View style={{ flexDirection: "row",
+          fontSize: 14,
+          marginHorizontal: 4,
+          marginTop: 15,
+          }}>
       <Text
         style={{
           color: colors.secondarytextcolor,
           fontStyle: "italic",
-          fontSize: 14,
-          marginHorizontal: 4,
-          marginTop: 15,
           textAlign: "left"
         }}
       >
         Last updated: {lastUpdated}
-      </Text>
+        </Text>
+        
+        <View style={{ flex: 1 }} />
+        <TouchableOpacity >
+          <Text style={{color: colors.secondarytextcolor, textDecorationLine: "underline"}}>Sources</Text>
+        </TouchableOpacity>
+      </View>
+      
     </View>
   );
 }
