@@ -20,7 +20,9 @@ export default function TrackerStatus({ route, navigation }) {
         </TouchableOpacity>
       ),
       headerLeft: () => (
-        <TouchableOpacity onPress={() => { navigation.navigate("Sources")}} style={{marginLeft: 20, marginTop: 0}}>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("Sources", { initiallyOpenedSourceType: "" })
+        }} style={{ marginLeft: 20, marginTop: 0 }}>
           <Text style={{color: "white", fontSize: 17}}>Sources</Text>
         </TouchableOpacity>
       )
