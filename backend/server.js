@@ -11,11 +11,10 @@ app.use(express.urlencoded({ extended: false }));
 
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://expressUser:bkQ8i3FRi2oxnIrq@cluster0-wqfvl.mongodb.net/CoronaInfo?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
+    "mongodb+srv://expressUser:bkQ8i3FRi2oxnIrq@cluster0-wqfvl.mongodb.net/CoronaInfo?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }
 );
 
 // More database managment
@@ -33,8 +32,8 @@ app.use("/spread", spreadData);
 const newsData = require("./routes/newsData.js");
 app.use("/news", newsData);
 
-const pushNotification = require("./routes/pushNotifications.js");
-app.use("/notifications", pushNotification);
+// const pushNotification = require("./routes/pushNotifications.js");
+// app.use("/notifications", pushNotification);
 
 const symptomCheck = require("./routes/symptomCheck.js");
 app.use("/symptoms", symptomCheck);
