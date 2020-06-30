@@ -134,6 +134,10 @@ export default function App() {
         component={TrackerStatus}
         options={{ title: "Live Tracker" }}
       />
+       <TrackerStack.Screen
+        name="Sources"
+        component={Sources}
+      />
     </TrackerStack.Navigator>
   );
 
