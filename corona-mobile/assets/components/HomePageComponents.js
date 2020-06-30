@@ -20,6 +20,7 @@ import { StandardText } from "../components/Texts";
 import PageControl from "react-native-page-control";
 import { SimpleButton } from "../components/Buttons";
 import { useInterval } from "../utils/Hooks";
+import { useNavigation } from "@react-navigation/native";
 
 const OUTER_PADDING = 19;
 const PADDING = 15;
@@ -119,6 +120,7 @@ const dateToTime = date =>
 
 function StatsPage({ stats, title, isProvince }) {
   const { styles, colors } = useStyle("divider");
+  const navigation = useNavigation();
 
   const lastUpdated = dateToTime(new Date(stats.Updated));
 
@@ -179,7 +181,7 @@ function StatsPage({ stats, title, isProvince }) {
         </Text>
         
         <View style={{ flex: 1 }} />
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => { navigation.navigate("Sources")}}>
           <Text style={{color: colors.secondarytextcolor, textDecorationLine: "underline"}}>Sources</Text>
         </TouchableOpacity>
       </View>
