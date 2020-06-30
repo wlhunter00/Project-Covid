@@ -11,6 +11,9 @@ import { StandardText } from "../../components/Texts.js";
 export default function Sources({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
 
+  const initiallyOpenedSourceType =
+    route.params.initiallyOpenedSourceType || false;
+
   return (
     <View
       style={[styles.container, { backgroundColor: colors.backgroundcolor }]}

@@ -97,10 +97,10 @@ export function FAQItem({ question, answer }) {
   ];
 }
 
-export function SourceItem({ navigation, typeSource, sourcesList }) {
+export function SourceItem({ navigation, typeSource, sourcesList, isInitiallyOpened }) {
   const { styles, colors } = useStyle("questionText", "answerText", "expandableItem");
   
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(isInitiallyOpened);
   const color = expanded ? colors.textcolor : colors.secondarytextcolor;
   const toggleExpanded = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
