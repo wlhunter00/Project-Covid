@@ -18,6 +18,11 @@ export default function TrackerStatus({ route, navigation }) {
         <TouchableOpacity onPress={reload} style={{marginRight: 20}}>
           <Entypo name={"ccw"} size={25} color={"white"} />
         </TouchableOpacity>
+      ),
+      headerLeft: () => (
+        <TouchableOpacity  style={{marginLeft: 20, marginTop: 0}}>
+          <Text style={{color: "white", fontSize: 17}}>Sources</Text>
+        </TouchableOpacity>
       )
     });
   }, [navigation, reload]);
