@@ -12,7 +12,7 @@ export default function Sources({ route, navigation }) {
   const { styles, colors, isDark } = useStyle("container", "scrollViewContent");
 
   const initiallyOpenedSourceType =
-    route.params.initiallyOpenedSourceType || false;
+    (route.params && route.params.initiallyOpenedSourceType) || false;
 
   return (
     <View
@@ -25,6 +25,7 @@ export default function Sources({ route, navigation }) {
         <SourceItem
           navigation={navigation}
           typeSource={"Homepage Statistics"}
+          isInitiallyOpened={initiallyOpenedSourceType === "Homepage Statistics"}
           sourcesList={[
             {
               title: "COVID-19 API",
@@ -45,6 +46,7 @@ export default function Sources({ route, navigation }) {
         <SourceItem
           navigation={navigation}
           typeSource={"Live Tracker"}
+          isInitiallyOpened={initiallyOpenedSourceType === "Live Tracker"}
           sourcesList={[
             {
               title: "Wordometers",

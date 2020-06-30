@@ -182,7 +182,7 @@ function StatsPage({ stats, title, isProvince }) {
         
         <View style={{ flex: 1 }} />
         <TouchableOpacity onPress={() => {
-          navigation.navigate("Sources", { initiallyOpenedSourceType: "" })
+          navigation.navigate("Sources", { initiallyOpenedSourceType: "Homepage Statistics" })
         }}>
           <Text style={{color: colors.secondarytextcolor, textDecorationLine: "underline"}}>Sources</Text>
         </TouchableOpacity>
