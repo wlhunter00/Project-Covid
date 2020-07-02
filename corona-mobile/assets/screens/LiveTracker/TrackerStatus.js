@@ -8,24 +8,29 @@ import { Entypo } from "@expo/vector-icons";
 export default function TrackerStatus({ route, navigation }) {
   let webview;
   const reload = () => {
-    // webview && webview.reload();
-    navigation.na
+    webview && webview.reload();
+    navigation.na;
   };
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={reload} style={{marginRight: 20}}>
+        <TouchableOpacity onPress={reload} style={{ marginRight: 20 }}>
           <Entypo name={"ccw"} size={25} color={"white"} />
         </TouchableOpacity>
       ),
       headerLeft: () => (
-        <TouchableOpacity onPress={() => {
-          navigation.navigate("Sources", { initiallyOpenedSourceType: "Live Tracker" })
-        }} style={{ marginLeft: 20, marginTop: 0 }}>
-          <Text style={{color: "white", fontSize: 17}}>Sources</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Sources", {
+              initiallyOpenedSourceType: "Live Tracker",
+            });
+          }}
+          style={{ marginLeft: 20, marginTop: 0 }}
+        >
+          <Text style={{ color: "white", fontSize: 17 }}>Sources</Text>
         </TouchableOpacity>
-      )
+      ),
     });
   }, [navigation, reload]);
 
@@ -37,10 +42,10 @@ export default function TrackerStatus({ route, navigation }) {
         domStorageEnabled={true}
         startInLoadingState={true}
         source={{
-          uri: "https://crnvr.us/map"
+          uri: "https://crnvr.us/map",
         }}
         style={{ flex: 1 }}
-        ref={r => {
+        ref={(r) => {
           webview = r;
         }}
       />
@@ -52,6 +57,6 @@ const localStyles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
-  }
+    backgroundColor: "#F5FCFF",
+  },
 });
