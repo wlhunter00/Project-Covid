@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { WebView } from "react-native-webview";
 import { Entypo } from "@expo/vector-icons";
+import Toast from 'react-native-root-toast';
 
 export default function TrackerStatus({ route, navigation }) {
   let webview;
@@ -11,6 +12,18 @@ export default function TrackerStatus({ route, navigation }) {
     webview && webview.reload();
     navigation.na;
   };
+
+  React.useEffect(() => {
+    Toast.show('Disclaimer: any ads or links on this page are not affiliated with Project Covid.', {
+      duration: Toast.durations.LONG,
+      backgroundColor: "#43a047",
+      shadow: true,
+      animation: true,
+      hideOnPress: true,
+      delay: 0,
+      position: -100,
+    });
+  });
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
