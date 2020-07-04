@@ -1,5 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { View, Image, ActivityIndicator, Animated, StatusBar, Platform } from "react-native";
+import {
+  View,
+  Image,
+  ActivityIndicator,
+  Animated,
+  StatusBar,
+  Platform,
+} from "react-native";
 import {
   MaterialIcons,
   Ionicons,
@@ -40,7 +47,7 @@ export default function HomeScreen({ navigation }) {
 
   // Set status bar on android
   if (Platform.OS === "android") {
-    StatusBar.setBarStyle(!isDark ? 'dark-content' : 'light-content');
+    StatusBar.setBarStyle(!isDark ? "dark-content" : "light-content");
     StatusBar.setBackgroundColor(colors.backgroundcolor);
   }
 
@@ -222,7 +229,7 @@ export default function HomeScreen({ navigation }) {
                 color={colors.textcolor}
               />
             }
-            description="Tips for to stay healthy."
+            description="Tips to stay healthy."
             navigation={navigation}
           />
         </Section>
@@ -234,29 +241,26 @@ export default function HomeScreen({ navigation }) {
           navigation={navigation}
         />
       </Animated.ScrollView>
-      {
-        Platform.OS === "ios" && (
-          <Animated.View
-            opacity={statusBarOpacity}
-            style={{
-              zIndex: 1,
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: Constants.statusBarHeight,
-              zIndex: 1,
-            }}
-          >
-            <BlurView
-              intensity={100}
-              style={{ flex: 1 }}
-              tint={isDark ? "dark" : "default"}
-            />
-          </Animated.View>
-        )
-      }
-      
+      {Platform.OS === "ios" && (
+        <Animated.View
+          opacity={statusBarOpacity}
+          style={{
+            zIndex: 1,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: Constants.statusBarHeight,
+            zIndex: 1,
+          }}
+        >
+          <BlurView
+            intensity={100}
+            style={{ flex: 1 }}
+            tint={isDark ? "dark" : "default"}
+          />
+        </Animated.View>
+      )}
     </View>
   );
 }

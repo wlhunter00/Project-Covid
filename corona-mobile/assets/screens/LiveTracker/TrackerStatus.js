@@ -4,8 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { WebView } from "react-native-webview";
 import { Entypo } from "@expo/vector-icons";
-import Toast from 'react-native-root-toast';
-import AsyncStorage from '@react-native-community/async-storage';
+import Toast from "react-native-root-toast";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default function TrackerStatus({ route, navigation }) {
   let webview;
@@ -16,35 +16,38 @@ export default function TrackerStatus({ route, navigation }) {
 
   firstLoad = async () => {
     try {
-      const firstLoad = await AsyncStorage.getItem('@first_open');
+      const firstLoad = await AsyncStorage.getItem("@first_open");
       console.log(firstLoad);
       if (firstLoad === null) {
         // First open of app
-        Toast.show('Disclaimer: any ads or links on this page are not affiliated with Project Covid.', {
-          duration: Toast.durations.LONG,
-          backgroundColor: "#43a047",
-          shadow: true,
-          animation: true,
-          hideOnPress: true,
-          delay: 0,
-          position: -100,
-        });
+        Toast.show(
+          "Disclaimer: Any ads or donation links on this page are not affiliated with Project Covid.",
+          {
+            duration: Toast.durations.LONG,
+            backgroundColor: "#43a047",
+            shadow: true,
+            animation: true,
+            hideOnPress: true,
+            delay: 0,
+            position: -100,
+          }
+        );
         storeData("Done");
       }
     } catch (e) {
       // Error reading value
       console.log(e);
     }
-  }
+  };
 
   const storeData = async (value) => {
     try {
-      await AsyncStorage.setItem('@first_open', value);
+      await AsyncStorage.setItem("@first_open", value);
     } catch (e) {
       // Saving error
       console.log(e);
     }
-  }
+  };
 
   React.useEffect(() => {
     firstLoad();
