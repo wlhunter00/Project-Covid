@@ -334,6 +334,7 @@ router.post("/address", async (req, res) => {
                     "+",
                     ""
                   );
+                  console.log(stateNewCases);
                   if (stateNewCases === "") {
                     stateNewCases = "0";
                   }
@@ -441,6 +442,7 @@ router.post("/address", async (req, res) => {
     }
   }
   if (stateData) {
+    console.log(stateNewDeaths);
     prettyStats.Province_Stats = {
       Country: stateCountry,
       Name: stateName,
@@ -452,6 +454,12 @@ router.post("/address", async (req, res) => {
       Actives: stateActives.toLocaleString("en-US"),
       Updated: prettyStats.Country_Stats.Updated,
     };
+    if (stateNewCases === "0") {
+      delete prettyStats.Province_Stats.NewConfirmed;
+    }
+    if (stateNewDeaths === "0") {
+      delete prettyStats.Province_Stats.NewDeaths;
+    }
   }
 
   return res.send(prettyStats);
