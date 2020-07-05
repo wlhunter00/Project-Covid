@@ -25,7 +25,9 @@ export default function Sources({ route, navigation }) {
         <SourceItem
           navigation={navigation}
           typeSource={"Homepage Statistics"}
-          isInitiallyOpened={initiallyOpenedSourceType === "Homepage Statistics"}
+          isInitiallyOpened={
+            initiallyOpenedSourceType === "Homepage Statistics"
+          }
           sourcesList={[
             {
               title: "COVID-19 API",
@@ -39,6 +41,12 @@ export default function Sources({ route, navigation }) {
                 "https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6",
               headline:
                 "The 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE).",
+            },
+            {
+              title: "COVID19-API",
+              url: "https://covid19-docs.chrismichael.now.sh/",
+              headline:
+                "This API provides updated real-time data on coronavirus cases from the worldometers page.",
             },
           ]}
           key={"homepageStats"}
