@@ -3,6 +3,7 @@ const router = express.Router();
 var request = require("request-promise");
 const countryNames = require("./../data/countries.json");
 const stateNames = require("./../data/states.json");
+const e = require("express");
 
 function parseCoord(loc) {
   try {
@@ -53,8 +54,8 @@ router.post("/", async (req, res) => {
       NewDeaths: 0,
       TotalDeaths: 0,
       NewRecovered: 0,
-      TotalRecovered: 0
-    }
+      TotalRecovered: 0,
+    },
   };
   var prettyStats = {
     Global_Stats: {
@@ -63,8 +64,8 @@ router.post("/", async (req, res) => {
       NewDeaths: "",
       TotalDeaths: "",
       NewRecovered: "",
-      TotalRecovered: ""
-    }
+      TotalRecovered: "",
+    },
   };
   var locationData = false;
   var globalData = false;
@@ -92,7 +93,7 @@ router.post("/", async (req, res) => {
           "," +
           coords[1];
         try {
-          await request(MPurl, async function(err, response, body) {
+          await request(MPurl, async function (err, response, body) {
             var data = JSON.parse(body);
             let location = await data["results"][0]["locations"];
             if (location === undefined || location.length == 0) {
@@ -118,7 +119,7 @@ router.post("/", async (req, res) => {
     locationData = false;
   }
   try {
-    await request("https://api.covid19api.com/summary", function(
+    await request("https://api.covid19api.com/summary", function (
       error,
       response,
       body
@@ -135,7 +136,7 @@ router.post("/", async (req, res) => {
     globalData = true;
   } catch (err) {
     return res.status(400).send({
-      message: err
+      message: err,
     });
   }
   if (locationData) {
@@ -144,7 +145,7 @@ router.post("/", async (req, res) => {
       countryCode +
       "/status/confirmed";
     try {
-      await request(reqURL, function(error, response, body) {
+      await request(reqURL, function (error, response, body) {
         if (IsJsonString(body)) {
           tempStateData = JSON.parse(body);
           for (const prop in tempStateData) {
@@ -167,7 +168,7 @@ router.post("/", async (req, res) => {
       });
     } catch (err) {
       return res.status(400).send({
-        message: err
+        message: err,
       });
     }
   }
@@ -229,7 +230,7 @@ router.post("/", async (req, res) => {
       Recovered: stateRecovered.toLocaleString("en-US"),
       Deaths: stateDeaths.toLocaleString("en-US"),
       Actives: stateActives.toLocaleString("en-US"),
-      Updated: stateDate
+      Updated: stateDate,
     };
   }
 
@@ -245,8 +246,8 @@ router.post("/address", async (req, res) => {
       NewDeaths: 0,
       TotalDeaths: 0,
       NewRecovered: 0,
-      TotalRecovered: 0
-    }
+      TotalRecovered: 0,
+    },
   };
   var prettyStats = {
     Global_Stats: {
@@ -255,8 +256,8 @@ router.post("/address", async (req, res) => {
       NewDeaths: "",
       TotalDeaths: "",
       NewRecovered: "",
-      TotalRecovered: ""
-    }
+      TotalRecovered: "",
+    },
   };
   var locationData = false;
   var globalData = false;
@@ -273,6 +274,8 @@ router.post("/address", async (req, res) => {
   var stateCode;
   var globalDate;
   var stateDate;
+  var stateNewCases;
+  var stateNewDeaths;
 
   try {
     if (Object.keys(req.body).length != 0) {
@@ -289,7 +292,7 @@ router.post("/address", async (req, res) => {
     locationData = false;
   }
   try {
-    await request("https://api.covid19api.com/summary", function(
+    await request("https://api.covid19api.com/summary", function (
       error,
       response,
       body
@@ -306,39 +309,85 @@ router.post("/address", async (req, res) => {
     globalData = true;
   } catch (err) {
     return res.status(400).send({
-      message: err
+      message: err,
     });
   }
   if (locationData) {
-    var reqURL =
-      "https://api.covid19api.com/live/country/" +
-      countryCode +
-      "/status/confirmed";
-    try {
-      await request(reqURL, function(error, response, body) {
-        if (IsJsonString(body)) {
-          tempStateData = JSON.parse(body);
-          for (const prop in tempStateData) {
-            if (tempStateData[prop].Province === stateCode) {
-              // console.log("state match");
-              stateCountry = tempStateData[prop]["Country"];
-              stateName = tempStateData[prop]["Province"];
-              stateDate = tempStateData[prop]["Date"];
-              stateConfirmed = tempStateData[prop]["Confirmed"];
-              stateDeaths = tempStateData[prop]["Deaths"];
-              stateRecovered = tempStateData[prop]["Recovered"];
-              stateActives = tempStateData[prop]["Active"];
-              stateData = true;
+    if (countryCode === "us") {
+      try {
+        await request(
+          "https://covid19api.io/api/v1/CasesInAllUSStates",
+          function (error, response, body) {
+            if (IsJsonString(body)) {
+              var tempStateData = JSON.parse(body)["data"][0]["table"];
+              for (const prop in tempStateData) {
+                if (tempStateData[prop]["USAState"] === stateCode) {
+                  stateCountry = "United States of America";
+                  stateName = tempStateData[prop]["USAState"];
+                  stateConfirmed = tempStateData[prop]["TotalCases"];
+                  stateDeaths = tempStateData[prop]["TotalDeaths"];
+                  stateActives = tempStateData[prop]["ActiveCases"];
+                  stateRecovered =
+                    parseInt(stateConfirmed.replace(/,/g, "")) -
+                    parseInt(stateActives.replace(/,/g, ""));
+                  stateNewCases = tempStateData[prop]["NewCases"].replace(
+                    "+",
+                    ""
+                  );
+                  if (stateNewCases === "") {
+                    stateNewCases = "0";
+                  }
+                  stateNewDeaths = tempStateData[prop]["NewDeaths"].replace(
+                    "+",
+                    ""
+                  );
+                  if (stateNewDeaths === "") {
+                    stateNewDeaths = "0";
+                  }
+                  stateData = true;
+                }
+              }
             }
           }
-        } else {
-          locationData = false;
-        }
-      });
-    } catch (err) {
-      return res.status(400).send({
-        message: err
-      });
+        );
+      } catch (error) {
+        return res.status(400).send({
+          message: err,
+        });
+      }
+    } else {
+      var reqURL =
+        "https://api.covid19api.com/live/country/" +
+        countryCode +
+        "/status/confirmed";
+      try {
+        await request(reqURL, function (error, response, body) {
+          if (IsJsonString(body)) {
+            tempStateData = JSON.parse(body);
+            for (const prop in tempStateData) {
+              if (tempStateData[prop].Province === stateCode) {
+                // console.log("state match");
+                stateCountry = tempStateData[prop]["Country"];
+                stateName = tempStateData[prop]["Province"];
+                stateDate = tempStateData[prop]["Date"];
+                stateConfirmed = tempStateData[prop]["Confirmed"];
+                stateDeaths = tempStateData[prop]["Deaths"];
+                stateRecovered = tempStateData[prop]["Recovered"];
+                stateActives = tempStateData[prop]["Active"];
+                stateNewDeaths = "0";
+                stateNewCases = "0";
+                stateData = true;
+              }
+            }
+          } else {
+            locationData = false;
+          }
+        });
+      } catch (err) {
+        return res.status(400).send({
+          message: err,
+        });
+      }
     }
   }
   if (globalData) {
@@ -396,10 +445,12 @@ router.post("/address", async (req, res) => {
       Country: stateCountry,
       Name: stateName,
       Confirmed: stateConfirmed.toLocaleString("en-US"),
+      NewConfirmed: stateNewCases.toLocaleString("en-us"),
       Recovered: stateRecovered.toLocaleString("en-US"),
       Deaths: stateDeaths.toLocaleString("en-US"),
+      NewDeaths: stateNewDeaths.toLocaleString("en-US"),
       Actives: stateActives.toLocaleString("en-US"),
-      Updated: stateDate
+      Updated: prettyStats.Country_Stats.Updated,
     };
   }
 
