@@ -106,3 +106,5 @@ dist
 ./Keys/Project Covid-8af4090157b4.json
 
 client_secret.json
+
+package-lock.json
