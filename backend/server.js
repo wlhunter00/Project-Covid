@@ -50,6 +50,9 @@ app.use("/stats", statistics);
 const travelWarnings = require("./routes/travelWarnings.js");
 app.use("/travelWarnings", travelWarnings);
 
+const healthcareFacilities = require("./routes/healthcareFacilities.js");
+app.use("/healthcareFacilities", healthcareFacilities);
+
 // Exporting the port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server started on port ", port));
