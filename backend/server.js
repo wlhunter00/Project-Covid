@@ -12,9 +12,9 @@ app.use(express.urlencoded({ extended: false }));
 const mongoose = require("mongoose");
 mongoose.connect(
     "mongodb+srv://expressUser:bkQ8i3FRi2oxnIrq@cluster0-wqfvl.mongodb.net/CoronaInfo?retryWrites=true&w=majority", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
 );
 
 // More database managment
@@ -46,6 +46,9 @@ app.use("/location", location);
 
 const statistics = require("./routes/statistics.js");
 app.use("/stats", statistics);
+
+const travelWarnings = require("./routes/travelWarnings.js");
+app.use("/travelWarnings", travelWarnings);
 
 // Exporting the port
 const port = process.env.PORT || 5000;
