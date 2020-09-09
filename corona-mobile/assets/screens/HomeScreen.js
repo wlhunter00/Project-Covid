@@ -6,6 +6,7 @@ import {
   Animated,
   StatusBar,
   Platform,
+  Alert
 } from "react-native";
 import {
   MaterialIcons,
@@ -33,6 +34,7 @@ import {
 } from "../components/HomePageComponents";
 import { useLocationAddress } from "../utils/Hooks";
 import { ResourceNames } from "./GlobalResources/ResourcePage";
+import AsyncStorage from '@react-native-community/async-storage';
 
 const logo = require("../images/logo-notext.png");
 
@@ -55,6 +57,15 @@ export default function HomeScreen({ navigation }) {
   const [stats, setStats] = useState(null);
   const address = useLocationAddress();
 
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('@first_open', value);
+    } catch (e) {
+      // Saving error
+      console.log(e);
+    }
+  }
+
   // Load from server
   useEffect(() => {
     async function load() {
@@ -75,6 +86,38 @@ export default function HomeScreen({ navigation }) {
 
     load();
   }, [address]);
+
+  // Load privacy policy alert on first open of app
+  useEffect(() => {
+    async function firstLoad() {
+      try {
+        const firstLoad = await AsyncStorage.getItem('@first_open');
+        if (firstLoad === null) {
+          // First open of app
+          storeData("Done");
+          Alert.alert(
+            "User Data Policy",
+            "Your privacy is our number one concern. Read our policy to learn more.",
+            [
+              {
+                text: "View Privacy Policy",
+                onPress: () => navigation.navigate('About', { screen: 'PrivacyPolicy' }),
+              },
+              {
+                text: "Dismiss",
+                style: "cancel"
+              }
+            ],
+            { cancelable: true }
+          );
+        }
+      } catch (e) {
+        // Error reading value
+        console.log(e);
+      }
+    }
+    firstLoad();
+  }, []);
 
   // animate status bar blur
   const animatedScrollYValue = useRef(new Animated.Value(0)).current;
