@@ -97,7 +97,7 @@ export default function HomeScreen({ navigation }) {
           storeData("Done");
           Alert.alert(
             "User Data Policy",
-            "Your privacy is our number one concern. Read our policy to learn more.",
+            "Your privacy is our primary concern. Read our policy to learn more.",
             [
               {
                 text: "View Privacy Policy",
