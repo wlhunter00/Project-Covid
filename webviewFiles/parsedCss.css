@@ -1,0 +1,6920 @@
+: root {
+    --box - shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
+    --light - box - shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+    --header: 56px;
+    --font: "Roboto", "Helvetica Neue", Arial, sans - serif;
+    --font2: "Roboto", "Helvetica Neue", Arial, sans - serif;
+    --left - width: 280px;
+    --transition: all 0.3s ease -in -out;
+    --white: #fff;
+    --grey: #aab7c2;
+    --black: #22222a;
+    --red: #FF416C;
+    --avatar - radius: 50 %;
+    --hover - effect: brightness(0.85);
+    --match: rgba(255, 231, 38, 0.75);
+    --primary: #FF416C;
+    --alt: #FF416C;
+    --menu: #fff;
+    --gold: rgba(255, 225, 63, 0.89);
+    --secondary: #fbfbfb;
+    --element: #efeeee;
+    --hover: #f3f3f3;
+    --selected: #eef3ff;
+    --background: #f3f3f3;
+    --darker: #e5e4e4;
+    --text: #36363c;
+    --text - inverse: #fff;
+    --code: #d93157;
+    --border: #efefef;
+    --card: rgba(255, 255, 255, 1);
+    --backdrop: rgba(0, 0, 0, 0.38);
+    --suspected: rgba(255, 180, 0, 1);
+    --dead: rgba(134, 67, 230, 1);
+    --deadtransparent: rgba(134, 67, 230, 0.2);
+    --infected: rgba(255, 65, 108, 1);
+    --infectedtransparent: rgba(255, 65, 108, 0.2);
+    --recovered: rgba(97, 206, 129, 1);
+    --recoveredtransparent: rgba(97, 206, 129, 0.2);
+    --bluehoverbg: rgba(41, 84, 255, 0.15);
+    --bluehoverborder: rgba(41, 84, 255, 0.55);
+    --child: rgba(206, 121, 21, 1);
+    --childtransparent: rgba(206, 121, 21, 0.43);
+    --adult: rgba(59, 172, 226, 1);
+    --adulttransparent: rgba(59, 172, 226, 0.3);
+    --sick: rgba(40, 110, 255, 1);
+    --sicktransparent: rgba(40, 110, 255, 0.2);
+    --mapfilter: grayscale(1);
+    --sidebar: rgba(255, 255, 255, 0.85);
+    --bodygradient: linear - gradient(180deg, #f6f6f6 0 %, rgb(255, 255, 255) 100 %);
+    --icon: #afafaf;
+    --zoneOpacity: 0.8;
+    --sidebarWidth: 320px;
+    --sidebarHeight: 220px;
+    --overlay: rgba(255, 255, 255, 0.93);
+}
+
+html body.dark {
+    --card: rgb(62, 63, 68);
+    --text: #dedede;
+    --background: #2c2c2f;
+    --border: #292929;
+    --mapfilter: invert(1) grayscale(1);
+    --sidebar: rgba(70, 72, 80, 0.73);
+    --darker: rgba(16, 16, 16, 0.73);
+    --secondary: #3e3f44;
+    --hover: #313238;
+    --zoneOpacity: 0.4;
+    --menu: #313035;
+    --primary: #1b1b1d;
+    --bodygradient: linear - gradient(120deg, #232429 0 %, rgb(71, 71, 72) 100 %);
+    --overlay: rgba(44, 44, 47, 0.93);
+}
+
+html {
+    overflow: hidden;
+}
+
+*: not(input) {
+    -webkit - touch - callout: none;
+    -webkit - user - select: none;
+    -khtml - user - select: none;
+    -moz - user - select: none;
+    -ms - user - select: none;
+    user - select: none;
+}
+
+*:: -webkit - scrollbar - track {
+    -webkit - box - shadow: inset 0 0 6px rgba(0, 0, 0, 0)!important;
+    background - color: var(--secondary)!important;
+}
+
+*:: -webkit - scrollbar {
+    width: 10px!important;
+    background - color: var(--secondary)!important;
+}
+
+*:: -webkit - scrollbar - thumb {
+    background - color: var(--darker)!important;
+    border - radius: 15px!important;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    color: var(--text);
+    font - family: var(--font);
+    background: var(--bodygradient);
+    overflow - x: hidden;
+}
+
+section {
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    position: relative;
+    flex - direction: column;
+    width: 100 %;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    white - space: nowrap;
+    text - overflow: ellipsis;
+    max - width: 100 %;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    z - index: 90;
+    max - width: var(--sidebarWidth);
+    width: 85vw;
+    box - shadow: 0 0 16px rgba(0, 0, 0, .28);
+    flex - direction: row;
+    background: var(--card);
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    left: -100 %;
+}
+
+header.open {
+    left: 0px;
+    z - index: 1000;
+}
+
+header: empty {
+    display: none;
+}
+
+header.open.header - hamburger {
+    display: none;
+}
+
+.header - hamburger: after {
+    top: 0px;
+    right: -20px!Important;
+}
+
+.header - hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font - size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    border - radius: 50 %;
+}
+
+.header - hamburger: hover {
+    background: var(--hover);
+}
+
+footer: empty {
+    background: transparent;
+}
+
+footer {
+    background: var(--black);
+    display: flex;
+    align - items: center;
+    justify - content: space - between;
+    padding: 20px;
+}
+
+.footer - inner {
+    display: flex;
+    width: 90 %;
+    align - items: center;
+    justify - content: space - between;
+    /* color: var(--white); */
+    font - size: 11px;
+    flex - direction: column;
+    text - align: center;
+}
+
+.footer - inner>div: not(: first - child) {
+    border - top: 1px solid #fafafa;
+}
+
+.footer - inner>div {
+    margin - top: 5px;
+    margin - bottom: 5px;
+}
+
+.header - inner {
+    display: flex;
+    z - index: 33;
+    align - items: center;
+    justify - content: space - between;
+    height: 100 %;
+    position: relative;
+    width: 100 %;
+    background: var(--sidebar);
+    box - shadow: var(--box - shadow);
+    flex - direction: column;
+    overflow - y: auto;
+    overflow - x: hidden;
+}
+
+.header - inner, .header - inner>* {
+    flex: none;
+}
+
+.header - sections {
+    width: 100 %;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    flex - direction: column;
+    margin - top: 20px;
+}
+
+* [data - new]: after {
+    content: attr(data - new);
+    font - family: var(--font);
+    position: absolute;
+    right: 20px;
+    font - size: 11px;
+    letter - spacing: -0.5px;
+    font - weight: 600;
+    padding: 5px 10px 5px 10px;
+    background: var(--alt);
+    display: flex;
+    color: var(--white);
+    border - radius: 10px;
+}
+
+.map - sidebar - section - content {
+    counter - reset: countryListItems;
+}
+
+.map - sidebar - section - item: before {
+    counter - increment: countryListItems;
+    content: counter(countryListItems);
+    position: absolute;
+    font - size: 9px;
+    margin - left: 8 %;
+    width: 20px;
+    text - align: right;
+    font - weight: 600;
+    color: var(--grey);
+    height: 20px;
+    margin - top: -2px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    background: var(--card);
+}
+
+.map - sidebar - section - item: last - child {
+    margin - bottom: 150px;
+}
+
+.header - logo {
+    width: 80 %;
+    display: flex;
+    position: relative;
+    align - items: center;
+    justify - content: flex - start;
+    font - size: 20px;
+    font - weight: 600;
+    margin - top: 26px;
+}
+
+header.open: before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: var(--backdrop);
+}
+
+.header - logo img {
+    width: 30px;
+    height: 30px;
+    object - fit: contain;
+}
+
+.header - section {
+    width: 100 %;
+    cursor: pointer;
+    height: 45px;
+    display: flex;
+    align - items: center;
+    justify - content: flex - start;
+    flex - direction: row;
+    font - size: 14px;
+    font - weight: 500;
+}
+
+.header - section: hover, .header - section: active, .header - section: focus {
+    background: var(--hover);
+    border: 0px;
+    outline: 0px;
+}
+
+.header - section i {
+    font - size: 20px;
+    margin - left: 30px;
+    margin - right: 30px;
+    color: var(--icon);
+    width: 25px;
+    display: flex;
+    width: 30px;
+    justify - content: center;
+    align - items: center;
+}
+
+#mainContainer {
+    width: 100vw;
+    position: relative;
+    min - height: 100 %;
+    display: flex;
+    justify - content: center;
+    align - content: center;
+    overflow: hidden;
+    z - index: 30;
+}
+
+.hero {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.map {
+    height: 100 %;
+    width: 100 %;
+    position: absolute;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    flex - direction: column;
+    align - items: center;
+    justify - content: center;
+    z - index: 22;
+    position: absolute;
+}
+
+.map {
+    z - index: 10;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.map.blurred {
+    filter: brightness(0.9) grayscale(100) blur(5px);
+}
+
+button {
+    box - shadow: var(--box - shadow);
+    display: flex;
+    align - items: center;
+    justify - content: space - around;
+    cursor: pointer!important;
+    outline: 0px;
+    border: 0px;
+    height: 40px;
+    border - radius: 5px;
+    white - space: nowrap;
+    font - size: 12px;
+    font - weight: 600;
+    padding - left: 20px;
+    padding - right: 20px;
+}
+
+button.big {
+    padding - left: 20px;
+    padding - right: 20px;
+    height: 40px;
+    font - size: 13px;
+}
+
+button.primary {
+    background: var(--alt);
+    color: var(--text - inverse);
+}
+
+button.secondary {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+.section - container {
+    display: flex;
+    flex - wrap: wrap;
+    justify - content: space - around;
+    align - items: center;
+    width: 95 %;
+    padding: 20px;
+    margin - bottom: 30px;
+    margin - top: 40px;
+    position: relative;
+}
+
+.country - chart - wrap {
+    width: 100 %;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    flex - direction: column;
+}
+
+.country - chart - row {
+    width: 100 %;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    margin: 2px;
+}
+
+.country - chart - inner {
+    width: 25 %;
+    display: flex;
+    align - items: center;
+    justify - content: flex - start;
+    padding - left: 20px;
+}
+
+.country - chart - inner - bar {
+    height: 10px;
+    background: var(--primary);
+}
+
+.country - chart - inner - bar: after {
+    content: attr(data - percent);
+    font - size: 10px;
+    position: absolute;
+    right: 10p;
+    font - weight: 600;
+    right: 20px;
+}
+
+.country - chart - bar {
+    width: 60 %;
+    position: relative;
+}
+
+.country - chart - flag {
+    flex: none;
+    margin - right: 5px;
+}
+
+.country - chart - name {
+    font - weight: 600;
+    font - size: 11px;
+}
+
+.country - chart - flag img {
+    width: 15px;
+}
+
+.percent: after {
+    content: "%";
+}
+
+.inferior: before {
+    content: "<";
+}
+
+.section - el - warning: empty {
+    display: none;
+}
+
+.section - el - warning: before {
+    content: "Note:";
+    margin - right: 3px;
+    color: var(--grey);
+}
+
+.section - el - warning {
+    text - align: center;
+    margin - left: 5px;
+    font - size: 12px;
+}
+
+.section - container - source {
+    margin - left: 5px;
+}
+
+.section - container - source {
+    color: var(--grey);
+}
+
+.coronalytics - sources - container - item a: not(.separated): before {
+    content: "Source: ";
+    color: var(--grey);
+}
+
+.section - container - source a {
+    color: var(--text);
+    font - weight: 500;
+}
+
+.coronalytics - sources - container {
+    display: flex;
+    flex - direction: column;
+}
+
+.coronalytics - sources - container {
+    margin - top: 10px;
+}
+
+.coronalytics - sources - container - item h3 {
+    color: var(--text);
+}
+
+.coronalytics - sources - container - item a.separated: before, .section - container - source a~a: not(: first - child): before {
+    content: "●";
+    opacity: 0.3;
+    margin - left: 3px;
+    margin - right: 3px;
+}
+
+.coronalytics - sources - container - item {
+    margin - top: 5px;
+    margin - bottom: 5px;
+}
+
+.section - el - warning a {
+    color: var(--text);
+}
+
+.app - sub - buttons {
+    justify - content: space - between;
+    width: calc(100 % - 20px);
+    display: flex;
+    margin - top: 5px;
+    margin - bottom: 5px;
+}
+
+.app - sub - buttons>* {
+    width: 50 %;
+}
+
+.section - el - chart {
+    width: calc(100 % - 25px);
+    background: transparent;
+    padding: 10px;
+    margin - top: 20px;
+    position: relative;
+    overflow - x: auto;
+}
+
+.section - el - chart.nooverflow {
+    overflow - x: hidden;
+}
+
+.section - el {
+    display: flex;
+    width: 30 %;
+    align - items: center;
+    justify - content: center;
+    flex: none;
+    padding - top: 20px;
+    padding - bottom: 20px;
+    cursor: default;
+    position: relative;
+    margin - top: 15px;
+    margin - bottom: 15px;
+    background: var(--card);
+    margin: 10px;
+    box - shadow: var(--light - box - shadow);
+    border - radius: 40px;
+}
+
+.section - el - inner {
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+    width: 100 %;
+}
+
+.section - el - content {
+    width: 100 %;
+    display: flex;
+    flex - direction: row;
+}
+
+h2 {
+    font - size: 30px;
+    margin - top: 20px;
+}
+
+.section - el - number {
+    font - size: 27px;
+    font - weight: 700;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    height: 38px;
+    white - space: nowrap;
+    flex: none;
+}
+
+.section - el - ico {
+    font - size: 30px!important;
+    color: var(--grey);
+    position: absolute;
+    left: 40px;
+    display: none!important;
+}
+
+html body.map {
+    background: #cbcbcb;
+}
+
+.dark.map {
+    background: #252525;
+}
+
+.section - el - number sub {
+    font - size: 0.8em;
+    display: inline - flex;
+    margin - left: 5px;
+}
+
+.section - el - name {
+    color: var(--grey);
+    font - weight: 700;
+    text - transform: uppercase;
+    font - size: 11px;
+    white - space: nowrap;
+    max - width: 90 %;
+    overflow: hidden;
+    text - overflow: ellipsis;
+    margin - bottom: 5px;
+}
+
+.last - update {
+    font - weight: 600;
+    display: none!important;
+}
+
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z - index: 8888;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: var(--backdrop);
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.backdrop.transparent {
+    background: transparent;
+}
+
+.modal {
+    width: 800px;
+    height: 600px;
+    max - width: 100vw;
+    max - height: 100vh;
+    position: relative;
+    background: var(--card);
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+    justify - content: space - between;
+    padding: 20px;
+}
+
+.header - section.active {
+    color: var(--infected);
+}
+
+.map - layer, .leaflet - tile - container {
+    filter: var(--mapfilter);
+    -webkit - filter: var(--mapfilter);
+}
+
+body.dark.leaflet - tile - container * {
+    filter: invert(10 %)!important;
+    - webkit - filter: invert(10 %)!important;
+}
+
+.leaflet - container.leaflet - control - attribution {
+    background: transparent!Important;
+}
+
+.leaflet - container.leaflet - control - attribution *, .leaflet - container.leaflet - control - attribution {
+    color: var(--text);
+}
+
+.leaflet - control - attribution a: not(: first - child): not(: last - child): after {
+    content: "|";
+    margin - right: 2px;
+    margin - left: 2px;
+}
+
+.leaflet - bar a, .leaflet - bar a: hover {
+    background: var(--card)!important;
+    color: var(--text)!important;
+    border: 0px!Important;
+}
+
+/*
+.map:not(.embedded) .ol-zoom{
+    display:none !important;
+}
+*/
+
+html body.map.ol - zoom {
+    bottom: 5px;
+    left: 5px;
+    top: unset;
+}
+
+.ol - zoom -in, .ol - zoom - out {
+    background: var(--card)!important;
+    color: var(--text)!important;
+}
+
+.console table {
+    width: 90 %;
+}
+
+.admin - console - modal - sec input {
+    padding: 10px;
+    background: var(--grey);
+    border: 1px solid var(--grey);
+    outline: 0px;
+}
+
+.admin - console - modal - numbers {
+    width: 100 %;
+    padding - left: 40px;
+}
+
+.admin - console - modal - sec {
+    margin - bottom: 60px;
+    margin - top: 60px;
+    display: flex;
+    position: relative;
+    justify - content: center;
+}
+
+.admin - console - modal - sec - title {
+    font - weight: 600;
+    margin - top: 10px;
+    position: absolute;
+}
+
+.admin - console - modal - sec[data - error] input {
+    border: 1px solid red;
+}
+
+.admin - console - modal - sec[data - warning] input {
+    border: 1px solid orange;
+}
+
+.admin - console - modal - sec[data - warning]: after {
+    content: attr(data - warning);
+    position: absolute;
+    width: 100 %;
+    display: flex;
+    justify - content: center;
+    left: 10px;
+    text - align: center;
+    bottom: -30px;
+    color: orange;
+}
+
+.admin - console - modal - sec[data - error]: after {
+    content: attr(data - error);
+    position: absolute;
+    width: 100 %;
+    display: flex;
+    justify - content: center;
+    left: 10px;
+    text - align: center;
+    bottom: -30px;
+    color: red;
+}
+
+.admin - console - modal - numbers: empty: before {
+    content: "We couldn't find a match for this zone in the other dataset. Make sure that the zone name and/or the longitude and/or the latitude matches exactly";
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    padding: 30px;
+    color: var(--grey);
+    text - align: center;
+}
+
+.admin - console - modal - titles {
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+}
+
+.admin - console - modal - row {
+    display: flex;
+    justify - content: flex - end;
+    width: 100 %;
+    padding: 10px;
+}
+
+.console {
+    padding - left: 30px;
+    margin - top: 100px;
+}
+
+.console - section {
+    padding - bottom: 20px;
+    width: 100 %;
+    overflow: auto;
+    position: relative;
+}
+
+.console - page - list {
+    display: flex;
+    margin - top: 40px;
+    flex - wrap: wrap;
+    max - width: 80vw;
+}
+
+.console - page - item.disabled {
+    background: var(--grey);
+}
+
+.console - page - item: hover {
+    background: var(--hover);
+}
+
+.console - page - item {
+    width: 30px;
+    margin: 2px;
+    cursor: pointer;
+    background: var(--white);
+    height: 30px;
+    box - shadow: var(--box - shadow);
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.cta - button {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+}
+
+.console table tr: first - child {
+    background: #999;
+}
+
+.console tr {
+    border: 1px solid var(--grey);
+}
+
+.console td, .console th {
+    border - left: 1px solid var(--grey);
+    padding - left: 4px;
+    padding - right: 4px;
+    max - width: 100px;
+    overflow: hidden;
+}
+
+.console td select {
+    width: 100 %;
+}
+
+.console - button - cell {
+    width: 100 %;
+    height: 100 %;
+    display: flex;
+    justify - content: space - evenly;
+    align - items: center;
+}
+
+.console td.number, .console th.number {
+    width: 30px;
+}
+
+.console td.buttons, .console th.buttons {
+    width: 30px;
+}
+
+.console th {
+    cursor: pointer;
+}
+
+.console th: after {
+    content: "\f0dc";
+    font - family: "FontAwesome";
+    margin - left: 10px;
+}
+
+.console - section - title {
+    font - size: 30px;
+    margin - bottom: 10px;
+    width: 100 %;
+    display: flex;
+    justify - content: flex - start;
+    font - weight: 600;
+}
+
+.console - section - title i {
+    margin - left: 10px;
+}
+
+.disabled {
+    pointer - events: none;
+    opacity: 0.5;
+}
+
+.console tr: not(.editable) input, .console tr: not(.editable) select, .console tr: not(.editable) label {
+    background: transparent;
+    outline: 0px;
+    border: 0px;
+    pointer - events: none;
+}
+
+html body.hide {
+    display: none!important;
+}
+
+.news - wrapper {
+    width: 40 %;
+}
+
+.map - filters {
+    position: fixed;
+    bottom: 5px;
+    height: 100px;
+    display: flex;
+    justify - content: space - evenly;
+    align - items: center;
+    flex - direction: column;
+    background: var(--card);
+    box - shadow: var(--box - shadow);
+    z - index: 333;
+    border - radius: 5px;
+    left: 5px;
+    font - size: 14px;
+    text - transform: uppercase;
+    font - weight: 600;
+    width: 150px;
+}
+
+.map - filter {
+    width: 100 %;
+    padding - left: 30px;
+}
+
+html body.map - tooltip {
+    position: absolute;
+    width: 200px;
+    max - width: none;
+    background: var(--menu);
+}
+
+html body.map - tooltip.main - map {
+    width: 160px;
+    padding: 0px;
+    justify - content: flex - start;
+}
+
+.map - tooltip.main - map img {
+    object - fit: cover;
+    width: 100 %;
+    flex: none;
+    height: 90px;
+}
+
+html body.map - tooltip * {
+    color: var(--text);
+    font - family: var(--font);
+}
+
+.section - container - highlights {
+    display: flex;
+    width: 40 %;
+    justify - content: flex - end;
+    align - items: center;
+    position: relative;
+}
+
+.section - highlights - box {
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+    width: 40 %;
+    text - align: center;
+    margin - left: 5px;
+    margin - right: 5px;
+    border - radius: 40px;
+    height: 80px;
+}
+
+.section - highlights - box.infected {
+    background: var(--infectedtransparent);
+    border: 2px solid var(--infected);
+}
+
+.section - highlights - box.infected * {
+    color: var(--infected);
+}
+
+.section - highlights - box.dead * {
+    color: var(--dead);
+}
+
+.section - highlights - box.dead {
+    background: var(--deadtransparent);
+    border: 2px solid var(--dead);
+}
+
+.section - highlights - box.infected sub {
+    font - size: 0.8em;
+}
+
+.section - el - map {
+    width: 100 %;
+    height: 600px;
+    left: 0px;
+}
+
+.section - el - map: empty {
+    display: none;
+}
+
+.section - secondary - numbers {
+    display: flex;
+    flex - wrap: wrap;
+    justify - content: space - between;
+    z - index: 33333;
+    margin - bottom: 30px;
+}
+
+.Embeddable - Chart - Title {
+    visibility: hidden;
+}
+
+.region - page - local - map {
+    height: 100 % !Important;
+}
+
+.region - page - local - map - container - inner canvas {
+    width: 100 %;
+    height: 100 %;
+}
+
+.region - page - local - map {
+    height: 400px;
+    width: 100 %;
+    position: relative;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    background: transparent!important;
+}
+
+.region - page - local - map - container {
+    width: 50 %;
+    height: 100 %;
+    flex: none;
+    background: transparent!important;
+    overflow: visible!important;
+    position: relative;
+}
+
+.region - page - local - map - container - inner {
+    width: 120 %;
+    margin - left: -10 %;
+    height: 105 %;
+    background: transparent!important;
+    overflow: visible!important;
+}
+
+.region - page - local - map - list {
+    width: 40 %;
+    max - height: 90 %;
+    overflow: auto;
+    z - index: 333333;
+    flex: none;
+}
+
+.region - page - local - map - container - list {
+    width: 100 %;
+    overflow: auto;
+    border - spacing: 1px;
+    overflow: hidden;
+}
+
+.region - page - local - map table {
+    border - collapse: collapse;
+}
+
+.region - page - local - map - container - subtitle.secondary {
+    color: var(--grey)!important;
+    font - size: 12px;
+}
+
+.region - page - local - map - container - list tr.active {
+    pointer - events: none;
+    border: 2px solid rgb(41, 84, 255);
+}
+
+.region - page - local - map - container - list.active td {
+    background: rgb(41, 84, 255, 0.15)!important;
+}
+
+.region - page - local - map - container - list th {
+    padding: 10px;
+    text - align: center;
+    font - size: 12px;
+}
+
+.region - page - local - map - container - list tr: not(: first - child): hover {
+    background: var(--hover);
+}
+
+.region - page - local - map[data - type="list"] {
+    height: unset;
+    min - height: 400px;
+}
+
+.region - page - local - map - container - subtitle {
+    font - weight: 600;
+    margin - left: 10px;
+    font - size: 12px;
+}
+
+.region - page - local - map - container - list tr {
+    margin: 10px;
+    text - align: center;
+    vertical - align: middle;
+    width: 100 %;
+    cursor: pointer;
+}
+
+.region - page - local - map - container - list td {
+    padding: 5px;
+}
+
+.region - page - local - map - container - list td: first - child {
+    font - size: 9px;
+    width: 20px;
+    font - weight: 600;
+    color: var(--grey);
+    margin: 0px;
+    text - align: center;
+    vertical - align: middle;
+}
+
+.region - page - local - map - container - list th: not(.unsortable): after {
+    content: "\f0dc";
+    font - family: "FontAwesome";
+    margin - left: 10px;
+}
+
+.region - page - local - map - container - list td: nth - child(2) {
+    width: 40 %;
+    font - weight: 500;
+    font - size: 15px;
+}
+
+.region - page - local - map - buttons {
+    position: absolute;
+    top: 0px;
+    z - index: 333;
+    display: flex;
+}
+
+.region - page - local - map - buttons button {
+    background: transparent;
+    border - radius: 20px;
+    margin: 15px;
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    font - size: 21px;
+    box - shadow: none;
+    opacity: 0.5;
+}
+
+.region - page - local - map - buttons span {
+    font - size: 12px;
+    margin - left: 20px;
+}
+
+.region - page - local - map - buttons button.active {
+    pointer - events: none;
+    opacity: 1;
+    background: var(--hover);
+    color: var(--text);
+    border: 1px solid var(--text);
+}
+
+.map - tooltip - title: last - child {
+    margin - bottom: 10px!important;
+}
+
+html body.map - tooltip.map - tooltip - title, html body.map - tooltip.map - tooltip - title * {
+    flex: none!important;
+    margin- bottom: 0px;
+}
+
+.map - tooltip.long {
+    width: 240px!important;
+    max - width: none!important;
+}
+
+input[type=checkbox] {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    position: relative;
+    display: none;
+}
+
+input[type=checkbox]~label {
+    position: relative;
+    text - transform: none;
+    display: flex;
+    align - items: center;
+    cursor: pointer;
+    color: var(--text);
+}
+
+input[type=checkbox]~label: before {
+    content: "";
+    cursor: pointer;
+    position: relative;
+    width: 12px;
+    border: 2px solid var(--grey);
+    height: 12px;
+    flex: none;
+    z - index: 4;
+    display: inline - flex;
+    border - radius: 4px;
+    margin - right: 10px;
+}
+
+input[type=checkbox]: checked~label: before {
+    content: "";
+    border: 2px solid var(--primary);
+    background: var(--primary);
+}
+
+.map - filter input[type=checkbox]~label: before {
+    border - radius: 50 %;
+}
+
+input.infected[type=checkbox]: checked~label: before {
+    border: 2px solid var(--infected);
+    background: var(--infectedtransparent);
+}
+
+input.adult[type=checkbox]: checked~label: before {
+    border: 2px solid var(--adult);
+    background: var(--adulttransparent);
+}
+
+input.child[type=checkbox]: checked~label: before {
+    border: 2px solid var(--child);
+    background: var(--childtransparent);
+}
+
+input.dead[type=checkbox]: checked~label: before {
+    border: 2px solid var(--dead);
+    background: var(--deadtransparent);
+}
+
+input.recovered[type=checkbox]: checked~label: before {
+    border: 2px solid var(--recovered);
+    background: var(--recoveredtransparent);
+}
+
+input.sick[type=checkbox]: checked~label: before {
+    border: 2px solid var(--sick);
+    background: var(--sicktransparent);
+}
+
+input[type=checkbox]: checked~label: after {
+    content: "\e925";
+    font - family: "Feather";
+    position: absolute;
+    left: 2px;
+    color: var(--white);
+    z - index: 333;
+}
+
+.console input[type=checkbox]: checked~label: before {
+    background: transparent;
+}
+
+.map - modal {
+    width: 90vw;
+    height: 90 %;
+    position: absolute;
+    z - index: 33333;
+    background: var(--card);
+    box - shadow: var(--box - shadow);
+    padding - top: 30px;
+    bottom: -300 %;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.Embeddable - Chart - Title {
+    font - weight: 600;
+    text - transform: uppercase;
+    font - size: 13px;
+    letter - spacing: -0.5px;
+    padding - left: 20px;
+}
+
+.map - modal.country - flag {
+    width: 30px;
+}
+
+.map - modal - inner {
+    position: relative;
+    height: 100 %;
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+    justify - content: flex - start;
+}
+
+.map - modal - content {
+    overflow: auto;
+    height: 85 %;
+    width: 100 %;
+    background: var(--card);
+}
+
+.map - modal - title {
+    font - size: 40px;
+    margin: 10px;
+}
+
+.map - modal - header {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    margin - bottom: 50px;
+}
+
+.map - modal - btns {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+}
+
+.map - modal - btns i {
+    font - size: 20px;
+    font - weight: 600;
+    margin - left: 10px;
+    margin - right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border - radius: 50 %;
+}
+
+.map - modal - btns i: hover {
+    background: var(--hover);
+}
+
+.map - modal - lastupdate {
+    font - size: 12px;
+    color: var(--grey);
+    position: absolute;
+    top: 100;
+    left: 0px;
+    width: 100 %;
+    justify - content: center;
+    display: flex;
+    margin - top: 30px;
+}
+
+.map - modal - inner>* {
+    max- width: 80 %;
+}
+
+#mainContainer>.Embeddable - Chart - Title {
+    position: absolute;
+    top: 0px;
+    left: 2.5 %;
+}
+
+#mainContainer>.Embeddable - Chart {
+    margin: 20px;
+    margin - top: 60px;
+}
+
+.map - modal - inner * {
+    flex: none;
+}
+
+.map - modal - section {
+    display: flex;
+    overflow: hidden;
+    flex - wrap: wrap;
+    justify - content: center;
+    align - items: center;
+    position: relative;
+    width: 100 %;
+}
+
+.map - modal - section canvas {
+    height: 100 %;
+}
+
+.country - flag {
+    width: 20px;
+}
+
+.icon - female: before, .icon - male: before, .icon - unknown: before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background - repeat: no - repeat;
+}
+
+.casualties - table table {
+    border - spacing: 0px;
+    border - color: var(--primary);
+    border - radius: 5px;
+    overflow: hidden;
+}
+
+.casualties - table.fa {
+    font - size: 20px;
+}
+
+.casualties - table {
+    height: 100 %;
+    padding: 100px;
+    font - size: 12px;
+}
+
+.casualties - table tr th {
+    text - transform: uppercase;
+    position: relative;
+}
+
+.casualties - table - note {
+    font - size: 12px;
+}
+
+.casualties - table td, .casualties - table th {
+    text - align: center;
+    padding: 15px;
+}
+
+.casualties - table table>tr: first - child {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.casualties - table th {
+    padding: 15px;
+}
+
+.casualties - table th: not(: last - child): after {
+    content: "";
+    width: 2px;
+    height: 15px;
+    display: block;
+    background: var(--white);
+    opacity: 0.2;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+}
+
+.casualties - table table {
+    background: var(--white);
+    box - shadow: var(--box - shadow);
+}
+
+.link - list {
+    width: 100 %
+}
+
+.link - list>* {
+    margin- bottom: 5px;
+    margin - top: 5px;
+}
+
+.link {
+    height: 40px;
+    box - shadow: var(--box - shadow);
+    display: flex;
+    align - items: center;
+    justify - content: space - between;
+}
+
+.link - details {
+    width: 100 %;
+    padding - left: 10px;
+    height: 100 %;
+    display: flex;
+    align - content: flex - start;
+    justify - content: center;
+    flex - direction: column;
+}
+
+.link - url {
+    font - size: 11px;
+    color: var(--grey);
+}
+
+.link - image {
+    width: 150px;
+    height: 100 %;
+}
+
+.link - name {
+    margin - bottom: 5px;
+    font - weight: 600;
+}
+
+.loading {
+    position: relative;
+    pointer - events: none;
+    opacity: 0.5;
+}
+
+.loading: before {
+    content: "";
+    background - color: inherit;
+    background - image: url(../../assets / img / loading - spinner.gif);
+    position: absolute;
+    z - index: 22;
+    width: 100 %;
+    height: 100 %;
+    /* background: inherit; */
+    background - size: contain;
+    background - position: center center;
+    background - repeat: no - repeat;
+}
+
+.dark.loading - screen {
+    background: rgba(29, 29, 29, 0.85);
+}
+
+.loading - screen {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z - index: 99999999999999999999999999;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.loading - screen - inner {
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    font - weight: 600;
+    font - size: 12px;
+    flex - direction: column;
+}
+
+.Notification {
+    background: var(--black);
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    display: flex;
+    align - items: flex - start;
+    justify - content: center;
+    width: 300px;
+    max - width: 100vw;
+    font - size: 13px;
+    box - shadow: var(--box - shadow);
+    flex - wrap: nowrap;
+    flex - direction: column;
+    display: flex;
+    justify - content: center;
+    bottom: -200px;
+    position: fixed;
+    z - index: 234234234234;
+    color: var(--white);
+    left: calc(50 % - 150px);
+    border - top - right - radius: 5px;
+    border - top - left - radius: 5px;
+}
+
+.Notification - Inner {
+    padding - left: 70px;
+    padding - top: 20px;
+    padding - right: 60px;
+    padding - bottom: 20px;
+    display: flex;
+}
+
+.Notification: before {
+    content: "";
+    margin - right: 20px;
+    background - size: 30px 30px;
+    width: 50px;
+    display: inline - block;
+    height: 30px;
+    background - repeat: no - repeat;
+    position: absolute;
+    left: 25px;
+}
+
+.Notification strong {
+    margin - bottom: 5px;
+}
+
+.Notification - Close {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    cursor: pointer;
+    font - size: 20px;
+}
+
+.Notification - Code {
+    background: var(--secondary);
+    padding: 10px;
+    color: brown;
+    margin - top: 10px;
+}
+
+.Notification - Btn {
+    text - transform: uppercase;
+    font - weight: 600;
+    position: absolute;
+    right: 60px;
+    cursor: pointer;
+}
+
+.Notification - Content {
+    white - space: normal;
+    word -break: break-word;
+}
+
+.Notification.visible {
+    bottom: 0px;
+}
+
+.add - missing *, .add - missing {
+    cursor: pointer;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    cursor: pointer;
+}
+
+.add - missing i {
+    margin - right: 5px;
+    font - size: 20px;
+}
+
+a {
+    text - decoration: none;
+    color: var(--text);
+}
+
+.map - modal - back {
+    cursor: pointer;
+}
+
+.map - modal - back: before {
+    content: "\e929";
+    font - family: "Feather";
+    border - radius: 50 %;
+}
+
+.Tooltip {
+    position: fixed;
+    display: flex;
+    overflow: hidden;
+    word -break: break-word;
+    background - color: var(--black);
+    border - radius: 5px;
+    width: fit - content;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    color: var(--white);
+    font - size: 11px;
+    font - weight: 600;
+    letter - spacing: 0.3px;
+    padding: 7px 10px;
+    text - align: center;
+    max - width: 130px;
+    z - index: 99999999999;
+    content: "";
+    box - shadow: var(--box - shadow);
+    -webkit - animation - name: slideInUp;
+    animation - name: slideInUp;
+    -webkit - animation - duration: .25s;
+    animation - duration: .25s;
+    -webkit - animation - fill - mode: both;
+    animation - fill - mode: both;
+    flex - direction: column;
+}
+
+.Tooltip.grey {
+    color: var(--grey);
+}
+
+* [data - placeholder]: empty: before {
+    content: attr(data - placeholder);
+    opacity: 0.6;
+}
+
+.Tooltip: after, .Tooltip: before {
+    bottom: 100 %;
+    left: 50 %;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer - events: none;
+}
+
+.Tooltip: after {
+    border - color: transparent;
+    border - bottom - color: var(--black);
+    border - width: 5px;
+    margin - left: -5px;
+    display: none!important;
+}
+
+.Tooltip: before {
+    border - color: transparent;
+    border - bottom - color: var(--black);
+    border - width: 7px;
+    margin - left: -7px;
+    display: none!important;
+}
+
+.leaflet - tooltip {
+    box - shadow: none!important;
+}
+
+.map - sidebar {
+    position: fixed;
+    z - index: 120;
+    top: 0;
+    left: 0;
+    width: var(--sidebarWidth);
+    height: 100vh;
+    background: var(--background);
+    box - shadow: var(--box - shadow);
+    justify - content: flex - start;
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.map - sidebar - right - btns {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+body.map - sidebar - right - btns>* {
+    width: 25px;
+    height: 25px;
+    display: flex!Important;
+    margin- left: 5px;
+    margin - right: 5px;
+    justify - content: center;
+    align - items: center;
+    border - radius: 50 %;
+    cursor: pointer;
+    font - size: 20px;
+}
+
+.map - sidebar - right - btns>i: hover {
+    background: var(--hover);
+}
+
+.map - sidebar.hiding {
+    right: -300 %;
+}
+
+.map - sidebar - card {
+    font - size: 25px;
+    font - weight: 700;
+    flex - direction: column;
+    align - items: center;
+    display: flex;
+    width: 100 %;
+    cursor: pointer;
+    padding - top: 10px;
+    padding - bottom: 10px;
+    margin: 5px;
+    border - radius: 30px;
+    white - space: nowrap;
+}
+
+.map - sidebar - card.big {
+    font - size: 80px;
+}
+
+.map - sidebar - card: after {
+    content: attr(data - text);
+    text - transform: uppercase;
+    font - size: 10px;
+    white - space: nowrap;
+}
+
+.map - sidebar - section - content - header {
+    display: flex;
+    width: 80 %;
+    justify - content: space - between;
+    font - weight: 600;
+    margin - top: 20px;
+    text - transform: uppercase;
+    font - size: 12px;
+    align - items: center;
+    color: var(--grey);
+}
+
+.map - sidebar - section - item {
+    width: 100 %;
+    cursor: pointer;
+    display: flex;
+    justify - content: space - between;
+    border: 1px solid transparent;
+    flex: none;
+    height: 60px;
+    align - items: center;
+    position: relative;
+}
+
+.map - sidebar - section - item.is - searching: before {
+    display: none;
+}
+
+.map - sidebar - section - item.is - searching.map - sidebar - section - item - img {
+    display: none;
+}
+
+.search - match {
+    background: #ffe000;
+    color: var(--black)!important;
+}
+
+.map - sidebar - section - item.is - searching.map - sidebar - section - item - details {
+    margin - left: 30px;
+    width: 70 %;
+}
+
+.map - sidebar - section - item - country {
+    font - size: 12px;
+    margin - left: 5px;
+    color: var(--grey);
+}
+
+.map - sidebar - section - item - subregions {
+    background: var(--darker);
+    position: absolute;
+    font - size: 11px;
+    color: var(--text);
+    font - weight: 600;
+}
+
+.map - sidebar - section - item: hover {
+    background: var(--bluehoverbg);
+    border: 1px solid var(--bluehoverborder);
+}
+
+.map - sidebar - section - item - img {
+    position: relative;
+    margin - left: 15 %;
+}
+
+.flag - img {
+    width: 30px;
+    flex: none;
+}
+
+.map - sidebar - section - item - nb sub {
+    font - size: 0.7em;
+    padding - top: 2px;
+    margin - left: 2px;
+}
+
+.map - sidebar - section.map - sidebar - section - search {
+    width: 85 %;
+    margin - top: 10px;
+}
+
+.map - sidebar - section - search: before {
+    content: "\e9ae";
+    font - family: "Feather";
+    position: absolute;
+    left: 10 %;
+}
+
+.map - sidebar - section - item - nb {
+    font - weight: 600;
+    font - size: 13px;
+    letter - spacing: -0.5px;
+    margin - right: 10px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    width: 20 %;
+}
+
+.map - sidebar - section - search input {
+    width: 80 %;
+    height: 35px;
+    padding - left: 60px;
+    padding - right: 50px;
+    box - shadow: var(--box - shadow);
+    border - radius: 20px;
+    color: var(--text);
+    border: 0px;
+    outline: 0px;
+    background: var(--card);
+}
+
+.map - sidebar - section - item - details {
+    width: 40 %;
+    white - space: nowrap;
+    overflow: hidden;
+    flex: none;
+    justify - content: flex - start;
+    display: flex;
+    flex - direction: column;
+    align - items: flex - start;
+    min - height: 25px;
+}
+
+.map - sidebar - section - item - title {
+    font - weight: 600;
+    font - size: 14px;
+    text - overflow: ellipsis;
+    width: 100 %;
+    overflow: hidden;
+    min - height: 15px;
+}
+
+.map - sidebar - section - item - title[data - subregions]: after {
+    display: none!important;
+    content: attr(data - subregions);
+    background: var(--darker);
+    width: 22px;
+    height: 22px;
+    flex: none;
+    margin - left: 10px;
+    display: inline - flex;
+    justify - content: center;
+    align - items: center;
+    font - size: 10px;
+    border - radius: 50 %;
+    font - weight: 600;
+}
+
+.map - sidebar - section - item - nb.infected {
+    color: var(--infected);
+}
+
+.map - sidebar - section - item - nb.dead {
+    color: var(--dead);
+}
+
+.map - sidebar - section - item - nb.recovered {
+    color: var(--recovered);
+}
+
+.map - sidebar - section - item - nb.sick {
+    color: var(--sick);
+}
+
+.map - sidebar - section - item - desc {
+    font - size: 11px;
+    color: var(--grey);
+    text - overflow: ellipsis;
+    overflow: hidden;
+    width: 100 %;
+    min - height: 12px;
+}
+
+.map - sidebar - section - content - header i {
+    font - size: 16px;
+    color: var(--text);
+}
+
+.map - sidebar - section - content {
+    width: 100 %;
+    display: flex;
+    flex - direction: column;
+    justify - content: flex - start;
+    align - items: center;
+    height: 100vh;
+    overflow - x: hidden;
+    overflow - y: auto;
+    padding - top: 20px;
+}
+
+.map - sidebar - card {
+    flex: none;
+}
+
+.map - sidebar - chart - container {
+    pointer - events: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100 %;
+    height: 100 %;
+    opacity: 0.5;
+}
+
+.map - sidebar - numbers.Embeddable - Chart - Header, .map - sidebar - numbers.Embeddable - Chart - Title, .map - sidebar - numbers.Embeddable - Chart - Loader {
+    display: none;
+}
+
+.map - sidebar - numbers.Embeddable - Chart {
+    margin - top: 0px;
+    margin - left: -50 %;
+    width: 160 %;
+}
+
+.map - sidebar - card: not(.active): after {
+    color: var(--grey);
+}
+
+.map - sidebar - card[data - title="infected"] {
+    width: 100 %;
+    font - size: 40px;
+}
+
+.map - sidebar - card[data - title="recovered"], .map - sidebar - card[data - title="dead"], .map - sidebar - card[data - title="sick"] {
+    width: 30 %;
+    font - size: 28px;
+}
+
+.map - sidebar - card.active[data - title="infected"], .map - sidebar - card[data - title="infected"]: hover {
+    color: var(--infected);
+    border - color: var(--infected);
+}
+
+.map - sidebar - card.active[data - title="recovered"], .map - sidebar - card[data - title="recovered"]: hover {
+    color: var(--recovered);
+    border - color: var(--recovered);
+}
+
+.map - sidebar - card.active[data - title="dead"], .map - sidebar - card[data - title="dead"]: hover {
+    color: var(--dead);
+    border - color: var(--dead);
+}
+
+.map - sidebar - card.active[data - title="sick"], .map - sidebar - card[data - title="sick"]: hover {
+    color: var(--sick);
+    border - color: var(--sick);
+}
+
+.map - sidebar - section {
+    width: 100 %;
+    display: flex;
+    justify - content: space - around;
+    align - items: center;
+    position: relative;
+}
+
+.map - modal - content: empty: after {
+    content: "Loading..";
+    font - size: 12px;
+    font - weight: 600;
+    width: 100 %;
+    height: 100 %;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.map - sidebar - section.column {
+    flex - direction: column;
+}
+
+.Embeddable - Chart {
+    width: 100 %;
+    position: relative;
+    height: 400px;
+    display: flex;
+    overflow: hidden;
+    flex - wrap: wrap;
+    justify - content: center;
+    align - items: center;
+    max - height: 90vh;
+    overflow - x: hidden;
+    min - height: 400px;
+    max - height: 100vh;
+    margin - top: -20px;
+}
+
+.Embeddable - Chart.long {
+    height: 100 %;
+    min - height: 2400px;
+    max - height: unset;
+}
+
+.Embeddable - Chart - References {
+    font - size: 12px;
+    text - decoration: none;
+    color: var(--grey);
+    font - weight: 500;
+    display: inline - flex;
+    text - transform: none;
+    align - items: center;
+    justify - content: center;
+}
+
+.Embeddable - Chart - References>*: nth - child(2): before {
+    margin - left: 5px;
+    margin - right: 5px;
+    content: "•";
+}
+
+.Embeddable - Chart - PoweredBy: before {
+    content: "source: ";
+    color: var(--grey);
+}
+
+.Embeddable - Chart - PoweredBy {
+    text - decoration: none;
+    color: var(--primary);
+}
+
+.Embeddable - Chart - Header {
+    display: flex;
+    width: 100 %;
+    justify - content: space - between;
+    align - items: center;
+    margin - top: 20px;
+    position: absolute;
+    top: 0px;
+}
+
+.Embeddable - Chart - Btns {
+    padding - right: 20px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.Embeddable - Chart - Btns i {
+    font - size: 20px;
+    font - weight: 600;
+    margin - left: 10px;
+    margin - right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border - radius: 50 %;
+}
+
+.Embeddable - Chart - Embed {
+    width: 300px;
+    position: fixed;
+    z - index: 99999999999999999999999999999999;
+    display: flex;
+    background: var(--card);
+    box - shadow: var(--box - shadow);
+    padding: 20px;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+}
+
+.Embeddable - Chart - Switcher - Dropdown {
+    position: fixed;
+    z - index: 9999;
+    width: 180px;
+    background: var(--menu);
+    box - shadow: var(--box - shadow);
+}
+
+.Embeddable - Chart - Switcher - Dropdown - Inner {
+    display: flex;
+    justify - content: flex - start;
+    align - items: center;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+}
+
+.Embeddable - Chart - Switcher - Empty {
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+}
+
+.Embeddable - Chart - Switcher - Empty: empty: before {
+    content: "None";
+    font - weight: 600;
+    opacity: 0.2;
+    margin - left: 30px;
+    font - size: 14px;
+}
+
+.Embeddable - Chart - Switcher - Dropdown - Inner: hover, .Embeddable - Chart - Switcher - Empty: hover {
+    background: var(--hover);
+}
+
+.Embeddable - Chart - Switcher {
+    font - weight: 600;
+    font - size: 14px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    position: relative;
+    padding - right: 20px;
+    box - shadow: var(--box - shadow);
+    padding: 10px 40px 10px 20px;
+    background: var(--card);
+    cursor: pointer;
+    border - radius: 30px;
+    height: 20px;
+}
+
+.Embeddable - Chart - Switcher: empty: before {
+    content: "Compare to";
+    color: var(--grey);
+    font - weight: 400;
+}
+
+.Embeddable - Chart - Switcher: not(: first - child) {
+    margin - left: 10px;
+}
+
+.Embeddable - Chart - Switcher: after {
+    content: "\e928";
+    font - family: "Feather";
+    position: absolute;
+    right: 20px;
+}
+
+.Embeddable - Chart - Switcher - Color {
+    width: 20px;
+    height: 20px;
+    margin - right: 10px;
+    border - radius: 50 %;
+}
+
+.Embeddable - Chart - Switcher - Name {
+    font - weight: 600;
+    font - size: 14px;
+}
+
+code {
+    margin: 20px;
+    border: 1px solid var(--grey);
+    background: var(--hover);
+    padding: 10px;
+    color: var(--text);
+    width: 90 %;
+    white - space: pre - wrap;
+    word -break: break-all;
+}
+
+.Global - Embed - Popup {
+    position: absolute;
+    color: var(--white);
+    width: 50 %;
+    height: fit - content;
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+}
+
+.Embeddable - Chart - Btns i: hover {
+    background: var(--hover);
+}
+
+.embed - map {
+    cursor: pointer;
+}
+
+.embed - map i {
+    font - weight: 600;
+    font - size: 18px;
+    margin - right: 10px;
+}
+
+.map - sidebar - btn {
+    font - size: 20px;
+    font - weight: 600;
+    width: 30px;
+    height: 30px;
+    display: flex!important;
+    align - items: center;
+    justify - content: center;
+    cursor: pointer;
+    border - radius: 50 %;
+}
+
+.map - sort - popup {
+    padding: 10px;
+    box - shadow: var(--box - shadow);
+    position: fixed;
+    background: var(--card);
+    width: 130px;
+}
+
+.map - sidebar - clear {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    border - radius: 50 %;
+    cursor: pointer;
+}
+
+.map - sidebar - clear: hover {
+    background: var(--hover);
+}
+
+.map - sidebar - clear: before {
+    font - family: "Feather";
+    content: "\e9ea";
+    font - size: 20px;
+}
+
+.map - sidebar - btn: hover {
+    background: var(--hover);
+}
+
+.open - sources {
+    cursor: pointer;
+}
+
+.map - blurred {
+    filter: blur(10px);
+    opacity: 0.3;
+}
+
+.map - slider {
+    position: fixed;
+    top: 20px;
+    left: 120px;
+    display: flex;
+    justify - content: center;
+    flex - direction: column;
+    align - items: center;
+    z - index: 333;
+}
+
+.map - slider - date {
+    font - size: 12px;
+    font - weight: 600;
+    margin - top: 5px;
+}
+
+input[type="range"] {
+    outline: 0;
+    border: 0;
+    border - radius: 500px;
+    width: 100px;
+    max - width: 100 %;
+    margin: 0px;
+    transition: box - shadow 0.2s ease -in -out;
+    overflow: hidden;
+    height: 20px;
+    -webkit - appearance: none;
+    background - color: #ddd;
+}
+
+input[type="range"]:: -webkit - slider - runnable - track {
+    height: 20px;
+    -webkit - appearance: none;
+    color: #444;
+    transition: box - shadow 0.2s ease -in -out;
+}
+
+input[type="range"]:: -webkit - slider - thumb {
+    width: 20px;
+    -webkit - appearance: none;
+    height: 20px;
+    cursor: ew - resize;
+    background: #fff;
+    box - shadow: -340px 0 0 320px var(--primary), inset 0 0 0 40px var(--primary);
+    border - radius: 50 %;
+    transition: box - shadow 0.2s ease -in -out;
+    position: relative;
+}
+
+input[type="range"]:: -webkit - slider - thumb {
+    background: #fff;
+    box - shadow: -240px 0 0 230px var(--primary), inset 0 0 0 0px var(--primary);
+}
+
+input[type="range"]:: -moz - range - progress {
+    background - color: #43e5f7;
+}
+
+input[type="range"]:: -moz - range - track {
+    background - color: #9a905d;
+}
+
+input[type="range"]:: -ms - fill - lower {
+    background - color: #43e5f7;
+}
+
+input[type="range"]:: -ms - fill - upper {
+    background - color: #9a905d;
+}
+
+.site - link {
+    display: flex;
+    color: var(--primary);
+    font - weight: 600;
+    border - radius: 5px;
+    height: 20px;
+    z - index: 233;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    font - size: 11px;
+}
+
+.site - link: before {
+    color: var(--text);
+    margin - right: 3px;
+    font - weight: 400;
+    font - size: 11px;
+    content: "powered by ";
+}
+
+.Sources - Modal - X {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font - size: 22px;
+    padding: 10px;
+    border - radius: 50 %;
+    cursor: pointer;
+}
+
+.Sources - Modal - X: hover {
+    background: var(--hover);
+}
+
+.Sources - Modal {
+    display: flex;
+    flex - direction: column;
+    font - size: 20px;
+    background: var(--card);
+    color: var(--text);
+    padding: 50px 0px 50px 50px;
+    border - radius: 20px;
+    position: relative;
+}
+
+.Sources - Modal - Title {
+    text - transform: uppercase;
+    font - weight: 600;
+    margin - bottom: 30px;
+}
+
+.Sources - Modal a: not(.nobullet): before {
+    content: "•";
+    margin - right: 5px;
+}
+
+.Sources - Modal * {
+    color: var(--text) !Important;
+    font - size: 14px;
+}
+
+.Source - Modal - Content {
+    max - height: 500px;
+    overflow: auto;
+    display: flex;
+    flex - direction: column;
+    width: 50vw;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]~label {
+    display: flex;
+    align - items: center;
+    cursor: pointer;
+    height: 35px;
+    padding - left: 10px;
+    padding - right: 10px;
+    font - weight: 600;
+    font - size: 14px;
+    position: relative;
+}
+
+input[type="radio"]~label {
+    text - transform: none;
+    display: flex;
+    align - items: center;
+}
+
+input[type="radio"]~label: before {
+    content: "";
+    border: 2px solid var(--grey);
+    border - radius: 50 %;
+    width: 15px;
+    height: 15px;
+    margin - right: 10px;
+    display: inline - flex;
+    z - index: 2;
+    flex: none;
+}
+
+input[type="radio"]: checked~label: before {
+    border: 2px solid var(--alt);
+}
+
+input[type="radio"]~label: after {
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border - radius: 50 %;
+    background: transparent;
+    transform: translate(10px, 0px);
+    -moz - transform: translate(10px, 0px);
+    -o - transform: translate(10px, 0px);
+    -ms - transform: translate(10px, 0px);
+    z - index: 3;
+    left: 10px;
+    top: 13px;
+}
+
+input[type="radio"]: checked~label: after {
+    width: 9px;
+    height: 9px;
+    z - index: 3;
+    background: var(--alt);
+    transform: translate(5px, 0px);
+    -webkit - transform: translate(5px, 0px);
+    -moz - transform: translate(5px, 0px);
+    -o - transform: translate(5px, 0px);
+    -ms - transform: translate(5px, 0px);
+}
+
+.korea - map {
+    height: calc(100vh + 2px);
+    width: calc(100vw + 2px);
+    margin - left: -2px;
+    margin - top: -2px;
+}
+
+.embedded.korea - map {
+    margin - left: 0px;
+}
+
+.sign - up - popup {
+    width: 750px;
+    height: 600px;
+    background: var(--card);
+    border - radius: 10px;
+    box - shadow: var(--box - shadow);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.sign - up - popup - back {
+    display: none;
+}
+
+.sign - up - popup - tab {
+    width: 100 %;
+    border: 1px solid var(--card);
+    display: flex;
+    margin - top: 20px;
+    background: var(--hover);
+    cursor: pointer;
+    align - items: center;
+    position: relative;
+    margin - bottom: 20px;
+    flex - direction: column;
+    overflow: hidden;
+    height: 60px;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    flex: none;
+}
+
+.sign - up - popup - tab.open {
+    height: 300px;
+}
+
+.sign - up - popup - tab: after {
+    content: "";
+    font - family: "Feather";
+    border - radius: 50 %;
+    align - items: center;
+    justify - content: center;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--grey);
+    position: absolute;
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    margin - top: 16px;
+    font - weight: 600;
+    font - size: 30px;
+}
+
+.sign - up - popup - tab.disable.sign - up - popup - tab - inner {
+    pointer - events: none;
+    opacity: 0.5;
+}
+
+.sign - up - popup - tab - container {
+    position: relative;
+    display: flex;
+    flex - direction: column;
+}
+
+.sign - up - popup - tab: hover {
+    background: var(--hover);
+}
+
+.sign - up - popup - tab[data - finished]: after {
+    width: 30px;
+    content: "";
+    height: 40px;
+    border: 0px;
+    background - image: url(/assets/img / checkmark - success.svg);
+    font - size: 16px;
+    margin - top: 10px;
+    background - position: center center;
+    background - size: contain;
+    background - repeat: no - repeat;
+}
+
+.feather - mask: after {
+    width: 25px;
+    content: "";
+    height: 20px;
+    display: block;
+    border: 0px;
+    background - image: url(/assets/img / mask - black.png);
+    font - size: 16px;
+    background - position: center center;
+    background - size: contain;
+    background - repeat: no - repeat;
+}
+
+body.dark.feather - mask: after {
+    background - image: url(/assets/img / mask - white.png);
+}
+
+.header - language - attribution {
+    width: 80 %;
+    color: var(--grey);
+    font - size: 11px;
+    margin - bottom: 30px;
+}
+
+.header - section.feather - mask: after {
+    background - image: url(/assets/img / mask - grey.png)!important;
+}
+
+.sign - up - popup - tab[data - forbidden]: after {
+    background - image: url(/assets/img / checkmark - error.svg)!important;
+}
+
+.sign - up - popup - tab - inner {
+    width: 100 %;
+    height: 60px;
+    display: flex;
+    align - items: center;
+    justify - content: flex - start;
+    height: 60px;
+    flex: none;
+}
+
+.sign - up - popup - left {
+    margin - left: 20px;
+    font - size: 20px;
+}
+
+.sign - up - popup - right {
+    margin - left: 20px;
+    font - weight: 600;
+    text - transform: uppercase;
+    font - size: 12px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.sign - up - popup - inner {
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+    padding: 20px;
+    width: 100 %;
+    max - height: 80vh;
+    overflow: auto;
+}
+
+html #iubenda - cs - banner {
+    display: none!important;
+}
+
+html #iubenda - cs - banner.showing {
+    display: flex!important;
+}
+
+.sign - up - popup - body {
+    display: flex;
+    flex - direction: column;
+    height: 80 %;
+    justify - content: center;
+}
+
+.sign - up - popup - row {
+    display: flex;
+    margin - bottom: 5px;
+    margin - top: 5px;
+}
+
+.Input input {
+    outline: 0px;
+    border: 0px;
+    height: 100 %;
+    background: transparent;
+    z - index: 33;
+    padding - left: 5px;
+    color: var(--text);
+}
+
+.Input {
+    border - bottom: 2px solid var(--grey);
+    margin: 10px;
+    background: var(--darker);
+    width: 100 %;
+    height: 40px;
+    position: relative;
+}
+
+.Input: before {
+    content: attr(data - placeholder);
+    font - size: 12px;
+    margin - top: -15px;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    position: absolute;
+    pointer - events: none;
+}
+
+.button - primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.Input[data - value=""]: not(: focus - within): before {
+    font - size: 13px;
+    margin - top: 13px;
+    color: var(--grey);
+    margin - left: 5px;
+}
+
+.Input: after {
+    content: "";
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    transform: scaleX(0);
+    -webkit - transform: scaleX(0);
+    -moz - transform: scaleX(0);
+    -o - transform: scaleX(0);
+    width: 100 %;
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+}
+
+.Input: focus - within: after {
+    content: "";
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    transform: scaleX(1);
+    -webkit - transform: scaleX(1);
+    -moz - transform: scaleX(1);
+    -o - transform: scaleX(1);
+    border - bottom: 2px solid var(--black);
+}
+
+.Input.invalid input {
+    color: var(--primary)!Important;
+}
+
+.Input.invalid: after {
+    border - bottom: 2px solid var(--primary)!important;
+    transform: scaleX(1);
+}
+
+.Input.invalid: before {
+    color: var(--primary)!Important;
+}
+
+.sign - up - popup - footer>* {
+    margin- left: 10px;
+    margin - right: 10px;
+}
+
+.sign - up - popup - disclaimer {
+    font - size: 11px;
+    margin - bottom: 10px;
+    position: absolute;
+    bottom: 0px;
+    text - align: center;
+    opacity: 0.7;
+    color: var(--white);
+    padding: 10px;
+}
+
+.sign - up - popup - disclaimer>a {
+    color: var(--white);
+    text - decoration: underline;
+}
+
+.sign - up - popup - buttons {
+    display: flex;
+    align - items: center;
+    justify - content: flex - end;
+    width: 100 %;
+}
+
+.sign - up - popup - buttons>* {
+    margin- left: 5px;
+    margin - right: 5px;
+}
+
+.sign - up - popup - error {
+    font - size: 12px;
+    color: var(--primary);
+    margin - left: 10px;
+    height: 40px;
+}
+
+.sign - up - popup - footer {
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    margin - bottom: 10px;
+    width: 100 %;
+    margin - right: 20px;
+    flex - direction: column;
+}
+
+.sign - up - popup - header {
+    display: flex;
+    width: 35 %;
+    flex: none;
+    align - items: center;
+    justify - content: center;
+    flex - direction: column;
+    background: var(--primary);
+    color: var(--white);
+    position: relative;
+}
+
+.sign - up - popup - title {
+    font - size: 40px;
+    font - weight: 600;
+    width: 80 %;
+    padding: 20px;
+}
+
+.sign - up - popup - desc {
+    width: 80 %;
+    color: var(--element);
+    opacity: 0.8;
+    margin - top: 10px;
+}
+
+.ol - attribution {
+    display: none!important;
+}
+
+.cookie - notice {
+    background: var(--white);
+    box - shadow: var(--box - shadow);
+    width: 400px;
+    /* height: 200px; */
+    display: flex;
+    flex - direction: column;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z - index: 999999999999999999999999999999999999999;
+    font - size: 12px;
+}
+
+.cookie - notice - title {
+    font - weight: 600;
+    font - size: 14px;
+    padding - left: 20px;
+    padding - right: 20px;
+    padding - top: 20px;
+    padding - bottom: 5px;
+}
+
+.cookie - notice - text {
+    padding: 20px;
+}
+
+.cookie - notice - text a {
+    color: var(--primary);
+}
+
+.cookie - notice - x: before {
+    content: "\e9ea";
+    font - family: "Feather";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--text);
+}
+
+.language - selector - modal {
+    position: fixed;
+    display: flex;
+    align - items: flex - start;
+    justify - content: center;
+    flex - direction: column;
+    background: var(--card);
+    box - shadow: var(--box - shadow);
+    overflow: hidden;
+}
+
+.language - selector - el {
+    display: flex;
+    align - items: center;
+    justify - content: flex - start;
+    font - weight: 600;
+    font - size: 12px;
+    padding - left: 10px;
+    padding - right: 10px;
+    cursor: pointer;
+    width: 100 %;
+}
+
+.language - selector {
+    font - size: 12px;
+}
+
+.language - selector - el: hover {
+    background: var(--hover);
+}
+
+.language - selector - el img {
+    width: 20px;
+    border - radius: 50 %;
+}
+
+.language - selector - el>* {
+    margin: 10px;
+}
+
+.language - selector - inner {
+    display: flex;
+    align - items: center;
+    justify - content: space - around;
+    width: 100 %;
+    position: relative;
+}
+
+.language - selector {
+    display: flex;
+    cursor: pointer;
+    width: 100 %;
+    justify - content: space - around;
+}
+
+.language - selector - title: after, .chart - scale - selector: after {
+    content: "\e928";
+    font - family: "Feather";
+    margin - left: 10px;
+}
+
+.language - selector img {
+    width: 20px;
+    cursor: pointer;
+    margin - right: 5px;
+    border - radius: 50 %;
+    position: relative;
+}
+
+.language - selector - button {
+    display: flex;
+    align - items: center;
+    background: var(--menu);
+    border - radius: 20px;
+    justify - content: center;
+    width: 120px;
+    height: 30px;
+    box - shadow: var(--box - shadow);
+}
+
+.footer - notes.embedded {
+    background: transparent;
+    box - shadow: none;
+}
+
+.ol - control {
+    background - color: unset!important;
+}
+
+.dark - mode - toggle {
+    position: relative;
+    border - radius: 40px;
+    transform: scale(0.6);
+    width: 100 %;
+    display: flex;
+    justify - content: space - around;
+    align - items: center;
+}
+
+.dark - mode - toggle span {
+    font - weight: 500;
+    font - size: 14px;
+}
+
+.dark - mode - toggle input[type="checkbox"] {
+    width: 100 %;
+    height: 100 %;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z - index: 2;
+}
+
+.dark - mode - toggle label {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    opacity: 1;
+    background - color: #fff;
+    box - shadow: 0px 2px 25px #d9d9d9;
+    border - radius: 40px;
+    transition: 0.2s ease background - color, 0.2s ease opacity;
+    height: 40px;
+    width: 65px;
+}
+
+.dark - mode - toggle label: before, .dark - mode - toggle label: after {
+    content: '';
+    position: absolute;
+    top: 6px!important;
+    width: 30px!important;
+    height: 30px!important;
+    border - radius: 50 %;
+    transition: 0.5s ease transform, 0.2s ease background - color;
+    margin: 0px!important;
+    border: 0px!important;
+}
+
+.dark - mode - toggle label: before {
+    background - color: #fff;
+    transform: translate(-30px, 0px);
+    z - index: 1;
+}
+
+.dark - mode - toggle label: after {
+    background - color: #ffe707;
+    transform: translate(8px, 0px);
+    z - index: 0;
+    -webkit - transform: translate(8px, 0px);
+    -o - transform: translate(8px, 0px);
+    -moz - transform: translate(8px, 0px);
+    transform - origin: unset!important;
+}
+
+.dark - mode - toggle input[type="checkbox"]: checked+label {
+    background - color: #000;
+}
+
+.dark - mode - toggle input[type="checkbox"]: active+label {
+    opacity: 0.5;
+}
+
+.dark - mode - toggle input[type="checkbox"]: checked+label: before {
+    background - color: #000;
+    transform: translate(20px, -10px);
+    border - radius: 50 %;
+}
+
+.dark - mode - toggle input[type="checkbox"]: checked+label: after {
+    background - color: #fff;
+    transform: translate(28px, 0px);
+    border - radius: 50 %;
+}
+
+.section - chart - list {
+    width: 100 %;
+    position: relative;
+}
+
+.header - settings - el: first - child {
+    margin - top: 20px;
+}
+
+.header - settings - title {
+    margin - left: 30px;
+    text - transform: uppercase;
+    color: var(--grey);
+    font - size: 12px;
+    margin - bottom: 20px;
+    font - weight: 600;
+}
+
+.header - settings {
+    width: 100 %;
+    margin - top: 30px;
+    margin - bottom: 100px;
+}
+
+.header - settings - el {
+    width: 100 %;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    height: 50px;
+}
+
+.header - settings - el - title {
+    padding - left: 35px;
+    font - weight: 600;
+    font - size: 12px;
+    white - space: nowrap;
+    width: 30 %;
+}
+
+.header - settings - el - content {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    width: 70 %;
+}
+
+.app - top - bar {
+    width: calc(100 % - 20px);
+    box - shadow: var(--box - shadow);
+    background: var(--card);
+    height: 50px;
+    z - index: 60;
+    border - radius: 10px;
+    display: flex;
+    justify - content: flex - start;
+    align - items: center;
+    flex: none;
+}
+
+.app - top - bar - flag {
+    width: 25px;
+    flex: none;
+}
+
+.app - top - bar - inner - back {
+    position: absolute;
+    left: 10px;
+    font - size: 25px;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    transform: rotate(45deg);
+    display: flex;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.app - top - bar - inner - back: before {
+    content: "\e929";
+    font - family: "Feather";
+}
+
+.app - top - bar - inner - back.animate {
+    transform: rotate(0deg);
+}
+
+i.app - top - bar - search - filter {
+    font - size: 20px;
+    color: var(--text);
+    margin - left: 10px;
+}
+
+.app - top - bar - search {
+    outline: 0px;
+    border: 0px;
+    height: 100 %;
+    background: transparent;
+    padding - left: 10px;
+    font - size: 14px;
+    display: flex;
+    align - items: center;
+    color: var(--text);
+    width: 70 %;
+    white - space: nowrap;
+}
+
+.app - top - bar - inner {
+    width: 80 %;
+    justify - content: space - between;
+    align - items: center;
+    display: flex;
+    height: 100 %;
+    margin - left: 15 %;
+}
+
+.type - filter - img, html body.type - filter - icon {
+    width: 25px;
+    flex: none;
+    margin - right: 20px;
+    font - size: 22px;
+    color: var(--grey);
+}
+
+.type - filter - backdrop {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z - index: 99999999999999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: var(--backdrop);
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.type - filter {
+    background: var(--card);
+    z - index: 99999999999999999999;
+    display: flex;
+    flex - direction: column;
+    justify - content: flex - start;
+    align - items: center;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    border - top - left - radius: 30px;
+    border - top - right - radius: 30px;
+    box - shadow: var(--box - shadow);
+}
+
+.type - filter, .type - filter * {
+    flex: none;
+}
+
+.type - filter - title {
+    /* margin-left: 50px; */
+    font - weight: 600;
+    width: 100 %;
+    /* margin-bottom: 30px; */
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.type - filter - el {
+    justify - content: flex - start;
+    align - items: center;
+    display: flex;
+    padding - top: 10px;
+    padding - bottom: 10px;
+    cursor: pointer;
+    padding - left: 10px;
+    padding - right: 10px
+}
+
+.type - filter.multiple.type - filter - el: not(.selected) * {
+    color: var(--grey)
+}
+
+.type - filter.multiple.type - filter - el: not(.selected).type - filter - color {
+    background: transparent!important;
+    border - color: var(--grey)!important;
+}
+
+.type - filter - el.disabled {
+    opacity: 0.3;
+    filter: grayscale(100);
+}
+
+.type - filter - el: hover {
+    background: var(--hover);
+}
+
+.type - filter - el {
+    width: 250px;
+}
+
+.type - filter - color {
+    width: 14px;
+    height: 14px;
+    border - radius: 4px;
+    display: flex;
+    margin - right: 23px;
+    position: relative;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.type - filter - el.selected.type - filter - color: before {
+    content: "\e925";
+    font - family: "Feather";
+    position: absolute;
+    font - size: 12px;
+    color: var(--white);
+}
+
+.type - filter - close: before {
+    content: "\e9ea";
+    font - family: "Feather";
+    font - size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.drawer {
+    width: 100vw;
+    position: absolute;
+    z - index: 99;
+    border - top - left - radius: 30px;
+    border - top - right - radius: 30px;
+    max - height: 100vh;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    flex - direction: column;
+    box - shadow: var(--box - shadow);
+}
+
+.drawer.section - container {
+    margin - top: 0px;
+}
+
+.drawer: not(.open).drawer - close {
+    display: none;
+}
+
+.drawer - close {
+    top: 20px;
+    right: 40px;
+    z - index: 23333;
+}
+
+.drawer - close - btn {
+    background: var(--menu);
+    width: 50px;
+    height: 50px;
+    box - shadow: var(--box - shadow);
+    border - radius: 50 %;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    flex: none;
+    z - index: 9999999;
+    position: fixed;
+    font - size: 20px;
+    bottom: 30px;
+}
+
+.drawer: not(.open).drawer - close - btn {
+    display: none;
+}
+
+.drawer.open.drawer - inner {
+    overflow: auto;
+}
+
+.drawer - inner {
+    height: 100vh;
+    position: relative;
+    width: 100 %;
+    background: var(--bodygradient);
+    border - top - left - radius: 0px;
+    border - top - right - radius: 0px;
+}
+
+body.dark.drawer - inner {
+    background: var(--background);
+}
+
+.drawer - inner: empty {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.drawer - inner: empty: before {
+    content: "";
+    background - color: inherit;
+    background - image: url(../../assets / img / loading - spinner.gif);
+    z - index: 22;
+    width: 50px;
+    height: 50px;
+    background - size: contain;
+    background - position: center center;
+    background - repeat: no - repeat;
+    z - index: 433333;
+    display: block;
+    margin - top: 90px;
+}
+
+.section - el - chart: empty {
+    border: 0px transparent!Important;
+}
+
+.drawer - close: before {
+    font - size: 22px;
+    content: "\e9ea";
+    font - family: "Feather";
+}
+
+.app - top - bar - search {
+    font - family: var(--font2);
+    opacity: 0.6;
+}
+
+.app - top - bar - search.title, .app - top - bar - search.title: before {
+    color: var(--text);
+    opacity: 1;
+}
+
+.app - top - bar - back - world {
+    border - radius: 10px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    box - shadow: var(--box - shadow);
+    font - weight: 600;
+    font - size: 13px;
+    padding - top: 5px;
+    padding - bottom: 5px;
+    padding - left: 10px;
+    padding - right: 10px;
+    background: var(--card);
+    white - space: nowrap;
+    position: absolute;
+    right: 10px;
+}
+
+.app - top - bar - back - world: before {
+    content: "\e962";
+    font - family: "Feather";
+    margin - right: 10px;
+}
+
+.map - sidebar - numbers {
+    left: 0px;
+    position: fixed;
+    z - index: 400;
+    width: var(--sidebarWidth);
+    background: var(--background);
+    height: var(--sidebarHeight);
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    overflow: hidden;
+}
+
+.console - button - save {
+    position: fixed;
+    display: block;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    background: var(--primary);
+    color: var(--white);
+}
+
+.update - reloader {
+    position: fixed;
+    bottom: 30px;
+    width: 100px;
+    background: #3067ff;
+    z - index: 99999999999999999999999999999999999999999999999999999999999999999;
+    display: flex;
+    font - size: 12px;
+    font - weight: 600;
+    justify - content: center;
+    align - items: center;
+    border - radius: 20px;
+    height: 30px;
+    left: calc(50 % - 50px);
+    cursor: pointer;
+    color: var(--white);
+}
+
+.update - reloader: hover {
+    filter: brightness(0.9);
+}
+
+.map - tooltip - title {
+    width: 100 %;
+    justify - content: center;
+    margin - bottom: 2px;
+    word -break: break-word;
+    overflow: hidden;
+    white - space: normal;
+    max - height: 50px;
+    padding - top: 10px;
+    padding - bottom: 0px;
+}
+
+.map - tooltip - title * {
+    font- size: 16px;
+}
+
+.map - tooltip - title img {
+    width: 20px;
+    flex: none;
+    margin - right: 10px;
+}
+
+.map - tooltip - line {
+    display: flex;
+    justify - content: center;
+    width: 100 %;
+    margin - top: 2px;
+    margin - bottom: 2px;
+    height: 20px;
+    flex: none;
+}
+
+.map - tooltip - new: empty: before {
+    content: "-";
+}
+
+.map - tooltip - new {
+    display: flex;
+    width: 50 %;
+    justify- content: center;
+    border: 2px solid var(--infected);
+    background: var(--infectedtransparent);
+    margin - bottom: 5px;
+    font - size: 16px;
+    border - radius: 15px;
+    align - items: center;
+    color: var(--alt)!important;
+}
+
+.map - tooltip - line: nth - child(3) {
+    margin - top: 5px!important;
+}
+
+.map - tooltip - line: last - child {
+    margin - bottom: 10px;
+}
+
+.map - tooltip - line>span: first - child {
+    display: inline - flex;
+    justify - content: center;
+    font - size: 12px;
+}
+
+.map - tooltip - line>span: not(: first - child) {
+    display: inline - flex;
+    justify - content: flex - start;
+    font - weight: 500;
+    margin - left: 5px;
+    font - size: 12px;
+}
+
+.map - tooltip - line.infected, .map - tooltip - line.dead, .map - tooltip - line.recovered {
+    margin - top: 0px;
+    padding - top: 0px;
+    padding - bottom: 0px;
+}
+
+/*
+.map-tooltip-line.infected span:first-child{
+	color:var(--infected);
+}
+.map-tooltip-line.dead span:first-child{
+	color:var(--dead);
+}
+.map-tooltip-line.recovered span:first-child{
+	color:var(--recovered);
+}
+.map-tooltip-line.sick span:first-child{
+	color:var(--sick);
+}*/
+
+.api - shop - modal - form {
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+    position: relative;
+    width: 80 %;
+}
+
+.api - shop - modal - form>* {
+    margin- top: 10px;
+    margin - bottom: 10px;
+    width: 100 %;
+}
+
+.api - shop - modal - footer {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    width: 80 %;
+    margin - bottom: 40px;
+}
+
+.api - shop - modal - footer>* {
+    margin- left: 10px;
+    margin - right: 10px;
+    width: 50 %;
+}
+
+.api - shop - modal - row {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    width: 100 %;
+    position: relative;
+}
+
+.api - shop - disclaimer {
+    font - size: 12px;
+    width: 100 %;
+    text - align: center;
+}
+
+.api - shop - disclaimer a {
+    text - decoration: underline;
+}
+
+.api - shop - modal - row input {
+    padding: 10px;
+    border - radius: 20px;
+    box - shadow: none;
+    outline: 0px;
+    padding - left: 50px;
+    width: calc(100 % - 60px);
+    background: var(--element);
+    border: 0px;
+    font - size: 12px;
+    font - family: var(--font2);
+}
+
+.api - shop - modal - row input: placeholder {
+    color: #d2d2d2;
+}
+
+.api - shop - container>* {
+    width: 80 %;
+}
+
+.api - shop - modal - first - name {
+    margin - right: 10px;
+    width: 100 %;
+}
+
+.api - shop - modal - last - name {
+    margin - left: 10px;
+    width: 100 %;
+}
+
+.api - shop - modal - email {
+    width: 100 %;
+}
+
+.api - shop - container {
+    border - radius: 20px;
+    width: 100 %;
+    color: var(--white);
+    background: var(--element);
+    padding - top: 10px;
+    padding - bottom: 10px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.api - shop - modal - title {
+    margin - top: 40px;
+    font - size: 25px;
+    font - weight: 500;
+    text - align: center;
+    max - width: 80 %;
+}
+
+.api - shop - modal - validate {
+    background: var(--alt);
+    color: var(--white);
+}
+
+.api - shop - modal - cancel {
+    background: var(--darker);
+    color: var(--grey);
+}
+
+.api - shop - error {
+    color: var(--alt)!important;
+    font - weight: 600;
+    font - size: 12px;
+    min - height: 40px;
+    text - align: center;
+    width: 80 %;
+}
+
+.api - shop {
+    max - width: 80 %;
+    position: relative;
+    padding - top: 50px;
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+}
+
+.api - shop - modal {
+    width: 600px;
+    height: 500px;
+    background: var(--card);
+    border - radius: 10px;
+    box - shadow: var(--box - shadow);
+    max - width: 100vw;
+    position: relative;
+    display: flex;
+    flex - direction: column;
+    justify - content: space - between;
+    align - items: center;
+}
+
+.api - shop - modal - powered {
+    position: absolute;
+    width: 80px;
+    flex: none;
+    right: 10px;
+    top: 10px;
+}
+
+.api - shop - inner {
+    position: relative;
+    width: 100 %;
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+}
+
+.api - shop - title {
+    font - size: 26px;
+    margin - bottom: 20px;
+}
+
+.api - shop - buttons {
+    display: flex;
+    justify - content: flex - start;
+    align - items: center;
+    width: 100 %;
+    margin - top: 20px;
+}
+
+.api - shop - content {
+    max - width: 500px;
+}
+
+.api - shop - link {
+    color: var(--grey);
+    text - decoration: underline;
+    display: inline - block;
+    font - size: 12px;
+    margin - left: 10px;
+}
+
+.api - shop - modal - desc {
+    width: 80 %;
+    text - align: center;
+    font - size: 12px;
+}
+
+.api - shop - modal - code {
+    width: 80 %;
+    margin - top: -50px;
+    justify - content: center;
+}
+
+.api - shop - button {
+    margin: 20px;
+    font - size: 14px;
+    font - weight: 600;
+    color: var(--white);
+    border - radius: 5px;
+    box - shadow: var(--box - shadow);
+    display: flex;
+    height: 40px;
+    min - width: 250px;
+    justify - content: center;
+    align - items: center;
+}
+
+.api - shop - product {
+    width: 200px;
+}
+
+.api - shop - products {
+    margin - top: 30px;
+}
+
+.Content - Unavailable - Icon {
+    width: 100 %;
+    height: 100px;
+    display: flex;
+    align - content: center;
+    justify - content: center;
+}
+
+.Content - Unavailable - Icon * {
+    fill: var(--white);
+    display: flex;
+    align - items: center;
+    justify - content: center;
+}
+
+.Content - Unavailable - Icon svg {
+    width: 100px;
+    height: 80px;
+}
+
+.Content - Unavailable {
+    position: absolute;
+    top: 0px;
+    width: 100 %;
+    height: 100 %;
+    display: flex;
+    align - items: center;
+    justify - content: center;
+    flex - direction: column;
+    left: 0px;
+    z - index: 9999999999999999999999999999999999999999999;
+    background: rgba(0, 0, 0, 0.50);
+}
+
+.Content - Unavailable>* {
+    margin: 10px;
+}
+
+.Content - Unavailable - Wrapper {
+    position: relative;
+    width: 100 %;
+    height: 100 %;
+}
+
+.Content - Unavailable~* {
+    filter: brightness(50 %) grayscale(100);
+    pointer- events: none;
+}
+
+.Content - Unavailable - Wording {
+    color: var(--white);
+    font - size: 20px;
+    text - align: center;
+    font - weight: 600;
+    font - size: 20px;
+    margin - bottom: 30px;
+    margin - top: 30px;
+}
+
+.Content - Unavailable - Loader {
+    width: 100px;
+    height: 100px;
+}
+
+.Content - Unavailable - Loader svg {
+    width: 100 %;
+}
+
+.section - place - details {
+    width: 80 %;
+    display: flex;
+    justify - content: flex - start;
+    align - items: center;
+    margin - top: 30px;
+    z - index: 2;
+}
+
+html body[data - language="GR"] *, html body[data - language="GR"] *: after, html body[data - language="GR"] *: before {
+    text - transform: none!important;
+}
+
+html body.map - sidebar - sort {
+    white - space: nowrap;
+    font - size: 12px!important;
+    background: var(--card);
+    display: flex;
+    width: 70 %;
+    margin - left: 5px;
+    justify - content: center;
+    font - weight: 600;
+    border - radius: 2px;
+    padding - left: 3px;
+    padding - right: 3px;
+    box - shadow: var(--box - shadow);
+    padding - top: 10px;
+    padding - bottom: 10px;
+    cursor: pointer;
+    border - radius: 10px;
+}
+
+.map - sidebar - sort: before {
+    content: "\f0dc";
+    font - family: "FontAwesome";
+    margin - right: 10px;
+}
+
+.map - world - nbs {
+    font - size: 12px;
+    font - weight: 600;
+    box - shadow: var(--box - shadow);
+    padding - top: 4px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    padding - bottom: 4px;
+    padding - left: 8px;
+    padding - right: 8px;
+    background: var(--card);
+    border - radius: 10px;
+    cursor: pointer;
+}
+
+.map - world - nbs: hover {
+    background: var(--hover);
+}
+
+.map - world - nbs: before {
+    content: "\e962";
+    font - family: "Feather";
+    margin - right: 10px;
+    font - size: 14px;
+}
+
+.map - sidebar - sort: hover {
+    background: var(--hover);
+}
+
+/* TODO Get rid of this */
+
+.donate - btn {
+    width: 80 %;
+    background: var(--alt);
+    color: var(--white);
+    margin - top: 20px;
+    display: flex;
+    justify - content: center;
+    font - size: 14px;
+}
+
+.leaflet - interactive[fill - opacity="0"] {
+    pointer - events: none!important;
+}
+
+/* TODO Get rid of this */
+
+.donate - btn img {
+    width: 40px;
+    flex: none;
+    margin - left: -22px;
+    margin - right: 10px;
+    margin - top: -10px;
+}
+
+.section - container - news - list - title {
+    height: 40px;
+    display: block;
+    margin - bottom: 10px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    flex: none;
+}
+
+.section - container - news - list - title: after {
+    content: "\e967";
+    font - family: "Feather";
+    margin - left: 5px;
+    font - size: 14px;
+}
+
+.section - container - news {
+    display: flex;
+    justify - content: center;
+    width: 100 %;
+    flex - direction: column;
+    align - items: center;
+}
+
+.section - container - news - image {
+    width: 100 %;
+    height: 200px;
+    background: var(--background);
+    flex: none;
+    filter: brightness(0.5);
+    margin - right: 20px;
+    background - size: cover!important;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.section - container - news - texts {
+    overflow: hidden;
+    max - height: 80 %;
+    width: 70 %;
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+
+.section - container - news - texts h3 {
+    font - size: 15px;
+    margin - bottom: 5px;
+    white - space: pre - wrap;
+    color: var(--white);
+}
+
+.section - container - news - list - details * {
+    color: var(--grey);
+    font - size: 12px;
+}
+
+.section - container - news - list - details *: not(: first - child): before {
+    content: "|";
+    margin - left: 5px;
+    margin - right: 5px;
+}
+
+.section - container - news - list a {
+    width: 48 %;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    box - shadow: var(--box - shadow);
+    flex: none;
+    margin - top: 5px;
+    margin - bottom: 5px;
+    background: var(--grey);
+}
+
+.section - container - news - list a: hover.section - container - news - image {
+    transform: scale(1.1);
+}
+
+.section - container - news - list {
+    width: 100 %;
+    display: flex;
+    flex - wrap: wrap;
+    justify - content: space - evenly;
+}
+
+.section - container - news - list - details {
+    display: flex;
+    font - size: 12px;
+    white - space: nowrap;
+}
+
+.section - container - news - list article {
+    border: 1px solid var(--border);
+    background: var(--grey);
+    display: flex;
+    flex - direction: column;
+    position: relative;
+    width: 100 %;
+}
+
+.section - container - news - list article: hover {
+    background: var(--hover);
+}
+
+.section - place - details - subtitle {
+    font - weight: 400;
+    font - size: 15px;
+    color: var(--grey);
+}
+
+.section - place - details - flag {
+    width: 30px;
+    flex: none;
+}
+
+.section - place - details - name {
+    flex - direction: column;
+    font - weight: 500;
+    white - space: normal;
+    margin - bottom: 0px;
+    margin - top: 0px;
+    font - size: 16px;
+    text - align: left;
+}
+
+.section - place - details - lastupdate {
+    font - size: 11px;
+    color: var(--grey);
+    text - overflow: ellipsis;
+    overflow: hidden;
+    width: 100 %;
+    min - height: 12px;
+}
+
+.section - place - details - container {
+    display: flex;
+    flex - direction: column;
+    justify - content: flex - start;
+    margin - left: 10px;
+    width: 55 %;
+}
+
+.leaflet - tile {
+    border: solid transparent 0px!important;
+    outline: 1px solid transparent!important;
+}
+
+.leaflet - tile - container img {
+    box - shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.leaflet - tooltip {
+    background: transparent!important;
+    border: none!Important;
+    box - shadow: none!Important;
+}
+
+.header - legalese {
+    width: 80 %;
+    margin - bottom: 20px;
+}
+
+.header - legalese, .header - legalese * {
+    font- size: 11px;
+    color: var(--grey)!Important;
+    text - align: center;
+}
+
+html body.leaflet - tooltip: empty {
+    display: none!important;
+}
+
+.leaflet - tooltip: before, .leaflet - tooltip: after {
+    content: none!Important;
+    display: none;
+}
+
+.admin - history - modal {
+    background: #fff;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    flex - direction: column;
+    /* justify-content: center; */
+    align - items: center;
+}
+
+.admin - history - modal - title {
+    /* margin-left: -40px; */
+    font - size: 20px;
+    height: 60px;
+    justify - content: center;
+    display: flex;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+}
+
+.admin - history - modal table td {
+    border: 1px solid var(--selected);
+}
+
+.admin - history - report - row td {
+    padding: 5px;
+}
+
+.admin - history - report - row input {
+    border: 0px;
+    outline: 0px;
+}
+
+.admin - history - report - row.active, .admin - history - report - row.active * {
+    background: var(--selected);
+}
+
+.admin - history - modal - title: after {
+    display: flex;
+    content: "Systematically check that your changes are correct in the app in the next update";
+    font - size: 14px;
+    color: red;
+}
+
+.admin - history - modal - container.invalid {
+    border: 1px solid red;
+}
+
+.admin - history - modal - x {
+    font - size: 35px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.admin - history - modal - container table {
+    width: 100 %;
+    overflow: auto;
+}
+
+.admin - history - modal - container input:: -webkit - inner - spin - button {
+    display: none;
+}
+
+.admin - history - modal - container input:: -webkit - clear - button {
+    display: none;
+}
+
+.admin - history - modal - container {
+    height: calc(100 % - 170px);
+    overflow: auto;
+    display: flex;
+    flex - direction: column;
+    justify - content: flex - start;
+    align - items: center;
+    width: 80 %;
+}
+
+.admin - history - modal - btn {
+    margin - left: 40px;
+    position: absolute;
+    right: 100px;
+    top: 30px;
+}
+
+.admin - history - modal.unclickable {
+    pointer - events: none;
+    background: #fafafa;
+}
+
+.section - notes - list {
+    font - size: 12px;
+    text - align: center;
+    max - width: 80 %;
+    margin - top: 10px;
+    color: var(--grey);
+}
+
+.section - notes - list: empty {
+    display: none;
+}
+
+.stats.section - container>*: last - child {
+    margin - bottom: 130px;
+}
+
+.section - notes - list a[href="javascript:void(0)"] {
+    text - decoration: none;
+    pointer - events: none;
+}
+
+.section - el - link {
+    cursor: pointer;
+}
+
+.section - el - link: hover {
+    background: var(--hover);
+}
+
+.drawer - close - btn: before {
+    content: "\e9ea";
+    font - family: "Feather";
+}
+
+.section - el: not(.zero).plus.section - el - number: before {
+    content: "+";
+}
+
+.section - el.plus: empty.section - el - number: before {
+    content: "-";
+}
+
+.section - el.plus * {
+    /*color:var(--alt);*/
+}
+
+.app - top - bar - special - img {
+    width: 20px;
+    height: 20px;
+    margin - left: 17px;
+    border - radius: 50 %;
+    flex: none;
+    background: var(--alt);
+    padding: 3px;
+}
+
+/* TODO Get rid of this */
+
+.donate - btn - round {
+    position: fixed;
+    left: 20px;
+    bottom: 15px;
+    border - radius: 50 %;
+    flex: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    background: var(--alt);
+    box - shadow: var(--box - shadow);
+}
+
+* [data - current - view="compare"].donate - btn - round {
+    display: none;
+}
+
+.drawer~header.donate - btn - round {
+    left: 50px;
+    bottom: 23px;
+}
+
+.open.donate - btn - round {
+    display: none;
+}
+
+.donate - btn - round img {
+    width: 35px;
+    height: 35px;
+    flex: none;
+}
+
+.chart - scale - selector {
+    width: 120px;
+    cursor: pointer;
+    height: 30px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    background: var(--menu);
+    border - radius: 20px;
+    color: var(--text);
+    font - size: 12px;
+    margin - top: 3px;
+    margin - bottom: 3px;
+    box - shadow: var(--box - shadow);
+    margin - right: 5px;
+    margin - left: 5px;
+    letter - spacing: -0.5px;
+    white - space: nowrap;
+}
+
+.chart - title {
+    position: absolute;
+    top: -10px;
+    font - size: 14px;
+    display: flex;
+    align - items: center;
+    z - index: 333;
+    white - space: normal;
+}
+
+.chart - title i {
+    margin - left: 3px;
+    cursor: pointer;
+}
+
+.chart - buttons {
+    margin - left: 10px;
+}
+
+.chart - buttons.chart - scale - selector {
+    width: auto;
+    padding - left: 10px;
+    padding - right: 10px;
+}
+
+.perM: after {
+    content: "/M";
+}
+
+.like - this - page {
+    width: 100 %;
+    justify - content: center;
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+    margin - top: 50px;
+    margin - bottom: 150px;
+}
+
+.warning.map - sidebar - section - item - nb: before, .warning.section - el - number: before {
+    content: "\e904";
+    font - family: "Feather";
+    font - size: 0.7em;
+    padding - top: 3px;
+}
+
+.warning.section - el - number: before {
+    font - size: 20px;
+}
+
+.like - this - page - container {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    max - width: 500px;
+    width: 100 %;
+}
+
+.like - this - page - share {
+    margin - top: 20px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    background: var(--card);
+    box - shadow: var(--box - shadow);
+    color: var(--text);
+}
+
+.like - this - page - share: before {
+    content: "\e9b2";
+    font - family: "Feather";
+    margin - right: 10px;
+}
+
+.like - this - page - container>* {
+    width: 50 %;
+    margin: 5px;
+    font- size: 14px;
+}
+
+.share - modal - inner {
+    justify - content: center;
+    width: 400px;
+    height: 300px;
+    max - width: 90vw;
+    border - radius: 20px;
+}
+
+.share - modal - list {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.share - modal - btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: 10px;
+    justify - content: center;
+    align - items: center;
+    cursor: pointer;
+    border - radius: 10px;
+    box - shadow: var(--box - shadow);
+}
+
+.share - modal - btn i {
+    font - size: 20px;
+}
+
+.share - modal h3 {
+    white - space: normal;
+    text - align: center;
+    max - width: 80 %;
+}
+
+.like - this - page h3 {
+    white - space: normal;
+    text - align: center;
+    max - width: 80 %;
+}
+
+.share - modal - btn img {
+    width: 28px;
+    height: 28px;
+}
+
+.share - modal - close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border - radius: 50 %;
+    cursor: pointer;
+}
+
+.share - modal - close: hover {
+    background: var(--hover);
+}
+
+.share - modal - btn: hover {
+    filter: brightness(0.8);
+}
+
+.section - place - btns - container {
+    display: inline - flex;
+    margin - left: 10px;
+    font - size: 40px;
+    padding: 10px;
+    border - radius: 50 %;
+    cursor: pointer;
+}
+
+.section - place - btns - container: hover {
+    background: var(--hover);
+}
+
+.coronalytics {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align - items: center;
+    flex - direction: column;
+    position: relative;
+    justify - content: center;
+}
+
+.compare - picker - modal {
+    border - radius: 20px;
+    max - width: 500px;
+    height: 60vh!important;
+    max - height: 60vh;
+}
+
+.compare - picker - modal - footer {
+    display: flex;
+    width: 100 %;
+    justify - content: center;
+}
+
+.compare - picker - modal - footer>* {
+    width: 50 %;
+    margin- left: 5px;
+    margin - right: 5px;
+}
+
+.coronalytics - container {
+    display: flex;
+    align - items: center;
+    flex - direction: column;
+    width: 100 %;
+    height: 100 %;
+    position: relative;
+}
+
+.coronalytics - container: empty {
+    width: 100vw;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.coronalytics - container: empty: before {
+    content: "";
+    background - color: inherit;
+    background - image: url(../../assets / img / loading - spinner.gif);
+    z - index: 22;
+    width: 50px;
+    height: 50px;
+    background - size: contain;
+    background - position: center center;
+    background - repeat: no - repeat;
+    z - index: 433333;
+    display: block;
+    margin - top: 90px;
+}
+
+.coronalytics - example img {
+    width: 20px;
+    margin - right: 3px;
+    flex: none;
+}
+
+.coronalytics - options {
+    position: fixed;
+    left: var(--sidebarWidth);
+    width: calc(100 % - var(--sidebarWidth));
+    top: 20px;
+    margin - left: 10px;
+    display: flex;
+    z - index: 9;
+}
+
+.coronalytics.full.coronalytics - options {
+    left: 0px;
+    width: 100 %;
+}
+
+.coronalytics - chart - type {
+    font - weight: 600;
+    font - size: 12px;
+    margin - left: 20px;
+    cursor: pointer;
+    background: var(--card);
+    font - size: 16px;
+    padding: 10px 20px 10px 20px;
+    box - shadow: var(--box - shadow);
+    cursor: pointer;
+    background: var(--card);
+    white - space: nowrap;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    flex - wrap: none;
+}
+
+.coronalytics - regions {
+    width: 90 %;
+    margin - left: 5 %;
+    display: flex;
+    align - items: center;
+    cursor: pointer;
+    flex - direction: column;
+    justify - content: flex - start;
+}
+
+.coronalytics - source, .coronalytics - source - lastupdate {
+    display: flex;
+    align - items: center;
+    margin - top: 2px;
+    margin - bottom: 2px;
+}
+
+.coronalytics - chart - type i {
+    margin - right: 10px;
+}
+
+.coronalytics - chart - type: hover {
+    background: var(--hover);
+}
+
+.coronalytics - chart - type: after {
+    content: "\e928";
+    margin - left: 10px;
+    font - family: "Feather";
+    font - size: 15px;
+    color: var(--grey);
+}
+
+.compare - empty {
+    width: 100 %;
+    position: relative;
+    max - width: 400px;
+}
+
+.coronalytics - search {
+    box - shadow: var(--box - shadow);
+    background: var(--background);
+    width: calc(100 % - 30px);
+    padding - top: 15px;
+    border - radius: 10px;
+    padding - bottom: 15px;
+    display: flex;
+    color: var(--grey);
+    flex: none;
+    position: relative;
+    display: flex;
+    justify - content: flex - start;
+    margin: 15px;
+    font - size: 14px;
+    margin - top: 50px;
+    cursor: text;
+}
+
+.coronalytics - search: before {
+    content: "\e9ae";
+    font - family: "Feather";
+    color: var(--grey);
+    margin - left: 30px;
+    margin - right: 20px;
+}
+
+.compare - picker - selected - list {
+    height: auto;
+    padding - bottom: 10px;
+    padding - top: 10px;
+    display: flex;
+    flex - direction: row;
+    flex - wrap: wrap;
+    justify - content: center;
+}
+
+.compare - picker - modal - selected {
+    justify - content: flex - start;
+    align - items: center;
+    font - size: 12px;
+    box - shadow: var(--box - shadow);
+    font - weight: 600;
+    color: var(--white);
+    padding: 5px 10px 5px 10px;
+    border - radius: 20px;
+    margin: 5px;
+    display: flex;
+}
+
+.compare - picker - modal - selected img {
+    width: 25px;
+    margin - right: 5px;
+}
+
+.compare - picker - search {
+    box - shadow: var(--box - shadow);
+    background: var(--background);
+    width: calc(100 % - 20px);
+    border - radius: 10px;
+    padding - bottom: 15px;
+    display: flex;
+    color: var(--grey);
+    flex: none;
+    position: relative;
+    padding - top: 15px;
+    display: flex;
+    justify - content: flex - start;
+}
+
+.compare - picker - search: before {
+    content: "\e9ae";
+    font - family: "Feather";
+    color: var(--grey);
+    margin - left: 30px;
+    margin - right: 20px;
+}
+
+.compare - picker - search input {
+    background: transparent;
+    outline: 0px;
+    border: 0px;
+    color: var(--text);
+    font - size: 14px;
+}
+
+.compare - picker - search input: placeholder {
+    color: var(--grey);
+}
+
+.search - dropdown - container {
+    position: fixed;
+    z - index: 9999;
+    box - shadow: var(--box - shadow);
+    background: var(--menu);
+    max - height: 400px;
+    overflow: auto;
+}
+
+.search - dropdown - item: hover {
+    background: var(--hover);
+}
+
+.search - dropdown - item {
+    display: flex;
+    justify - content: flex - start;
+    align - items: center;
+    cursor: pointer;
+    padding: 0px 20px;
+    height: 35px;
+}
+
+.search - dropdown - desc: empty {
+    display: none;
+}
+
+.search - dropdown - title {
+    font - size: 13px;
+    font - weight: 600;
+    white - space: nowrap;
+    width: 100 %;
+    overflow: hidden;
+    text - overflow: ellipsis;
+}
+
+.search - dropdown - desc {
+    color: var(--grey);
+    font - size: 12px;
+    margin - left: 10px;
+    white - space: nowrap;
+    width: 100 %;
+}
+
+.search - dropdown - item img {
+    width: 25px;
+    flex: none;
+}
+
+.search - dropdown - item i {
+    font - size: 20px;
+    color: var(--grey);
+}
+
+.search - dropdown - item img, .search - dropdown - item i {
+    margin - right: 10px;
+}
+
+.coronalytics - search input {
+    position: absolute;
+    width: calc(100 % - 80px);
+    height: 100 %;
+    top: 0px;
+    background: transparent;
+    outline: 0px;
+    border: 0px;
+    padding - left: 70px;
+    color: var(--text);
+}
+
+.radar - chart - label {
+    position: absolute;
+    z - index: 22;
+    padding: 5px 10px 5px 10px;
+    box - shadow: var(--box - shadow);
+    background: var(--card);
+    cursor: pointer;
+    font - weight: 600;
+    font - size: 12px;
+}
+
+.radar - chart - label: hover {
+    background: var(--hover);
+}
+
+.radar - chart - label i {
+    margin - right: 5px;
+}
+
+.coronalytics~.app - top - bar {
+    display: none!important;
+}
+
+.coronalytics - example {
+    display: inline - flex;
+    font - size: 12px;
+    font - weight: 500;
+    background: var(--background);
+    margin: 5px;
+    color: var(--text);
+    border - radius: 10px;
+    cursor: pointer;
+    justify - content: center;
+    align - items: center;
+    height: 30px;
+    padding - left: 15px;
+    padding - right: 15px;
+}
+
+.coronalytics - example: hover {
+    filter: brightness(0.9);
+}
+
+.coronalytics - example - separator: before {
+    content: "+";
+    border - radius: 50 %;
+    width: 13px;
+    display: inline - flex;
+    justify - content: center;
+    align - items: center;
+    background: transparent;
+    height: 13px;
+    flex: none;
+    /*border: 1px solid var(--grey);*/
+    color: var(--grey);
+    margin - left: 8px;
+    margin - right: 8px;
+    font - size: 11px;
+    letter - spacing: -0.5px;
+}
+
+.swipe - icon {
+    position: absolute;
+    left: calc(50 % - 40px);
+    width: 60px;
+    height: 60px;
+    z - index: 999999;
+    top: 40 %;
+    transform - origin: 50 % 50 %;
+    perspective: 100px;
+    animation: swipe - x 1.25s ease -in -out backwards;
+    animation - iteration - count: infinite;
+    background: rgba(34, 34, 34, 0.15);
+    border - radius: 50 %;
+}
+
+.swipe - tap {
+    fill: transparent;
+    stroke: #fff;
+    stroke - width: 5px;
+    stroke - linecap: round;
+    stroke - linejoin: round;
+    opactiy: 0.4;
+}
+
+.swipe - hand {
+    fill: transparent;
+    stroke: #fff;
+    stroke - width: 10px;
+    stroke - linecap: round;
+    stroke - linejoin: round;
+    opacity: 1;
+}
+
+@keyframes swipe - x {
+    0 % {
+        transform: translateX(0px);
+    }
+    25 % {
+        transform: translateX(20px);
+    }
+    50 % {
+        transform: translateX(0px);
+    }
+    75 % {
+        transform: translateX(-20px);
+    }
+}
+
+.coronalytics - empty {
+    width: 100 %;
+    height: 100 %;
+    display: flex;
+    justify - content: center;
+    flex - direction: column;
+    align - items: center;
+}
+
+.coronalytics - empty - list {
+    display: flex;
+    justify - content: center;
+    flex - direction: column;
+    align - items: center;
+    margin - top: 20px;
+}
+
+.coronalytics.noregion.coronalytics - options {
+    opacity: 0.5;
+    pointer - events: none;
+}
+
+.coronalytics - menu {
+    position: fixed;
+    top: 0px;
+    box - shadow: var(--box - shadow);
+    background: var(--card);
+    left: 0px;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    width: var(--sidebarWidth);
+    z - index: 5;
+    height: 100vh;
+    font - size: 11px;
+    color: var(--grey);
+    text - align: center;
+    overflow: auto;
+    z - index: 999;
+}
+
+.coronalytics - sources {
+    padding: 30px 30px 30px 30px;
+    text - align: left;
+}
+
+.coronalytics - place - details h3 {
+    color: var(--text);
+    font - weight: 600;
+}
+
+.coronalytics.coronalytics - sources - goto {
+    width: 100 %;
+    border: 1px solid var(--white);
+    background: transparent;
+    outline: 0px;
+    margin - left: 0px;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    color: var(--white);
+    font - weight: 500;
+    font - size: 14px;
+}
+
+.coronalytics.coronalytics - sources - goto: hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.coronalytics - sources - goto: after {
+    content: "\e90f";
+    font - family: "Feather";
+    margin - left: 20px;
+}
+
+.coronalytics - source: before, .coronalytics - source - lastupdate: before, .coronalytics - sources - note: not(: empty): before {
+    font - family: "Feather";
+    color: var(--white);
+    font - size: 16px;
+    margin - right: 5px;
+    margin - left: -10 %;
+    position: absolute;
+    margin - top: -1px;
+}
+
+.coronalytics.coronalytics - source - lastupdate {
+    display: flex;
+    flex - direction: column;
+    width: 100 %;
+    justify - content: flex - start;
+    align - items: flex - start;
+}
+
+.coronalytics - sources - note: empty {
+    display: none;
+}
+
+.coronalytics - sources - note: not(: empty): before {
+    content: "\e904";
+}
+
+.coronalytics - source: before {
+    content: "\e96b";
+}
+
+.coronalytics - source - lastupdate: before {
+    content: "\e933";
+}
+
+.coronalytics - source a {
+    font - weight: 600;
+}
+
+.coronalytics - region.coronalytics - source {
+    display: flex;
+    flex - wrap: wrap;
+    flex - direction: column;
+    justify - content: flex - start;
+    align - items: flex - start;
+}
+
+.coronalytics - region: not(.open).coronalytics - place - details {
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    margin - bottom: 0px;
+}
+
+.coronalytics - place - details {
+    margin - bottom: 20px;
+    width: 90 %;
+    margin - left: -5 %;
+    display: flex;
+    flex - direction: column;
+}
+
+.coronalytics - place - details * {
+    font- weight: 400;
+    text - align: left;
+    display: inline - block;
+}
+
+.coronalytics - place - details>* {
+    width: 90 %;
+    margin- left: 10 %;
+    margin - top: 5px;
+    margin - bottom: 5px;
+}
+
+.coronalytics - place - details a {
+    font - weight: 600;
+    text - decoration: underline;
+    color: var(--white);
+}
+
+.coronalytics - place - details a: hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.coronalytics - sources - container>*: last - child {
+    margin - bottom: 100px;
+}
+
+.compare - page - title - back {
+    width: 30px;
+    height: 30px;
+    display: inline - flex;
+    justify - content: center;
+    align - items: center;
+    margin - left: 10px;
+    border - radius: 50 %;
+    margin - right: 10px;
+    cursor: pointer;
+    box - shadow: var(--box - shadow);
+    color: var(--grey);
+    position: absolute;
+    left: 40px;
+}
+
+.compare - page - options - row {
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.compare - page - options - row label {
+    font - weight: 600;
+    font - size: 12px;
+}
+
+.compare - page - options - row>* {
+    margin- left: 10px;
+    margin - right: 10px;
+}
+
+.compare - page - title - back: hover {
+    filter: brightness(0.9);
+}
+
+.compare - page - title - back: before {
+    content: "\e929";
+    font - family: "Feather";
+    color: var(--grey);
+    font - size: 18px;
+}
+
+.compare - picker - regions - list {
+    overflow: auto;
+    width: 100 %;
+    height: 100 %;
+}
+
+.compare - picker - regions - list>*.selected {
+    outline: 2px solid var(--bluehoverborder);
+    background: var(--bluehoverbg);
+}
+
+.coronalytics - menu h2 {
+    text - align: center;
+    display: flex;
+    font - size: 20px!important;
+    color: var(--text);
+    font - weight: 600;
+    letter - spacing: -0.5px;
+    justify - content: center;
+    margin - top: 22px;
+}
+
+.coronalytics - region - top - row {
+    display: flex;
+    justify - content: space - between;
+    width: 100 %;
+    align - items: center;
+    height: 45px;
+}
+
+.coronalytics - region - identity, .coronalytics - region - buttons {
+    display: flex;
+    align - items: center;
+}
+
+.coronalytics - region {
+    display: inline - flex;
+    overflow: hidden;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    justify - content: flex - start;
+    align - items: center;
+    font - size: 12px;
+    box - shadow: var(--box - shadow);
+    font - weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    border - radius: 20px;
+    padding - left: 12px;
+    min - height: 40px;
+    width: calc(100 % - 10px);
+    margin - top: 10px;
+    margin - bottom: 10px;
+    position: relative;
+    flex - direction: column;
+    flex: none;
+}
+
+.coronalytics - region - top - row: after {
+    content: "\e928";
+    font - family: "Feather";
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+    position: absolute;
+    right: 20px;
+    font - size: 16px;
+    color: var(--white);
+}
+
+.coronalytics - region.open.coronalytics - region - top - row: after {
+    transform: rotate(180deg);
+}
+
+.coronalytics - region.fade {
+    transform: scale(0);
+}
+
+.coronalytics - region - identity i {
+    margin - right: 8px;
+    background: rgba(0, 0, 0, 0.22);
+    height: 24px;
+    width: 24px;
+    border - radius: 50 %;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    z - index: 44;
+}
+
+.coronalytics - region - identity i: hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.coronalytics - region - buttons i {
+    color: var(--white);
+    font - size: 16px;
+    margin - right: 10px;
+}
+
+.coronalytics - region: hover {
+    filter: brightness(0.9);
+}
+
+.coronalytics - region - title {
+    flex - direction: row - reverse;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.coronalytics - region img {
+    width: 25px;
+    margin - right: 10px;
+    flex: none;
+}
+
+.coronalytics - charts {
+    width: calc(100 % - var(--sidebarWidth)) !important;
+    margin - left: var(--sidebarWidth);
+    height: 100 %;
+    z - index: 2;
+    overflow: hidden;
+    position: relative;
+}
+
+.coronalytics.full.coronalytics - charts {
+    margin - left: 0px;
+    width: 100 %;
+}
+
+.coronalytics.full.coronalytics - menu {
+    left: calc(var(--sidebarWidth) - 100 %);
+}
+
+.action - buttons {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z - index: 999;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.is - embedded.action - buttons {
+    display: none;
+}
+
+.drawer.open~.action - buttons, .drawer.semi~.action - buttons {
+    display: none;
+}
+
+.action - buttons>* {
+    margin- left: 4px;
+    margin - right: 4px;
+    font - size: 12px;
+}
+
+.action - buttons - share {
+    background: var(--white);
+    color: #42516a;
+}
+
+.action - buttons - share a {
+    color: var(--alt);
+    margin - left: 5px;
+    font - weight: 600;
+}
+
+/* TODO Get rid of this */
+
+.action - buttons - donate {
+    background: var(--alt);
+    color: var(--white);
+}
+
+.action - buttons - donate img {
+    margin - right: 5px;
+    margin - left: -5px;
+    flex: none;
+    height: 30px;
+    margin - top: -7px;
+}
+
+.section - container - breadcrumb {
+    width: 90 %;
+    display: flex;
+    justify - content: space - between;
+    align - items: center;
+    z - index: 333;
+    margin - top: 50px;
+}
+
+.section - container - breadcrumb - nav {
+    display: flex;
+}
+
+.section - container - breadcrumb - nav img {
+    width: 30px!Important;
+}
+
+.section - container - breadcrumb - nav>* {
+    padding: 3px 15px 3px 15px;
+    box- shadow: var(--box - shadow);
+    border - radius: 20px;
+    cursor: pointer;
+    display: flex;
+    margin - right: 5px;
+    margin - left: 5px;
+    justify - content: center;
+    align - items: center;
+    background: var(--card);
+    font - weight: 600;
+    font - size: 14px;
+    height: 30px;
+}
+
+.section - container - breadcrumb - nav>*: hover {
+    filter: brightness(0.8);
+}
+
+.section - container - breadcrumb - nav>*.world: before {
+    content: "\e962";
+    font - family: "Feather";
+    margin - right: 10px;
+}
+
+.section - container - breadcrumb - nav>*.map - icon: before {
+    content: "\e9ea";
+    font - family: "Feather";
+}
+
+.section - container - breadcrumb - nav>* img {
+    width: 27px!important;
+    flex: none;
+    margin - right: 10px
+}
+
+body.dark.section - el {
+    background: var(--hover);
+    box - shadow: none;
+}
+
+body.dark.region - page - local - map - container - list {
+    background: var(--hover);
+}
+
+.compare - page - options - row - desktop {
+    display: flex;
+    justify - content: center;
+}
+
+.compare - page - options - row - desktop>* {
+    margin- right: 10px;
+    margin - left: 10px;
+}
+
+.compare - page - options - row - mobile {
+    font - size: 24px;
+    display: flex;
+}
+
+.compare - page - options - row - mobile: before {
+    content: "\e9b0";
+    font - family: "Feather";
+    margin - right: 10px;
+}
+
+.coronalytics - menu - collapse {
+    position: fixed;
+    bottom: 30px;
+    z - index: 9999;
+}
+
+.coronalytics - menu: not(.open).coronalytics - menu - collapse {
+    display: none;
+}
+
+.coronalytics - menu - collapse: before {
+    content: "\e9ea";
+    font - family: "Feather";
+    font - size: 20px;
+    background: var(--menu);
+    width: 50px;
+    height: 50px;
+    box - shadow: var(--box - shadow);
+    border - radius: 50 %;
+    color: var(--text);
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.coronalytics - fab {
+    position: fixed;
+    bottom: 15px;
+    right: 25px;
+    background: var(--alt);
+    width: 65px;
+    z - index: 99999999999999999999;
+    height: 65px;
+    border - radius: 50 %;
+    box - shadow: var(--box - shadow);
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.coronalytics - fab: not(.open) {
+    cursor: pointer;
+}
+
+.coronalytics - fab: not(.open): hover {
+    filter: brightness(0.9);
+}
+
+.can - select {
+    -webkit - touch - callout: all;
+    -webkit - user - select: all;
+    -khtml - user - select: all;
+    -moz - user - select: all;
+    -ms - user - select: all;
+    user - select: all;
+}
+
+.ph - banner {
+    display: none;
+}
+
+* [data - current - view="analytics"].ph - banner {
+    right: unset;
+    left: 55px;
+    bottom: 15px;
+    display: block;
+    position: fixed;
+    z - index: 9999;
+}
+
+@media(max - width: 991px) {
+    .ph - banner {
+        display: none
+    }
+}
+
+.coronalytics - fab: not(.open) {
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.coronalytics - fab - input input {
+    background: transparent;
+    outline: 0px;
+    border: 0px;
+    box - shadow: none;
+    font - size: 14px;
+    color: var(--white);
+    letter - spacing: -0.5px;
+    /* padding-left: 30px; */
+    width: 100 %;
+    padding - left: 70px;
+    padding - right: 70px;
+}
+
+.coronalytics - fab - input input:: placeholder {
+    color: var(--white);
+    opacity: 0.5;
+}
+
+.coronalytics - fab - input input: -ms - input - placeholder {
+    color: var(--white);
+}
+
+.coronalytics - fab - input input:: -ms - input - placeholder {
+    color: var(--white);
+}
+
+.coronalytics - fab: not(.open).coronalytics - fab - input {
+    display: none;
+}
+
+.coronalytics - fab.open {
+    align - items: flex - start;
+    justify - content: flex - start;
+    background: var(--menu);
+}
+
+.coronalytics - fab i {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--text);
+    font - size: 40px;
+    transition: var(--transition);
+    -webkit - transition: var(--transition);
+}
+
+.coronalytics - fab: not(.open) i {
+    display: none;
+}
+
+.coronalytics - fab.open.coronalytics - fab - input {
+    display: flex;
+    align - items: center;
+    z - index: 3333;
+    background: var(--alt);
+    height: 100 %;
+    position: relative;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+}
+
+.coronalytics - fab.open.coronalytics - fab - input, .coronalytics - fab.open {
+    width: 320px;
+}
+
+.coronalytics - source - country: before {
+    content: "\e97a";
+    font - family: "Feather";
+    color: var(--white);
+    font - size: 16px;
+    margin - right: 5px;
+    margin - left: -10 %;
+    position: absolute;
+    margin - top: -1px;
+}
+
+.coronalytics - fab.coronalytics - fab - input: before {
+    content: "\e9ae";
+    font - family: "Feather";
+    font - size: 24px;
+    margin - right: 10px;
+    position: absolute;
+    color: var(--white);
+    margin - left: 30px;
+    left: 0px;
+    flex: none;
+}
+
+.coronalytics - fab.open: before {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    content: "";
+    background: var(--backdrop);
+}
+
+.coronalytics - fab.open {
+    border - radius: 10px;
+}
+
+.coronalytics - search - fab {
+    bottom: 80px!important;
+    top: unset!important;
+}
+
+.coronalytics - fab: not(.open): before {
+    content: "\e9ae";
+    font - family: "Feather";
+    font - size: 24px;
+    color: var(--white);
+}
+
+/* TODO Get rid of this */
+
+.coffee - banner {
+    width: 100 %;
+    color: var(--text);
+    left: 0px;
+    font - size: 12px;
+    position: fixed;
+    height: 100vh;
+    bottom: 0px;
+    z - index: 999;
+    background: var(--backdrop);
+    justify - content: center;
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+    box - shadow: var(--box - shadow);
+}
+
+.coffee - banner - inner {
+    width: 80 %;
+    padding - top: 10px;
+    padding - bottom: 10px;
+    display: flex;
+    background: var(--alt);
+    border - radius: 20px;
+    position: relative;
+    flex - direction: column;
+    justify - content: center;
+    align - items: center;
+    max - width: 500px;
+}
+
+.coffee - banner img {
+    width: 120px;
+    flex: none;
+}
+
+.coffee - banner - main * {
+    color: var(--black) !important;
+}
+
+.coffee - banner - main {
+    background: var(--white);
+    width: 80 %;
+    display: flex;
+    justify - content: center;
+    align - items: center;
+    margin - top: 20px;
+    margin - bottom: 40px;
+    flex: none;
+    position: relative;
+    font - weight: 600;
+    animation: attention 2s ease infinite;
+}
+
+@keyframes attention {
+    9 % {
+        transform: none;
+    }
+    12 % {
+        transform: scale(1.05);
+    }
+    16 % {
+        transform: scale(0.95);
+    }
+    20 % {
+        transform: scale(1.03);
+    }
+    24 % {
+        transform: scale(1);
+    }
+}
+
+.coffee - banner - main: after {
+    content: "\e90f";
+    font - family: "Feather";
+    font - size: 20px;
+    margin - left: 20px;
+}
+
+.coffee - banner span {
+    font - size: 1.3em;
+    color: var(--white);
+}
+
+.coffee - banner strong {
+    font - size: 1.3em;
+    margin - top: 5px;
+    margin - bottom: 4px;
+    color: var(--white);
+}
+
+.coffee - banner - x {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font - size: 20px;
+    border - radius: 50 %;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.coffee - banner - x: hover {
+    background: var(--backdrop);
+}
+
+.header - powered {
+    width: 100 %;
+    padding - left: 67px;
+    font - size: 12px;
+    display: flex;
+    align - items: center;
+    color: #42516a;
+}
+
+.dark.header - powered {
+    filter: grayscale(1) brightness(6);
+}
+
+/* TODO Get rid of this */
+
+.dark.action - buttons - donate, .dark.donate - btn {
+    background: var(--alt);
+}
+
+.header - powered a {
+    color: var(--alt);
+    font - weight: 600;
+}
+
+@media(min - width: 992px) {
+    .coronalytics - menu - collapse {
+        display: none;
+    }
+    .compare - page - options - row - mobile {
+        display: none;
+    }
+    .chart - title {
+        font - size: 22px;
+    }
+    .map - sidebar.filtering.app - top - bar {
+        visibility: hidden;
+    }
+    .section - el - link.section - el - name: after {
+        content: "\e967";
+        font - family: "Feather";
+        color: var(--grey);
+        margin - left: 5px;
+    }
+    #mainContainer.map - sidebar {
+        top: var(--sidebarHeight);
+        height: calc(100vh - var(--sidebarHeight));
+    }
+    .app - top - bar - inner {
+        margin - left: 20px;
+        width: calc(100 % - 30px);
+    }
+    .section - container {
+        margin - top: 0px;
+    }
+    .drawer {
+        left: 0px;
+        display: flex;
+        flex - direction: row;
+        width: 100vw;
+        flex: none;
+        background: var(--card);
+    }
+    .drawer - close - btn {
+        display: none!important;
+    }
+    .drawer - inner {
+        overflow: auto;
+    }
+    .drawer.init, .drawer.close {
+        top: 200 % !Important;
+    }
+    .drawer.open {
+        top: 0 % !important;
+    }
+    .drawer.semi {
+        top: 0 % !important;
+    }
+    .section - place - details - lastupdate {
+        position: absolute;
+        margin - top: 40px;
+        left: 0px;
+        text - align: center;
+    }
+    .section - place - details {
+        justify - content: center;
+        margin - top: 40px;
+        margin - bottom: 30px;
+    }
+    .section - place - details - name {
+        font - size: 30px;
+    }
+    .type - filter {
+        background: var(--card);
+        padding: 20px;
+        border - radius: 5px;
+        width: fit - content;
+        max - height: 400px;
+        overflow: auto;
+    }
+    .type - filter - close {
+        display: none;
+    }
+    .app - top - bar - inner - back {
+        display: none;
+    }
+    .map - modal - lastupdate {
+        margin - top: 35px;
+    }
+    .map - modal {
+        bottom: -300 %;
+    }
+    .map - modal - back: before {
+        padding: 5px;
+    }
+    .map - modal - back: hover: before {
+        background: var(--hover);
+    }
+    .map - modal.added {
+        bottom: 0px;
+    }
+    .map - modal {
+        border - top - left - radius: 30px;
+        border - top - right - radius: 30px;
+    }
+    .map - modal - back {
+        position: absolute;
+        left: 50px;
+        top: 10px;
+        font - size: 30px;
+    }
+    .map.embedded {
+        width: 100 %;
+        left: 0px;
+    }
+    .map - tooltip - icon {
+        display: none;
+    }
+    .app - top - bar {
+        display: none;
+    }
+    .map - sidebar.app - top - bar {
+        display: flex;
+    }
+    .type - filter - backdrop {
+        background: transparent;
+    }
+    .type - filter {
+        position: fixed;
+    }
+    .type - filter - title {
+        position: static;
+        margin - bottom: 15px;
+    }
+    .type - filter - el {
+        width: 180px;
+        font - weight: 600;
+        font - size: 13px;
+    }
+    .map - sidebar - section - content {
+        height: calc(100vh - var(--sidebarHeight) - 100px);
+    }
+    .api - shop - inner {
+        margin - left: 30 %;
+    }
+    .region - page - local - map[data - type="map"] .region - page - local - map - container - inner {
+        overflow: visible!important;
+    }
+    .section - place - details, .section - secondary - numbers {
+        width: 90 %;
+        justify - content: space - between;
+        margin - top: 0px;
+    }
+    .section - place - details - name {
+        font - size: 60px;
+        font - weight: 700;
+        letter - spacing: 1px;
+        margin - top: 20px;
+    }
+    .section - place - details - flag {
+        display: none;
+    }
+    .region - page - local - map {
+        height: 500px;
+    }
+    .app - top - bar - inner: before {
+        content: "\e9ae";
+        font - family: "Feather";
+        opacity: 0.3;
+    }
+    .section - chart - list {
+        width: 88 %;
+    }
+}
+
+@media(max - width: 991px) {
+    *:: -webkit - scrollbar {
+        width: 0px!important;
+        height: 0px!important;
+    }
+    .section - container - breadcrumb {
+        display: none;
+    }
+    .drawer: before {
+        z - index: 44;
+    }
+    .type - filter - el {
+        width: 250px;
+    }
+    /* TODO Get rid of this */
+    .donate - btn - round {
+        display: none;
+    }
+    #mainContainer.map - sidebar {
+        display: none;
+    }
+    .section - place - btns - back {
+        display: none;
+    }
+    .map - sidebar - section - content {
+        padding - top: 70px;
+    }
+    .app - top - bar {
+        transition: var(--transition);
+        -webkit - transition: var(--transition);
+    }
+    .app - top - bar.disappear {
+        transform: translate(0 %, -200 %);
+    }
+    .cookie - notice {
+        width: 100vw;
+        bottom: 0px;
+        left: 0px;
+    }
+    .add - missing {
+        display: none;
+    }
+    .map - modal - lastupdate {
+        font - size: 12px;
+        color: var(--white);
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        width: 100 %;
+        display: flex;
+        text - align: center;
+        justify - content: flex - start;
+        font - size: 11px;
+        margin - left: 55px;
+    }
+    .map - modal - inner {
+        padding: 0px;
+        position: relative;
+        height: calc(100 % - 60px);
+        display: flex;
+        flex - direction: column;
+        padding - top: 60px;
+        align - items: center;
+        justify - content: flex - start;
+    }
+    .section - el - chart {
+        width: calc(100 % - 20px);
+    }
+    .map - modal - btns i {
+        color: var(--white);
+        right: 10px;
+        margin - right: 2px;
+        margin - left: 2px;
+        font - size: 16px;
+    }
+    .map - modal.country - flag {
+        display: none;
+    }
+    .casualties - table {
+        overflow: auto;
+    }
+    .casualties - table table {
+        width: 300 %;
+    }
+    .map - modal {
+        height: 100 %;
+        overflow: auto;
+        max - height: unset;
+        max - width: unset;
+        position: absolute;
+        right: -200 %;
+        bottom: 0px;
+        width: 100 %;
+        overflow - x: hidden;
+    }
+    .map - modal.added {
+        right: 0 %;
+    }
+    .map - modal - back: before {
+        content: "\e929";
+        font - family: "Feather";
+        font - size: 25px;
+        color: var(--white);
+        margin - left: 10px;
+        margin - right: 20px;
+    }
+    .map - modal - header {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 60px;
+        background: var(--primary);
+        box - shadow: var(--box - shadow);
+        justify - content: flex - start;
+        max - width: unset;
+        align - items: center;
+    }
+    .map - modal - title {
+        font - size: 16px;
+        margin: 0px;
+        color: var(--white);
+        max - width: 50 %;
+        overflow: hidden;
+        text - overflow: ellipsis;
+        white - space: nowrap;
+    }
+    .console td, .console th {
+        padding: 15px;
+    }
+    .news - wrapper {
+        width: 100 %;
+    }
+    .section - container {
+        width: 98 %;
+        height: 70 %;
+    }
+    .section - el - map {
+        margin - top: -50px;
+        margin - bottom: 50px;
+    }
+    .modal {
+        height: 80vh;
+        padding: 0px;
+        overflow: auto;
+    }
+    .footer - notes {
+        bottom: unset;
+        right: 0px;
+        left: unset;
+        border - radius: 10px;
+        top: 10px;
+        background: transparent;
+        box - shadow: none;
+    }
+    .last - update {
+        background: var(--white);
+        padding: 5px;
+        border - radius: 5px;
+        box - shadow: var(--box - shadow);
+        margin: 0px;
+    }
+    .cta - button {
+        top: unset;
+        bottom: 80px;
+        right: 30px;
+        border - radius: 50 %;
+        width: 60px;
+        height: 60px!important;
+        box - shadow: var(--box - shadow);
+        color: var(--white);
+    }
+    .cta - button: before {
+        content: "\f09e";
+        font - family: "FontAwesome";
+        font - size: 30px;
+        font - weight: 500;
+    }
+    .cta - button span {
+        display: none;
+    }
+    .made -in {
+        display: none;
+    }
+    .footer - notes>*: not(: first - child): before {
+        display: none;
+    }
+    .Notification {
+        width: 85vw;
+        left: 7.5vw;
+        bottom: 80px!important;
+        border - radius: 0px;
+        min - height: 60px;
+    }
+    .map - modal - btns i: hover {
+        background: transparent;
+    }
+    .map - modal - btns {
+        top: 20px;
+        right: 10px;
+    }
+    .map - modal - content {
+        height: 100 %;
+        width: 100 %;
+        max - width: 100 %;
+    }
+    .map - modal - section canvas {
+        margin - top: 10px;
+    }
+    #mainContainer>.Embeddable - Chart {
+        margin - left: 0px;
+        margin - right: 0px;
+    }
+    .embed - map {
+        display: none;
+    }
+    .map - sidebar {
+        width: 100vw;
+    }
+    .contact - us {
+        display: none;
+    }
+    .open - sources {
+        background: var(--white);
+        box - shadow: none;
+        color: var(--text);
+        margin: 0px;
+        display: flex;
+        align - items: center;
+        justify - content: center;
+        position: fixed;
+        bottom: 90px;
+        font - size: 11px;
+        background: transparent;
+        right: 10px;
+    }
+    .Source - Modal - Content {
+        width: 80vw;
+    }
+    .open - sources.isnotmap {
+        display: none;
+    }
+    .map - tooltip {
+        justify - content: flex - start;
+        align - content: flex - start;
+        cursor: pointer;
+    }
+    .map - tooltip - title: after {
+        content: "\e92a";
+        font - family: "Feather";
+        font - size: 30px;
+        position: absolute;
+        right: 0px;
+        top: calc(50 % - 15px);
+        left: unset;
+    }
+    .sign - up - popup {
+        flex - direction: column;
+        height: fit - content;
+        min - height: 100vh;
+        border - radius: 0px;
+        width: 100vw;
+    }
+    .sign - up - popup - header {
+        width: 100 %;
+        padding: 0px;
+        font - weight: 500;
+        min - height: 60px;
+        box - shadow: var(--box - shadow);
+    }
+    .sign - up - popup - desc {
+        display: none;
+    }
+    .sign - up - popup - title {
+        font - size: 16px;
+        font - weight: 500;
+        width: 100 %;
+        margin - left: 40px;
+    }
+    .sign - up - popup - inner {
+        padding: 0px;
+    }
+    .sign - up - popup - tab {
+        width: 90 %;
+    }
+    .sign - up - popup - back {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        font - size: 20px;
+    }
+    .sign - up - popup - back: after {
+        content: "\e9ea";
+        font - family: "Feather";
+    }
+    .sign - up - popup - disclaimer {
+        color: var(--text);
+        position: fixed;
+        bottom: 0px;
+    }
+    .sign - up - popup - disclaimer a {
+        color: var(--text);
+    }
+    .sign - up - popup - row {
+        flex - direction: column;
+        padding - right: 10px;
+        padding - right: 10px;
+    }
+    .sign - up - popup - tab.open {
+        height: 400px;
+    }
+    .Input {
+        width: 90 %;
+        padding - left: 10px;
+        margin - top: 20px;
+        margin - bottom: 20px;
+    }
+    .sign - up - popup - tab - container {
+        width: 100 %;
+    }
+    .sign - up - popup - inner {
+        justify - content: flex - start;
+    }
+    .header - section>div {
+        margin - top: 0px;
+    }
+    .map - tooltip.long {
+        max - width: none!important;
+        position: fixed;
+        left: 0 % !important;
+        display: none!Important;
+        width: 80vw!important;
+        justify - content: center;
+        align - items: flex - start;
+        padding: 10px;
+    }
+    .map - tooltip.long.map - tooltip - name: after {
+        content: unset;
+    }
+    .map - tooltip - icon {
+        font - size: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .map - tooltip.long>* {
+        max- width: 80 %;
+        text - align: left;
+    }
+    .Embeddable - Chart - Switcher {
+        padding: 0px;
+        box - shadow: none;
+        background: transparent;
+    }
+    .Embeddable - Chart - Switcher: after {
+        content: "\e928";
+        font - family: "Feather";
+        position: absolute;
+        right: 7px;
+        color: var(--white);
+    }
+    .Embeddable - Chart - Switcher.Embeddable - Chart - Switcher - Color {
+        width: 30px;
+        height: 30px;
+        margin - right: 0px;
+    }
+    .Embeddable - Chart - Switcher.Embeddable - Chart - Switcher - Name {
+        display: none;
+    }
+    .Embeddable - Chart - Text {
+        max - width: 100 %;
+    }
+    .Embeddable - Chart - Switcher: empty {
+        width: 30px;
+        height: 30px;
+        box - shadow: var(--box - shadow);
+    }
+    .Embeddable - Chart - Switcher: empty: before {
+        content: none;
+    }
+    .Embeddable - Chart - Switcher: empty: after {
+        color: var(--text);
+    }
+    .stats {
+        z - index: 443;
+        justify - content: flex - start;
+        align - content: flex - start;
+    }
+    .app - top - bar {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+    }
+    .header - hamburger {
+        top: 12px;
+        left: 14px;
+        font - size: 24px;
+    }
+    .map - sidebar - section.map - sidebar - section - search {
+        width: 100 %;
+    }
+    .map - sidebar - section - search input {
+        background: #2c2c2f;
+        box - shadow: none;
+        padding - left: 30px;
+    }
+    .map - sidebar - section - search i {
+        font - size: 25px;
+        margin - left: 10px;
+    }
+    .map - sidebar - section - search: before {
+        display: none;
+    }
+    .type - filter {
+        width: 100 % !important;
+        bottom: -200 % !important;
+        left: 0px!important;
+        position: absolute;
+        padding - top: 30px;
+        display: flex;
+        top: unset!important;
+        right: unset!important;
+        padding - top: 60px;
+        padding - bottom: 150px;
+        max - height: 400px;
+        overflow: auto;
+    }
+    .type - filter.showing {
+        bottom: 0px!important;
+        overflow - x: hidden;
+    }
+    .Embeddable - Chart - Embed - Btn {
+        display: none!important;
+    }
+    .Embeddable - Chart - Switcher: after {
+        display: none;
+    }
+    .drawer.init~#mainContainer.leaflet - control - attribution {
+        display: block;
+    }
+    body #mainContainer.leaflet - control - attribution {
+        position: fixed;
+        top: unset;
+        left: unset;
+        right: unset;
+        opacity: 0.5;
+        height: 15px;
+        bottom: 40px;
+        text - align: center;
+        width: 100 %;
+    }
+    body.dark.map - modal - header {
+        background: #37383d
+    }
+    .map - sidebar - numbers {
+        display: none;
+    }
+    html body.map.ol - zoom {
+        display: none;
+    }
+    .Source - Modal - Content {
+        max - height: unset;
+    }
+    .Sources - Modal {
+        width: 100vw;
+        height: 100vh;
+        justify - content: center;
+        padding: 0px;
+        border - radius: 0px;
+        align - items: center;
+    }
+    .Sources - Modal - Title {
+        margin - top: 50px;
+    }
+    .api - shop - buttons {
+        flex - direction: column;
+    }
+    .api - shop - button {
+        width: 100 %;
+        display: flex;
+        justify - content: center;
+    }
+    .api - shop - modal - footer {
+        flex - direction: column - reverse;
+    }
+    .api - shop - modal - footer>* {
+        width: 80 %;
+        margin- top: 10px;
+        margin - bottom: 10px;
+    }
+    .api - shop - modal - row {
+        flex - direction: column;
+    }
+    .api - shop - modal - row * {
+        margin- left: 0px;
+        margin - right: 0px;
+        margin - top: 10px;
+        margin - bottom: 10px;
+    }
+    .api - shop - modal - form>* {
+        margin- top: 0px;
+        margin - bottom: 0px;
+    }
+    .api - shop - container {
+        margin - top: 10px;
+    }
+    .api - shop - modal {
+        height: 100vh;
+        border - radius: 0px;
+    }
+    .api - shop - disclaimer {
+        max - width: 70 %;
+    }
+    .api - shop - modal - row input {
+        padding - left: 20px;
+        width: calc(100 % - 30px);
+    }
+    .api - shop - container>* {
+        width: calc(100 % - 20px);
+        padding- left: 20px;
+    }
+    .section - el {
+        padding - top: 15px;
+        padding - bottom: 15px;
+    }
+    .leaflet - control - zoom {
+        display: none;
+    }
+    .main - map {
+        display: none!important;
+    }
+    .map.embedded.leaflet - container.leaflet - control - attribution {
+        display: flex;
+        flex: none;
+        bottom: 10px!important;
+        left: 10px!important;
+        top: unset;
+    }
+    .map.embedded.leaflet - container.leaflet - control - zoom {
+        display: flex;
+        flex: none;
+        bottom: 20px;
+        flex - direction: column;
+        left: 5px;
+    }
+    .leaflet - tooltip {
+        padding: 0px!important;
+        box - shadow: none!important;
+    }
+    * [stroke="rgb(41, 84, 255)"] {
+        pointer - events: none;
+    }
+    .drawer - inner {
+        border - top - right - radius: 30px;
+        border - top - left - radius: 30px;
+    }
+    .drawer: not(.scrolling): before {
+        content: "";
+        width: 30px;
+        height: 4px;
+        border - radius: 4px;
+        display: flex;
+        opacity: 0.7;
+        background: var(--grey);
+        flex: none;
+        position: absolute;
+        top: 10px;
+    }
+    .drawer: not(.open).section - el - map {
+        position: absolute;
+        visibility: hidden;
+    }
+    .section - el - map {
+        overflow: hidden;
+    }
+    .section - container - news - list a {
+        width: 90 %;
+        margin - bottom: 20px;
+    }
+    .region - page - local - map - buttons {
+        position: absolute;
+        left: 0px;
+        display: flex;
+        background: transparent;
+        width: 100 %;
+        justify - content: center;
+        z - index: 4333;
+        top: 0px;
+    }
+    .region - page - local - map {
+        margin - bottom: 0px!important;
+    }
+    .region - page - local - map[data - type="list"] {
+        margin - top: 0px!important;
+        padding - bottom: 30px;
+    }
+    .region - page - local - map - container - list {
+        width: 95 %;
+        margin - left: 2.5 %;
+    }
+    .region - page - local - map - container - inner {
+        overflow: auto;
+    }
+    .region - page - local - map {
+        margin - top: 0px!Important;
+    }
+    .region - page - local - map - buttons button {
+        width: 25 %;
+    }
+    .section - el - map.region - page - local - map[data - type="map"] {
+        overflow: hidden!important;
+    }
+    .region - page - local - map[data - type="map"] .region - page - local - map - container {
+        height: 50vh!important;
+    }
+    .region - page - local - map - container - list {
+        margin - bottom: 0px!important;
+    }
+    .like - this - page - container {
+        flex - direction: column;
+    }
+    .like - this - page - container>* {
+        width: 80 %;
+    }
+    .compare - picker - modal {
+        max - height: 100vh;
+        height: 100vh!important;
+        width: 100vw;
+        max - width: 100vw;
+    }
+    .compare - picker - modal - footer {
+        margin - bottom: 20px;
+    }
+    .compare - picker - regions - list {
+        height: 100 % !important;
+    }
+    .compare - page - title - back {
+        display: none;
+    }
+    .compare - picker - modal {
+        padding: 20px;
+    }
+    .drawer.transitioning {
+        transition: all 0.1s ease -in -out;
+    }
+    .app - top - bar {
+        background: var(--overlay);
+    }
+    .Embeddable - Chart {
+        width: 100 %;
+        height: 50vh;
+        overflow: auto;
+        margin - left: -15px;
+    }
+    .section - secondary - numbers.section - el - ico {
+        display: none;
+    }
+    .section - highlights - box {
+        height: 30px;
+        padding - left: 0px;
+        flex: none;
+        padding - right: 0px;
+    }
+    .section - highlights - box sub {
+        margin - left: 0px;
+    }
+    .section - highlights - box.section - el - number {
+        font - size: 16px;
+        letter - spacing: -0.5px;
+    }
+    .section - highlights - box.section - el - name {
+        display: none;
+    }
+    .section - place - btns - container {
+        font - size: 25px;
+        position: absolute;
+        background: var(--menu);
+        box - shadow: var(--box - shadow);
+        border - radius: 10px;
+        margin - left: 0px;
+        margin - top: 200px;
+        display: flex;
+        justify - content: center;
+        align - items: center;
+        padding: 0px;
+        height: 50px;
+        width: 42 %;
+        top: -120px;
+        left: 53 %;
+    }
+    .section - secondary - numbers {
+        margin - top: 30px;
+    }
+    .section - secondary - numbers.section - el {
+        background: transparent!important;
+        box - shadow: none!important;
+        width: 45 %;
+        margin: 0px;
+    }
+    .drawer: not(.open).section - place - details - subtitle.section - container - source, .drawer: not(.open).section - place - btns - container {
+        display: none;
+    }
+    .section - place - details - updatedate {
+        font - size: 12px;
+        font - weight: 400;
+        color: var(--grey);
+    }
+    .section - place - details {
+        width: 95 %;
+        position: relative;
+    }
+    .drawer.open.section - secondary - numbers {
+        margin - top: 110px;
+    }
+    .section - secondary - numbers.section - el - number {
+        font - size: 21px;
+    }
+    .section - place - btns - container {
+        left: 4 %;
+        width: 42 %;
+    }
+    .section - container - source {
+        position: absolute;
+        top: 0px;
+        justify - content: center;
+        align - items: center;
+        margin - left: 0px;
+        margin - top: 80px;
+        padding: 0px;
+        height: 50px;
+        text - align: center;
+        font - size: 12px;
+        display: inline - flex;
+        width: 42 %;
+        left: 54 %;
+    }
+    .section - container - source a {
+        display: inline - flex;
+        background: var(--menu);
+        box - shadow: var(--box - shadow);
+        height: 100 %;
+        font - size: 0px;
+        border - radius: 10px;
+        margin: 5px;
+        width: 100 %;
+        justify - content: center;
+        align - items: center;
+    }
+    .section - container - source a: before {
+        content: "\e96b"!important;
+        font - family: "Feather";
+        position: absolute;
+        opacity: 1!important;
+        font - size: 25px;
+        color: var(--text);
+        margin - left: 0px!important;
+        margin - right: 0px!important;
+    }
+    .section - place - details {
+        margin - top: 60px;
+    }
+    .region - page - local - map {
+        flex - direction: column;
+    }
+    .section - el - map {
+        height: auto;
+    }
+    .region - page - local - map - container {
+        width: 100 %;
+        height: 400px;
+        margin - top: 0px;
+    }
+    .region - page - local - map - list {
+        width: 100 %;
+    }
+    .region - page - local - map - container - inner {
+        height: 100 %;
+    }
+    .noplace.section - secondary - numbers {
+        margin - top: 0px!important;
+    }
+    .noplace.section - place - details - name {
+        display: none;
+    }
+    .section - container - source span {
+        display: none;
+    }
+    .app - sub - buttons {
+        position: absolute;
+        z - index: 999;
+        top: 12px;
+        justify - content: flex - end;
+        right: 15px;
+        width: auto;
+    }
+    .map - world - nbs {
+        display: none;
+    }
+    .map - sidebar - sort {
+        width: auto!important;
+        padding - left: 10px!important;
+        padding - right: 10px!important;
+    }
+    .action - buttons {
+        display: none;
+    }
+    .drawer - inner: empty {
+        align - items: flex - start;
+    }
+    .section - container - highlights {
+        position: absolute;
+        right: 10px;
+    }
+    .is - embedded.coffee - banner {
+        display: none;
+    }
+    .drawer - inner {
+        background: var(--card);
+    }
+    .dark.drawer - inner {
+        background: var(--overlay);
+    }
+    .chart - title {
+        margin - left: 20px;
+    }
+    .coronalytics - menu {
+        left: 0px;
+        width: 100 %;
+        top: 85 %;
+        border - radius: 30px;
+        display: flex;
+        flex - direction: column;
+        align - items: center;
+    }
+    .coronalytics - search {
+        margin - top: 0px;
+        height: 15px;
+        position: fixed;
+        top: 12px;
+        z - index: 88;
+        left: 0px;
+    }
+    .coronalytics - menu: not(.open).coronalytics - search {
+        display: none;
+    }
+    .coronalytics - menu.open {
+        top: 0 %;
+        height: 100 %;
+    }
+    .coronalytics - menu h2 {
+        display: none;
+    }
+    .coronalytics - regions {
+        margin - left: 0px;
+    }
+    .coronalytics - menu.open.coronalytics - regions {
+        margin - top: 80px;
+    }
+    .coronalytics - search: before {
+        display: none;
+    }
+    .coronalytics - menu: not(.open): before {
+        content: "";
+        width: 30px;
+        height: 4px;
+        border - radius: 4px;
+        display: flex;
+        opacity: 0.7;
+        background: var(--grey);
+        flex: none;
+        position: absolute;
+        top: 10px;
+    }
+    .coronalytics - options {
+        left: unset;
+        right: 0px;
+        width: 100 %;
+        flex - direction: row;
+        align - items: center;
+        justify - content: flex - end;
+    }
+    .coronalytics - chart - type {
+        font - size: 12px;
+        width: auto;
+        margin - right: 20px;
+    }
+    .coronalytics - chart - type {
+        padding: 0px;
+        border - radius: 20px;
+        width: 60 %;
+        background: transparent;
+        box - shadow: none;
+        font - size: 16px;
+        margin - top: 5px;
+    }
+    .radar - chart - label {
+        display: none;
+    }
+    .compare - page - options - row - desktop {
+        display: none;
+    }
+    .coronalytics - menu: not(.open) * {
+        pointer- events: none;
+    }
+    .region - page - local - map - list {
+        overflow: hidden;
+    }
+    .section - chart - list {
+        overflow: hidden;
+    }
+    .section - el - chart {
+        overflow: hidden!important;
+    }
+    .swipe - icon {
+        display: none;
+    }
+    .drawer.open.drawer - inner {
+        padding - top: 20px;
+    }
+    .coronalytics - charts {
+        width: 100 % !important;
+        height: 85 %;
+        margin - left: -40px;
+    }
+    .is - ios.coronalytics - charts {
+        height: 75 %;
+    }
+    .coronalytics - options {
+        justify - content: center;
+    }
+    .compare - page - options - row {
+        position: absolute;
+        right: 10px;
+    }
+    .coronalytics - chart - type i {
+        display: none;
+    }
+    .coronalytics - fab {
+        display: none;
+    }
+    .section - place - details - flag {
+        height: 18px;
+        width: 22px;
+        object - fit: cover;
+        flex: none;
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        display: flex;
+        justify - content: center;
+        align - items: center;
+    }
+    .section - place - details - name>span {
+        max - width: 80 %;
+        overflow: hidden;
+        display: inline - block;
+        text - indent: 28px;
+    }
+    .like - this - page {
+        margin - bottom: 250px;
+    }
+    .share - modal - btn {
+        width: 80px;
+    }
+    .share - modal - list {
+        flex - wrap: wrap;
+    }
+    .compare - page - options - row - mobile.share: before {
+        content: "\e9b2";
+    }
+}
