@@ -50,6 +50,31 @@ export default function TrackerStatus({ route, navigation }) {
     });
   }, [navigation, reload]);
 
+  const INJECTED_JAVASCRIPT = `
+        alert('test1');
+
+        function cssEngine(rule) {
+          var css = document.createElement('style'); // Creates <style></style>
+          css.type = 'text/css'; // Specifies the type
+          if (css.styleSheet) css.styleSheet.cssText = rule; // Support for IE
+          else css.appendChild(document.createTextNode(rule)); // Support for the rest
+          document.getElementsByTagName("head")[0].appendChild(css); // Specifies where to place the css
+        };
+
+        var cssRules = '.action - buttons { display: none !important;}';
+        cssRules += 'button.donate-btn { display: none !important; }';
+
+        cssEngine(cssRules)
+
+        setTimeout(function() { alert('hi') }, 2000);
+        // window.onload = function() { alert('worked') };
+        true;
+  `;
+
+  setTimeout(() => {
+    this.webview.injectJavaScript(INJECTED_JAVASCRIPT);
+  }, 3000);
+
   return (
     <View style={localStyles.container}>
       <WebView
@@ -61,9 +86,15 @@ export default function TrackerStatus({ route, navigation }) {
           uri: "https://crnvr.us/map",
         }}
         style={{ flex: 1 }}
-        ref={(r) => {
-          webview = r;
+        ref={ref => (this.webview = ref)}
+        injectedJavaScript={INJECTED_JAVASCRIPT}
+
+        // I don't think this one is needed
+        // injectedJavaScriptForMainFrameOnly={false}
+        onMessage={(event) => {
+          console.log(event.nativeEvent.data);
         }}
+        onError={console.error.bind(console, 'error')}
       />
     </View>
   );
