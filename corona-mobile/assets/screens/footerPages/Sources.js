@@ -48,6 +48,12 @@ export default function Sources({ route, navigation }) {
               headline:
                 "This API provides updated real-time data on coronavirus cases from the worldometers page.",
             },
+            {
+              title: "The COVID Tracking Project",
+              url: "https://covidtracking.com/",
+              headline:
+                "The COVID Tracking Project is a volunteer organization launched from The Atlantic and dedicated to collecting and publishing the data required to understand the COVID-19 outbreak in the United States.",
+            }
           ]}
           key={"homepageStats"}
         />
