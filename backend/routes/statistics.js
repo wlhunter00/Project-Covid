@@ -273,13 +273,17 @@ router.post("/address", async (req, res) => {
   var stateCode;
   var globalDate;
   var stateDate;
+  var stateAbrev;
+  var stateNewDeaths;
+  var stateNewCases;
+  var stateDataQualityGrade;
 
   try {
     if (Object.keys(req.body).length != 0) {
       var address = req.body;
       let county = address.adminArea4;
-      let state = address.adminArea3;
-      stateCode = getStateAbrev(state.toLowerCase());
+      stateAbrev = address.adminArea3;
+      stateCode = getStateAbrev(stateAbrev.toLowerCase());
       country = address.adminArea1;
       countryCode = getCountryAbrev(country.toLowerCase());
       locationData = true;
@@ -310,35 +314,70 @@ router.post("/address", async (req, res) => {
     });
   }
   if (locationData) {
-    var reqURL =
-      "https://api.covid19api.com/live/country/" +
-      countryCode +
-      "/status/confirmed";
-    try {
-      await request(reqURL, function (error, response, body) {
-        if (IsJsonString(body)) {
-          tempStateData = JSON.parse(body);
-          for (const prop in tempStateData) {
-            if (tempStateData[prop].Province === stateCode) {
-              // console.log("state match");
-              stateCountry = tempStateData[prop]["Country"];
-              stateName = tempStateData[prop]["Province"];
-              stateDate = tempStateData[prop]["Date"];
-              stateConfirmed = tempStateData[prop]["Confirmed"];
-              stateDeaths = tempStateData[prop]["Deaths"];
-              stateRecovered = tempStateData[prop]["Recovered"];
-              stateActives = tempStateData[prop]["Active"];
-              stateData = true;
+    if (countryCode === "us") {
+      var reqURL = "https://api.covidtracking.com/v1/states/" + stateAbrev.toLowerCase() + "/current.json";
+      try {
+        await request(reqURL, function (error, response, body) {
+          if (IsJsonString(body)) {
+            var tempStateData = JSON.parse(body);
+            stateCountry = "United States of America";
+            stateName = stateCode;
+            stateConfirmed = tempStateData["positive"];
+            stateDeaths = tempStateData["death"];
+            stateActives = tempStateData["hospitalizedCurrently"];
+            stateNewCases = tempStateData["positiveIncrease"];
+            stateNewDeaths = tempStateData["deathIncrease"];
+            stateDataQualityGrade = tempStateData["dataQualityGrade"];
+            stateDate = tempStateData["dateModified"];
+
+            stateRecovered = tempStateData["recovered"];
+            if (stateRecovered === null) {
+              stateRecovered = "N/A";
             }
+
+            stateData = true;
           }
-        } else {
-          locationData = false;
-        }
-      });
-    } catch (err) {
-      return res.status(400).send({
-        message: err
-      });
+        })
+      } catch (err) {
+        return res.status(400).send({
+          message: err
+        });
+      }
+    }
+    else {
+      var reqURL =
+        "https://api.covid19api.com/live/country/" +
+        countryCode +
+        "/status/confirmed";
+      try {
+        await request(reqURL, function (error, response, body) {
+          if (IsJsonString(body)) {
+            tempStateData = JSON.parse(body);
+            for (const prop in tempStateData) {
+              if (tempStateData[prop].Province === stateCode) {
+                // console.log("state match");
+                stateCountry = tempStateData[prop]["Country"];
+                stateName = tempStateData[prop]["Province"];
+                stateDate = tempStateData[prop]["Date"];
+                stateConfirmed = tempStateData[prop]["Confirmed"];
+                stateDeaths = tempStateData[prop]["Deaths"];
+                stateRecovered = tempStateData[prop]["Recovered"];
+                stateActives = tempStateData[prop]["Active"];
+                stateNewDeaths = "0";
+                stateNewCases = "0";
+                stateDataQualityGrade = "C+";
+                stateData = true;
+              }
+            }
+          } else {
+            locationData = false;
+          }
+        });
+      } catch (err) {
+        return res.status(400).send({
+          message: err
+        });
+      }
     }
   }
   if (globalData) {
@@ -396,9 +435,12 @@ router.post("/address", async (req, res) => {
       Country: stateCountry,
       Name: stateName,
       Confirmed: stateConfirmed.toLocaleString("en-US"),
+      NewConfirmed: stateNewCases.toLocaleString("en-us"),
       Recovered: stateRecovered.toLocaleString("en-US"),
       Deaths: stateDeaths.toLocaleString("en-US"),
+      NewDeaths: stateNewDeaths.toLocaleString("en-US"),
       Actives: stateActives.toLocaleString("en-US"),
+      dataGrade: stateDataQualityGrade.toLocaleString("en-US"),
       Updated: stateDate
     };
   }
