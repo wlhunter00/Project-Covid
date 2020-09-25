@@ -10,7 +10,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.3",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "githubUrl": "https://github.com/wlhunter00/CoronaInfo/",
@@ -29,14 +29,14 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lfr.projectcovid",
-      "buildNumber": "12",
+      "buildNumber": "13",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Location is used to find nearby testing news and to display local stats and news."
       }
     },
     "android": {
       "package": "com.lfr.projectcovid",
-      "versionCode": 2
+      "versionCode": 4
     },
     "androidStatusBar": {
       "barStyle": "light-content",
