@@ -444,7 +444,9 @@ router.post("/address", async (req, res) => {
       Updated: stateDate
     };
   }
-
+  if (prettyStats.Global_Stats.TotalConfirmed === "") {
+    delete prettyStats.Global_Stats;
+  }
   return res.send(prettyStats);
 });
 
