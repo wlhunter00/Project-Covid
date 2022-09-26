@@ -21,7 +21,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.27",
     "newsapi": "^2.4.1",
-    "node-mailjet": "^3.3.1",
+    "node-mailjet": "^3.4.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
   },
